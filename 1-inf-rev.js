@@ -29,6 +29,8 @@
                     }
                 });
                 jQuery(this).prop('checked', state);
+
+                
                 if (group == "CAPITOL1_R161_C1") {
                     jQuery('#CAPITOL1_R162_C1').attr("checked", false);
                     jQuery('#CAPITOL1_R163_C1').attr("checked", false);
