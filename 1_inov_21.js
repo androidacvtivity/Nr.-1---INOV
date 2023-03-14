@@ -97,6 +97,29 @@
                     jQuery('#CAPITOL2_R_241_C2').attr("checked", false);
                 }
                 
+
+                if (group == "CAPITOL2_R_242_C1") {
+                    jQuery('#CAPITOL2_R_242_C2').attr("checked", false);
+                    jQuery('#CAPITOL2_R_242_C3').attr("checked", false);
+                } else if (group == "CAPITOL2_R_242_C2") {
+                    jQuery('#CAPITOL2_R_242_C1').attr("checked", false);
+                    jQuery('#CAPITOL2_R_242_C3').attr("checked", false);
+                } else if (group == "CAPITOL2_R_242_C3") {
+                    jQuery('#CAPITOL2_R_242_C1').attr("checked", false);
+                    jQuery('#CAPITOL2_R_242_C2').attr("checked", false);
+                }
+
+
+                if (group == "CAPITOL2_R_243_C1") {
+                    jQuery('#CAPITOL2_R_243_C2').attr("checked", false);
+                    jQuery('#CAPITOL2_R_243_C3').attr("checked", false);
+                } else if (group == "CAPITOL2_R_243_C2") {
+                    jQuery('#CAPITOL2_R_243_C1').attr("checked", false);
+                    jQuery('#CAPITOL2_R_243_C3').attr("checked", false);
+                } else if (group == "CAPITOL2_R_243_C3") {
+                    jQuery('#CAPITOL2_R_243_C1').attr("checked", false);
+                    jQuery('#CAPITOL2_R_243_C2').attr("checked", false);
+                }
                 
 
 
