@@ -120,7 +120,29 @@
                     jQuery('#CAPITOL2_R_243_C1').attr("checked", false);
                     jQuery('#CAPITOL2_R_243_C2').attr("checked", false);
                 }
+
                 
+
+                if (group == "CAPITOL3_R_311_C1") {
+                    jQuery('#CAPITOL3_R_311_C2').attr("checked", false);
+                } else if (group == "CAPITOL3_R_311_C2") {
+                    jQuery('#CAPITOL3_R_311_C1').attr("checked", false);
+                }
+
+
+                if (group == "CAPITOL3_R_312_C1") {
+                    jQuery('#CAPITOL3_R_312_C2').attr("checked", false);
+                } else if (group == "CAPITOL3_R_312_C2") {
+                    jQuery('#CAPITOL3_R_312_C1').attr("checked", false);
+                }
+
+                if (group == "CAPITOL3_R_313_C1") {
+                    jQuery('#CAPITOL3_R_313_C2').attr("checked", false);
+                } else if (group == "CAPITOL3_R_313_C2") {
+                    jQuery('#CAPITOL3_R_313_C1').attr("checked", false);
+                }
+
+               
 
 
             });
