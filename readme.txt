@@ -1,8 +1,18 @@
 What do you think about this code ? Can this code be rewritten better ?
+In this case when ...._C1 is checked 
+...._C2 don't are false and vice versa 
 
-     jQuery('input[type=checkbox]').change(function () {
+Without class
+
+
+
+    jQuery('input[type=checkbox]').change(function () {
 
                 var group = jQuery(this).attr('name');
+
+                var pos = group.indexOf('_R');
+
+
 
 
                 if (group == "CAPITOL2_R_211_C1") {
@@ -88,11 +98,6 @@ What do you think about this code ? Can this code be rewritten better ?
                 } else if (group == "CAPITOL3_R_313_C2") {
                     jQuery('#CAPITOL3_R_313_C1').attr("checked", false);
                 }
-
-
-
-
-
 
 
 
