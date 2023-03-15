@@ -52,6 +52,55 @@
                 "CAPITOL4_R_411_C2": ["CAPITOL4_R_411_C1"],
                 "CAPITOL4_R_412_C1": ["CAPITOL4_R_412_C2"],
                 "CAPITOL4_R_412_C2": ["CAPITOL4_R_412_C1"],
+
+                "CAPITOL5_R_511_C1": ["CAPITOL5_R_511_C2"],
+                "CAPITOL5_R_511_C2": ["CAPITOL5_R_511_C1"],
+                
+                "CAPITOL5_R_514_C1": ["CAPITOL5_R_514_C2"],
+                "CAPITOL5_R_514_C2": ["CAPITOL5_R_514_C1"],
+
+                "CAPITOL5_R_515_C1": ["CAPITOL5_R_515_C2"],
+                "CAPITOL5_R_515_C2": ["CAPITOL5_R_515_C1"],
+
+                "CAPITOL5_R_516_C1": ["CAPITOL5_R_516_C2"],
+                "CAPITOL5_R_516_C2": ["CAPITOL5_R_516_C1"],
+
+                "CAPITOL5_R_517_C1": ["CAPITOL5_R_517_C2"],
+                "CAPITOL5_R_517_C2": ["CAPITOL5_R_517_C1"],
+
+
+                "CAPITOL5_R_518_C1": ["CAPITOL5_R_518_C2"],
+                "CAPITOL5_R_518_C2": ["CAPITOL5_R_518_C1"],
+
+                "CAPITOL5_R_519_C1": ["CAPITOL5_R_519_C2"],
+                "CAPITOL5_R_519_C2": ["CAPITOL5_R_519_C1"],
+
+                "CAPITOL5_R_5110_C1": ["CAPITOL5_R_5110_C2"],
+                "CAPITOL5_R_5110_C2": ["CAPITOL5_R_5110_C1"],
+
+
+                "CAPITOL5_R_531_C1": ["CAPITOL5_R_531_C2"],
+                "CAPITOL5_R_531_C2": ["CAPITOL5_R_531_C1"],
+
+                "CAPITOL5_R_532_C1": ["CAPITOL5_R_532_C2"],
+                "CAPITOL5_R_532_C2": ["CAPITOL5_R_532_C1"],
+
+
+                "CAPITOL5_R_533_C1": ["CAPITOL5_R_533_C2"],
+                "CAPITOL5_R_533_C2": ["CAPITOL5_R_533_C1"],
+
+
+                "CAPITOL7_R_711_C1": ["CAPITOL7_R_711_C2"],
+                "CAPITOL7_R_711_C2": ["CAPITOL7_R_711_C1"],
+
+
+                "CAPITOL7_R_712_C1": ["CAPITOL7_R_712_C2"],
+                "CAPITOL7_R_712_C2": ["CAPITOL7_R_712_C1"],
+
+                "CAPITOL7_R_713_C1": ["CAPITOL7_R_713_C2"],
+                "CAPITOL7_R_713_C2": ["CAPITOL7_R_713_C1"],
+
+
             };
 
             jQuery('input[type=checkbox]').change(function () {
