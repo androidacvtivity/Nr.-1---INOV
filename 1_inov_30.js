@@ -19,41 +19,11 @@
 
 
 
-
- 
-
-
-
-
-            // });
-
-
             jQuery('input[type=checkbox]').change(function () {
-                var state = jQuery(this).is(':checked');
+
                 var group = jQuery(this).attr('name');
-                var id = jQuery(this).attr('id');
+
                 var pos = group.indexOf('_R');
-                var res = group.substr(0, pos !== false ? pos + 5 : 0);
-
-                // var lengthChecs = null;
-                // jQuery('input[type=checkbox]').each(function () {
-                //     var name = jQuery(this).attr('name');
-                //     if (
-                //         name.indexOf(res) !== -1 && name !== 'CAPITOL2_R_221_C1' && name !== 'CAPITOL2_R_221_C2'
-                //         && name !== 'CAPITOL2_R_222_C1' && name !== 'CAPITOL2_R_222_C2'
-                //         && name !== 'CAPITOL2_R_223_C1' && name !== 'CAPITOL2_R_223_C2'
-                //         && name !== 'CAPITOL2_R_224_C1' && name !== 'CAPITOL2_R_224_C2'
-                //         && name !== 'CAPITOL3_R_321_C1' && name !== 'CAPITOL3_R_322_C1'
-                //         && name !== 'CAPITOL3_R_323_C1' && name !== 'CAPITOL3_R_324_C1'
-                        
-                    
-                //     ) {
-                //         jQuery(this).removeAttr('checked');
-                //         lengthChecs++;
-                //     }
-                // });
-
-                // jQuery(this).prop('checked', state);
 
 
 
@@ -96,7 +66,7 @@
                     jQuery('#CAPITOL2_R_241_C1').attr("checked", false);
                     jQuery('#CAPITOL2_R_241_C2').attr("checked", false);
                 }
-                
+
 
                 if (group == "CAPITOL2_R_242_C1") {
                     jQuery('#CAPITOL2_R_242_C2').attr("checked", false);
@@ -121,7 +91,7 @@
                     jQuery('#CAPITOL2_R_243_C2').attr("checked", false);
                 }
 
-                
+
 
                 if (group == "CAPITOL3_R_311_C1") {
                     jQuery('#CAPITOL3_R_311_C2').attr("checked", false);
@@ -142,7 +112,7 @@
                     jQuery('#CAPITOL3_R_313_C1').attr("checked", false);
                 }
 
-               
+
 
 
             });
