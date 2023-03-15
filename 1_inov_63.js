@@ -101,6 +101,20 @@
                 "CAPITOL7_R_713_C2": ["CAPITOL7_R_713_C1"],
 
 
+                "CAPITOL8_R_811_C1": ["CAPITOL8_R_811_C2"],
+                "CAPITOL8_R_811_C2": ["CAPITOL8_R_811_C1"],
+
+
+                "CAPITOL8_R_812_C1": ["CAPITOL8_R_812_C2"],
+                "CAPITOL8_R_812_C2": ["CAPITOL8_R_812_C1"],
+
+                "CAPITOL8_R_813_C1": ["CAPITOL8_R_813_C2"],
+                "CAPITOL8_R_813_C2": ["CAPITOL8_R_813_C1"],
+
+                "CAPITOL8_R_814_C1": ["CAPITOL8_R_814_C2"],
+                "CAPITOL8_R_814_C2": ["CAPITOL8_R_814_C1"],
+
+
             };
 
             jQuery('input[type=checkbox]').change(function () {
@@ -126,27 +140,42 @@ webform.validators.inov1 = function (v, allowOverpass) {
     var values = Drupal.settings.mywebform.values;
 
 
-
-    if (values.CAPITOL1_R114_C1 !== '1.1.1' && values.CAPITOL1_R114_C1 !== '1.1.2' && values.CAPITOL1_R114_C1 !== '1.1.3') {
+//Start--48-0390
+    if ( (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false) &&
+        (values.CAPITOL1_R114_C1 == '1.1.1' || values.CAPITOL1_R114_C1 == '1.1.2' || values.CAPITOL1_R114_C1 == '1.1.3')) {
         webform.errors.push({
             'fieldName': 'CAPITOL1_R114_C1',
             'index': 0,
-            'msg': Drupal.t('Cod eroare: 48-039  nr. rândului poate fi 1.1.1 sau 1.1.2 sau 1.1.1 si nu poate fi @CAPITOL1_R114_C1', { "@CAPITOL1_R114_C1": values.CAPITOL1_R114_C1 })
+            'msg': Drupal.t('Cod eroare: 48-0390  Daca este nr. rândului @CAPITOL1_R114_C1 - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3', { "@CAPITOL1_R114_C1": values.CAPITOL1_R114_C1 })
         });
     }
+//End--48-0390
 
-
-
-
-
-    if (!(jQuery('#CAPITOL2_R_211_C1').is(':checked') || jQuery('#CAPITOL2_R_211_C2').is(':checked'))) {
-        webform.errors.push({
-            'fieldName': 'CAPITOL2_R_211_C1',
-            'index': 0,
-            'msg': Drupal.t('Cod eroare: 71-001.1. Rind.130 trebuie sa fie DA sau NU')
-        });
+//Start--48-039
+ if ((values.CAPITOL1_R114_C1 !== '1.1.1' && values.CAPITOL1_R114_C1 !== '1.1.2' && values.CAPITOL1_R114_C1 !== '1.1.3')
+        && 
+        
+        ((values.CAPITOL1_R111_C1 != false || values.CAPITOL1_R112_C1 != false != values.CAPITOL1_R113_C1 != false) ||
+        (values.CAPITOL1_R111_C1 == false || values.CAPITOL1_R112_C1 == false != values.CAPITOL1_R113_C1 == false))
+        
+        
+        ) {
+        if (values.CAPITOL1_R114_C1 === '') {
+            webform.errors.push({
+                'fieldName': 'CAPITOL1_R114_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-039 Trebuie să indicat din Cap.1.1 numărul rândului 1.1.1 sau 1.1.2 sau 1.1.3')
+            });
+        } else {
+            webform.errors.push({
+                'fieldName': 'CAPITOL1_R114_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-039 nr. rândului poate fi 1.1.1 sau 1.1.2 sau 1.1.3 și nu poate fi @CAPITOL1_R114_C1', { "@CAPITOL1_R114_C1": values.CAPITOL1_R114_C1 })
+            });
+        }
     }
 
+//End--48-039
 
     //Sort warnings & errors
     webform.warnings.sort(function (a, b) {
