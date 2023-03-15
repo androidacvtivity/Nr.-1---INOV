@@ -45,6 +45,13 @@
                 "CAPITOL3_R_312_C2": ["CAPITOL3_R_312_C1"],
                 "CAPITOL3_R_313_C1": ["CAPITOL3_R_313_C2"],
                 "CAPITOL3_R_313_C2": ["CAPITOL3_R_313_C1"],
+                "CAPITOL3_R_331_C1": ["CAPITOL3_R_332_C1", "CAPITOL3_R_332_C1"],
+                "CAPITOL3_R_332_C1": ["CAPITOL3_R_331_C1", "CAPITOL3_R_333_C1"],
+                "CAPITOL3_R_333_C1": ["CAPITOL3_R_331_C1", "CAPITOL3_R_332_C1"],
+                "CAPITOL4_R_411_C1": ["CAPITOL4_R_411_C2"],
+                "CAPITOL4_R_411_C2": ["CAPITOL4_R_411_C1"],
+                "CAPITOL4_R_412_C1": ["CAPITOL4_R_412_C2"],
+                "CAPITOL4_R_412_C2": ["CAPITOL4_R_412_C1"],
             };
 
             jQuery('input[type=checkbox]').change(function () {
