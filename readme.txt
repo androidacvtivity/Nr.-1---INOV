@@ -15,3 +15,20 @@ What do you think about this code in js ? Maybe improving this.
     }
 
 }
+
+
+
+In this code  JS, me need add another condition
+
+if CAPITOL1_R114_C1 is blank or replace blank space
+
+    //Start--48-03901
+    if ((values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false) &&
+        (values.CAPITOL1_R114_C1 !== '1.1.1' && values.CAPITOL1_R114_C1 !== '1.1.2' && values.CAPITOL1_R114_C1 !== '1.1.3' && values.CAPITOL1_R114_C1 !== "")) {
+        webform.errors.push({
+            'fieldName': 'CAPITOL1_R114_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare: 48-03901 Trebuie să indicat din Cap.1.1 numărul rândului 1.1.1 sau 1.1.2 sau 1.1.3')
+        });
+    }
+    //End--48-03901
