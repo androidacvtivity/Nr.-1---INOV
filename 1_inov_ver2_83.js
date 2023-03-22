@@ -266,14 +266,106 @@ function validateCapitol2(values, webform) {
     }
     //End  Checking  telefon
 
-
-
-
-
-
-
-
     //End 48-042
+
+
+
+    //Start 48-043
+
+// This code does that
+//     if CAPITOL2_R_211_C2 is checked then
+//         (CAPITOL2_R_221_C2 must be checked checked or
+// CAPITOL2_R_222_C2 must be checked or
+// CAPITOL2_R_223_C2 must be checked or
+// CAPITOL2_R_224_C2 must be checked)
+
+// Modify this code to show the error message on the line that is not checked.
+
+
+    // if (jQuery('#CAPITOL2_R_211_C2').is(':checked') && (!jQuery('#CAPITOL2_R_221_C2').is(':checked')) || !jQuery('#CAPITOL2_R_222_C2').is(':checked')
+    
+    //     || !jQuery('#CAPITOL2_R_223_C2').is(':checked') || !jQuery('#CAPITOL2_R_224_C2').is(':checked'))  
+    
+    // {
+    //     webform.errors.push({
+    //         'fieldName': 'CAPITOL2_R_221_C2',
+    //         'index': 0,
+    //         'msg': Drupal.t('Cod eroare: 48-048. Daca rindul 2.1.1 este bifat nu  atunci rindul 2.2.1 - 2.2.4 este bifat nu ')
+    //     });
+
+
+    //     webform.errors.push({
+    //         'fieldName': 'CAPITOL2_R_222_C2',
+    //         'index': 0,
+    //         'msg': Drupal.t('Cod eroare: 48-048. Daca rindul 2.1.1 este bifat nu  atunci rindul 2.2.1 - 2.2.4 este bifat nu ')
+    //     });
+
+
+    //     webform.errors.push({
+    //         'fieldName': 'CAPITOL2_R_223_C2',
+    //         'index': 0,
+    //         'msg': Drupal.t('Cod eroare: 48-048. Daca rindul 2.1.1 este bifat nu  atunci rindul 2.2.1 - 2.2.4 este bifat nu ')
+    //     });
+
+    //     webform.errors.push({
+    //         'fieldName': 'CAPITOL2_R_224_C2',
+    //         'index': 0,
+    //         'msg': Drupal.t('Cod eroare: 48-048. Daca rindul 2.1.1 este bifat nu  atunci rindul 2.2.1 - 2.2.4 este bifat nu ')
+    //     });
+    
+    // }
+
+
+
+
+
+    if (jQuery('#CAPITOL2_R_211_C2').is(':checked') &&
+        (!jQuery('#CAPITOL2_R_221_C2').is(':checked') ||
+            !jQuery('#CAPITOL2_R_222_C2').is(':checked') ||
+            !jQuery('#CAPITOL2_R_223_C2').is(':checked') ||
+            !jQuery('#CAPITOL2_R_224_C2').is(':checked'))) {
+       
+                if (!jQuery('#CAPITOL2_R_221_C2').is(':checked')) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL2_R_221_C2',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-048. Rindul 2.2.1 nu este bifat.')
+            });
+        }
+        if (!jQuery('#CAPITOL2_R_222_C2').is(':checked')) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL2_R_222_C2',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-048. Rindul 2.2.2 nu este bifat.')
+            });
+        }
+
+
+        if (!jQuery('#CAPITOL2_R_223_C2').is(':checked')) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL2_R_223_C2',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-048. Rindul 2.2.3 nu este bifat.')
+            });
+        }
+
+        if (!jQuery('#CAPITOL2_R_224_C2').is(':checked')) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL2_R_224_C2',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-048. Rindul 2.2.4 nu este bifat.')
+            });
+        }
+
+
+      }
+
+
+
+
+
+
+    //End 48-043
 
 
 
