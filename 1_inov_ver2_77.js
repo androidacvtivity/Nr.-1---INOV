@@ -140,14 +140,14 @@ webform.validators.inov1 = function (v, allowOverpass) {
     //End--48-0390
 
 
-
+  //Start--48-03901
 
     if ((values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false) &&
         (values.CAPITOL1_R114_C1.trim() && (values.CAPITOL1_R114_C1 !== '1.1.1' && values.CAPITOL1_R114_C1 !== '1.1.2' && values.CAPITOL1_R114_C1 !== '1.1.3' && values.CAPITOL1_R114_C1 !== ""))) {
         webform.errors.push({
             'fieldName': 'CAPITOL1_R114_C1',
             'index': 0,
-            'msg': Drupal.t('Cod eroare: 48-03901 Trebuie să indicat din Cap.1.1 numărul rândului 1.1.1 sau 1.1.2 sau 1.1.3')
+            'msg': Drupal.t('Cod eroare: 48-03901 Trebuie de indicat din Cap.1.1 numărul rândului 1.1.1 sau 1.1.2 sau 1.1.3')
         });
     }
     //End--48-03901
@@ -232,7 +232,7 @@ function validateCapitol2(values, webform) {
     //End 48-040
 
 
-    //Start 48-040
+    //Start 48-0401
 
     if ((!(jQuery('#CAPITOL2_R_212_C1').is(':checked') || jQuery('#CAPITOL2_R_212_C2').is(':checked')))
 
@@ -245,7 +245,37 @@ function validateCapitol2(values, webform) {
         });
     }
 
-    //End 48-040
+    //End 48-0401
+
+
+//Start 48-0402
+// Checking  telefon 
+    if (!values.PHONE || !/^[0-9]{9}$/.test(values.PHONE)) {
+        webform.errors.push({
+            'fieldName': 'TITLU_R3_C31',
+            'msg': Drupal.t(' Cod eroare: A.09 Introduceți doar un număr de telefon format din 9 cifre')
+        });
+    }
+
+    // Check if the first digit is 0
+    if (values.PHONE && values.PHONE[0] !== '0') {
+        webform.errors.push({
+            'fieldName': 'TITLU_R3_C31',
+            'msg': Drupal.t(' Cod eroare: A.09 Prima cifră a numărului de telefon trebuie să fie 0')
+        });
+    }
+    //End  Checking  telefon
+
+
+
+
+
+
+
+
+    //End 48-042
+
+
 
     //Sort warnings & errors
     webform.warnings.sort(function (a, b) {

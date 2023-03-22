@@ -546,6 +546,9 @@
             })
           });
         }*/
+
+
+
         // var result03031 = toFloat(toFloat(values.CAPV_R6_C1) + toFloat(values.CAPV_R7_C1) + toFloat(values.CAPV_R8_C1) + toFloat(values.CAPV_R9_C1) + toFloat(values.CAPV_R10_C1)).toFixed(1);
         // if (values.CAPV_R5_C1 < result03031) {
         //     webform.errors.push({
@@ -561,7 +564,25 @@
 
 
 
+
+
+        var result03031 = Decimal(values.CAPV_R6_C1 || 0).plus(values.CAPV_R7_C1 || 0).plus(values.CAPV_R8_C1 || 0).plus(values.CAPV_R9_C1 || 0).plus(values.CAPV_R10_C1 || 0);
+        if (Decimal(values.CAPV_R5_C1 || 0).lessThan(result03031)) {
+        webform.errors.push({
+            'fieldName': 'CAPV_R5_C1',
+                 'index': 0,
+                 'weight': 31,
+                 'options': {
+                'hide_title': true
+                 },
+            'msg': Drupal.t('Cod eroare: 64-034, [r.240 c.1] >= [r.241c.1] + [r.242 c.1] + [r.243 c.1]')
+        });
+    }
+
+
 //--------------------------------------------------------------------------------------------------
+
+
 
 
         const CAPV_R6_C1 = parseFloat(values.CAPV_R6_C1);
