@@ -152,14 +152,7 @@ webform.validators.inov1 = function (v, allowOverpass) {
     }
     //End--48-03901
 
-
-
-
-
-
-
     //Start  48-004 - 48-006
-
 
     // Error codes for Capitol2 Rind2.3.3, 2.3.4, 2.3.5
     const ERROR_CODES = {
@@ -188,10 +181,6 @@ function validateCapitol2(values, webform) {
     validateCapitol2(values, webform);
 
 //End   48-004 - 48-006
-
-
-
-
 
 //Start 48-040
 
@@ -249,54 +238,7 @@ function validateCapitol2(values, webform) {
 
     //Start 48-043
 
-// This code does that
-//     if CAPITOL2_R_211_C2 is checked then
-//         (CAPITOL2_R_221_C2 must be checked checked or
-// CAPITOL2_R_222_C2 must be checked or
-// CAPITOL2_R_223_C2 must be checked or
-// CAPITOL2_R_224_C2 must be checked)
-
-// Modify this code to show the error message on the line that is not checked.
-
-
-    // if (jQuery('#CAPITOL2_R_211_C2').is(':checked') && (!jQuery('#CAPITOL2_R_221_C2').is(':checked')) || !jQuery('#CAPITOL2_R_222_C2').is(':checked')
-    
-    //     || !jQuery('#CAPITOL2_R_223_C2').is(':checked') || !jQuery('#CAPITOL2_R_224_C2').is(':checked'))  
-    
-    // {
-    //     webform.errors.push({
-    //         'fieldName': 'CAPITOL2_R_221_C2',
-    //         'index': 0,
-    //         'msg': Drupal.t('Cod eroare: 48-048. Daca rindul 2.1.1 este bifat nu  atunci rindul 2.2.1 - 2.2.4 este bifat nu ')
-    //     });
-
-
-    //     webform.errors.push({
-    //         'fieldName': 'CAPITOL2_R_222_C2',
-    //         'index': 0,
-    //         'msg': Drupal.t('Cod eroare: 48-048. Daca rindul 2.1.1 este bifat nu  atunci rindul 2.2.1 - 2.2.4 este bifat nu ')
-    //     });
-
-
-    //     webform.errors.push({
-    //         'fieldName': 'CAPITOL2_R_223_C2',
-    //         'index': 0,
-    //         'msg': Drupal.t('Cod eroare: 48-048. Daca rindul 2.1.1 este bifat nu  atunci rindul 2.2.1 - 2.2.4 este bifat nu ')
-    //     });
-
-    //     webform.errors.push({
-    //         'fieldName': 'CAPITOL2_R_224_C2',
-    //         'index': 0,
-    //         'msg': Drupal.t('Cod eroare: 48-048. Daca rindul 2.1.1 este bifat nu  atunci rindul 2.2.1 - 2.2.4 este bifat nu ')
-    //     });
-    
-    // }
-
-
-
-
-
-    if (jQuery('#CAPITOL2_R_211_C2').is(':checked') &&
+   if (jQuery('#CAPITOL2_R_211_C2').is(':checked') &&
         (!jQuery('#CAPITOL2_R_221_C2').is(':checked') ||
             !jQuery('#CAPITOL2_R_222_C2').is(':checked') ||
             !jQuery('#CAPITOL2_R_223_C2').is(':checked') ||
@@ -337,14 +279,7 @@ function validateCapitol2(values, webform) {
 
       }
 
-
-
-
-
-
     //End 48-043
-
-
 
     //Start 48-007
     var R_233 = Number(values.CAPITOL2_R_233_C1);
@@ -385,6 +320,161 @@ function validateCapitol2(values, webform) {
 
 //End 48-048
 
+
+ //Start 46-046
+
+
+    if (((R_233 <= 100 && R_233 != 0) || (R_234 <= 100 && R_234 != 0)) && 
+        
+        (!jQuery('#CAPITOL5_R_515_C1').is(':checked')
+        || !jQuery('#CAPITOL5_R_516_C1').is(':checked')
+        || !jQuery('#CAPITOL5_R_517_C1').is(':checked')
+        || !jQuery('#CAPITOL5_R_518_C1').is(':checked')
+        || !jQuery('#CAPITOL5_R_519_C1').is(':checked')
+        || !jQuery('#CAPITOL5_R_5110_C1').is(':checked')
+        )) {
+
+
+
+        if (R_233 <= 100 && R_233 != 0)
+        {
+            webform.errors.push({
+                'fieldName': 'CAPITOL2_R_233_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-046 Cap.2 Dacă Rind. 2.3.3 si/sau 2.3.4 <=100,  atunci Rind. 5.1.5 - 5.1.10  trebuie bifat.')
+            });
+
+            if (!jQuery('#CAPITOL5_R_515_C1').is(':checked')) {
+                webform.errors.push({
+                    'fieldName': 'CAPITOL5_R_515_C1',
+                    'index': 0,
+                    'msg': Drupal.t('Cod eroare: 48-046. Rindul 5.1.5 nu este bifat.')
+                });
+            }
+
+            if (!jQuery('#CAPITOL5_R_516_C1').is(':checked')) {
+                webform.errors.push({
+                    'fieldName': 'CAPITOL5_R_516_C1',
+                    'index': 0,
+                    'msg': Drupal.t('Cod eroare: 48-046. Rindul 5.1.6 nu este bifat.')
+                });
+            }
+
+
+
+            if (!jQuery('#CAPITOL5_R_517_C1').is(':checked')) {
+                webform.errors.push({
+                    'fieldName': 'CAPITOL5_R_517_C1',
+                    'index': 0,
+                    'msg': Drupal.t('Cod eroare: 48-046. Rindul 5.1.7 nu este bifat.')
+                });
+            }
+
+            if (!jQuery('#CAPITOL5_R_518_C1').is(':checked')) {
+                webform.errors.push({
+                    'fieldName': 'CAPITOL5_R_518_C1',
+                    'index': 0,
+                    'msg': Drupal.t('Cod eroare: 48-046. Rindul 5.1.8 nu este bifat.')
+                });
+            }
+
+
+            if (!jQuery('#CAPITOL5_R_519_C1').is(':checked')) {
+                webform.errors.push({
+                    'fieldName': 'CAPITOL5_R_519_C1',
+                    'index': 0,
+                    'msg': Drupal.t('Cod eroare: 48-046. Rindul 5.1.9 nu este bifat.')
+                });
+            }
+
+
+            if (!jQuery('#CAPITOL5_R_5110_C1').is(':checked')) {
+                webform.errors.push({
+                    'fieldName': 'CAPITOL5_R_5110_C1',
+                    'index': 0,
+                    'msg': Drupal.t('Cod eroare: 48-046. Rindul 5.1.10 nu este bifat.')
+                });
+            }
+
+            
+            }
+
+            else
+            {
+       
+
+            
+
+        if (R_234 <= 100 && R_234 != 0)
+            { 
+
+                 webform.errors.push({
+                'fieldName': 'CAPITOL2_R_234_C1',
+                  'index': 0,
+                 'msg': Drupal.t('Cod eroare: 48-046 Cap.2 Dacă Rind. 2.3.3 si/sau 2.3.4 <= 100,  atunci Rind. 5.1.5 - 5.1.10  trebuie bifat.')
+                });
+
+            if (!jQuery('#CAPITOL5_R_515_C1').is(':checked')) {
+                webform.errors.push({
+                    'fieldName': 'CAPITOL5_R_515_C1',
+                    'index': 0,
+                    'msg': Drupal.t('Cod eroare: 48-046. Rindul 5.1.5 nu este bifat.')
+                });
+            }
+
+            if (!jQuery('#CAPITOL5_R_516_C1').is(':checked')) {
+                webform.errors.push({
+                    'fieldName': 'CAPITOL5_R_516_C1',
+                    'index': 0,
+                    'msg': Drupal.t('Cod eroare: 48-046. Rindul 5.1.6 nu este bifat.')
+                });
+            }
+
+
+
+            if (!jQuery('#CAPITOL5_R_517_C1').is(':checked')) {
+                webform.errors.push({
+                    'fieldName': 'CAPITOL5_R_517_C1',
+                    'index': 0,
+                    'msg': Drupal.t('Cod eroare: 48-046. Rindul 5.1.7 nu este bifat.')
+                });
+            }
+
+            if (!jQuery('#CAPITOL5_R_518_C1').is(':checked')) {
+                webform.errors.push({
+                    'fieldName': 'CAPITOL5_R_518_C1',
+                    'index': 0,
+                    'msg': Drupal.t('Cod eroare: 48-046. Rindul 5.1.8 nu este bifat.')
+                });
+            }
+
+
+            if (!jQuery('#CAPITOL5_R_519_C1').is(':checked')) {
+                webform.errors.push({
+                    'fieldName': 'CAPITOL5_R_519_C1',
+                    'index': 0,
+                    'msg': Drupal.t('Cod eroare: 48-046. Rindul 5.1.9 nu este bifat.')
+                });
+            }
+
+
+            if (!jQuery('#CAPITOL5_R_5110_C1').is(':checked')) {
+                webform.errors.push({
+                    'fieldName': 'CAPITOL5_R_5110_C1',
+                    'index': 0,
+                    'msg': Drupal.t('Cod eroare: 48-046. Rindul 5.1.10 nu este bifat.')
+                });
+            }
+
+            }
+      
+
+
+    }
+
+}
+
+//End 46-046
 
 
 
