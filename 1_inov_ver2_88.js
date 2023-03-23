@@ -190,30 +190,7 @@ function validateCapitol2(values, webform) {
 //End   48-004 - 48-006
 
 
-//Start 48-007
 
-
-{
-        var R_233 = Number(values.CAPITOL2_R_233_C1);
-        var R_234 = Number(values.CAPITOL2_R_234_C1);
-        var R_235 = Number(values.CAPITOL2_R_235_C1);
-        var R_236 = Number(values.CAPITOL2_R_236_C1);
-        var sum_33_36 = R_233 + R_234 + R_235;
-        if (sum_33_36 != 100 && sum_33_36 != 0) {
-        webform.errors.push({
-            'fieldName': 'CAPITOL2_R_236_C1',
-            'index': 0,
-            'msg': Drupal.t('Cod eroare: 48-007 Cap.2  Rind 2.3.3 + 2.3.4 + 2.3.5 = 100%,   @sum_33_36 <> 100', { "@sum_33_36": sum_33_36  })
-        });
-    }
-
-
-        
-
-}
-
-
-//End 48-007
 
 
 //Start 48-040
@@ -366,6 +343,48 @@ function validateCapitol2(values, webform) {
 
 
     //End 48-043
+
+
+
+    //Start 48-007
+    var R_233 = Number(values.CAPITOL2_R_233_C1);
+    var R_234 = Number(values.CAPITOL2_R_234_C1);
+    var R_235 = Number(values.CAPITOL2_R_235_C1);
+    var R_236 = Number(values.CAPITOL2_R_236_C1);
+    var sum_33_36 = R_233 + R_234 + R_235;
+    if (sum_33_36 != 100 && sum_33_36 != 0) {
+        webform.errors.push({
+            'fieldName': 'CAPITOL2_R_236_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare: 48-007 Cap.2  Rind 2.3.3 + 2.3.4 + 2.3.5 = 100%,   @sum_33_36 <> 100', { "@sum_33_36": sum_33_36 })
+        });
+    }
+
+//End 48-007
+
+//Start 48-048
+ if (
+    (jQuery('#CAPITOL2_R_211_C1').is(':checked') 
+    || jQuery('#CAPITOL2_R_212_C1').is(':checked') 
+    || jQuery('#CAPITOL2_R_221_C1').is(':checked') 
+    || jQuery('#CAPITOL2_R_222_C1').is(':checked') 
+            || jQuery('#CAPITOL2_R_223_C1').is(':checked')) && (sum_33_36 != 100 && sum_33_36 != 0)
+
+
+
+    ) {
+
+        if (jQuery('#CAPITOL2_R_211_C1').is(':checked')) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL2_R_236_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare 48-048: Dacă rd.2.1.1, 2.1.2, 2.2.1, 2.2.2, 2.2.3 sunt bifate , atunci rd.2.3.3 + 2.3.4 + 2.3.5 = 100%.')
+            });
+        }
+           }
+
+//End 48-048
+
 
 
 
