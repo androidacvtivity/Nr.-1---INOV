@@ -116,6 +116,63 @@
                         jQuery(`#${checkbox}`).attr("checked", false);
                     });
                 }
+
+                if (
+                    
+                    //group == "CAPITOL3_R_311_C2"
+                    (jQuery('#CAPITOL3_R_313_C2').is(':checked') && jQuery('#CAPITOL3_R_311_C2').is(':checked') && jQuery('#CAPITOL3_R_312_C2').is(':checked')))   {
+                    jQuery('#CAPITOL3_R_32').hide();
+                    jQuery('#CAPITOL3_R_321').hide();
+                    jQuery('#CAPITOL3_R_322').hide();
+                    jQuery('#CAPITOL3_R_323').hide();
+                    jQuery('#CAPITOL3_R_324').hide();
+                    jQuery('#CAPITOL3_R_33').hide();
+                    jQuery('#CAPITOL3_R_331').hide();
+                    jQuery('#CAPITOL3_R_332').hide();
+                    jQuery('#CAPITOL3_R_333').hide();
+                    
+                    jQuery('#CAPITOL3_R_321_C1').attr("checked", false); 
+                    jQuery('#CAPITOL3_R_321_C2').attr("checked", false); 
+                    jQuery('#CAPITOL3_R_322_C1').attr("checked", false);
+                    jQuery('#CAPITOL3_R_322_C2').attr("checked", false); 
+                    jQuery('#CAPITOL3_R_323_C1').attr("checked", false);
+                    jQuery('#CAPITOL3_R_323_C2').attr("checked", false); 
+                    jQuery('#CAPITOL3_R_324_C1').attr("checked", false);
+                    jQuery('#CAPITOL3_R_324_C2').attr("checked", false);
+                    jQuery('#CAPITOL3_R_331_C1').attr("checked", false); 
+                    jQuery('#CAPITOL3_R_332_C1').attr("checked", false); 
+                    jQuery('#CAPITOL3_R_333_C1').attr("checked", false); 
+                   
+                   
+                }
+
+
+                else if ((!jQuery('#CAPITOL3_R_313_C2').is(':checked') || !jQuery('#CAPITOL3_R_311_C2').is(':checked') || !jQuery('#CAPITOL3_R_312_C2').is(':checked'))) {
+                    jQuery('#CAPITOL3_R_32').show();
+                    jQuery('#CAPITOL3_R_321').show();
+                    jQuery('#CAPITOL3_R_322').show();
+                    jQuery('#CAPITOL3_R_323').show();
+                    jQuery('#CAPITOL3_R_324').show();
+                    jQuery('#CAPITOL3_R_33').show();
+                    jQuery('#CAPITOL3_R_331').show();
+                    jQuery('#CAPITOL3_R_332').show();
+                    jQuery('#CAPITOL3_R_333').show();
+                   
+                }
+
+
+
+                // else if (group == "CAPITOL1_R170_C2") {
+                //     jQuery('#CAPITOL1_R180').hide(); jQuery('#CAPITOL1_R181').hide();
+                //     jQuery('#CAPITOL1_R180_C1').attr("checked", false); jQuery('#CAPITOL1_R180_C2').attr("checked", false);
+                //     document.getElementById("CAPITOL1_R181_C1").value = "";
+                // }
+                // else if (group == "CAPITOL1_R170_C1") {
+                //     jQuery('#CAPITOL1_R180').show(); jQuery('#CAPITOL1_R181').show();
+                // }
+
+
+
             });
         }
 
