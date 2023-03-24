@@ -285,67 +285,94 @@
                     {
                     jQuery('#CAPITOL5_HEADER').hide();
                     jQuery('#CAPITOL5_HEADER_1').hide();
-                    // jQuery('#CAPITOL2_R_22_3').hide();
+                   
+                    jQuery('#CAPITOL5').hide();
+                    jQuery('#CAPITOL5_51').hide();
+                    jQuery('#CAPITOL5_R_511').hide();
+                    jQuery('#CAPITOL5_R_511_1').hide();
 
-                    // jQuery('#CAPITOL2_R_221').hide();
-                    // jQuery('#CAPITOL2_R_222').hide();
-                    // jQuery('#CAPITOL2_R_223').hide();
+                    jQuery('#CAPITOL5_R_512').hide();
+                    jQuery('#CAPITOL5_R_513').hide();
+                    jQuery('#CAPITOL5_R_514').hide();
 
-                    // jQuery('#CAPITOL2_R_224').hide();
-                    // jQuery('#CAPITOL2_R_23').hide();
-                    // jQuery('#CAPITOL2_R_23_1').hide();
+                    jQuery('#CAPITOL5_R_515').hide();
+                    jQuery('#CAPITOL5_R_516').hide();
+                    jQuery('#CAPITOL5_R_517').hide();
 
-                    // jQuery('#CAPITOL2_R_231').hide();
-                    // jQuery('#CAPITOL2_R_232').hide();
-                    // jQuery('#CAPITOL2_R_232_1').hide();
+                    jQuery('#CAPITOL5_R_518').hide();
+                    jQuery('#CAPITOL5_R_519').hide();
+                    jQuery('#CAPITOL5_R_5110').hide();
 
-                    // jQuery('#CAPITOL2_R_233').hide();
-                    // jQuery('#CAPITOL2_R_234').hide();
-                    // jQuery('#CAPITOL2_R_235').hide();
+                    jQuery('#CAPITOL5_1').hide();
+                    jQuery('#CAPITOL5_1_1').hide();
+                    jQuery('#CAPITOL5_R_521').hide();
+                    jQuery('#CAPITOL5_R_522').hide();
 
-                    // jQuery('#CAPITOL2_R_236').hide();
-                    // jQuery('#CAPITOL2_R_24').hide();
-                    // jQuery('#CAPITOL2_R_24_1').hide();
-                    // jQuery('#CAPITOL2_R_241').hide();
+                    jQuery('#CAPITOL5_R_523').hide();
+                    jQuery('#CAPITOL5_R_524').hide();
+                    
+                    
+                    //Add 
 
-                    // jQuery('#CAPITOL2_R_242').hide();
-                    // jQuery('#CAPITOL2_R_243').hide();
+                    jQuery('#CAPITOL5_R_525').hide();
+                    jQuery('#CAPITOL5_R_526').hide();
+                    jQuery('#CAPITOL5_2').hide();
+                    jQuery('#CAPITOL5_2_1').hide();
 
-                    // jQuery('#CAPITOL2_R_221_C1').attr("checked", false);
-                    // jQuery('#CAPITOL2_R_221_C2').attr("checked", false);
+                    jQuery('#CAPITOL5_2_2').hide();
+                    jQuery('#CAPITOL5_R_531').hide();
 
-                    // jQuery('#CAPITOL2_R_222_C1').attr("checked", false);
-                    // jQuery('#CAPITOL2_R_222_C2').attr("checked", false);
+                    jQuery('#CAPITOL5_R_532').hide();
+                    jQuery('#CAPITOL5_R_533').hide();
 
-                    // jQuery('#CAPITOL2_R_223_C1').attr("checked", false);
-                    // jQuery('#CAPITOL2_R_223_C2').attr("checked", false);
 
-                    // jQuery('#CAPITOL2_R_224_C1').attr("checked", false);
-                    // jQuery('#CAPITOL2_R_224_C2').attr("checked", false);
 
-                    // jQuery('#CAPITOL2_R_231_C1').attr("checked", false);
-                    // jQuery('#CAPITOL2_R_231_C2').attr("checked", false);
 
-                    // jQuery('#CAPITOL2_R_232_C1').attr("checked", false);
-                    // jQuery('#CAPITOL2_R_232_C2').attr("checked", false);
 
-                    // document.getElementById("CAPITOL2_R_233_C1").value = "";
-                    // document.getElementById("CAPITOL2_R_234_C1").value = "";
-                    // document.getElementById("CAPITOL2_R_235_C1").value = "";
-                    // document.getElementById("CAPITOL2_R_236_C1").value = "";
+                    jQuery('#CAPITOL5_R_511_C1').attr("checked", false);
+                    jQuery('#CAPITOL5_R_511_C2').attr("checked", false);
 
-                    // jQuery('#CAPITOL2_R_241_C1').attr("checked", false);
-                    // jQuery('#CAPITOL2_R_241_C2').attr("checked", false);
-                    // jQuery('#CAPITOL2_R_241_C3').attr("checked", false);
+                    jQuery('#CAPITOL5_R_512_C1').attr("checked", false);
+                    jQuery('#CAPITOL5_R_512_C2').attr("checked", false);
 
-                    // jQuery('#CAPITOL2_R_242_C1').attr("checked", false);
-                    // jQuery('#CAPITOL2_R_242_C2').attr("checked", false);
-                    // jQuery('#CAPITOL2_R_242_C3').attr("checked", false);
+                    jQuery('#CAPITOL5_R_513_C1').attr("checked", false);
+                    jQuery('#CAPITOL5_R_513_C2').attr("checked", false);
 
-                    // jQuery('#CAPITOL2_R_243_C1').attr("checked", false);
-                    // jQuery('#CAPITOL2_R_243_C2').attr("checked", false);
-                    // jQuery('#CAPITOL2_R_243_C3').attr("checked", false);
 
+                    jQuery('#CAPITOL5_R_514_C1').attr("checked", false);
+                    jQuery('#CAPITOL5_R_514_C2').attr("checked", false);
+
+                    jQuery('#CAPITOL5_R_515_C1').attr("checked", false);
+                    jQuery('#CAPITOL5_R_515_C2').attr("checked", false);
+
+                    jQuery('#CAPITOL5_R_516_C1').attr("checked", false);
+                    jQuery('#CAPITOL5_R_516_C2').attr("checked", false);
+
+                    jQuery('#CAPITOL5_R_517_C1').attr("checked", false);
+                    jQuery('#CAPITOL5_R_517_C2').attr("checked", false);    
+
+                    jQuery('#CAPITOL5_R_518_C1').attr("checked", false);
+                    jQuery('#CAPITOL5_R_518_C2').attr("checked", false);   
+                   
+
+                    jQuery('#CAPITOL5_R_519_C1').attr("checked", false);
+                    jQuery('#CAPITOL5_R_519_C2').attr("checked", false);   
+
+                    jQuery('#CAPITOL5_R_5110_C1').attr("checked", false);
+                    jQuery('#CAPITOL5_R_5110_C2').attr("checked", false);   
+                 
+                    jQuery('#CAPITOL5_R_521_C1').attr("checked", false);
+                    jQuery('#CAPITOL5_R_521_C2').attr("checked", false);   
+
+                    jQuery('#CAPITOL5_R_522_C1').attr("checked", false);
+                    jQuery('#CAPITOL5_R_522_C2').attr("checked", false);   
+
+
+                    jQuery('#CAPITOL5_R_523_C1').attr("checked", false);
+                    jQuery('#CAPITOL5_R_523_C2').attr("checked", false);   
+
+                    jQuery('#CAPITOL5_R_524_C1').attr("checked", false);
+                    jQuery('#CAPITOL5_R_524_C2').attr("checked", false);   
 
 
                 }
@@ -370,6 +397,46 @@
 
                         jQuery('#CAPITOL5_HEADER').show();
                         jQuery('#CAPITOL5_HEADER_1').show();
+
+
+                        jQuery('#CAPITOL5').show();
+                        jQuery('#CAPITOL5_51').show();
+                        jQuery('#CAPITOL5_R_511').show();
+                        jQuery('#CAPITOL5_R_511_1').show();
+
+                        jQuery('#CAPITOL5_R_512').show();
+                        jQuery('#CAPITOL5_R_513').show();
+                        jQuery('#CAPITOL5_R_514').show();
+
+                        jQuery('#CAPITOL5_R_515').show();
+                        jQuery('#CAPITOL5_R_516').show();
+                        jQuery('#CAPITOL5_R_517').show();
+
+                        jQuery('#CAPITOL5_R_518').show();
+                        jQuery('#CAPITOL5_R_519').show();
+                        jQuery('#CAPITOL5_R_5110').show();
+
+                        jQuery('#CAPITOL5_1').show();
+                        jQuery('#CAPITOL5_1_1').show();
+                        jQuery('#CAPITOL5_R_521').show();
+                        jQuery('#CAPITOL5_R_522').show();
+
+                        jQuery('#CAPITOL5_R_523').show();
+                        jQuery('#CAPITOL5_R_524').show();
+
+
+                        //Add 
+
+                        jQuery('#CAPITOL5_R_525').show();
+                        jQuery('#CAPITOL5_R_526').show();
+                        jQuery('#CAPITOL5_2').show();
+                        jQuery('#CAPITOL5_2_1').show();
+
+                        jQuery('#CAPITOL5_2_2').show();
+                        jQuery('#CAPITOL5_R_531').show();
+
+                        jQuery('#CAPITOL5_R_532').show();
+                        jQuery('#CAPITOL5_R_533').show();
 
                     
                 }
