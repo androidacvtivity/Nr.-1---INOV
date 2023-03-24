@@ -80,6 +80,9 @@
                 "CAPITOL5_R_533_C1": ["CAPITOL5_R_533_C2"],
                 "CAPITOL5_R_533_C2": ["CAPITOL5_R_533_C1"],
 
+                "CAPITOL6_R_611_C1": ["CAPITOL6_R_612_C1"],
+                "CAPITOL6_R_612_C1": ["CAPITOL6_R_611_C1"],
+
 
                 "CAPITOL7_R_711_C1": ["CAPITOL7_R_711_C2"],
                 "CAPITOL7_R_711_C2": ["CAPITOL7_R_711_C1"],
@@ -325,6 +328,33 @@
                     jQuery('#CAPITOL5_R_532').hide();
                     jQuery('#CAPITOL5_R_533').hide();
 
+                    //Add cap 6 
+                    jQuery('#CAPITOL6_HEADER').hide();
+                    jQuery('#CAPITOL6').hide();
+                    jQuery('#CAPITOL6_1').hide();
+                    jQuery('#CAPITOL6_R_611').hide();
+
+                    jQuery('#CAPITOL6_R_612').hide();
+                    jQuery('#CAPITOL6_2').hide();
+
+                    jQuery('#CAPITOL6_2_1').hide();
+                    jQuery('#CAPITOL6_2_2').hide();
+
+                    //Adde next 
+                    jQuery('#CAPITOL6_2_3').hide();
+                    jQuery('#CAPITOL6_R_621').hide();
+                    jQuery('#CAPITOL6_R_622').hide();
+                    jQuery('#CAPITOL6_R_623').hide();
+
+                    jQuery('#CAPITOL6_R_624').hide();
+                    jQuery('#CAPITOL6_R_625').hide();
+
+                    jQuery('#CAPITOL6_R_625').hide();
+                    jQuery('#CAPITOL6_R_626').hide();
+
+
+                    jQuery('#CAPITOL6_R_627').hide();
+                    jQuery('#CAPITOL6_R_628').hide();
 
 
 
