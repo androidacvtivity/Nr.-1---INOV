@@ -408,6 +408,41 @@
                     jQuery('#CAPITOL6_R_611_C1').attr("checked", false);
                     jQuery('#CAPITOL6_R_612_C1').attr("checked", false);   
 
+                    jQuery('#CAPITOL6_R_621_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_621_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_621_C3').attr("checked", false);
+
+                    jQuery('#CAPITOL6_R_622_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_622_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_622_C3').attr("checked", false);
+
+                    jQuery('#CAPITOL6_R_623_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_623_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_623_C3').attr("checked", false);
+
+
+                    jQuery('#CAPITOL6_R_624_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_624_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_624_C3').attr("checked", false);
+
+                    jQuery('#CAPITOL6_R_625_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_625_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_625_C3').attr("checked", false);
+
+
+                    jQuery('#CAPITOL6_R_626_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_626_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_626_C3').attr("checked", false);
+
+
+                    jQuery('#CAPITOL6_R_627_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_627_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_627_C3').attr("checked", false);
+
+                    jQuery('#CAPITOL6_R_628_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_628_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_628_C3').attr("checked", false);
+
 
 
 
