@@ -405,6 +405,12 @@
                     jQuery('#CAPITOL5_R_524_C2').attr("checked", false);   
 
 
+                    jQuery('#CAPITOL6_R_611_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_612_C1').attr("checked", false);   
+
+
+
+
                 }
 
 
@@ -467,6 +473,35 @@
 
                         jQuery('#CAPITOL5_R_532').show();
                         jQuery('#CAPITOL5_R_533').show();
+
+
+                        //Add cap 6 
+                        jQuery('#CAPITOL6_HEADER').show();
+                        jQuery('#CAPITOL6').show();
+                        jQuery('#CAPITOL6_1').show();
+                        jQuery('#CAPITOL6_R_611').show();
+
+                        jQuery('#CAPITOL6_R_612').show();
+                        jQuery('#CAPITOL6_2').show();
+
+                        jQuery('#CAPITOL6_2_1').show();
+                        jQuery('#CAPITOL6_2_2').show();
+
+                        //Adde next 
+                        jQuery('#CAPITOL6_2_3').show();
+                        jQuery('#CAPITOL6_R_621').show();
+                        jQuery('#CAPITOL6_R_622').show();
+                        jQuery('#CAPITOL6_R_623').show();
+
+                        jQuery('#CAPITOL6_R_624').show();
+                        jQuery('#CAPITOL6_R_625').show();
+
+                        jQuery('#CAPITOL6_R_625').show();
+                        jQuery('#CAPITOL6_R_626').show();
+
+
+                        jQuery('#CAPITOL6_R_627').show();
+                        jQuery('#CAPITOL6_R_628').show();
 
                     
                 }
