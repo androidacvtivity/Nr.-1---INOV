@@ -120,6 +120,90 @@
                     });
                 }
 
+// Start 6.1.2 Nu - (Dacă ați bifat ”Nu” treceți la întrebarea 7.1.1)
+
+                if (
+                    jQuery('#CAPITOL6_R_612_C1').is(':checked') &&  !jQuery('#CAPITOL6_R_611_C1').is(':checked')    
+                       
+
+                ) {
+                    jQuery('#CAPITOL6_2_1').hide();
+                    jQuery('#CAPITOL6_2_2').hide();
+                    jQuery('#CAPITOL6_2_3').hide();
+                    jQuery('#CAPITOL6_R_621').hide();
+                    jQuery('#CAPITOL6_R_622').hide();
+                    jQuery('#CAPITOL6_R_623').hide();
+                    jQuery('#CAPITOL6_R_624').hide();
+                    jQuery('#CAPITOL6_R_625').hide();
+                    jQuery('#CAPITOL6_R_626').hide();
+                    jQuery('#CAPITOL6_R_627').hide();
+                    jQuery('#CAPITOL6_R_628').hide();
+
+                    jQuery('#CAPITOL6_R_621_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_621_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_621_C3').attr("checked", false);
+                  
+                    jQuery('#CAPITOL6_R_622_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_622_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_622_C3').attr("checked", false);
+
+                    jQuery('#CAPITOL6_R_623_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_623_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_623_C3').attr("checked", false);
+
+                    jQuery('#CAPITOL6_R_624_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_624_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_624_C3').attr("checked", false);
+
+
+                    jQuery('#CAPITOL6_R_625_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_625_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_625_C3').attr("checked", false);
+
+                    jQuery('#CAPITOL6_R_626_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_626_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_626_C3').attr("checked", false);
+
+                    jQuery('#CAPITOL6_R_627_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_627_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_627_C3').attr("checked", false);
+
+                    jQuery('#CAPITOL6_R_628_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_628_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_628_C3').attr("checked", false);
+
+
+
+
+                }
+
+
+                else if (
+                    !jQuery('#CAPITOL6_R_612_C1').is(':checked') && jQuery('#CAPITOL6_R_611_C1').is(':checked')    
+                
+                ) {
+
+                    jQuery('#CAPITOL6_2_1').show();
+                    jQuery('#CAPITOL6_2_2').show();
+                    jQuery('#CAPITOL6_2_3').show();
+                    jQuery('#CAPITOL6_R_621').show();
+                    jQuery('#CAPITOL6_R_622').show();
+                    jQuery('#CAPITOL6_R_623').show();
+                    jQuery('#CAPITOL6_R_624').show();
+                    jQuery('#CAPITOL6_R_625').show();
+                    jQuery('#CAPITOL6_R_626').show();
+                    jQuery('#CAPITOL6_R_627').show();
+                    jQuery('#CAPITOL6_R_628').show();
+
+                   
+
+                }
+
+// End 6.1.2 Nu - (Dacă ați bifat ”Nu” treceți la întrebarea 7.1.1)
+
+
+
+
                 if (
                     
                     //group == "CAPITOL3_R_311_C2"
@@ -408,6 +492,41 @@
                     jQuery('#CAPITOL6_R_611_C1').attr("checked", false);
                     jQuery('#CAPITOL6_R_612_C1').attr("checked", false);   
 
+                    jQuery('#CAPITOL6_R_621_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_621_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_621_C3').attr("checked", false);
+
+                    jQuery('#CAPITOL6_R_622_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_622_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_622_C3').attr("checked", false);
+
+                    jQuery('#CAPITOL6_R_623_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_623_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_623_C3').attr("checked", false);
+
+
+                    jQuery('#CAPITOL6_R_624_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_624_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_624_C3').attr("checked", false);
+
+                    jQuery('#CAPITOL6_R_625_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_625_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_625_C3').attr("checked", false);
+
+
+                    jQuery('#CAPITOL6_R_626_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_626_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_626_C3').attr("checked", false);
+
+
+                    jQuery('#CAPITOL6_R_627_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_627_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_627_C3').attr("checked", false);
+
+                    jQuery('#CAPITOL6_R_628_C1').attr("checked", false);
+                    jQuery('#CAPITOL6_R_628_C2').attr("checked", false);
+                    jQuery('#CAPITOL6_R_628_C3').attr("checked", false);
+
 
 
 
@@ -629,46 +748,45 @@ function validateCapitol2(values, webform) {
 
     //Start 48-043
 
-   if (jQuery('#CAPITOL2_R_211_C2').is(':checked') &&
-        (!jQuery('#CAPITOL2_R_221_C2').is(':checked') ||
-            !jQuery('#CAPITOL2_R_222_C2').is(':checked') ||
-            !jQuery('#CAPITOL2_R_223_C2').is(':checked') ||
+
+
+// I changed it like this
+
+    if ((jQuery('#CAPITOL2_R_211_C2').is(':checked') && !jQuery('#CAPITOL2_R_212_C2').is(':checked')) &&
+        (!jQuery('#CAPITOL2_R_221_C2').is(':checked') &&
+            !jQuery('#CAPITOL2_R_222_C2').is(':checked') &&
+            !jQuery('#CAPITOL2_R_223_C2').is(':checked') &&
             !jQuery('#CAPITOL2_R_224_C2').is(':checked'))) {
-       
-                if (!jQuery('#CAPITOL2_R_221_C2').is(':checked')) {
+
+     
             webform.errors.push({
                 'fieldName': 'CAPITOL2_R_221_C2',
                 'index': 0,
                 'msg': Drupal.t('Cod eroare: 48-043. Rindul 2.2.1 nu este bifat.')
             });
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL2_R_222_C2',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare: 48-043. Rindul 2.2.2 nu este bifat.')
+        });
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL2_R_223_C2',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare: 48-043. Rindul 2.2.3 nu este bifat.')
+        });
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL2_R_224_C2',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare: 48-043. Rindul 2.2.4 nu este bifat.')
+        });
         }
-        if (!jQuery('#CAPITOL2_R_222_C2').is(':checked')) {
-            webform.errors.push({
-                'fieldName': 'CAPITOL2_R_222_C2',
-                'index': 0,
-                'msg': Drupal.t('Cod eroare: 48-043. Rindul 2.2.2 nu este bifat.')
-            });
-        }
+       
+//Correct ? 
 
-
-        if (!jQuery('#CAPITOL2_R_223_C2').is(':checked')) {
-            webform.errors.push({
-                'fieldName': 'CAPITOL2_R_223_C2',
-                'index': 0,
-                'msg': Drupal.t('Cod eroare: 48-043. Rindul 2.2.3 nu este bifat.')
-            });
-        }
-
-        if (!jQuery('#CAPITOL2_R_224_C2').is(':checked')) {
-            webform.errors.push({
-                'fieldName': 'CAPITOL2_R_224_C2',
-                'index': 0,
-                'msg': Drupal.t('Cod eroare: 48-043. Rindul 2.2.4 nu este bifat.')
-            });
-        }
-
-
-      }
+    
 
     //End 48-043
 
