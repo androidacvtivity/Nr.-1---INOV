@@ -734,11 +734,12 @@ function validateCapitol2(values, webform) {
 
 //End   48-004 - 48-006
 
+    values.CAPITOL1_R114_C1 = values.CAPITOL1_R114_C1.trim(); // removes blank spaces from both sides
+
 //Start 48-040
 
     if ( (!(jQuery('#CAPITOL2_R_211_C1').is(':checked') || jQuery('#CAPITOL2_R_211_C2').is(':checked')))
-
-        && (values.CAPITOL1_R114_C1 == '1.1.1' || values.CAPITOL1_R114_C1 == '1.1.2' || values.CAPITOL1_R114_C1 == '1.1.3')
+        &&  (['1.1.1', '1.1.2', '1.1.3'].includes(values.CAPITOL1_R114_C1))   
     ) {
         webform.errors.push({
             'fieldName': 'CAPITOL2_R_211_C1',
@@ -754,7 +755,10 @@ function validateCapitol2(values, webform) {
 
     if ((!(jQuery('#CAPITOL2_R_212_C1').is(':checked') || jQuery('#CAPITOL2_R_212_C2').is(':checked')))
 
-        && (values.CAPITOL1_R114_C1 == '1.1.1' || values.CAPITOL1_R114_C1 == '1.1.2' || values.CAPITOL1_R114_C1 == '1.1.3')
+        && 
+        (['1.1.1', '1.1.2', '1.1.3'].includes(values.CAPITOL1_R114_C1))
+        
+
     ) {
         webform.errors.push({
             'fieldName': 'CAPITOL2_R_212_C1',
