@@ -663,19 +663,43 @@ webform.validators.inov1 = function (v, allowOverpass) {
     //End--48-03901
 
 
-    //Start--48-03901
+    //Start--48-03902
 
-    if ((!values.CAPITOL1_R111_C1 == false  || !values.CAPITOL1_R112_C1 !== false || !values.CAPITOL1_R113_C1 == false) &&
-        (values.CAPITOL1_R114_C1 !== '1.1.1' && values.CAPITOL1_R114_C1 !== '1.1.2' && values.CAPITOL1_R114_C1 !== '1.1.3')
-            && !(values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 ==  false && values.CAPITOL1_R114_C1 == "")
-        ) {
+    // if ((values.CAPITOL1_R111_C1 == true  || values.CAPITOL1_R112_C1 == true || values.CAPITOL1_R113_C1 == true) &&
+    //     ! (values.CAPITOL1_R114_C1 == '1.1.1' || values.CAPITOL1_R114_C1 == '1.1.2' || values.CAPITOL1_R114_C1 == '1.1.3')
+
+
+          
+    //     ) {
+    //     webform.errors.push({
+    //         'fieldName': 'CAPITOL1_R114_C1',
+    //         'index': 0,
+    //         'msg': Drupal.t('Cod eroare: 48-03902 Trebuie de indicat din Cap.1.1 numărul rândului 1.1.1 sau 1.1.2 sau 1.1.3')
+    //     });
+    // }
+
+    // if ((values.CAPITOL1_R111_C1 || values.CAPITOL1_R112_C1 || values.CAPITOL1_R113_C1) &&
+    //     !(values.CAPITOL1_R114_C1 === '1.1.1' || values.CAPITOL1_R114_C1 === '1.1.2' || values.CAPITOL1_R114_C1 === '1.1.3')) {
+    //     webform.errors.push({
+    //         'fieldName': 'CAPITOL1_R114_C1',
+    //         'index': 0,
+    //         'msg': Drupal.t('Cod eroare: 48-03902 Trebuie de indicat din Cap.1.1 numărul rândului 1.1.1 sau 1.1.2 sau 1.1.3')
+    //     });
+    // }
+
+    if ((values.CAPITOL1_R111_C1 || values.CAPITOL1_R112_C1 || values.CAPITOL1_R113_C1) &&
+        !(['1.1.1', '1.1.2', '1.1.3'].includes(values.CAPITOL1_R114_C1.trim()))
+    ) {
+        values.CAPITOL1_R114_C1 = values.CAPITOL1_R114_C1.trim(); // removes blank spaces from both sides
         webform.errors.push({
             'fieldName': 'CAPITOL1_R114_C1',
             'index': 0,
             'msg': Drupal.t('Cod eroare: 48-03902 Trebuie de indicat din Cap.1.1 numărul rândului 1.1.1 sau 1.1.2 sau 1.1.3')
         });
     }
-    //End--48-03901
+
+
+    //End--48-03902
 
 
 
@@ -824,6 +848,40 @@ function validateCapitol2(values, webform) {
 
 //End 48-007
 
+
+
+//     //Start 48-046
+    
+
+    
+//     if (((R_233 <= 100 && R_233 != 0) || (R_234 <= 100 && R_233 != 0))
+    
+//         && !(
+            
+//         jQuery('#CAPITOL5_R_515_C1').is(':checked') || jQuery('#CAPITOL5_R_516_C1').is(':checked')
+//         || jQuery('#CAPITOL5_R_517_C1').is(':checked') || jQuery('#CAPITOL5_R_518_C1').is(':checked')
+//         || jQuery('#CAPITOL5_R_519_C1').is(':checked') || jQuery('#CAPITOL5_R_5110_C1').is(':checked')
+        
+//         )
+    
+//     ) {
+
+
+//         webform.errors.push({
+//             'fieldName': 'CAPITOL2_R_236_C1',
+//             'index': 0,
+//             'msg': Drupal.t('Cod eroare: 48-046 Cap.2 Dacă Rind. 2.3.3 si/sau 2.3.4 <=100, atunci Rind. 5.1.5 - 5.1.10 - da, @R_233 <= 100, @R_234 <= 100', { "@R_233": R_233, "@R_234": R_234 })
+
+            
+//         });
+
+
+
+//     }
+
+// //End 48-046
+
+
 //Start 48-048
  if (
     (jQuery('#CAPITOL2_R_211_C1').is(':checked') 
@@ -848,17 +906,21 @@ function validateCapitol2(values, webform) {
 //End 48-048
 
 
+
+
+
+
  //Start 46-046
 
 
     if (((R_233 <= 100 && R_233 != 0) || (R_234 <= 100 && R_234 != 0)) && 
         
-        (!jQuery('#CAPITOL5_R_515_C1').is(':checked')
-        || !jQuery('#CAPITOL5_R_516_C1').is(':checked')
-        || !jQuery('#CAPITOL5_R_517_C1').is(':checked')
-        || !jQuery('#CAPITOL5_R_518_C1').is(':checked')
-        || !jQuery('#CAPITOL5_R_519_C1').is(':checked')
-        || !jQuery('#CAPITOL5_R_5110_C1').is(':checked')
+        !(jQuery('#CAPITOL5_R_515_C1').is(':checked')
+        || jQuery('#CAPITOL5_R_516_C1').is(':checked')
+        || jQuery('#CAPITOL5_R_517_C1').is(':checked')
+        || jQuery('#CAPITOL5_R_518_C1').is(':checked')
+        || jQuery('#CAPITOL5_R_519_C1').is(':checked')
+        || jQuery('#CAPITOL5_R_5110_C1').is(':checked')
         )) {
 
 
