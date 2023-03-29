@@ -734,11 +734,12 @@ function validateCapitol2(values, webform) {
 
 //End   48-004 - 48-006
 
+    values.CAPITOL1_R114_C1 = values.CAPITOL1_R114_C1.trim(); // removes blank spaces from both sides
+
 //Start 48-040
 
     if ( (!(jQuery('#CAPITOL2_R_211_C1').is(':checked') || jQuery('#CAPITOL2_R_211_C2').is(':checked')))
-
-        && (values.CAPITOL1_R114_C1 == '1.1.1' || values.CAPITOL1_R114_C1 == '1.1.2' || values.CAPITOL1_R114_C1 == '1.1.3')
+        &&  (['1.1.1', '1.1.2', '1.1.3'].includes(values.CAPITOL1_R114_C1))   
     ) {
         webform.errors.push({
             'fieldName': 'CAPITOL2_R_211_C1',
@@ -754,7 +755,10 @@ function validateCapitol2(values, webform) {
 
     if ((!(jQuery('#CAPITOL2_R_212_C1').is(':checked') || jQuery('#CAPITOL2_R_212_C2').is(':checked')))
 
-        && (values.CAPITOL1_R114_C1 == '1.1.1' || values.CAPITOL1_R114_C1 == '1.1.2' || values.CAPITOL1_R114_C1 == '1.1.3')
+        && 
+        (['1.1.1', '1.1.2', '1.1.3'].includes(values.CAPITOL1_R114_C1))
+        
+
     ) {
         webform.errors.push({
             'fieldName': 'CAPITOL2_R_212_C1',
@@ -850,37 +854,6 @@ function validateCapitol2(values, webform) {
 
 
 
-//     //Start 48-046
-    
-
-    
-//     if (((R_233 <= 100 && R_233 != 0) || (R_234 <= 100 && R_233 != 0))
-    
-//         && !(
-            
-//         jQuery('#CAPITOL5_R_515_C1').is(':checked') || jQuery('#CAPITOL5_R_516_C1').is(':checked')
-//         || jQuery('#CAPITOL5_R_517_C1').is(':checked') || jQuery('#CAPITOL5_R_518_C1').is(':checked')
-//         || jQuery('#CAPITOL5_R_519_C1').is(':checked') || jQuery('#CAPITOL5_R_5110_C1').is(':checked')
-        
-//         )
-    
-//     ) {
-
-
-//         webform.errors.push({
-//             'fieldName': 'CAPITOL2_R_236_C1',
-//             'index': 0,
-//             'msg': Drupal.t('Cod eroare: 48-046 Cap.2 Dacă Rind. 2.3.3 si/sau 2.3.4 <=100, atunci Rind. 5.1.5 - 5.1.10 - da, @R_233 <= 100, @R_234 <= 100', { "@R_233": R_233, "@R_234": R_234 })
-
-            
-//         });
-
-
-
-//     }
-
-// //End 48-046
-
 
 //Start 48-048
  if (
@@ -888,7 +861,7 @@ function validateCapitol2(values, webform) {
     || jQuery('#CAPITOL2_R_212_C1').is(':checked') 
     || jQuery('#CAPITOL2_R_221_C1').is(':checked') 
     || jQuery('#CAPITOL2_R_222_C1').is(':checked') 
-            || jQuery('#CAPITOL2_R_223_C1').is(':checked')) && (sum_33_36 != 100 && sum_33_36 != 0)
+            || jQuery('#CAPITOL2_R_223_C1').is(':checked')) && (sum_33_36 != 100)
 
 
 
@@ -905,6 +878,22 @@ function validateCapitol2(values, webform) {
 
 //End 48-048
 
+
+
+    //Start 48-030
+    if (jQuery('#CAPITOL3_R_313_C1').is(':checked') && !jQuery('#CAPITOL5_R_515_C1').is(':checked')) 
+    {
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL3_R_313_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-030: Cap.3 Dacă răspundeți ”DA”  la Rind. 3.1.3, Rind. 5.1.5 trebuie completat cu "DA"')
+        });
+
+    }
+
+//End 48-030
 
 
 

@@ -1,8 +1,8 @@
 SELECT 
       L.CONTROL,
---      L.CONTROL_VERS,
+      L.CONTROL_VERS,
       L.FORMULA,
---      L.SQL_TEXT,
+      L.SQL_TEXT,
       L.PRIORITATEA,
       L.STATUT
       
@@ -31,7 +31,7 @@ SELECT
         
          WHERE
          1=1
-         AND A.FORM  = 17
+         AND A.FORM  = 48
                
          GROUP BY 
           A.CONTROL
@@ -44,10 +44,10 @@ SELECT
         
          WHERE
          1=1
-         AND B.FORM  = 17
+         AND B.FORM  = 48
          AND B.STATUT <> '3'
          
-      --   AND B.CONTROL LIKE '17-4%'
+     --    AND B.CONTROL LIKE '48-043%'
       --   AND B.SQL_TEXT  LIKE '%D.CAPITOL in (1004)%'
          
 --         AND 
@@ -64,6 +64,19 @@ SELECT
          
          ORDER BY 
           B.CONTROL ) L
+          
+          
+          
+          
+          WHERE 
+          1=1
+          AND (
+          L.FORMULA LIKE '%Cap.3%'
+          OR 
+          L.FORMULA LIKE '%Cap.2%'
+          
+          )
+          
           
           ORDER BY 
           L.CONTROL
