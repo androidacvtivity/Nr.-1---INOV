@@ -665,27 +665,6 @@ webform.validators.inov1 = function (v, allowOverpass) {
 
     //Start--48-03902
 
-    // if ((values.CAPITOL1_R111_C1 == true  || values.CAPITOL1_R112_C1 == true || values.CAPITOL1_R113_C1 == true) &&
-    //     ! (values.CAPITOL1_R114_C1 == '1.1.1' || values.CAPITOL1_R114_C1 == '1.1.2' || values.CAPITOL1_R114_C1 == '1.1.3')
-
-
-          
-    //     ) {
-    //     webform.errors.push({
-    //         'fieldName': 'CAPITOL1_R114_C1',
-    //         'index': 0,
-    //         'msg': Drupal.t('Cod eroare: 48-03902 Trebuie de indicat din Cap.1.1 numărul rândului 1.1.1 sau 1.1.2 sau 1.1.3')
-    //     });
-    // }
-
-    // if ((values.CAPITOL1_R111_C1 || values.CAPITOL1_R112_C1 || values.CAPITOL1_R113_C1) &&
-    //     !(values.CAPITOL1_R114_C1 === '1.1.1' || values.CAPITOL1_R114_C1 === '1.1.2' || values.CAPITOL1_R114_C1 === '1.1.3')) {
-    //     webform.errors.push({
-    //         'fieldName': 'CAPITOL1_R114_C1',
-    //         'index': 0,
-    //         'msg': Drupal.t('Cod eroare: 48-03902 Trebuie de indicat din Cap.1.1 numărul rândului 1.1.1 sau 1.1.2 sau 1.1.3')
-    //     });
-    // }
 
     if ((values.CAPITOL1_R111_C1 || values.CAPITOL1_R112_C1 || values.CAPITOL1_R113_C1) &&
         !(['1.1.1', '1.1.2', '1.1.3'].includes(values.CAPITOL1_R114_C1.trim()))
@@ -877,10 +856,97 @@ function validateCapitol2(values, webform) {
            }
 
 //End 48-048
+//Start 48-047
+
+    if (!isNaN(Number(values["CAPITOL5_R_521_C1"]))) {
+        var R_521 = Number(values["CAPITOL5_R_521_C1"]);
+    }
+
+    if (!isNaN(Number(values["CAPITOL5_R_522_C1"]))) {
+        var R_522 = Number(values["CAPITOL5_R_522_C1"]);
+    }
+
+    if (!isNaN(Number(values["CAPITOL5_R_523_C1"]))) {
+        var R_523 = Number(values["CAPITOL5_R_523_C1"]);
+    }
+
+    if (!isNaN(Number(values["CAPITOL5_R_524_C1"]))) {
+        var R_524 = Number(values["CAPITOL5_R_524_C1"]);
+    }
+    
+    if (!isNaN(Number(values["CAPITOL5_R_525_C1"]))) {
+        var R_525 = Number(values["CAPITOL5_R_525_C1"]);
+    }
 
 
+    if (
 
-    //Start 48-030
+           (jQuery('#CAPITOL5_R_515_C1').is(':checked')
+            || jQuery('#CAPITOL5_R_516_C1').is(':checked')
+            || jQuery('#CAPITOL5_R_517_C1').is(':checked')
+            || jQuery('#CAPITOL5_R_518_C1').is(':checked')
+            || jQuery('#CAPITOL5_R_519_C1').is(':checked')
+            || jQuery('#CAPITOL5_R_5110_C1').is(':checked'))
+        && (R_521 < 1000 || R_522 < 1000 || R_523 < 1000 || R_524 < 1000 || R_525 < 1000  )      )
+
+{
+     
+
+        if (jQuery('#CAPITOL5_R_515_C1').is(':checked')){
+        webform.errors.push({
+            'fieldName': 'CAPITOL5_R_515_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-047: Cap.2 Daca Rind. 5.1.5 si/sau 5.1.10 = Da  atunci Rind. 5.2.1 si/sau 5.2.5>= 1000')
+        });
+       }
+
+        if (jQuery('#CAPITOL5_R_516_C1').is(':checked')) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL5_R_516_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare 48-047: Cap.2 Daca Rind. 5.1.5 si/sau 5.1.10 = Da  atunci Rind. 5.2.1 si/sau 5.2.5>= 1000')
+            });
+    }
+
+        if (jQuery('#CAPITOL5_R_517_C1').is(':checked')) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL5_R_517_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare 48-047: Cap.2 Daca Rind. 5.1.5 si/sau 5.1.10 = Da  atunci Rind. 5.2.1 si/sau 5.2.5>= 1000')
+            });
+        }
+    
+
+        if (jQuery('#CAPITOL5_R_518_C1').is(':checked')) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL5_R_518_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare 48-047: Cap.2 Daca Rind. 5.1.5 si/sau 5.1.10 = Da  atunci Rind. 5.2.1 si/sau 5.2.5>= 1000')
+            });
+        }
+
+        if (jQuery('#CAPITOL5_R_519_C1').is(':checked')) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL5_R_519_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare 48-047: Cap.2 Daca Rind. 5.1.5 si/sau 5.1.10 = Da  atunci Rind. 5.2.1 si/sau 5.2.5>= 1000')
+            });
+        }
+
+        if (jQuery('#CAPITOL5_R_5110_C1').is(':checked')) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL5_R_5110_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare 48-047: Cap.2 Daca Rind. 5.1.5 si/sau 5.1.10 = Da  atunci Rind. 5.2.1 si/sau 5.2.5>= 1000')
+            });
+        }
+
+    
+}
+
+    
+//End 48-047
+//Start 48-030
     if (jQuery('#CAPITOL3_R_313_C1').is(':checked') && !jQuery('#CAPITOL5_R_515_C1').is(':checked')) 
     {
 
@@ -911,28 +977,7 @@ function validateCapitol2(values, webform) {
     }
 
 //End 48-031.1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-    //Start 48-031
+//Start 48-031
 
     var R_523_C = Number(values.CAPITOL5_R_523_C1);
     if ((jQuery('#CAPITOL3_R_311_C1').is(':checked') || jQuery('#CAPITOL3_R_312_C1').is(':checked') || jQuery('#CAPITOL3_R_313_C1').is(':checked'))  && R_523_C == 0 ) {
@@ -947,12 +992,6 @@ function validateCapitol2(values, webform) {
     }
 
 //End 48-031
-
-
-
-
-
-
  //Start 46-046
 
 
@@ -964,7 +1003,10 @@ function validateCapitol2(values, webform) {
         || jQuery('#CAPITOL5_R_518_C1').is(':checked')
         || jQuery('#CAPITOL5_R_519_C1').is(':checked')
         || jQuery('#CAPITOL5_R_5110_C1').is(':checked')
-        )) {
+        )) 
+        
+        
+        {
 
 
 
