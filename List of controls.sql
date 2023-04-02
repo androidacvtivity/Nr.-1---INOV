@@ -73,7 +73,7 @@ SELECT
           AND (
           L.FORMULA LIKE '%Cap.3%'
           OR 
-          L.FORMULA LIKE '%Cap.2%'
+          L.FORMULA LIKE '%Cap.4%'
           
           )
           
