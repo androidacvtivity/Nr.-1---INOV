@@ -897,6 +897,26 @@ function validateCapitol2(values, webform) {
 
 
 
+ 
+    //Start 48-031
+
+    var R_523_C = Number(values.CAPITOL5_R_523_C1);
+    if ((jQuery('#CAPITOL3_R_311_C1').is(':checked') || jQuery('#CAPITOL3_R_312_C1').is(':checked') || jQuery('#CAPITOL3_R_313_C1').is(':checked'))  && R_523_C == 0 ) {
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL5_R_523_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-031: Cap.3 Dacă Rind. 3.1.1 - 3.1.3 si Rind. 5.1.5 =" DA", atunci Rind. 5.2.3 > 0')
+        });
+
+    }
+
+//End 48-031
+
+
+
+
 
 
  //Start 46-046
@@ -1053,6 +1073,8 @@ function validateCapitol2(values, webform) {
 }
 
 //End 46-046
+
+
 
 
 
