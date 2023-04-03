@@ -723,9 +723,49 @@ function validateCapitol2(values, webform) {
             (jQuery('#CAPITOL2_R_212_C1').is(':checked') || jQuery('#CAPITOL2_R_212_C2').is(':checked')) &&  // 3 Condition: One of the two checkboxes must be checked
             (jQuery('#CAPITOL3_R_311_C1').is(':checked') || jQuery('#CAPITOL3_R_311_C2').is(':checked')) &&  // 4 Condition: One of the two checkboxes must be checked
             (jQuery('#CAPITOL3_R_312_C1').is(':checked') || jQuery('#CAPITOL3_R_312_C2').is(':checked')) &&  // 5 Condition: One of the two checkboxes must be checked
-            (jQuery('#CAPITOL3_R_313_C1').is(':checked') || jQuery('#CAPITOL3_R_313_C2').is(':checked'))     // 6 Condition: One of the two checkboxes must be checked
+            (jQuery('#CAPITOL3_R_313_C1').is(':checked') || jQuery('#CAPITOL3_R_313_C2').is(':checked')) &&    // 6 Condition: One of the two checkboxes must be checked
+
+            (jQuery('#CAPITOL4_R_411_C1').is(':checked') || jQuery('#CAPITOL4_R_411_C2').is(':checked')) &&
+            (jQuery('#CAPITOL4_R_412_C1').is(':checked') || jQuery('#CAPITOL4_R_412_C2').is(':checked'))
         )
     ) {
+
+
+
+
+        if ((!jQuery('#CAPITOL4_R_411_C1').is(':checked') && !jQuery('#CAPITOL4_R_411_C2').is(':checked')))
+            webform.errors.push({
+                'fieldName': 'CAPITOL4_R_411_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-051. Cap.4  Rind. (4.1.1 sau 4.1.2) trebuie sa fie bifat obligatoriu')
+            });
+
+
+        if ((!jQuery('#CAPITOL4_R_411_C1').is(':checked') && !jQuery('#CAPITOL4_R_411_C2').is(':checked')))
+            webform.errors.push({
+                'fieldName': 'CAPITOL4_R_411_C2',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-051. Cap.4  Rind. (4.1.1 sau 4.1.2) trebuie sa fie bifat obligatoriu')
+            });
+
+
+        if ((!jQuery('#CAPITOL4_R_412_C1').is(':checked') && !jQuery('#CAPITOL4_R_412_C2').is(':checked')))
+            webform.errors.push({
+                'fieldName': 'CAPITOL4_R_412_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-051. Cap.4  Rind. (4.1.1 sau 4.1.2) trebuie sa fie bifat obligatoriu')
+            });
+
+
+        if ((!jQuery('#CAPITOL4_R_412_C1').is(':checked') && !jQuery('#CAPITOL4_R_412_C2').is(':checked')))
+            webform.errors.push({
+                'fieldName': 'CAPITOL4_R_412_C2',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-051. Cap.4  Rind. (4.1.1 sau 4.1.2) trebuie sa fie bifat obligatoriu')
+            });
+
+
+//------------------------------------------------------------------------
 
 
 
@@ -743,6 +783,13 @@ function validateCapitol2(values, webform) {
                 'index': 0,
                 'msg': Drupal.t('Cod eroare: 48-040. Cap.2 Rind. 2.1.1 si Rind. 2.1.2 trebuie sa fie bifat obligatoriu')
             });
+
+
+
+
+
+
+
 
         if ((!jQuery('#CAPITOL2_R_212_C1').is(':checked') && !jQuery('#CAPITOL2_R_212_C2').is(':checked')))
             webform.errors.push({
@@ -813,23 +860,7 @@ function validateCapitol2(values, webform) {
 // End 48-040
 
 
-    // //Start 48-0401
 
-    // if ((!(jQuery('#CAPITOL2_R_212_C1').is(':checked') || jQuery('#CAPITOL2_R_212_C2').is(':checked')))
-
-    //     && 
-    //     (['1.1.1', '1.1.2', '1.1.3'].includes(values.CAPITOL1_R114_C1))
-        
-
-    // ) {
-    //     webform.errors.push({
-    //         'fieldName': 'CAPITOL2_R_212_C1',
-    //         'index': 0,
-    //         'msg': Drupal.t('Cod eroare: 48-0401. Cap.2 Rind. 2.1.2  trebuie sa fie bifat obligatoriu')
-    //     });
-    // }
-
-    //End 48-0401
 
 
 

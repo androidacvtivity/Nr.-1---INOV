@@ -70,12 +70,15 @@ SELECT
           
           WHERE 
           1=1
+                  
           AND (
           L.FORMULA LIKE '%Cap.3%'
           OR 
           L.FORMULA LIKE '%Cap.4%'
           
-          )
+           OR 
+          L.FORMULA LIKE '%Cap.2%'
+  )
           
           
           ORDER BY 
