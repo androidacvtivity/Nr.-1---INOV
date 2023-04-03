@@ -642,7 +642,16 @@ webform.validators.inov1 = function (v, allowOverpass) {
     //Start--48-1
     if ((
         jQuery('#CAPITOL2_R_211_C1').is(':checked') || jQuery('#CAPITOL2_R_211_C2').is(':checked') ||
-        jQuery('#CAPITOL2_R_212_C1').is(':checked') || jQuery('#CAPITOL2_R_212_C2').is(':checked')
+        jQuery('#CAPITOL2_R_212_C1').is(':checked') || jQuery('#CAPITOL2_R_212_C2').is(':checked') ||
+   
+        //---2
+
+        jQuery('#CAPITOL2_R_221_C1').is(':checked') || jQuery('#CAPITOL2_R_221_C2').is(':checked') ||
+        jQuery('#CAPITOL2_R_222_C1').is(':checked') || jQuery('#CAPITOL2_R_222_C2').is(':checked') ||
+
+        jQuery('#CAPITOL2_R_223_C1').is(':checked') || jQuery('#CAPITOL2_R_223_C2').is(':checked') ||
+        jQuery('#CAPITOL2_R_224_C1').is(':checked') || jQuery('#CAPITOL2_R_224_C2').is(':checked')
+
     ) &&
         (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false))  {
 
@@ -684,6 +693,98 @@ webform.validators.inov1 = function (v, allowOverpass) {
                 'msg': Drupal.t('Cod eroare: 48-1  Daca este 2.1.1  - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3')
             });
         }
+
+
+        //----2
+        if ((jQuery('#CAPITOL2_R_221_C1').is(':checked')) &&
+            (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL2_R_221_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-1  Daca este 2.2.1  - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3')
+            });
+        }
+
+
+        //----
+        if ((jQuery('#CAPITOL2_R_221_C2').is(':checked')) &&
+            (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL2_R_221_C2',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-1  Daca este 2.2.1  - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3')
+            });
+        }
+
+
+        //----3
+        if ((jQuery('#CAPITOL2_R_222_C1').is(':checked')) &&
+            (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL2_R_222_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-1  Daca este 2.2.2  - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3')
+            });
+        }
+
+
+        //----
+        if ((jQuery('#CAPITOL2_R_222_C2').is(':checked')) &&
+            (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL2_R_222_C2',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-1  Daca este 2.2.2  - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3')
+            });
+        }
+
+
+        //----3
+        if ((jQuery('#CAPITOL2_R_223_C1').is(':checked')) &&
+            (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL2_R_223_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-1  Daca este 2.2.3  - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3')
+            });
+        }
+
+
+        //----
+        if ((jQuery('#CAPITOL2_R_223_C2').is(':checked')) &&
+            (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL2_R_223_C2',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-1  Daca este 2.2.3  - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3')
+            });
+        }
+
+
+        //----4
+        if ((jQuery('#CAPITOL2_R_224_C1').is(':checked')) &&
+            (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL2_R_224_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-1  Daca este 2.2.4  - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3')
+            });
+        }
+
+
+        //----
+        if ((jQuery('#CAPITOL2_R_224_C2').is(':checked')) &&
+            (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL2_R_224_C2',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-1  Daca este 2.2.4  - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3')
+            });
+        }
+
+
+
+
 
     }
     //End--48-1
