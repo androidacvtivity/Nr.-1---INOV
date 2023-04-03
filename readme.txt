@@ -129,3 +129,7 @@ CUIIO	   SERV_CODUL	SERV_CODUL_OLD	COL1	DENUMIRE	COL2	COL3	COL4	COL5
 41275708	9999999	    8424	512		9999999	45671584	0	45671584
 41275708	62.01.29	842		Sisteme de programe ce pot fi descărcate on-line  - SRL "GOPARROT"	620129	0	23847101	-23847101
 41275708	62.01.12	8424	512	Servicii de proiectare și dezvoltare IT pentru rețele și sisteme  - Societatea cu Raspundere Limitata "GOPARROT"	620112	45671584	0	45671584
+
+
+Nr. 1 INOV 
+Daca raportul nu are date si s-a completat  telefonul. Se poate salva si se poate trimte ? 

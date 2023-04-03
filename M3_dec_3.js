@@ -438,6 +438,9 @@
             }
         }
 
+
+
+        //-----------------------------------------------------------
         if (toFloat(values.CAPV_R3_1_1_C1) > toFloat(values.CAPV_R3_1_C1)) {
             webform.errors.push({
                 'fieldName': 'CAPV_R3_1_1_C1',
@@ -449,6 +452,11 @@
                 'msg': Drupal.t('Cod eroare: 03-094 - CAP.V: Rândul 3.1.1<= Rândul 3.1')
             });
         }
+
+        // ------------------------------------------------------------
+
+
+
 
         var cap1a_c1_00T = toFloat(values.CAPIa_R00_T_C2);
         var cap3_c1_fields = [
