@@ -2393,8 +2393,60 @@ function validateCapitol2(values, webform) {
 //End 48-038
 
 
+    //Start 48-053
+    if (jQuery('#CAPITOL6_R_611_C1').is(':checked') &&
+        (
+            !(jQuery('#CAPITOL6_R_621_C1').is(':checked') || jQuery('#CAPITOL6_R_621_C2').is(':checked') || jQuery('#CAPITOL6_R_621_C3').is(':checked')) &&
+        !(jQuery('#CAPITOL6_R_622_C1').is(':checked') || jQuery('#CAPITOL6_R_622_C2').is(':checked') || jQuery('#CAPITOL6_R_622_C3').is(':checked')) &&
+        !(jQuery('#CAPITOL6_R_623_C1').is(':checked') || jQuery('#CAPITOL6_R_623_C2').is(':checked') || jQuery('#CAPITOL6_R_623_C3').is(':checked')) &&
+        !(jQuery('#CAPITOL6_R_624_C1').is(':checked') || jQuery('#CAPITOL6_R_624_C2').is(':checked') || jQuery('#CAPITOL6_R_624_C3').is(':checked')) &&
+        !(jQuery('#CAPITOL6_R_625_C1').is(':checked') || jQuery('#CAPITOL6_R_625_C2').is(':checked') || jQuery('#CAPITOL6_R_625_C3').is(':checked')) &&
+        !(jQuery('#CAPITOL6_R_626_C1').is(':checked') || jQuery('#CAPITOL6_R_626_C2').is(':checked') || jQuery('#CAPITOL6_R_626_C3').is(':checked')) &&
+        !(jQuery('#CAPITOL6_R_627_C1').is(':checked') || jQuery('#CAPITOL6_R_627_C2').is(':checked') || jQuery('#CAPITOL6_R_627_C3').is(':checked')) &&
+            !(jQuery('#CAPITOL6_R_628_C1').is(':checked') || jQuery('#CAPITOL6_R_628_C2').is(':checked') || jQuery('#CAPITOL6_R_628_C3').is(':checked'))
+            
+            
+            )
+    ) {
 
 
+        webform.errors.push({
+            'fieldName': 'CAPITOL6_R_611_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-053: Cap.6  Dacă  ați bifat ”Da” la Rind. 6.1.1,  trebuie completat  6.2 ')
+        });
+
+    }
+
+//End 48-053
+
+
+    //Start 48-054
+    if (!jQuery('#CAPITOL6_R_611_C1').is(':checked') &&
+        (
+            (jQuery('#CAPITOL6_R_621_C1').is(':checked') || jQuery('#CAPITOL6_R_621_C2').is(':checked') || jQuery('#CAPITOL6_R_621_C3').is(':checked')) ||
+            (jQuery('#CAPITOL6_R_622_C1').is(':checked') || jQuery('#CAPITOL6_R_622_C2').is(':checked') || jQuery('#CAPITOL6_R_622_C3').is(':checked')) ||
+            (jQuery('#CAPITOL6_R_623_C1').is(':checked') || jQuery('#CAPITOL6_R_623_C2').is(':checked') || jQuery('#CAPITOL6_R_623_C3').is(':checked')) ||
+            (jQuery('#CAPITOL6_R_624_C1').is(':checked') || jQuery('#CAPITOL6_R_624_C2').is(':checked') || jQuery('#CAPITOL6_R_624_C3').is(':checked')) ||
+            (jQuery('#CAPITOL6_R_625_C1').is(':checked') || jQuery('#CAPITOL6_R_625_C2').is(':checked') || jQuery('#CAPITOL6_R_625_C3').is(':checked')) ||
+            (jQuery('#CAPITOL6_R_626_C1').is(':checked') || jQuery('#CAPITOL6_R_626_C2').is(':checked') || jQuery('#CAPITOL6_R_626_C3').is(':checked')) ||
+            (jQuery('#CAPITOL6_R_627_C1').is(':checked') || jQuery('#CAPITOL6_R_627_C2').is(':checked') || jQuery('#CAPITOL6_R_627_C3').is(':checked')) ||
+            (jQuery('#CAPITOL6_R_628_C1').is(':checked') || jQuery('#CAPITOL6_R_628_C2').is(':checked') || jQuery('#CAPITOL6_R_628_C3').is(':checked'))
+
+
+        )
+    ) {
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL6_R_611_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-054: Cap.6  Dacă  ați bifat Cap. 6.2,  trebuie bifat 6.1.1 Da')
+        });
+
+    }
+
+//End 48-054
 
 
 
