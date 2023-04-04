@@ -693,21 +693,41 @@ webform.validators.inov1 = function (v, allowOverpass) {
 
             jQuery('#CAPITOL5_R_531_C1').is(':checked') || jQuery('#CAPITOL5_R_531_C2').is(':checked') ||
             jQuery('#CAPITOL5_R_532_C1').is(':checked') || jQuery('#CAPITOL5_R_532_C2').is(':checked') ||
-            jQuery('#CAPITOL5_R_533_C1').is(':checked') || jQuery('#CAPITOL5_R_533_C2').is(':checked') 
+            jQuery('#CAPITOL5_R_533_C1').is(':checked') || jQuery('#CAPITOL5_R_533_C2').is(':checked') ||
          
+// 6.1
 
 
+        jQuery('#CAPITOL6_R_611_C1').is(':checked') || jQuery('#CAPITOL6_R_612_C1').is(':checked') 
 
     ) &&
         (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false))  {
 
 
-        //  5.3
+       //  6.1
 
+        if ((jQuery('#CAPITOL6_R_611_C1').is(':checked')) &&
+            (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL6_R_611_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-1  Daca este 6.1.1 - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3')
+            });
+        }
 
+        if ((jQuery('#CAPITOL6_R_612_C1').is(':checked')) &&
+            (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL6_R_612_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-1  Daca este 6.1.1 - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3')
+            });
+        }
+       
+       
+            //  5.3
 
-
-        if ((jQuery('#CAPITOL5_R_533_C2').is(':checked')) &&
+       if ((jQuery('#CAPITOL5_R_533_C2').is(':checked')) &&
             (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
             webform.errors.push({
                 'fieldName': 'CAPITOL5_R_533_C2',
