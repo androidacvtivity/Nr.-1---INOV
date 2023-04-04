@@ -686,7 +686,10 @@ webform.validators.inov1 = function (v, allowOverpass) {
             jQuery('#CAPITOL5_R_514_C1').is(':checked') || jQuery('#CAPITOL5_R_514_C2').is(':checked') ||
             jQuery('#CAPITOL5_R_515_C2').is(':checked') || jQuery('#CAPITOL5_R_516_C2').is(':checked') ||
             jQuery('#CAPITOL5_R_517_C2').is(':checked') || jQuery('#CAPITOL5_R_518_C2').is(':checked') ||
-            jQuery('#CAPITOL5_R_519_C2').is(':checked') || jQuery('#CAPITOL5_R_5110_C2').is(':checked')
+            jQuery('#CAPITOL5_R_519_C2').is(':checked') || jQuery('#CAPITOL5_R_5110_C2').is(':checked')||
+
+             values.CAPITOL5_R_526_C1 > 0
+
 
 
 
@@ -694,6 +697,16 @@ webform.validators.inov1 = function (v, allowOverpass) {
     ) &&
         (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false))  {
 
+
+         // 5.2 
+        if (values.CAPITOL5_R_526_C1 > 0 &&
+            (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL5_R_526_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-1  Daca este 5.2.6  - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3')
+            });
+        }
 
         //  5.1
 
