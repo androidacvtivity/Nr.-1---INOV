@@ -2269,6 +2269,147 @@ function validateCapitol2(values, webform) {
 
 
 //End 48-015
+   //Start 48-016
+    if ((!jQuery('#CAPITOL5_R_512_C1').is(':checked') && !jQuery('#CAPITOL5_R_513_C1').is(':checked'))  && jQuery('#CAPITOL5_R_511_C1').is(':checked')) {
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL5_R_512_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-016: Cap.5 Daca Rind 5.1.1 este bifat, trebuie bifat Rind 5.1.2 si/sau Rind 5.1.3')
+        });
+
+    }
+
+
+    if ((!jQuery('#CAPITOL5_R_512_C1').is(':checked') && !jQuery('#CAPITOL5_R_513_C1').is(':checked')) && jQuery('#CAPITOL5_R_511_C1').is(':checked')) {
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL5_R_513_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-016: Cap.5 Daca Rind 5.1.1 este bifat, trebuie bifat Rind 5.1.2 si/sau Rind 5.1.3')
+        });
+
+    }
+
+
+//End 48-016
+
+
+    //Start 48-032
+    if ((values.CAPITOL5_R_521_C1 == 0 || isNaN(Number(values["CAPITOL5_R_521_C1"]))) && jQuery('#CAPITOL5_R_511_C1').is(':checked') ) {
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL5_R_521_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-032: Cap.5 Dacă Rind. 5.1.1 este "DA" , completati Rind.  5.2.1')
+        });
+
+    }
+
+//End 48-032
+
+
+
+    //Start 48-033
+    if ((values.CAPITOL5_R_522_C1 == 0 || isNaN(Number(values["CAPITOL5_R_522_C1"]))) && jQuery('#CAPITOL5_R_514_C1').is(':checked')) {
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL5_R_522_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-033: Cap.5 Dacă Rind. 5.1.4 este "DA" , completati Rind.  5.2.2')
+        });
+
+    }
+
+//End 48-033
+
+
+
+    //Start 48-034
+    if ((values.CAPITOL5_R_523_C1 == 0 || isNaN(Number(values["CAPITOL5_R_523_C1"]))) && jQuery('#CAPITOL5_R_515_C1').is(':checked')) {
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL5_R_523_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-034: Cap.5 Dacă Rind. 5.1.5 este "DA" , completati Rind.  5.2.3')
+        });
+
+    }
+
+//End 48-034
+
+
+
+
+    //Start 48-035
+    if ((values.CAPITOL5_R_524_C1 == 0 || isNaN(Number(values["CAPITOL5_R_524_C1"]))) && jQuery('#CAPITOL5_R_516_C1').is(':checked')) {
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL5_R_524_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-035: Cap.5 Dacă Rind. 5.1.6 este "DA" , completati Rind.  5.2.4')
+        });
+
+    }
+
+//End 48-035
+
+
+
+    //Start 48-037
+    if (!jQuery('#CAPITOL8_R_811_C1').is(':checked') && jQuery('#CAPITOL5_R_519_C1').is(':checked')) {
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL8_R_811_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-037: Cap.5 Dacă Rind. 5.1.9. este "DA" , atunci Rind 8.1.1 = "DA"')
+        });
+
+    }
+
+//End 48-037
+
+
+
+    //Start 48-038
+    if ((values.CAPITOL5_R_525_C1 == 0 || isNaN(Number(values["CAPITOL5_R_525_C1"]))) && jQuery('#CAPITOL5_R_5110_C1').is(':checked')) {
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL5_R_525_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-038: Cap.5 Dacă Rind. 5.1.10 este "DA" , completati Rind.  5.2.5 ')
+        });
+
+    }
+
+//End 48-038
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //Start 48-030
