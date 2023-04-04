@@ -747,15 +747,7 @@ webform.validators.inov1 = function (v, allowOverpass) {
    
         // 9.1
 
-// // Shwo this  value values.CAPITOL9_R92_C1 in  'msg': Drupal.t
-//         if (values.CAPITOL9_R92_C1 !== ""   &&
-//             (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
-//             webform.errors.push({
-//                 'fieldName': 'CAPITOL9_R92_C1',
-//                 'index': 0,
-//                 'msg': Drupal.t('Cod eroare: 48-1  Daca este - 9.2   [values.CAPITOL9_R92_C1]  - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3')
-//             });
-//         }
+
 
         if (values.CAPITOL9_R92_C1 !== "" &&
             (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
@@ -2248,6 +2240,37 @@ function validateCapitol2(values, webform) {
 
     
 //End 48-047
+
+
+//Start 48-015
+    if (jQuery('#CAPITOL5_R_512_C1').is(':checked') && !jQuery('#CAPITOL5_R_511_C1').is(':checked')) {
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL5_R_512_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-015: Cap.5 Rind. (5.1.2, 5.1.3 )  se bifeaza daca Rind. 5.1.1 este bifat cu DA')
+        });
+
+    }
+
+
+    if (jQuery('#CAPITOL5_R_513_C1').is(':checked') && !jQuery('#CAPITOL5_R_511_C1').is(':checked')) {
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL5_R_513_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-015: Cap.5 Rind. (5.1.2, 5.1.3 )  se bifeaza daca Rind. 5.1.1 este bifat cu DA')
+        });
+
+    }
+
+
+
+//End 48-015
+
+
 //Start 48-030
     if (jQuery('#CAPITOL3_R_313_C1').is(':checked') && !jQuery('#CAPITOL5_R_515_C1').is(':checked')) 
     {
