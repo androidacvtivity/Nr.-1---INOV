@@ -724,11 +724,61 @@ webform.validators.inov1 = function (v, allowOverpass) {
         jQuery('#CAPITOL8_R_811_C1').is(':checked') || jQuery('#CAPITOL8_R_811_C2').is(':checked') ||
         jQuery('#CAPITOL8_R_812_C1').is(':checked') || jQuery('#CAPITOL8_R_812_C2').is(':checked') ||
         jQuery('#CAPITOL8_R_813_C1').is(':checked') || jQuery('#CAPITOL8_R_813_C2').is(':checked') ||
-        jQuery('#CAPITOL8_R_814_C1').is(':checked') || jQuery('#CAPITOL8_R_814_C2').is(':checked')
+        jQuery('#CAPITOL8_R_814_C1').is(':checked') || jQuery('#CAPITOL8_R_814_C2').is(':checked') ||
 
+
+
+        //9.1
+
+        values.CAPITOL9_R91_C1 > 0   ||
+
+        values.CAPITOL9_R92_C1  !== ""
+
+
+
+
+
+        
 
     ) &&
         (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false))  {
+
+
+   
+        // 9.1
+
+// // Shwo this  value values.CAPITOL9_R92_C1 in  'msg': Drupal.t
+//         if (values.CAPITOL9_R92_C1 !== ""   &&
+//             (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
+//             webform.errors.push({
+//                 'fieldName': 'CAPITOL9_R92_C1',
+//                 'index': 0,
+//                 'msg': Drupal.t('Cod eroare: 48-1  Daca este - 9.2   [values.CAPITOL9_R92_C1]  - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3')
+//             });
+//         }
+
+        if (values.CAPITOL9_R92_C1 !== "" &&
+            (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
+            var errorMsg = Drupal.t("Cod eroare: 48-1 Daca este - 9.2 [") + values.CAPITOL9_R92_C1 + Drupal.t("] - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3");
+            webform.errors.push({
+                'fieldName': 'CAPITOL9_R92_C1',
+                'index': 0,
+                'msg': errorMsg
+            });
+        }
+
+
+        if (values.CAPITOL9_R91_C1 > 0 &&
+            (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL9_R91_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-1  Daca este - Timp total consumat - minute  - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3')
+            });
+        }
+
+
+
 
 
         //  8.1
