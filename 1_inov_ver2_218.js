@@ -708,10 +708,81 @@ webform.validators.inov1 = function (v, allowOverpass) {
         jQuery('#CAPITOL6_R_625_C1').is(':checked') || jQuery('#CAPITOL6_R_625_C2').is(':checked') || jQuery('#CAPITOL6_R_625_C3').is(':checked') ||
         jQuery('#CAPITOL6_R_626_C1').is(':checked') || jQuery('#CAPITOL6_R_626_C2').is(':checked') || jQuery('#CAPITOL6_R_626_C3').is(':checked') ||
         jQuery('#CAPITOL6_R_627_C1').is(':checked') || jQuery('#CAPITOL6_R_627_C2').is(':checked') || jQuery('#CAPITOL6_R_627_C3').is(':checked') ||
-        jQuery('#CAPITOL6_R_628_C1').is(':checked') || jQuery('#CAPITOL6_R_628_C2').is(':checked') || jQuery('#CAPITOL6_R_628_C3').is(':checked') 
+        jQuery('#CAPITOL6_R_628_C1').is(':checked') || jQuery('#CAPITOL6_R_628_C2').is(':checked') || jQuery('#CAPITOL6_R_628_C3').is(':checked')  ||
+
+
+    // 7.1
+
+        jQuery('#CAPITOL7_R_711_C1').is(':checked') || jQuery('#CAPITOL7_R_711_C2').is(':checked') ||
+        jQuery('#CAPITOL7_R_712_C1').is(':checked') || jQuery('#CAPITOL7_R_712_C2').is(':checked') ||
+        jQuery('#CAPITOL7_R_713_C1').is(':checked') || jQuery('#CAPITOL7_R_713_C2').is(':checked') 
 
     ) &&
         (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false))  {
+
+
+ //  7.1
+
+
+        if ((jQuery('#CAPITOL7_R_711_C1').is(':checked')) &&
+            (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL7_R_711_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-1  Daca este 7.1.1  - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3')
+            });
+        }
+
+
+        if ((jQuery('#CAPITOL7_R_711_C2').is(':checked')) &&
+            (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL7_R_711_C2',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-1  Daca este 7.1.1  - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3')
+            });
+        }
+
+
+
+        if ((jQuery('#CAPITOL7_R_712_C1').is(':checked')) &&
+            (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL7_R_712_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-1  Daca este 7.1.2  - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3')
+            });
+        }
+
+
+        if ((jQuery('#CAPITOL7_R_712_C2').is(':checked')) &&
+            (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL7_R_712_C2',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-1  Daca este 7.1.2  - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3')
+            });
+        }
+
+        if ((jQuery('#CAPITOL7_R_713_C1').is(':checked')) &&
+            (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL7_R_713_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-1  Daca este 7.1.3  - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3')
+            });
+        }
+
+
+        if ((jQuery('#CAPITOL7_R_713_C2').is(':checked')) &&
+            (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL7_R_713_C2',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare: 48-1  Daca este 7.1.3  - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3')
+            });
+        }
+
 
 
  //  6.2
