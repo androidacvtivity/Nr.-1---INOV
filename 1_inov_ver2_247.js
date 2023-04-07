@@ -2670,6 +2670,87 @@ function validateCapitol2(values, webform) {
 
 
 
+    //Start 48-070
+    if ((jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R113_C1').is(':checked') )
+        && !(jQuery('#CAPITOL6_R_611_C1').is(':checked') || jQuery('#CAPITOL6_R_612_C1').is(':checked'))
+
+    ) {
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL6_R_611_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-070: Cap.6  Rind.6.1.1 si/sau 6.1.2 bifate obligatoriu')
+        });
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL6_R_612_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-070: Cap.6  Rind.6.1.1 si/sau 6.1.2 bifate obligatoriu')
+        });
+
+    }
+
+//End 48-070
+
+
+    //Start 48-071
+    if ((jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R113_C1').is(':checked'))
+        && !(
+            jQuery('#CAPITOL7_R_711_C1').is(':checked') || jQuery('#CAPITOL7_R_711_C2').is(':checked') ||
+            jQuery('#CAPITOL7_R_712_C1').is(':checked') || jQuery('#CAPITOL7_R_712_C2').is(':checked') ||
+            jQuery('#CAPITOL7_R_713_C1').is(':checked') || jQuery('#CAPITOL7_R_713_C2').is(':checked')
+        
+        
+        )
+
+    ) {
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL7_R_711_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-071: Cap.7 Trebuie  bifat obligatoriu')
+        });
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL7_R_711_C2',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-071:  Cap.7 Trebuie obligatoriu')
+        });
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL7_R_712_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-071: Cap.7 Trebuie  bifat obligatoriu')
+        });
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL7_R_712_C2',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-071:  Cap.7 Trebuie obligatoriu')
+        });
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL7_R_713_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-071: Cap.7 Trebuie  bifat obligatoriu')
+        });
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL7_R_713_C2',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-071:  Cap.7 Trebuie obligatoriu')
+        });
+
+    }
+
+//End 48-071
+
 
 
     //Sort warnings & errors

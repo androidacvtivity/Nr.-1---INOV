@@ -1,7 +1,8 @@
 SELECT 
       L.CONTROL,
       L.CONTROL_VERS,
-      L.FORMULA,
+      L.FORMULA, 
+      SUBSTR(L.FORMULA,5,1)  AS FORMULA_MOD,
       L.SQL_TEXT,
       L.PRIORITATEA,
       L.STATUT
@@ -71,15 +72,22 @@ SELECT
           WHERE 
           1=1
                   
-          AND (
-          L.FORMULA LIKE '%Cap.3%'
-          OR 
-          L.FORMULA LIKE '%Cap.4%'
-          
-           OR 
-          L.FORMULA LIKE '%Cap.2%'
-  )
+--          AND (
+--          L.FORMULA LIKE '%Cap.3%'
+--          OR 
+--          L.FORMULA LIKE '%Cap.4%'
+--          
+--           OR 
+--          L.FORMULA LIKE '%Cap.2%'
+--            OR 
+--          L.FORMULA LIKE '%Cap.5%'
+--          
+--           OR 
+--          L.FORMULA LIKE '%Cap.6%'
+--  )
           
           
           ORDER BY 
+          SUBSTR(L.FORMULA,5,1),
           L.CONTROL
+          
