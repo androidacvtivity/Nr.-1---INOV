@@ -1,0 +1,14 @@
+
+Acest control este clar si stim ce randuri trebuie sa fie obligator daca sunt acste capitole
+ - Daca este Cap.1 trebue se fie si Cap.2, Cap3, Cap4
+
+
+Acest control nu este clar 
+--Cap.6  Rind.6.1.1 si/sau 6.1.2  completate obligatoriu
+daca explicit 
+-- Dcaca este  Cap.6 atunci Rind.6.1.1 si/sau 6.1.2  completate obligatoriu
+ si la fel pentru Cap.7  si Cap.8  si Cap. 9
+
+
+
+41300493 14 

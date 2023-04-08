@@ -2393,8 +2393,60 @@ function validateCapitol2(values, webform) {
 //End 48-038
 
 
+    //Start 48-053
+    if (jQuery('#CAPITOL6_R_611_C1').is(':checked') &&
+        (
+            !(jQuery('#CAPITOL6_R_621_C1').is(':checked') || jQuery('#CAPITOL6_R_621_C2').is(':checked') || jQuery('#CAPITOL6_R_621_C3').is(':checked')) &&
+        !(jQuery('#CAPITOL6_R_622_C1').is(':checked') || jQuery('#CAPITOL6_R_622_C2').is(':checked') || jQuery('#CAPITOL6_R_622_C3').is(':checked')) &&
+        !(jQuery('#CAPITOL6_R_623_C1').is(':checked') || jQuery('#CAPITOL6_R_623_C2').is(':checked') || jQuery('#CAPITOL6_R_623_C3').is(':checked')) &&
+        !(jQuery('#CAPITOL6_R_624_C1').is(':checked') || jQuery('#CAPITOL6_R_624_C2').is(':checked') || jQuery('#CAPITOL6_R_624_C3').is(':checked')) &&
+        !(jQuery('#CAPITOL6_R_625_C1').is(':checked') || jQuery('#CAPITOL6_R_625_C2').is(':checked') || jQuery('#CAPITOL6_R_625_C3').is(':checked')) &&
+        !(jQuery('#CAPITOL6_R_626_C1').is(':checked') || jQuery('#CAPITOL6_R_626_C2').is(':checked') || jQuery('#CAPITOL6_R_626_C3').is(':checked')) &&
+        !(jQuery('#CAPITOL6_R_627_C1').is(':checked') || jQuery('#CAPITOL6_R_627_C2').is(':checked') || jQuery('#CAPITOL6_R_627_C3').is(':checked')) &&
+            !(jQuery('#CAPITOL6_R_628_C1').is(':checked') || jQuery('#CAPITOL6_R_628_C2').is(':checked') || jQuery('#CAPITOL6_R_628_C3').is(':checked'))
+            
+            
+            )
+    ) {
 
 
+        webform.errors.push({
+            'fieldName': 'CAPITOL6_R_611_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-053: Cap.6  Dacă  ați bifat ”Da” la Rind. 6.1.1,  trebuie completat  6.2 ')
+        });
+
+    }
+
+//End 48-053
+
+
+    //Start 48-054
+    if (!jQuery('#CAPITOL6_R_611_C1').is(':checked') &&
+        (
+            (jQuery('#CAPITOL6_R_621_C1').is(':checked') || jQuery('#CAPITOL6_R_621_C2').is(':checked') || jQuery('#CAPITOL6_R_621_C3').is(':checked')) ||
+            (jQuery('#CAPITOL6_R_622_C1').is(':checked') || jQuery('#CAPITOL6_R_622_C2').is(':checked') || jQuery('#CAPITOL6_R_622_C3').is(':checked')) ||
+            (jQuery('#CAPITOL6_R_623_C1').is(':checked') || jQuery('#CAPITOL6_R_623_C2').is(':checked') || jQuery('#CAPITOL6_R_623_C3').is(':checked')) ||
+            (jQuery('#CAPITOL6_R_624_C1').is(':checked') || jQuery('#CAPITOL6_R_624_C2').is(':checked') || jQuery('#CAPITOL6_R_624_C3').is(':checked')) ||
+            (jQuery('#CAPITOL6_R_625_C1').is(':checked') || jQuery('#CAPITOL6_R_625_C2').is(':checked') || jQuery('#CAPITOL6_R_625_C3').is(':checked')) ||
+            (jQuery('#CAPITOL6_R_626_C1').is(':checked') || jQuery('#CAPITOL6_R_626_C2').is(':checked') || jQuery('#CAPITOL6_R_626_C3').is(':checked')) ||
+            (jQuery('#CAPITOL6_R_627_C1').is(':checked') || jQuery('#CAPITOL6_R_627_C2').is(':checked') || jQuery('#CAPITOL6_R_627_C3').is(':checked')) ||
+            (jQuery('#CAPITOL6_R_628_C1').is(':checked') || jQuery('#CAPITOL6_R_628_C2').is(':checked') || jQuery('#CAPITOL6_R_628_C3').is(':checked'))
+
+
+        )
+    ) {
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL6_R_611_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-054: Cap.6  Dacă  ați bifat Cap. 6.2,  trebuie bifat 6.1.1 Da')
+        });
+
+    }
+
+//End 48-054
 
 
 
@@ -2617,6 +2669,189 @@ function validateCapitol2(values, webform) {
 //End 46-046
 
 
+
+    //Start 48-070
+    if ((jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R113_C1').is(':checked') )
+        && !(jQuery('#CAPITOL6_R_611_C1').is(':checked') || jQuery('#CAPITOL6_R_612_C1').is(':checked'))
+
+    ) {
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL6_R_611_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-070: Cap.6  Rind.6.1.1 si/sau 6.1.2 bifate obligatoriu')
+        });
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL6_R_612_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-070: Cap.6  Rind.6.1.1 si/sau 6.1.2 bifate obligatoriu')
+        });
+
+    }
+
+//End 48-070
+
+
+    //Start 48-044
+    if ((jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R113_C1').is(':checked'))
+        && (
+            ! (jQuery('#CAPITOL7_R_711_C1').is(':checked') || jQuery('#CAPITOL7_R_711_C2').is(':checked')) ||
+            ! (jQuery('#CAPITOL7_R_712_C1').is(':checked') || jQuery('#CAPITOL7_R_712_C2').is(':checked')) ||
+            ! (jQuery('#CAPITOL7_R_713_C1').is(':checked') || jQuery('#CAPITOL7_R_713_C2').is(':checked'))
+        
+        
+        )
+
+    ) {
+
+        if (!(jQuery('#CAPITOL7_R_711_C1').is(':checked') || jQuery('#CAPITOL7_R_711_C2').is(':checked')))
+                                                                                           {
+        webform.errors.push({
+            'fieldName': 'CAPITOL7_R_711_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-044: Cap.7  Rind. (7.1.1-7.1.3)  completate obligatoriu')
+        });
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL7_R_711_C2',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-044:  Cap.7  Rind. (7.1.1-7.1.3)  completate obligatoriu')
+        });
+
+    }
+
+
+        if (!(jQuery('#CAPITOL7_R_712_C1').is(':checked') || jQuery('#CAPITOL7_R_712_C2').is(':checked'))){
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL7_R_712_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-044: Cap.7  Rind. (7.1.1-7.1.3)  completate obligatoriu')
+        });
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL7_R_712_C2',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-044:  Cap.7  Rind. (7.1.1-7.1.3)  completate obligatoriu')
+        });
+
+    }
+
+
+
+        if (!(jQuery('#CAPITOL7_R_713_C1').is(':checked') || jQuery('#CAPITOL7_R_713_C2').is(':checked'))) {
+        webform.errors.push({
+            'fieldName': 'CAPITOL7_R_713_C1',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-044: Cap.7  Rind. (7.1.1-7.1.3)  completate obligatoriu')
+        });
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL7_R_713_C2',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-044:  Cap.7  Rind. (7.1.1-7.1.3)  completate obligatoriu')
+        });
+    }
+
+    }
+
+//End 48-044
+
+
+
+//     //Start 48-045
+//     if ((jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R113_C1').is(':checked'))
+//         && (
+//         !jQuery('#CAPITOL8_R_811_C1').is(':checked') || jQuery('#CAPITOL8_R_811_C2').is(':checked') ||
+//         !jQuery('#CAPITOL8_R_812_C1').is(':checked') || jQuery('#CAPITOL8_R_812_C2').is(':checked') ||
+//         !jQuery('#CAPITOL8_R_813_C1').is(':checked') || jQuery('#CAPITOL8_R_813_C2').is(':checked') ||
+//         !jQuery('#CAPITOL8_R_814_C1').is(':checked') || jQuery('#CAPITOL8_R_814_C2').is(':checked')
+
+
+//         )
+
+//     ) {
+
+
+//         if ((jQuery('#CAPITOL8_R_811_C1').is(':checked') || jQuery('#CAPITOL8_R_811_C2').is(':checked'))) {
+//             webform.errors.push({
+//                 'fieldName': 'CAPITOL8_R_811_C1',
+//                 'index': 0,
+//                 'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
+//             });
+
+
+//             webform.errors.push({
+//                 'fieldName': 'CAPITOL8_R_811_C2',
+//                 'index': 0,
+//                 'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
+//             });
+
+//         }
+
+
+//         if ((jQuery('#CAPITOL8_R_812_C1').is(':checked') || jQuery('#CAPITOL8_R_812_C2').is(':checked'))) {
+//             webform.errors.push({
+//                 'fieldName': 'CAPITOL8_R_812_C1',
+//                 'index': 0,
+//                 'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
+//             });
+
+
+//             webform.errors.push({
+//                 'fieldName': 'CAPITOL8_R_812_C2',
+//                 'index': 0,
+//                 'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
+//             });
+
+//         }
+
+//         if ((jQuery('#CAPITOL8_R_813_C1').is(':checked') || jQuery('#CAPITOL8_R_813_C2').is(':checked'))) {
+//             webform.errors.push({
+//                 'fieldName': 'CAPITOL8_R_813_C1',
+//                 'index': 0,
+//                 'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
+//             });
+
+
+//             webform.errors.push({
+//                 'fieldName': 'CAPITOL8_R_813_C2',
+//                 'index': 0,
+//                 'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
+//             });
+
+//         }
+
+
+
+
+//         if ((jQuery('#CAPITOL8_R_814_C1').is(':checked') || jQuery('#CAPITOL8_R_814_C2').is(':checked'))) {
+//             webform.errors.push({
+//                 'fieldName': 'CAPITOL8_R_814_C1',
+//                 'index': 0,
+//                 'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
+//             });
+
+
+//             webform.errors.push({
+//                 'fieldName': 'CAPITOL8_R_814_C2',
+//                 'index': 0,
+//                 'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
+//             });
+
+//         }
+
+
+
+//     }
+
+// //End 48-045
 
 
 
