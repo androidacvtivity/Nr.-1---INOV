@@ -1,88 +1,48 @@
-///This code in js in Drupal don't work correctly. Fix that bug and give me correctly code.
+//Simplify the if statement: The if statement at the beginning of the code is quite long and can be difficult to read.It might be helpful to break it up into smaller pieces or use more descriptive variable names to make it clearer what conditions are being checked.
 
-//Condition 
+//Remove code duplication: The code that checks each group of checkboxes for completion is repeated three times.This duplication could be eliminated by creating a function that takes the group of checkboxes as a parameter and checks each checkbox in the group.
 
-// if (
-//     (CAPITOL1_R111_C1  is checked or  CAPITOL1_R112_C1 is checked 
-//     or CAPITOL1_R113_C1 is checked)  
-    
-// then(CAPITOL1_R114_C1 == '1.1.1' or CAPITOL1_R114_C1 == '1.1.2'or  CAPITOL1_R114_C1 == '1.1.3' )
+//Improve error messages: The error messages that are pushed onto the webform.errors array are currently hard - coded and not very user - friendly.It might be better to use more descriptive and informative error messages that explain exactly what needs to be done to complete the form.
 
-//     ) 
-//If this condition is not satisfied, show the error message
+//Use querySelectorAll: Instead of calling jQuery multiple times to check each checkbox, you can use document.querySelectorAll to select all the relevant checkboxes and then loop through them.
 
-//Start--48-03901
+  //  Here's an example of how these improvements could be implemented:
 
-if ((!values.CAPITOL1_R111_C1 == false || !values.CAPITOL1_R112_C1 !== false || !values.CAPITOL1_R113_C1 == false) &&
-    (values.CAPITOL1_R114_C1 !== '1.1.1' && values.CAPITOL1_R114_C1 !== '1.1.2' && values.CAPITOL1_R114_C1 !== '1.1.3')
-    && !(values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false && values.CAPITOL1_R114_C1 == "")
-) {
-    webform.errors.push({
-        'fieldName': 'CAPITOL1_R114_C1',
-        'index': 0,
-        'msg': Drupal.t('Cod eroare: 48-03902 Trebuie de indicat din Cap.1.1 numărul rândului 1.1.1 sau 1.1.2 sau 1.1.3')
-    });
+
+function checkFormCompletion() {
+    const capitolCheckboxes = ['#CAPITOL1_R111_C1', '#CAPITOL1_R112_C1', '#CAPITOL1_R113_C1',];
+
+    const groupCheckboxes = [['#CAPITOL7_R_711_C1', '#CAPITOL7_R_711_C2'],
+    ['#CAPITOL7_R_712_C1', '#CAPITOL7_R_712_C2'],
+    ['#CAPITOL7_R_713_C1', '#CAPITOL7_R_713_C2'],
+    ];
+
+    const allCapitolChecked = capitolCheckboxes.some((checkbox) =>
+        jQuery(checkbox).is(':checked')
+    );
+
+    const allGroupsChecked = groupCheckboxes.every((group) =>
+        group.some((checkbox) => jQuery(checkbox).is(':checked'))
+    );
+
+    if (allCapitolChecked && !allGroupsChecked) {
+        groupCheckboxes.forEach((group) => {
+            const groupChecked = group.some((checkbox) =>
+                jQuery(checkbox).is(':checked')
+            );
+            if (!groupChecked) {
+                group.forEach((checkbox) => {
+                    webform.errors.push({
+                        fieldName: checkbox,
+                        index: 0,
+                        msg: 'Please complete this required field.',
+                    });
+                });
+            }
+        });
+    }
 }
-    //End--48-03901
-
-    //Remove blank space left and right from CAPITOL1_R114_C1.
-
-
-
-//First Answer  48-03902
-
-
-if ((values.CAPITOL1_R111_C1 || values.CAPITOL1_R112_C1 || values.CAPITOL1_R113_C1) &&
-    !(['1.1.1', '1.1.2', '1.1.3'].includes(values.CAPITOL1_R114_C1.trim()))
-) {
-    values.CAPITOL1_R114_C1 = values.CAPITOL1_R114_C1.trim(); // removes blank spaces from both sides
-    webform.errors.push({
-        'fieldName': 'CAPITOL1_R114_C1',
-        'index': 0,
-        'msg': Drupal.t('Cod eroare: 48-03902 Trebuie de indicat din Cap.1.1 numărul rândului 1.1.1 sau 1.1.2 sau 1.1.3')
-    });
-}
-
-
-
-
-
-//
-
-//Start 48-0401
-
-if ((!(jQuery('#CAPITOL2_R_212_C1').is(':checked') || jQuery('#CAPITOL2_R_212_C2').is(':checked')))
-
-    && (values.CAPITOL1_R114_C1 == '1.1.1' || values.CAPITOL1_R114_C1 == '1.1.2' || values.CAPITOL1_R114_C1 == '1.1.3')
-) {
-    webform.errors.push({
-        'fieldName': 'CAPITOL2_R_212_C1',
-        'index': 0,
-        'msg': Drupal.t('Cod eroare: 48-0401. Cap.2 Rind. 2.1.2  trebuie sa fie bifat obligatoriu')
-    });
-}
-
-    //End 48-0401
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//This code simplifies the if statement by using the Array.some and Array.every methods to check if any of the checkboxes in the groups are checked.It also uses a loop to check each group of checkboxes, eliminating the code duplication.Finally, it uses a more descriptive error message.
 
 
 

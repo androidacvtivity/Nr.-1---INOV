@@ -2694,8 +2694,10 @@ function validateCapitol2(values, webform) {
 
 //End 48-070
 
+//Review this code of js. 
 
-    //Start 48-044
+
+    // //Start 48-044
     if ((jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R113_C1').is(':checked'))
         && (
             ! (jQuery('#CAPITOL7_R_711_C1').is(':checked') || jQuery('#CAPITOL7_R_711_C2').is(':checked')) ||
@@ -2765,91 +2767,91 @@ function validateCapitol2(values, webform) {
 
 
 
-//     //Start 48-045
-//     if ((jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R113_C1').is(':checked'))
-//         && (
-//         !jQuery('#CAPITOL8_R_811_C1').is(':checked') || jQuery('#CAPITOL8_R_811_C2').is(':checked') ||
-//         !jQuery('#CAPITOL8_R_812_C1').is(':checked') || jQuery('#CAPITOL8_R_812_C2').is(':checked') ||
-//         !jQuery('#CAPITOL8_R_813_C1').is(':checked') || jQuery('#CAPITOL8_R_813_C2').is(':checked') ||
-//         !jQuery('#CAPITOL8_R_814_C1').is(':checked') || jQuery('#CAPITOL8_R_814_C2').is(':checked')
+    //Start 48-045
+    if ((jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R113_C1').is(':checked'))
+        && (
+        !jQuery('#CAPITOL8_R_811_C1').is(':checked') || jQuery('#CAPITOL8_R_811_C2').is(':checked') ||
+        !jQuery('#CAPITOL8_R_812_C1').is(':checked') || jQuery('#CAPITOL8_R_812_C2').is(':checked') ||
+        !jQuery('#CAPITOL8_R_813_C1').is(':checked') || jQuery('#CAPITOL8_R_813_C2').is(':checked') ||
+        !jQuery('#CAPITOL8_R_814_C1').is(':checked') || jQuery('#CAPITOL8_R_814_C2').is(':checked')
 
 
-//         )
+        )
 
-//     ) {
-
-
-//         if ((jQuery('#CAPITOL8_R_811_C1').is(':checked') || jQuery('#CAPITOL8_R_811_C2').is(':checked'))) {
-//             webform.errors.push({
-//                 'fieldName': 'CAPITOL8_R_811_C1',
-//                 'index': 0,
-//                 'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
-//             });
+    ) {
 
 
-//             webform.errors.push({
-//                 'fieldName': 'CAPITOL8_R_811_C2',
-//                 'index': 0,
-//                 'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
-//             });
-
-//         }
-
-
-//         if ((jQuery('#CAPITOL8_R_812_C1').is(':checked') || jQuery('#CAPITOL8_R_812_C2').is(':checked'))) {
-//             webform.errors.push({
-//                 'fieldName': 'CAPITOL8_R_812_C1',
-//                 'index': 0,
-//                 'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
-//             });
+        if (!(jQuery('#CAPITOL8_R_811_C1').is(':checked') || jQuery('#CAPITOL8_R_811_C2').is(':checked'))) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL8_R_811_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
+            });
 
 
-//             webform.errors.push({
-//                 'fieldName': 'CAPITOL8_R_812_C2',
-//                 'index': 0,
-//                 'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
-//             });
+            webform.errors.push({
+                'fieldName': 'CAPITOL8_R_811_C2',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
+            });
 
-//         }
-
-//         if ((jQuery('#CAPITOL8_R_813_C1').is(':checked') || jQuery('#CAPITOL8_R_813_C2').is(':checked'))) {
-//             webform.errors.push({
-//                 'fieldName': 'CAPITOL8_R_813_C1',
-//                 'index': 0,
-//                 'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
-//             });
+        }
 
 
-//             webform.errors.push({
-//                 'fieldName': 'CAPITOL8_R_813_C2',
-//                 'index': 0,
-//                 'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
-//             });
-
-//         }
-
+        if (!(jQuery('#CAPITOL8_R_812_C1').is(':checked') || jQuery('#CAPITOL8_R_812_C2').is(':checked'))) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL8_R_812_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
+            });
 
 
+            webform.errors.push({
+                'fieldName': 'CAPITOL8_R_812_C2',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
+            });
 
-//         if ((jQuery('#CAPITOL8_R_814_C1').is(':checked') || jQuery('#CAPITOL8_R_814_C2').is(':checked'))) {
-//             webform.errors.push({
-//                 'fieldName': 'CAPITOL8_R_814_C1',
-//                 'index': 0,
-//                 'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
-//             });
+        }
+
+        if (!(jQuery('#CAPITOL8_R_813_C1').is(':checked') || jQuery('#CAPITOL8_R_813_C2').is(':checked'))) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL8_R_813_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
+            });
 
 
-//             webform.errors.push({
-//                 'fieldName': 'CAPITOL8_R_814_C2',
-//                 'index': 0,
-//                 'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
-//             });
+            webform.errors.push({
+                'fieldName': 'CAPITOL8_R_813_C2',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
+            });
 
-//         }
+        }
 
 
 
-//     }
+
+        if (!(jQuery('#CAPITOL8_R_814_C1').is(':checked') || jQuery('#CAPITOL8_R_814_C2').is(':checked'))) {
+            webform.errors.push({
+                'fieldName': 'CAPITOL8_R_814_C1',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
+            });
+
+
+            webform.errors.push({
+                'fieldName': 'CAPITOL8_R_814_C2',
+                'index': 0,
+                'msg': Drupal.t('Cod eroare 48-045: Cap.8  Rind. (8.1.1-8.1.4)  completate obligatoriu')
+            });
+
+        }
+
+
+
+    }
 
 // //End 48-045
 
