@@ -575,7 +575,12 @@
 
 
         var result03031 = Decimal(values.CAPV_R6_C1 || 0).plus(values.CAPV_R7_C1 || 0).plus(values.CAPV_R8_C1 || 0).plus(values.CAPV_R9_C1 || 0).plus(values.CAPV_R10_C1 || 0);
-        if (Decimal(values.CAPV_R5_C1 || 0).lessThan(result03031)) {
+        result03031 = result03031.toDecimalPlaces(1);
+
+        var CAPV_R5_C1 = Decimal(values.CAPV_R5_C1 || 0).toDecimalPlaces(1);
+        CAPV_R5_C1 = CAPV_R5_C1.toDecimalPlaces(1);
+
+        if (CAPV_R5_C1.lessThan(result03031)) {
         webform.errors.push({
             'fieldName': 'CAPV_R5_C1',
                  'index': 0,
@@ -583,7 +588,7 @@
                  'options': {
                 'hide_title': true
                  },
-            msg: Drupal.t('Cod eroare: 03-031 - Cap V, Rând 5 >= Rând 6+ Rând 7+Rând 8+Rând 9 + Rând 10')
+            msg: Drupal.t('Cod eroare: 03-031 - Cap V, Rând 5 >= Rând 6+ Rând 7+Rând 8+Rând 9 + Rând 10  -  @CAPV_R5_C1 <   @result03031', { "@CAPV_R5_C1": values.CAPV_R5_C1, "@result03031": result03031.toFixed() })
         });
     }
 
@@ -593,25 +598,7 @@
 
 
 
-        // const CAPV_R6_C1 = parseFloat(values.CAPV_R6_C1);
-        // const CAPV_R7_C1 = parseFloat(values.CAPV_R7_C1);
-        // const CAPV_R8_C1 = parseFloat(values.CAPV_R8_C1);
-        // const CAPV_R9_C1 = parseFloat(values.CAPV_R9_C1);
-        // const CAPV_R10_C1 = parseFloat(values.CAPV_R10_C1);
-
-        // const result03031 = (CAPV_R6_C1 + CAPV_R7_C1 + CAPV_R8_C1 + CAPV_R9_C1 + CAPV_R10_C1).toFixed(1);
-
-        // if (parseFloat(values.CAPV_R5_C1) < parseFloat(result03031)) {
-        //     webform.errors.push({
-        //         fieldName: 'CAPV_R5_C1',
-        //         index: 0,
-        //         weight: 31,
-        //         options: {
-        //             hide_title: true
-        //         },
-        //         msg: Drupal.t('Cod eroare: 03-031 - Cap V, Rând 5 >= Rând 6+ Rând 7+Rând 8+Rând 9 + Rând 10')
-        //     });
-        // }
+        
 //----------------------------------------------------------------------------------------------------
 
 

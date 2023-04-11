@@ -2172,6 +2172,10 @@ function validateCapitol2(values, webform) {
         var R_525 = Number(values["CAPITOL5_R_525_C1"]);
     }
 
+    if (!isNaN(Number(values["CAPITOL5_R_526_C1"]))) {
+        var R_526 = Number(values["CAPITOL5_R_526_C1"]);
+    }
+
 
     if (
 
@@ -2181,7 +2185,7 @@ function validateCapitol2(values, webform) {
             || jQuery('#CAPITOL5_R_518_C1').is(':checked')
             || jQuery('#CAPITOL5_R_519_C1').is(':checked')
             || jQuery('#CAPITOL5_R_5110_C1').is(':checked'))
-        && (R_521 < 1000 || R_522 < 1000 || R_523 < 1000 || R_524 < 1000 || R_525 < 1000  )      )
+        && (R_526 < 1000  )      )
 
 {
      
