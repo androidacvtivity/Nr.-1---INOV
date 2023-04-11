@@ -1813,7 +1813,7 @@ webform.validators.inov1 = function (v, allowOverpass) {
 
     //Start--48-0390
     if ((values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false) &&
-        (values.CAPITOL1_R114_C1 == '1.1.1' || values.CAPITOL1_R114_C1 == '1.1.2' || values.CAPITOL1_R114_C1 == '1.1.3')) {
+        (values.CAPITOL1_R114_C1 == '1' || values.CAPITOL1_R114_C1 == '2' || values.CAPITOL1_R114_C1 == '3')) {
         webform.errors.push({
             'fieldName': 'CAPITOL1_R114_C1',
             'index': 0,
@@ -1826,11 +1826,11 @@ webform.validators.inov1 = function (v, allowOverpass) {
   //Start--48-03901
 
     if ((values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false) &&
-        (values.CAPITOL1_R114_C1.trim() && (values.CAPITOL1_R114_C1 !== '1.1.1' && values.CAPITOL1_R114_C1 !== '1.1.2' && values.CAPITOL1_R114_C1 !== '1.1.3' && values.CAPITOL1_R114_C1 !== ""))) {
+        (values.CAPITOL1_R114_C1.trim() && (values.CAPITOL1_R114_C1 !== '1' && values.CAPITOL1_R114_C1 !== '2' && values.CAPITOL1_R114_C1 !== '3' && values.CAPITOL1_R114_C1 !== ""))) {
         webform.errors.push({
             'fieldName': 'CAPITOL1_R114_C1',
             'index': 0,
-            'msg': Drupal.t('Cod eroare: 48-03901 Trebuie de indicat din Cap.1.1 numărul rândului 1.1.1 sau 1.1.2 sau 1.1.3')
+            'msg': Drupal.t('Cod eroare: 48-03901 Trebuie de indicat din Cap.1.1 numărul rândului 1 sau 2 sau 3')
         });
     }
     //End--48-03901
@@ -1840,13 +1840,13 @@ webform.validators.inov1 = function (v, allowOverpass) {
 
 
     if ((values.CAPITOL1_R111_C1 || values.CAPITOL1_R112_C1 || values.CAPITOL1_R113_C1) &&
-        !(['1.1.1', '1.1.2', '1.1.3'].includes(values.CAPITOL1_R114_C1.trim()))
+        !(['1', '2', '3'].includes(values.CAPITOL1_R114_C1.trim()))
     ) {
         values.CAPITOL1_R114_C1 = values.CAPITOL1_R114_C1.trim(); // removes blank spaces from both sides
         webform.errors.push({
             'fieldName': 'CAPITOL1_R114_C1',
             'index': 0,
-            'msg': Drupal.t('Cod eroare: 48-03902 Trebuie de indicat din Cap.1.1 numărul rândului 1.1.1 sau 1.1.2 sau 1.1.3')
+            'msg': Drupal.t('Cod eroare: 48-03902 Trebuie de indicat din Cap.1.1 numărul rândului 1 sau 2 sau 3')
         });
     }
 
@@ -1890,7 +1890,7 @@ function validateCapitol2(values, webform) {
 
     // Start 48-040
     if (
-        ['1.1.1', '1.1.2', '1.1.3'].includes(values.CAPITOL1_R114_C1) && // 1 Condition: Must be one of the three values
+        ['1', '2', '3'].includes(values.CAPITOL1_R114_C1) && // 1 Condition: Must be one of the three values
         !(
             (jQuery('#CAPITOL2_R_211_C1').is(':checked') || jQuery('#CAPITOL2_R_211_C2').is(':checked')) &&  // 2 Condition: One of the two checkboxes must be checked
             (jQuery('#CAPITOL2_R_212_C1').is(':checked') || jQuery('#CAPITOL2_R_212_C2').is(':checked')) &&  // 3 Condition: One of the two checkboxes must be checked
@@ -2172,6 +2172,10 @@ function validateCapitol2(values, webform) {
         var R_525 = Number(values["CAPITOL5_R_525_C1"]);
     }
 
+    if (!isNaN(Number(values["CAPITOL5_R_526_C1"]))) {
+        var R_526 = Number(values["CAPITOL5_R_526_C1"]);
+    }
+
 
     if (
 
@@ -2181,7 +2185,7 @@ function validateCapitol2(values, webform) {
             || jQuery('#CAPITOL5_R_518_C1').is(':checked')
             || jQuery('#CAPITOL5_R_519_C1').is(':checked')
             || jQuery('#CAPITOL5_R_5110_C1').is(':checked'))
-        && (R_521 < 1000 || R_522 < 1000 || R_523 < 1000 || R_524 < 1000 || R_525 < 1000  )      )
+        && (R_526 < 1000  )      )
 
 {
      
