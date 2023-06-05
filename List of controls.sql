@@ -2,8 +2,8 @@ SELECT
       L.CONTROL,
       L.CONTROL_VERS,
       L.FORMULA, 
-      SUBSTR(L.FORMULA,5,1)  AS FORMULA_MOD,
-      L.SQL_TEXT,
+    --  SUBSTR(L.FORMULA,5,1)  AS FORMULA_MOD,
+    --  L.SQL_TEXT,
       L.PRIORITATEA,
       L.STATUT
       
