@@ -1,0 +1,35 @@
+SELECT 
+ FORMID,
+  XML,
+  STATUS,
+  FORM_TYPE,
+  DATA_REG,
+  CHECK_CONFIRM,
+  MESAJ,
+  CUIIO,
+  LENGTH
+  SEND_REQUEST,
+  SEND_ATTEMPTS,
+  PROCESSING_MESSAGE 
+        
+        
+          FROM  USER_EREPORTING.F_XML_FORMS
+          
+          
+          WHERE
+
+ 
+  FORM_TYPE = 'asa-22'
+ AND STATUS <> '5' AND   STATUS <> '3'
+
+AND DATA_REG > TO_DATE('02/19/2023 00:00:00', 'MM/DD/YYYY HH24:MI:SS')
+ 
+ 
+
+
+ ORDER BY 
+ 
+ CUIIO
+
+
+ Must CUIIO > 8 character
