@@ -2677,6 +2677,7 @@ function validateCapitol2(values, webform) {
     //Start 48-070
     if ((jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R113_C1').is(':checked') )
         && !(jQuery('#CAPITOL6_R_611_C1').is(':checked') || jQuery('#CAPITOL6_R_612_C1').is(':checked'))
+        && !(jQuery('#CAPITOL4_R_411_C2').is(':checked') && jQuery('#CAPITOL4_R_412_C2').is(':checked'))
 
     ) {
 
