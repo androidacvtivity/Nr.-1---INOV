@@ -2773,7 +2773,7 @@ function validateCapitol2(values, webform) {
 
 
     //Start 48-045
-    if ((jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R113_C1').is(':checked'))
+    if (!(jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R113_C1').is(':checked'))
         && (
         !jQuery('#CAPITOL8_R_811_C1').is(':checked') || jQuery('#CAPITOL8_R_811_C2').is(':checked') ||
         !jQuery('#CAPITOL8_R_812_C1').is(':checked') || jQuery('#CAPITOL8_R_812_C2').is(':checked') ||
