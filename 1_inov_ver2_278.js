@@ -2703,14 +2703,34 @@ function validateCapitol2(values, webform) {
 
 
     // //Start 48-044
-    if ((jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R113_C1').is(':checked'))
+    if (
+        
+        !(jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R113_C1').is(':checked'))
         && (
             ! (jQuery('#CAPITOL7_R_711_C1').is(':checked') || jQuery('#CAPITOL7_R_711_C2').is(':checked')) ||
             ! (jQuery('#CAPITOL7_R_712_C1').is(':checked') || jQuery('#CAPITOL7_R_712_C2').is(':checked')) ||
             ! (jQuery('#CAPITOL7_R_713_C1').is(':checked') || jQuery('#CAPITOL7_R_713_C2').is(':checked'))
         
-        
-        )
+           )
+
+        || 
+          (
+            
+            ((jQuery('#CAPITOL4_R_411_C1').is(':checked') || jQuery('#CAPITOL4_R_411_C2').is(':checked')) ||
+            (jQuery('#CAPITOL4_R_412_C1').is(':checked') || jQuery('#CAPITOL4_R_412_C2').is(':checked')))
+
+          &&
+
+            (
+            
+            !(jQuery('#CAPITOL7_R_711_C1').is(':checked') || jQuery('#CAPITOL7_R_711_C2').is(':checked')) &&
+            !(jQuery('#CAPITOL7_R_712_C1').is(':checked') || jQuery('#CAPITOL7_R_712_C2').is(':checked')) &&
+            !(jQuery('#CAPITOL7_R_713_C1').is(':checked') || jQuery('#CAPITOL7_R_713_C2').is(':checked'))
+            
+            )
+
+          )
+
 
     ) {
 
@@ -2773,15 +2793,32 @@ function validateCapitol2(values, webform) {
 
 
     //Start 48-045
-    if (!(jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R113_C1').is(':checked'))
+    if ((!(jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R113_C1').is(':checked'))
         && (
-        !jQuery('#CAPITOL8_R_811_C1').is(':checked') || jQuery('#CAPITOL8_R_811_C2').is(':checked') ||
-        !jQuery('#CAPITOL8_R_812_C1').is(':checked') || jQuery('#CAPITOL8_R_812_C2').is(':checked') ||
-        !jQuery('#CAPITOL8_R_813_C1').is(':checked') || jQuery('#CAPITOL8_R_813_C2').is(':checked') ||
-        !jQuery('#CAPITOL8_R_814_C1').is(':checked') || jQuery('#CAPITOL8_R_814_C2').is(':checked')
+        !(jQuery('#CAPITOL8_R_811_C1').is(':checked') || jQuery('#CAPITOL8_R_811_C2').is(':checked')) ||
+        !(jQuery('#CAPITOL8_R_812_C1').is(':checked') || jQuery('#CAPITOL8_R_812_C2').is(':checked')) ||
+        !(jQuery('#CAPITOL8_R_813_C1').is(':checked') || jQuery('#CAPITOL8_R_813_C2').is(':checked')) ||
+        !(jQuery('#CAPITOL8_R_814_C1').is(':checked') || jQuery('#CAPITOL8_R_814_C2').is(':checked'))
 
 
+        ))
+        ||
+
+        (
+        ((jQuery('#CAPITOL4_R_411_C1').is(':checked') || jQuery('#CAPITOL4_R_411_C2').is(':checked')) ||
+            (jQuery('#CAPITOL4_R_412_C1').is(':checked') || jQuery('#CAPITOL4_R_412_C2').is(':checked')))
+
+            &&
+            (
+            !(jQuery('#CAPITOL8_R_811_C1').is(':checked') || jQuery('#CAPITOL8_R_811_C2').is(':checked')) &&
+            !(jQuery('#CAPITOL8_R_812_C1').is(':checked') || jQuery('#CAPITOL8_R_812_C2').is(':checked')) &&
+            !(jQuery('#CAPITOL8_R_813_C1').is(':checked') || jQuery('#CAPITOL8_R_813_C2').is(':checked')) &&
+            !(jQuery('#CAPITOL8_R_814_C1').is(':checked') || jQuery('#CAPITOL8_R_814_C2').is(':checked'))
+            )
         )
+        
+
+
 
     ) {
 
