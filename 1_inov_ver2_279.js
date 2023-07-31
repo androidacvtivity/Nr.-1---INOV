@@ -732,7 +732,7 @@ webform.validators.inov1 = function (v, allowOverpass) {
 
         values.CAPITOL9_R91_C1 > 0   ||
 
-        values.CAPITOL9_R92_C1  !== ""
+        values.CAPITOL9_R92_C31  !== ""
 
 
 
@@ -749,11 +749,11 @@ webform.validators.inov1 = function (v, allowOverpass) {
 
 
 
-        if (values.CAPITOL9_R92_C1 !== "" &&
+        if (values.CAPITOL9_R92_C31 !== "" &&
             (values.CAPITOL1_R111_C1 == false && values.CAPITOL1_R112_C1 == false && values.CAPITOL1_R113_C1 == false)) {
-            var errorMsg = Drupal.t("Cod eroare: 48-1 Daca este - 9.2 [") + values.CAPITOL9_R92_C1 + Drupal.t("] - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3");
+            var errorMsg = Drupal.t("Cod eroare: 48-1 Daca este - 9.2 [") + values.CAPITOL9_R92_C31 + Drupal.t("] - atunci rebuie sa fie bifat randul 1.1.1 sau 1.1.2 sau 1.1.3");
             webform.errors.push({
-                'fieldName': 'CAPITOL9_R92_C1',
+                'fieldName': 'CAPITOL9_R92_C31',
                 'index': 0,
                 'msg': errorMsg
             });
@@ -2703,14 +2703,36 @@ function validateCapitol2(values, webform) {
 
 
     // //Start 48-044
-    if ((jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R113_C1').is(':checked'))
+    if (
+        
+        !(jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R113_C1').is(':checked'))
+
+
         && (
             ! (jQuery('#CAPITOL7_R_711_C1').is(':checked') || jQuery('#CAPITOL7_R_711_C2').is(':checked')) ||
             ! (jQuery('#CAPITOL7_R_712_C1').is(':checked') || jQuery('#CAPITOL7_R_712_C2').is(':checked')) ||
             ! (jQuery('#CAPITOL7_R_713_C1').is(':checked') || jQuery('#CAPITOL7_R_713_C2').is(':checked'))
         
-        
-        )
+           )
+
+        || 
+          (
+            
+            ((jQuery('#CAPITOL4_R_411_C1').is(':checked') || jQuery('#CAPITOL4_R_411_C2').is(':checked')) ||
+            (jQuery('#CAPITOL4_R_412_C1').is(':checked') || jQuery('#CAPITOL4_R_412_C2').is(':checked')))
+
+          &&
+
+            (
+            
+            !(jQuery('#CAPITOL7_R_711_C1').is(':checked') || jQuery('#CAPITOL7_R_711_C2').is(':checked')) &&
+            !(jQuery('#CAPITOL7_R_712_C1').is(':checked') || jQuery('#CAPITOL7_R_712_C2').is(':checked')) &&
+            !(jQuery('#CAPITOL7_R_713_C1').is(':checked') || jQuery('#CAPITOL7_R_713_C2').is(':checked'))
+            
+            )
+
+          )
+
 
     ) {
 
@@ -2773,15 +2795,32 @@ function validateCapitol2(values, webform) {
 
 
     //Start 48-045
-    if (!(jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R113_C1').is(':checked'))
+    if ((!(jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R113_C1').is(':checked'))
         && (
-        !jQuery('#CAPITOL8_R_811_C1').is(':checked') || jQuery('#CAPITOL8_R_811_C2').is(':checked') ||
-        !jQuery('#CAPITOL8_R_812_C1').is(':checked') || jQuery('#CAPITOL8_R_812_C2').is(':checked') ||
-        !jQuery('#CAPITOL8_R_813_C1').is(':checked') || jQuery('#CAPITOL8_R_813_C2').is(':checked') ||
-        !jQuery('#CAPITOL8_R_814_C1').is(':checked') || jQuery('#CAPITOL8_R_814_C2').is(':checked')
+        !(jQuery('#CAPITOL8_R_811_C1').is(':checked') || jQuery('#CAPITOL8_R_811_C2').is(':checked')) ||
+        !(jQuery('#CAPITOL8_R_812_C1').is(':checked') || jQuery('#CAPITOL8_R_812_C2').is(':checked')) ||
+        !(jQuery('#CAPITOL8_R_813_C1').is(':checked') || jQuery('#CAPITOL8_R_813_C2').is(':checked')) ||
+        !(jQuery('#CAPITOL8_R_814_C1').is(':checked') || jQuery('#CAPITOL8_R_814_C2').is(':checked'))
 
 
+        ))
+        ||
+
+        (
+        ((jQuery('#CAPITOL4_R_411_C1').is(':checked') || jQuery('#CAPITOL4_R_411_C2').is(':checked')) ||
+            (jQuery('#CAPITOL4_R_412_C1').is(':checked') || jQuery('#CAPITOL4_R_412_C2').is(':checked')))
+
+            &&
+            (
+            !(jQuery('#CAPITOL8_R_811_C1').is(':checked') || jQuery('#CAPITOL8_R_811_C2').is(':checked')) &&
+            !(jQuery('#CAPITOL8_R_812_C1').is(':checked') || jQuery('#CAPITOL8_R_812_C2').is(':checked')) &&
+            !(jQuery('#CAPITOL8_R_813_C1').is(':checked') || jQuery('#CAPITOL8_R_813_C2').is(':checked')) &&
+            !(jQuery('#CAPITOL8_R_814_C1').is(':checked') || jQuery('#CAPITOL8_R_814_C2').is(':checked'))
+            )
         )
+        
+
+
 
     ) {
 
@@ -2858,7 +2897,10 @@ function validateCapitol2(values, webform) {
 
     }
 
-// //End 48-045
+//End 48-045
+
+
+
 
 
 
