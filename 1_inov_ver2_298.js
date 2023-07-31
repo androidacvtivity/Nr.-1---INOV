@@ -2900,6 +2900,110 @@ function validateCapitol2(values, webform) {
 //End 48-045
 
 
+    // Start 48-053
+
+    if (
+        
+        ((
+            // Modified this js code for Drupal - Add in this condition these variables
+            !jQuery('#CAPITOL2_R_211_C1').is(':checked') && !jQuery('#CAPITOL2_R_212_C1').is(':checked') &&
+            !jQuery('#CAPITOL2_R_221_C1').is(':checked') && !jQuery('#CAPITOL2_R_222_C1').is(':checked') &&
+            !jQuery('#CAPITOL2_R_223_C1').is(':checked') && !jQuery('#CAPITOL2_R_224_C1').is(':checked') &&
+            !jQuery('#CAPITOL2_R_231_C1').is(':checked') && !jQuery('#CAPITOL2_R_232_C1').is(':checked') &&
+            !jQuery('#CAPITOL2_R_241_C1').is(':checked') && !jQuery('#CAPITOL2_R_242_C1').is(':checked') &&
+            !jQuery('#CAPITOL2_R_243_C1').is(':checked') && !jQuery('#CAPITOL3_R_311_C1').is(':checked') &&
+            !jQuery('#CAPITOL3_R_312_C1').is(':checked') && !jQuery('#CAPITOL3_R_313_C1').is(':checked') &&
+            !jQuery('#CAPITOL3_R_321_C1').is(':checked') && !jQuery('#CAPITOL3_R_322_C1').is(':checked') &&
+            !jQuery('#CAPITOL3_R_323_C1').is(':checked') && !jQuery('#CAPITOL3_R_324_C1').is(':checked') &&
+            !jQuery('#CAPITOL3_R_331_C1').is(':checked') && !jQuery('#CAPITOL3_R_332_C1').is(':checked') &&
+            !jQuery('#CAPITOL3_R_333_C1').is(':checked') && !jQuery('#CAPITOL4_R_411_C1').is(':checked') &&
+            !jQuery('#CAPITOL4_R_412_C1').is(':checked') && !jQuery('#CAPITOL5_R_511_C1').is(':checked') &&
+            !jQuery('#CAPITOL5_R_512_C1').is(':checked') && !jQuery('#CAPITOL5_R_513_C1').is(':checked') &&
+            !jQuery('#CAPITOL5_R_514_C1').is(':checked') && !jQuery('#CAPITOL5_R_515_C1').is(':checked') &&
+            !jQuery('#CAPITOL5_R_516_C1').is(':checked') && !jQuery('#CAPITOL5_R_517_C1').is(':checked') &&
+            !jQuery('#CAPITOL5_R_518_C1').is(':checked') && !jQuery('#CAPITOL5_R_519_C1').is(':checked') &&
+            !jQuery('#CAPITOL5_R_5110_C1').is(':checked') && !jQuery('#CAPITOL5_R_531_C1').is(':checked') &&
+            !jQuery('#CAPITOL5_R_532_C1').is(':checked') && !jQuery('#CAPITOL5_R_533_C1').is(':checked') &&
+            !jQuery('#CAPITOL6_R_611_C1').is(':checked') && !jQuery('#CAPITOL6_R_612_C1').is(':checked') &&
+            !jQuery('#CAPITOL6_R_621_C1').is(':checked') && !jQuery('#CAPITOL6_R_621_C2').is(':checked') &&
+            !jQuery('#CAPITOL6_R_621_C3').is(':checked') && !jQuery('#CAPITOL6_R_622_C1').is(':checked') &&
+            !jQuery('#CAPITOL6_R_622_C2').is(':checked') && !jQuery('#CAPITOL6_R_622_C3').is(':checked') &&
+            !jQuery('#CAPITOL6_R_623_C1').is(':checked') && !jQuery('#CAPITOL6_R_623_C2').is(':checked') &&
+            !jQuery('#CAPITOL6_R_623_C3').is(':checked') && !jQuery('#CAPITOL6_R_624_C1').is(':checked') &&
+            !jQuery('#CAPITOL6_R_624_C2').is(':checked') && !jQuery('#CAPITOL6_R_624_C3').is(':checked') &&
+            !jQuery('#CAPITOL6_R_625_C1').is(':checked') && !jQuery('#CAPITOL6_R_625_C2').is(':checked') &&
+            !jQuery('#CAPITOL6_R_625_C3').is(':checked') && !jQuery('#CAPITOL6_R_626_C1').is(':checked') &&
+            !jQuery('#CAPITOL6_R_626_C2').is(':checked') && !jQuery('#CAPITOL6_R_626_C3').is(':checked') &&
+            !jQuery('#CAPITOL6_R_627_C1').is(':checked') && !jQuery('#CAPITOL6_R_627_C2').is(':checked') &&
+            !jQuery('#CAPITOL6_R_627_C3').is(':checked') && !jQuery('#CAPITOL6_R_628_C1').is(':checked') &&
+            !jQuery('#CAPITOL6_R_628_C2').is(':checked') && !jQuery('#CAPITOL6_R_628_C3').is(':checked') &&
+            !jQuery('#CAPITOL7_R_711_C1').is(':checked') && !jQuery('#CAPITOL7_R_712_C1').is(':checked') &&
+            !jQuery('#CAPITOL7_R_713_C1').is(':checked') && !jQuery('#CAPITOL8_R_811_C1').is(':checked') &&
+            !jQuery('#CAPITOL8_R_812_C1').is(':checked') && !jQuery('#CAPITOL8_R_813_C1').is(':checked') &&
+            !jQuery('#CAPITOL8_R_814_C1').is(':checked')
+        )
+        &&
+        (
+            values.CAPITOL9_R92_C31.length > 0 
+        ))
+
+        ||
+
+
+        ((
+            // Modified this js code for Drupal - Add in this condition these variables
+            jQuery('#CAPITOL2_R_211_C1').is(':checked') || jQuery('#CAPITOL2_R_212_C1').is(':checked') ||
+            jQuery('#CAPITOL2_R_221_C1').is(':checked') || jQuery('#CAPITOL2_R_222_C1').is(':checked') ||
+            jQuery('#CAPITOL2_R_223_C1').is(':checked') || jQuery('#CAPITOL2_R_224_C1').is(':checked') ||
+            jQuery('#CAPITOL2_R_231_C1').is(':checked') || jQuery('#CAPITOL2_R_232_C1').is(':checked') ||
+            jQuery('#CAPITOL2_R_241_C1').is(':checked') || jQuery('#CAPITOL2_R_242_C1').is(':checked') ||
+            jQuery('#CAPITOL2_R_243_C1').is(':checked') || jQuery('#CAPITOL3_R_311_C1').is(':checked') ||
+            jQuery('#CAPITOL3_R_312_C1').is(':checked') || jQuery('#CAPITOL3_R_313_C1').is(':checked') ||
+            jQuery('#CAPITOL3_R_321_C1').is(':checked') || jQuery('#CAPITOL3_R_322_C1').is(':checked') ||
+            jQuery('#CAPITOL3_R_323_C1').is(':checked') || jQuery('#CAPITOL3_R_324_C1').is(':checked') ||
+            jQuery('#CAPITOL3_R_331_C1').is(':checked') || jQuery('#CAPITOL3_R_332_C1').is(':checked') ||
+            jQuery('#CAPITOL3_R_333_C1').is(':checked') || jQuery('#CAPITOL4_R_411_C1').is(':checked') ||
+            jQuery('#CAPITOL4_R_412_C1').is(':checked') || jQuery('#CAPITOL5_R_511_C1').is(':checked') ||
+            jQuery('#CAPITOL5_R_512_C1').is(':checked') || jQuery('#CAPITOL5_R_513_C1').is(':checked') ||
+            jQuery('#CAPITOL5_R_514_C1').is(':checked') || jQuery('#CAPITOL5_R_515_C1').is(':checked') ||
+            jQuery('#CAPITOL5_R_516_C1').is(':checked') || jQuery('#CAPITOL5_R_517_C1').is(':checked') ||
+            jQuery('#CAPITOL5_R_518_C1').is(':checked') || jQuery('#CAPITOL5_R_519_C1').is(':checked') ||
+            jQuery('#CAPITOL5_R_5110_C1').is(':checked') || jQuery('#CAPITOL5_R_531_C1').is(':checked') ||
+            jQuery('#CAPITOL5_R_532_C1').is(':checked') || jQuery('#CAPITOL5_R_533_C1').is(':checked') ||
+            jQuery('#CAPITOL6_R_611_C1').is(':checked') || jQuery('#CAPITOL6_R_612_C1').is(':checked') ||
+            jQuery('#CAPITOL6_R_621_C1').is(':checked') || jQuery('#CAPITOL6_R_621_C2').is(':checked') ||
+            jQuery('#CAPITOL6_R_621_C3').is(':checked') || jQuery('#CAPITOL6_R_622_C1').is(':checked') ||
+            jQuery('#CAPITOL6_R_622_C2').is(':checked') || jQuery('#CAPITOL6_R_622_C3').is(':checked') ||
+            jQuery('#CAPITOL6_R_623_C1').is(':checked') || jQuery('#CAPITOL6_R_623_C2').is(':checked') ||
+            jQuery('#CAPITOL6_R_623_C3').is(':checked') || jQuery('#CAPITOL6_R_624_C1').is(':checked') ||
+            jQuery('#CAPITOL6_R_624_C2').is(':checked') || jQuery('#CAPITOL6_R_624_C3').is(':checked') ||
+            jQuery('#CAPITOL6_R_625_C1').is(':checked') || jQuery('#CAPITOL6_R_625_C2').is(':checked') ||
+            jQuery('#CAPITOL6_R_625_C3').is(':checked') || jQuery('#CAPITOL6_R_626_C1').is(':checked') ||
+            jQuery('#CAPITOL6_R_626_C2').is(':checked') || jQuery('#CAPITOL6_R_626_C3').is(':checked') ||
+            jQuery('#CAPITOL6_R_627_C1').is(':checked') || jQuery('#CAPITOL6_R_627_C2').is(':checked') ||
+            jQuery('#CAPITOL6_R_627_C3').is(':checked') || jQuery('#CAPITOL6_R_628_C1').is(':checked') ||
+            jQuery('#CAPITOL6_R_628_C2').is(':checked') || jQuery('#CAPITOL6_R_628_C3').is(':checked') ||
+            jQuery('#CAPITOL7_R_711_C1').is(':checked') || jQuery('#CAPITOL7_R_712_C1').is(':checked') ||
+            jQuery('#CAPITOL7_R_713_C1').is(':checked') || jQuery('#CAPITOL8_R_811_C1').is(':checked') ||
+            jQuery('#CAPITOL8_R_812_C1').is(':checked') || jQuery('#CAPITOL8_R_813_C1').is(':checked') ||
+            jQuery('#CAPITOL8_R_814_C1').is(':checked')
+        )
+            &&
+            (
+                values.CAPITOL9_R92_C31.length < 10 || values.CAPITOL9_R92_C31.length > 380
+            ))
+
+
+    ) {
+        webform.errors.push({
+            'fieldName': 'CAPITOL9_R92_C31',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-053: Dacă în rând. 2.1.1, până la 8.1.4 inclusiv, este indicat 1, atunci 9.2 este obligator de completat si vice versa  - Descrierea Inovarii este obligatorei si  trebuie să conțină nu mai putin  10 si nu mai mult de 380 de caractere  si vece versa ')
+        });
+    }
+
+// End 48-053
+
 
 
 

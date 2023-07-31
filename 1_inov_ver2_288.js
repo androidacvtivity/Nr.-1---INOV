@@ -2901,6 +2901,31 @@ function validateCapitol2(values, webform) {
 
 
 
+// Start 48-053
+
+
+    if (
+        (jQuery('#CAPITOL2_R_211_C1').is(':checked') || jQuery('#CAPITOL2_R_212_C1').is(':checked')  
+
+        && 
+
+        (values.CAPITOL9_R92_C31.length < 10 || values.CAPITOL9_R92_C31.length > 30))
+        
+        
+    
+    ) 
+    {
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL9_R92_C31',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-053: Dacă în rând. 2.1.1, până la 8.1.4 inclusiv, este indicat 1, atunci 9.2 este obligator de completat si vice versa  - Descrierea Inovarii este obligatorei si  trebuie să conțină nu mai putin  10 si nu mai mult de 380 de caractere')
+        });
+
+    }
+// End 48-053
+
 
 
 

@@ -2901,6 +2901,38 @@ function validateCapitol2(values, webform) {
 
 
 
+// Start 48-053
+
+
+    if (
+        (jQuery('#CAPITOL2_R_211_C1').is(':checked') 
+
+        && 
+
+        (values.CAPITOL9_R92_C31.length < 10 || values.CAPITOL9_R92_C31.length > 30))
+        
+        ||
+
+        (
+            (!jQuery('#CAPITOL2_R_211_C1').is(':checked'))
+
+            &&
+
+            (values.CAPITOL9_R92_C31.length > 10 || values.CAPITOL9_R92_C31.length < 30))
+    
+    ) 
+    {
+
+
+        webform.errors.push({
+            'fieldName': 'CAPITOL9_R92_C31',
+            'index': 0,
+            'msg': Drupal.t('Cod eroare 48-053: Descrierea Inovarii este obligatorei si  trebuie să conțină nu mai putin  10 si nu mai mult de 380 de caractere')
+        });
+
+    }
+// End 48-053
+
 
 
 
