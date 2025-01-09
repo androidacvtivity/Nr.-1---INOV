@@ -2044,6 +2044,8 @@ function validateCapitol2(values, webform) {
 
 
 //Start 48-0402
+
+
 // Checking  telefon 
     if (!values.PHONE || !/^[0-9]{9}$/.test(values.PHONE)) {
         webform.errors.push({
