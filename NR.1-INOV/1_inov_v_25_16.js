@@ -102,11 +102,9 @@ function sort_errors_warinings(a, b) {
 
     return toFloat(a.error_code) - toFloat(b.error_code);
 }
-//
-//add this 
+
 function check_all(values) {
     jQuery('input[type=checkbox]').change(function () {
-
         var state = jQuery(this).is(':checked');
         var group = jQuery(this).attr('name');
 
@@ -114,6 +112,28 @@ function check_all(values) {
         var excludedPattern = /^CAPITOL1_R112\d+_C\d+$/;
         if (excludedPattern.test(group)) {
             return; // Skip processing for these variables
+        }
+
+        // Exclude checkboxes that match CAPITOL1_R111X_C1, CAPITOL1_R111X_C2
+        var explicitGroup = ["CAPITOL1_R1111_C1", "CAPITOL1_R1111_C2",
+            "CAPITOL1_R1112_C1", "CAPITOL1_R1112_C2",
+            "CAPITOL1_R1113_C1", "CAPITOL1_R1113_C2"];
+
+        if (explicitGroup.includes(group)) {
+            // Ensure mutual exclusivity within CAPITOL1_R111X_C1 and CAPITOL1_R111X_C2 groups
+            var exclusiveGroups = {
+                "CAPITOL1_R1111_C1": "CAPITOL1_R1111_C2",
+                "CAPITOL1_R1111_C2": "CAPITOL1_R1111_C1",
+                "CAPITOL1_R1112_C1": "CAPITOL1_R1112_C2",
+                "CAPITOL1_R1112_C2": "CAPITOL1_R1112_C1",
+                "CAPITOL1_R1113_C1": "CAPITOL1_R1113_C2",
+                "CAPITOL1_R1113_C2": "CAPITOL1_R1113_C1"
+            };
+
+            if (state) {
+                jQuery(`input[name="${exclusiveGroups[group]}"]`).prop('checked', false);
+            }
+            return; // Stop further processing
         }
 
         var pos = group.indexOf('_R');
@@ -129,7 +149,7 @@ function check_all(values) {
 
         jQuery(this).prop('checked', state);
 
-        // Ensure that only one of CAPITOL1_R191_C1, CAPITOL1_R192_C1, CAPITOL1_R193_C1 is selected
+        // Ensure only one of CAPITOL1_R191_C1, CAPITOL1_R192_C1, CAPITOL1_R193_C1 is selected
         var specialGroup = ["CAPITOL1_R191_C1", "CAPITOL1_R192_C1", "CAPITOL1_R193_C1"];
         if (specialGroup.includes(group)) {
             jQuery('input[name="CAPITOL1_R191_C1"], input[name="CAPITOL1_R192_C1"], input[name="CAPITOL1_R193_C1"]').not(this).prop('checked', false);
