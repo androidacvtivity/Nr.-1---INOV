@@ -26,7 +26,7 @@ function check_all(values) {
             return; // Stop further processing
         }
 
-        // Mutual exclusivity for each row separately
+        // Define mutual exclusivity row-wise
         var rowGroups = {
             "CAPITOL21_R211_C1": ["CAPITOL21_R211_C2", "CAPITOL21_R211_C3"],
             "CAPITOL21_R211_C2": ["CAPITOL21_R211_C1", "CAPITOL21_R211_C3"],
@@ -62,6 +62,13 @@ function check_all(values) {
             "CAPITOL22_R224_C3": ["CAPITOL22_R224_C4"],
             "CAPITOL22_R224_C4": ["CAPITOL22_R224_C3"]
         };
+
+        // New CAPITOL3 Group (C1, C2, C3) Mutual Exclusivity
+        for (var i = 311; i <= 3112; i++) {
+            rowGroups[`CAPITOL3_R${i}_C1`] = [`CAPITOL3_R${i}_C2`, `CAPITOL3_R${i}_C3`];
+            rowGroups[`CAPITOL3_R${i}_C2`] = [`CAPITOL3_R${i}_C1`, `CAPITOL3_R${i}_C3`];
+            rowGroups[`CAPITOL3_R${i}_C3`] = [`CAPITOL3_R${i}_C1`, `CAPITOL3_R${i}_C2`];
+        }
 
         if (rowGroups.hasOwnProperty(group)) {
             if (state) {
