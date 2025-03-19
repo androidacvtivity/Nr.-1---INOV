@@ -20,6 +20,8 @@
             check_all(values);
             check_111_112(values);
 
+            toggle111_112(values);
+
         }
 
     }
@@ -48,15 +50,15 @@ webform.validators.inov1 = function (v, allowOverpass) {
 }
 
 function toggle111_112(values) {
-    if (values.CAPITOL5_R511_C2 == '1' && values.CAPITOL5_R512_C2 == '1') {
+    if (values.CAPITOL1_R111_C2 == '1' && values.CAPITOL1_R112_C2 == '1') {
 
 
-        jQuery('#CAPITOL5_R520, #CAPITOL5_R530, #CAPITOL5_R531, #CAPITOL5_R532, #CAPITOL5_R533, #CAPITOL5_R540, #CAPITOL5_R541, #CAPITOL5_R542, #CAPITOL5_R543').hide();
+        jQuery('#CAPITOL1_R12H, #CAPITOL1_R12H1, #CAPITOL1_R121, #CAPITOL1_R122').hide();
 
         // Ștergem valorile din inputurile asociate
         var inputIDs = [
-            "CAPITOL5_R520_C1", "CAPITOL5_R531_C1", "CAPITOL5_R532_C1",
-            "CAPITOL5_R533_C1", "CAPITOL5_R541_C1", "CAPITOL5_R542_C1", "CAPITOL5_R543_C1"
+            "CAPITOL1_R121_C1", "CAPITOL1_R121_C2", "CAPITOL1_R122_C1",
+            "CAPITOL1_R123_C2"
         ];
 
         inputIDs.forEach(function (id) {
@@ -67,7 +69,7 @@ function toggle111_112(values) {
         });
     } else {
 
-        jQuery('#CAPITOL5_R520, #CAPITOL5_R530, #CAPITOL5_R531, #CAPITOL5_R532, #CAPITOL5_R533, #CAPITOL5_R540, #CAPITOL5_R541, #CAPITOL5_R542, #CAPITOL5_R543').show();
+        jQuery('#CAPITOL1_R12H, #CAPITOL1_R12H1, #CAPITOL1_R121, #CAPITOL1_R122').show();
     }
 }
 
