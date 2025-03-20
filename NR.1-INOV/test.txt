@@ -1,10 +1,19 @@
 
 Analizeaza  fisierile html si js. 
+
+
 Pentru Logica 1 - Care este - Dacă răspundeți “NU” la ambele opțiuni din 1.1, vă rugăm treceți la întrebarea 1.5. Altfel, vă rugăm continuați cu întrebarea 1.2.
 Sa creat toggle111_112 si check_111_112. 
 
-Acum dupa exemplu logicii - Logica 1
-Creaza -- Logic 2 
+
+Pentru  -- Logic 2  Care este 
 Dacă ați răspuns “NU” la toate opțiunile din 1.5, vă rugăm treceți la întrebarea 1.7 Altfel, vă rugăm continuați cu întrebarea 1.6
 
--- Creaza  functiile 
+Sa creat    toggle151_157(values);  //Logic 2
+            check_151_157(values);  //Logic 2
+
+
+
+-- Creaza  functiile pentru logica  
+
+--Dacă ați răspuns „NU” la toate opțiunile din întrebările 1.1, 1.5 și 1.7, vă rugăm treceți la întrebarea 1.10. Altfel, vă rugăm continuați cu întrebarea 1.8
