@@ -16,4 +16,5 @@ Sa creat    toggle151_157(values);  //Logic 2
 
 -- Creaza  functiile pentru logica  
 
---Dacă ați răspuns „NU” la toate opțiunile din întrebările 1.1, 1.5 și 1.7, vă rugăm treceți la întrebarea 1.10. Altfel, vă rugăm continuați cu întrebarea 1.8
+-- Dacă ați răspuns „NU” la toate opțiunile din întrebările 1.1, 1.5 și 1.7, vă rugăm treceți la întrebarea 1.10. Altfel, vă rugăm continuați cu întrebarea 1.8
+La randurile 1.8 - prima coloana este se insereaza data si a doau colona este checkbox 
