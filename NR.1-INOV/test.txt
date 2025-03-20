@@ -28,3 +28,161 @@ analizeaza fisierul html si js - Ce rand nu sa ascuns ?
 In the last logic - (If you answered "NO" to all options in questions 1.1, 1.5 and 1.7, please skip to question 1.10. ).
 
 analyze the html and js file - Which row was not hidden?
+
+
+Analizeaza  fisierile html si js. 
+
+Creaza Logica 4 
+
+Dacă ați răspuns “DA” la oricare din opțiunile 1) sau 2) (1.11.1 sau 1.11.2), vă rugăm treceți la întrebarea 1.12 Altfel, vă rugăm continuați cu întrebarea 2.1
+
+
+Dacă unul dintre răspunsuri este "DA" (checkbox selectat), se afișează întrebarea 1.12 și se ascunde capitolul 2.
+
+analizeaza din nou fisierile js si html
+
+Sa ne exprimam altfel Dacă unul dintre răspunsuri este "DA"  - nu ascundem nimic dar daca nici unul nu este da - ascundem tot pana la întrebarea 2.1
+
+Fa altfel 
+
+daca 1.11.1  si 1.11.2 - sunt nu 
+
+
+ascunde (
+
+    <tr id="CAPITOL1_R112H1">
+            <td colspan="4"></td>
+        </tr>
+        <tr id="CAPITOL1_R112H2">
+            <td colspan="4"><strong>1.12 Vă rugăm să indicați <u>tipul partenerului de cooperare</u> după localizarea
+                    geografică:
+                </strong></td>
+        </tr>
+        <tr id="CAPITOL1_R112H3">
+            <td align="right" colspan="4"><strong><em>Răspunsurile se vor referi doar la ”cooperarea în domeniul
+                        inovării”</em>
+                </strong></td>
+        </tr>
+        <tr id="CAPITOL1_R112H4">
+            <td align="right" colspan="4"> <em>Bifați tot ce ați aplicat</em>
+            </td>
+        </tr>
+        <tr  id ="CAPITOL1_R112H5">
+            <td style=" width:62%"><strong>Tipul partenerului de cooperare</strong></td>
+            <td align="center" style="width:16%"><strong>Moldova</strong></td>
+            <td align="center" style="width:16%"><strong>Țările din UE* sau AELS**</strong></td>
+            <td align="center" style="width:16%"><strong>Toate celelalte țări</strong></td>
+        </tr>
+        <tr id="CAPITOL1_R112H6">
+            <td align="left" colspan="4" style="width:100%"><strong>Partener de cooperare din sectorul întreprinderilor
+                    de afaceri</strong></td>
+        </tr>
+        <tr id="CAPITOL1_R1121">
+            <td style="width:62%">1.12.1 Consultanți, laboratoare comerciale sau institute de cercetare private</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1121_C1;</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1121_C2;</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1121_C3;</td>
+        </tr>
+        <tr id="CAPITOL1_R1122">
+            <td style="width:62%">1.12.2 Furnizori de echipamente, materiale, componente sau software</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1122_C1;</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1122_C2;</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1122_C3;</td>
+        </tr>
+        <tr id="CAPITOL1_R1123">
+            <td style="width:62%">1.12.3 Întreprinderile care sunt clienții sau cumpărătorii dvs.</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1123_C1;</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1123_C2;</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1123_C3;</td>
+        </tr>
+        <tr id="CAPITOL1_R1124">
+            <td style="width:62%">1.12.4 Întreprinderile care sunt concurenții dvs.</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1124_C1;</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1124_C2;</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1124_C3;</td>
+        </tr>
+        <tr id="CAPITOL1_R1125">
+            <td style="width:62%">1.12.5 Alte întreprinderi</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1125_C1;</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1125_C2;</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1125_C3;</td>
+        </tr>
+        <tr id="CAPITOL1_R112H7">
+            <td align="left" colspan="4" style="width:100%"><strong>Partener de cooperare din afara sectorului
+                    întreprinderilor de afaceri</strong></td>
+        </tr>
+        <tr id="CAPITOL1_R1126">
+            <td style="width:62%">1.12.6 Universități sau alte instituții de învățământ superior</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1126_C1;</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1126_C2;</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1126_C3;</td>
+        </tr>
+        <tr id="CAPITOL1_R1127">
+            <td style="width:62%">1.12.7 Administrație publică, instituții de cercetare publice</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1127_C1;</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1127_C2;</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1127_C3;</td>
+        </tr>
+        <tr id="CAPITOL1_R1128">
+            <td style="width:62%">1.12.8 Clienți sau cumpărători din sectorul public***</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1128_C1;</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1128_C2;</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1128_C3;</td>
+        </tr>
+        <tr id="CAPITOL1_R1129">
+            <td style="width:62%">1.12.9 Organizații non-profit</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1129_C1;</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1129_C2;</td>
+            <td align="center" style="width:12%">@CAPITOL1_R1129_C3;</td>
+        </tr>
+        <tr id="CAPITOL1_R112H8">
+            <td align="left" colspan="4">
+                <em>* Statele membre ale Uniunii Europene sunt: Austria, Belgia, Bulgaria, Republica Cehă, Croația,
+                    Cipru, Danemarca,
+                    Estonia, Finlanda, Franța, Germania, Grecia, Irlanda, Italia, Letonia, Lituania, Luxemburg, Malta,
+                    Olanda, Polonia,
+                    Portugalia, România, Slovacia, Slovenia, Spania, Suedia, Ungaria.</em>
+                <br />
+                <em>** Sectorul public cuprinde organizațiile administrației publice, cum sunt cele din administrațiile
+                    și agențiile locale,
+                    regionale şi naționale, școli, spitale cât şi furnizori de servicii ai administrației publice, cum
+                    ar fi cele pentru
+                    securitate, transport, locuințe, energie</em>
+            </td>
+        </tr>
+)
+
+altfel nu se face nimic
+
+
+Dar trebuie sa faci un check si clear data la 
+
+CAPITOL1_R1121_C1
+CAPITOL1_R1121_C2
+CAPITOL1_R1121_C3
+CAPITOL1_R1122_C1
+CAPITOL1_R1122_C2
+CAPITOL1_R1122_C3
+CAPITOL1_R1123_C1
+CAPITOL1_R1123_C2
+CAPITOL1_R1123_C3
+CAPITOL1_R1124_C1
+CAPITOL1_R1124_C2
+CAPITOL1_R1124_C3
+CAPITOL1_R1125_C1
+CAPITOL1_R1125_C2
+CAPITOL1_R1125_C3
+CAPITOL1_R1126_C1
+CAPITOL1_R1126_C2
+CAPITOL1_R1126_C3
+CAPITOL1_R1127_C1
+CAPITOL1_R1127_C2
+CAPITOL1_R1127_C3
+CAPITOL1_R1128_C1
+CAPITOL1_R1128_C2
+CAPITOL1_R1128_C3
+CAPITOL1_R1129_C1
+CAPITOL1_R1129_C2
+CAPITOL1_R1129_C3
+
+cand se ascunde 
