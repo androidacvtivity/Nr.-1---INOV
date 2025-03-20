@@ -1,4 +1,1 @@
-Create logic  Create logic using both functions
-
-Logic 5 
-1. If CAPITOL1_R181_C2 is  check when CAPITOL1_R181_C1 - clear of value and uncheck and readyonly 
+Add to logic Row 182 and 183
