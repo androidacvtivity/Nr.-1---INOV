@@ -248,14 +248,14 @@ function check_111_157_177(values) {
             jQuery('#CAPITOL1_R176_C2').is(':checked') && jQuery('#CAPITOL1_R177_C2').is(':checked')
         ) {
             // Hide 1.8 and move to 1.10
-            jQuery('#CAPITOL1_R18H1, #CAPITOL1_R18H2, #CAPITOL1_R18H3, #CAPITOL1_R181, #CAPITOL1_R182, #CAPITOL1_R183, #CAPITOL1_R184').hide();
+            jQuery('#CAPITOL1_R18H1, #CAPITOL1_R18H2, #CAPITOL1_R18H3, #CAPITOL1_R181, #CAPITOL1_R182, #CAPITOL1_R183, #CAPITOL1_R184, #CAPITOL1_R18H4, #CAPITOL1_R18H5').hide();
 
             // Clear and uncheck input values
             jQuery('#CAPITOL1_R181_C1, #CAPITOL1_R182_C1, #CAPITOL1_R183_C1, #CAPITOL1_R184_C1').val('').prop('checked', false);
             jQuery('#CAPITOL1_R181_C2, #CAPITOL1_R182_C2, #CAPITOL1_R183_C2, #CAPITOL1_R184_C2').prop('checked', false);
         } else {
             // Show elements of 1.8
-            jQuery('#CAPITOL1_R18H1, #CAPITOL1_R18H2, #CAPITOL1_R18H3, #CAPITOL1_R181, #CAPITOL1_R182, #CAPITOL1_R183, #CAPITOL1_R184').show();
+            jQuery('#CAPITOL1_R18H1, #CAPITOL1_R18H2, #CAPITOL1_R18H3, #CAPITOL1_R181, #CAPITOL1_R182, #CAPITOL1_R183, #CAPITOL1_R184, #CAPITOL1_R18H4, #CAPITOL1_R18H5').show();
         }
     });
 }
@@ -273,17 +273,16 @@ function toggle111_157_177(values) {
         values.CAPITOL1_R176_C2 == '1' && values.CAPITOL1_R177_C2 == '1'
     ) {
         // Hide 1.8 and move to 1.10
-        jQuery('#CAPITOL1_R18H1, #CAPITOL1_R18H2, #CAPITOL1_R18H3, #CAPITOL1_R181, #CAPITOL1_R182, #CAPITOL1_R183, #CAPITOL1_R184').hide();
+        jQuery('#CAPITOL1_R18H1, #CAPITOL1_R18H2, #CAPITOL1_R18H3, #CAPITOL1_R181, #CAPITOL1_R182, #CAPITOL1_R183, #CAPITOL1_R184, #CAPITOL1_R18H4, #CAPITOL1_R18H5').hide();
 
         // Clear and uncheck input values
         jQuery('#CAPITOL1_R181_C1, #CAPITOL1_R182_C1, #CAPITOL1_R183_C1, #CAPITOL1_R184_C1').val('').prop('checked', false);
         jQuery('#CAPITOL1_R181_C2, #CAPITOL1_R182_C2, #CAPITOL1_R183_C2, #CAPITOL1_R184_C2').prop('checked', false);
     } else {
         // Show elements of 1.8
-        jQuery('#CAPITOL1_R18H1, #CAPITOL1_R18H2, #CAPITOL1_R18H3, #CAPITOL1_R181, #CAPITOL1_R182, #CAPITOL1_R183, #CAPITOL1_R184').show();
+        jQuery('#CAPITOL1_R18H1, #CAPITOL1_R18H2, #CAPITOL1_R18H3, #CAPITOL1_R181, #CAPITOL1_R182, #CAPITOL1_R183, #CAPITOL1_R184, #CAPITOL1_R18H4, #CAPITOL1_R18H5').show();
     }
 }
-
 // Logic 3
 
 function validatePhoneNumber(phone) {
