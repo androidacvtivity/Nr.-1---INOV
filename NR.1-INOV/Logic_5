@@ -1,0 +1,43 @@
+function check_181_182_183_logic5() {
+    jQuery('#CAPITOL1_R181_C2, #CAPITOL1_R182_C2, #CAPITOL1_R183_C2').change(function () {
+        let rowID = jQuery(this).attr('id').replace('_C2', '_C1'); // Get corresponding input ID
+        let inputField = jQuery(`#${rowID}`);
+
+        if (jQuery(this).is(':checked')) {
+            inputField.val(''); // Clear value
+            inputField.prop('checked', false); // Uncheck
+            inputField.prop('readonly', true); // Set as readonly
+        } else {
+            inputField.prop('readonly', false); // Remove readonly if unchecked
+        }
+    });
+}
+
+function toggle_181_182_183_logic5(values) {
+    let rows = ["181", "182", "183"];
+
+    rows.forEach(row => {
+        let checkBoxID = `CAPITOL1_R${row}_C2`;
+        let inputFieldID = `CAPITOL1_R${row}_C1`;
+
+        if (values[checkBoxID] == '1') {
+            let inputField = jQuery(`#${inputFieldID}`);
+            inputField.val(''); // Clear value
+            inputField.prop('checked', false); // Uncheck
+            inputField.prop('readonly', true); // Set as readonly
+        } else {
+            jQuery(`#${inputFieldID}`).prop('readonly', false); // Remove readonly
+        }
+    });
+}
+
+// Attach logic in Drupal behavior
+Drupal.behaviors.inov1.attach = function (context, settings) {
+    var values = Drupal.settings.mywebform.values;
+
+    check_111_112_logic4(values);  // Logic 4
+    toggle_111_112_logic4(values); // Logic 4
+
+    check_181_182_183_logic5();  // Logic 5 (Row 181, 182, 183)
+    toggle_181_182_183_logic5(values); // Logic 5 (Row 181, 182, 183)
+};
