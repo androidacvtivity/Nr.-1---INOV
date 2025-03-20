@@ -92,6 +92,9 @@ function check_111_112(values) {
             jQuery('#CAPITOL1_R132').hide();
             jQuery('#CAPITOL1_R133').hide();
             jQuery('#CAPITOL1_R134').hide();
+
+            jQuery('#CAPITOL1_R14H').hide();
+            jQuery('#CAPITOL1_R14H').hide();
             
 
             jQuery('#CAPITOL1_R121_C1').attr("checked", false);
