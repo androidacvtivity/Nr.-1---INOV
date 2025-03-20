@@ -247,19 +247,18 @@ function check_111_157_177(values) {
             jQuery('#CAPITOL1_R174_C2').is(':checked') && jQuery('#CAPITOL1_R175_C2').is(':checked') &&
             jQuery('#CAPITOL1_R176_C2').is(':checked') && jQuery('#CAPITOL1_R177_C2').is(':checked')
         ) {
-            // Hide 1.8 and move to 1.10
-            jQuery('#CAPITOL1_R18H1, #CAPITOL1_R18H2, #CAPITOL1_R18H3, #CAPITOL1_R181, #CAPITOL1_R182, #CAPITOL1_R183, #CAPITOL1_R184, #CAPITOL1_R18H4, #CAPITOL1_R18H5').hide();
+            // Hide 1.8 and 1.9 and move to 1.10
+            jQuery('#CAPITOL1_R18H1, #CAPITOL1_R18H2, #CAPITOL1_R18H3, #CAPITOL1_R181, #CAPITOL1_R182, #CAPITOL1_R183, #CAPITOL1_R184, #CAPITOL1_R18H5, #CAPITOL1_R19H1, #CAPITOL1_R19H2, #CAPITOL1_R19H3, #CAPITOL1_R191, #CAPITOL1_R192, #CAPITOL1_R193, #CAPITOL1_R19H4').hide();
 
-            // Clear and uncheck input values
-            jQuery('#CAPITOL1_R181_C1, #CAPITOL1_R182_C1, #CAPITOL1_R183_C1, #CAPITOL1_R184_C1').val('').prop('checked', false);
+            // Clear and uncheck input values for 1.8 and 1.9
+            jQuery('#CAPITOL1_R181_C1, #CAPITOL1_R182_C1, #CAPITOL1_R183_C1, #CAPITOL1_R184_C1, #CAPITOL1_R191_C1, #CAPITOL1_R192_C1, #CAPITOL1_R193_C1').val('').prop('checked', false);
             jQuery('#CAPITOL1_R181_C2, #CAPITOL1_R182_C2, #CAPITOL1_R183_C2, #CAPITOL1_R184_C2').prop('checked', false);
         } else {
-            // Show elements of 1.8
-            jQuery('#CAPITOL1_R18H1, #CAPITOL1_R18H2, #CAPITOL1_R18H3, #CAPITOL1_R181, #CAPITOL1_R182, #CAPITOL1_R183, #CAPITOL1_R184, #CAPITOL1_R18H4, #CAPITOL1_R18H5').show();
+            // Show elements of 1.8 and 1.9
+            jQuery('#CAPITOL1_R18H1, #CAPITOL1_R18H2, #CAPITOL1_R18H3, #CAPITOL1_R181, #CAPITOL1_R182, #CAPITOL1_R183, #CAPITOL1_R184, #CAPITOL1_R18H5, #CAPITOL1_R19H1, #CAPITOL1_R19H2, #CAPITOL1_R19H3, #CAPITOL1_R191, #CAPITOL1_R192, #CAPITOL1_R193, #CAPITOL1_R19H4').show();
         }
     });
 }
-
 
 function toggle111_157_177(values) {
     if (
@@ -272,15 +271,15 @@ function toggle111_157_177(values) {
         values.CAPITOL1_R174_C2 == '1' && values.CAPITOL1_R175_C2 == '1' &&
         values.CAPITOL1_R176_C2 == '1' && values.CAPITOL1_R177_C2 == '1'
     ) {
-        // Hide 1.8 and move to 1.10
-        jQuery('#CAPITOL1_R18H1, #CAPITOL1_R18H2, #CAPITOL1_R18H3, #CAPITOL1_R181, #CAPITOL1_R182, #CAPITOL1_R183, #CAPITOL1_R184, #CAPITOL1_R18H4, #CAPITOL1_R18H5').hide();
+        // Hide 1.8 and 1.9 and move to 1.10
+        jQuery('#CAPITOL1_R18H1, #CAPITOL1_R18H2, #CAPITOL1_R18H3, #CAPITOL1_R181, #CAPITOL1_R182, #CAPITOL1_R183, #CAPITOL1_R184, #CAPITOL1_R18H4,#CAPITOL1_R18H5, #CAPITOL1_R19H1, #CAPITOL1_R19H2, #CAPITOL1_R19H3, #CAPITOL1_R191, #CAPITOL1_R192, #CAPITOL1_R193, #CAPITOL1_R19H4').hide();
 
-        // Clear and uncheck input values
-        jQuery('#CAPITOL1_R181_C1, #CAPITOL1_R182_C1, #CAPITOL1_R183_C1, #CAPITOL1_R184_C1').val('').prop('checked', false);
-        jQuery('#CAPITOL1_R181_C2, #CAPITOL1_R182_C2, #CAPITOL1_R183_C2, #CAPITOL1_R184_C2').prop('checked', false);
+        // Clear and uncheck input values for 1.8 and 1.9
+        jQuery('#CAPITOL1_R181_C1, #CAPITOL1_R182_C1, #CAPITOL1_R183_C1, #CAPITOL1_R184_C1, #CAPITOL1_R191_C1, #CAPITOL1_R192_C1, #CAPITOL1_R193_C1').val('').prop('checked', false);
+        jQuery('#CAPITOL1_R181_C2, #CAPITOL1_R182_C2, #CAPITOL1_R183_C2, #CAPITOL1_R184_C2, #CAPITOL1_R191_C1, #CAPITOL1_R192_C1, #CAPITOL1_R193_C1').prop('checked', false);
     } else {
-        // Show elements of 1.8
-        jQuery('#CAPITOL1_R18H1, #CAPITOL1_R18H2, #CAPITOL1_R18H3, #CAPITOL1_R181, #CAPITOL1_R182, #CAPITOL1_R183, #CAPITOL1_R184, #CAPITOL1_R18H4, #CAPITOL1_R18H5').show();
+        // Show elements of 1.8 and 1.9
+        jQuery('#CAPITOL1_R18H1, #CAPITOL1_R18H2, #CAPITOL1_R18H3, #CAPITOL1_R181, #CAPITOL1_R182, #CAPITOL1_R183, #CAPITOL1_R184, #CAPITOL1_R18H4,#CAPITOL1_R18H5, #CAPITOL1_R19H1, #CAPITOL1_R19H2, #CAPITOL1_R19H3, #CAPITOL1_R191, #CAPITOL1_R192, #CAPITOL1_R193, #CAPITOL1_R19H4').show();
     }
 }
 // Logic 3
