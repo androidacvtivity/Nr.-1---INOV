@@ -94,21 +94,19 @@ function check_111_112(values) {
             jQuery('#CAPITOL1_R134').hide();
 
             jQuery('#CAPITOL1_R14H').hide();
-            jQuery('#CAPITOL1_R14H').hide();
+            jQuery('#CAPITOL1_R14H1').hide();
+            jQuery('#CAPITOL1_R14H2').hide();
             
 
             jQuery('#CAPITOL1_R121_C1').attr("checked", false);
             jQuery('#CAPITOL1_R121_C2').attr("checked", false);
             jQuery('#CAPITOL1_R122_C1').attr("checked", false);
             jQuery('#CAPITOL1_R122_C2').attr("checked", false);
-            jQuery('#CAPITOL1_R131_C1').attr("checked", false);
-            jQuery('#CAPITOL1_R131_C2').attr("checked", false);
-            jQuery('#CAPITOL1_R132_C1').attr("checked", false);
-            jQuery('#CAPITOL1_R132_C2').attr("checked", false);
-            jQuery('#CAPITOL1_R133_C1').attr("checked", false);
-            jQuery('#CAPITOL1_R133_C2').attr("checked", false);
-            jQuery('#CAPITOL1_R134_C1').attr("checked", false);
-            jQuery('#CAPITOL1_R134_C2').attr("checked", false);
+            jQuery('#CAPITOL1_R141_C1').attr("checked", false);
+            jQuery('#CAPITOL1_R142_C1').attr("checked", false);
+            jQuery('#CAPITOL1_R143_C1').attr("checked", false);
+            jQuery('#CAPITOL1_R144_C1').attr("checked", false);
+            
 
 
 
@@ -123,6 +121,11 @@ function check_111_112(values) {
             document.getElementById("CAPITOL1_R133_C1").value = "";
            
             document.getElementById("CAPITOL1_R134_C1").value = "";
+
+            document.getElementById("CAPITOL1_R141_C1").value = "";
+            document.getElementById("CAPITOL1_R142_C1").value = "";
+            document.getElementById("CAPITOL1_R143_C1").value = "";
+            document.getElementById("CAPITOL1_R144_C1").value = "";
            
            
         }
@@ -140,6 +143,10 @@ function check_111_112(values) {
             jQuery('#CAPITOL1_R132').show();
             jQuery('#CAPITOL1_R133').show();
             jQuery('#CAPITOL1_R134').show();
+
+            jQuery('#CAPITOL1_R14H').show();
+            jQuery('#CAPITOL1_R14H1').show();
+            jQuery('#CAPITOL1_R14H2').show();
 
         }
 
