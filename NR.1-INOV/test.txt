@@ -1,121 +1,35 @@
-Nu merge. Nu se faiseaza nimic. Iti dau un exemplu de alt raport unde se lucreaza cu jQuery
+Analizeaza fisierile .js si  .html.
+
+Creaza validarea doar - check
+
+48-005	2013	Cap.1 Ati bifat cu "Da" Rind. 1.7.1 - (Completati Rind 1.7.2 sau 1.7.3)
 
 
- Drupal.behaviors.munca3 = {
-        attach: function (context) {
-            jQuery('#mywebform-edit-form').on('change', '.dynamic-cuatm', function () {
-                var cuatm = jQuery(this).val();
-                //var region = get_region_by_cuatm(cuatm);
-                //jQuery(this).closest('.row').find('.dynamic-region').val(String(region).trim()).trigger('change');
-            });
+Altfel iti explic 
 
-            jQuery('#mywebform-edit-form').on('mywebform:gridRefreshField', 'input.dynamic-region', function () {
-                var val = String(jQuery(this).val());
-                var processed_val = val.trim();
+Daca Rind. 1.7.1 COL1 is check and ((1.7.2 col1 and 1.7.2 col2 un check) and (1.7.3 col1 and 1.7.3 col2 un check) ) - show eror
 
-                if (val != processed_val) {
-                    jQuery(this).val(processed_val).trigger('change');
-                }
-            });
 
-            jQuery('#mywebform-edit-form', context).on('keypress', 'input.numeric, input.money, input.float', function (event) {
-                if (isNumberPressed(this, event) === false) {
-                    event.preventDefault();
-                }
-            });
+Dupa acest exemplu 
 
-            jQuery('#mywebform-edit-form', context).on('paste', 'input.numeric, input.money, input.float', function (event) {
-                var obj = event.originalEvent || event;
+//48-004
 
-                if (typeof obj.clipboardData !== 'undefined') {
-                    var value = obj.clipboardData.getData('text/plain');
-                    var number = Number(value);
+function validate48_004() {
+    var values = Drupal.settings.mywebform.values;
+    var v134 = parseInt(values['CAPITOL1_R134_C1'], 10);
 
-                    if (isNaN(number) || is_negative(number)) {
-                        event.preventDefault();
-                    }
-                }
-            });
+    if (!isNaN(v134) && v134 !== 100) {
+        webform.errors.push({
+            fieldName: 'CAPITOL1_R134_C1',
+            weight: 1,
+            msg: concatMessage(
+                '48-004',
+                'Rândul 1.3.4 – Total (%)',
+                Drupal.t(`Cod eroare: 48-004. Valoarea introdusă în Rândul 1.3.4  trebuie să fie exact 100%. Valoare curentă: ${v134}.`)
+            )
+        });
+    }
+}
 
-            jQuery('#mywebform-edit-form').on('mywebform:sync', 'input', function () {
-                var $this = jQuery(this);
-                var fieldName = $this.attr('field');
 
-                for (var i = 0; i < clonableAutocalc.length; i++) {
-                    var specs = clonableAutocalc[i];
-                    if (fieldName == specs.simpleF || fieldName == specs.dynamicF) {
-                        calculate_clonable_table_result($this, specs);
-                    }
-                }
-            });
-
-            jQuery('#mywebform-edit-form').on('mywebform:sync', 'input.autofield', function () {
-                fix_autocalc_fields(jQuery(this));
-            });
-
-            jQuery('#CAEM').on('mywebform:sync', function () {
-                fill_main_caem_fields();
-            });
-
-            jQuery('#mywebform-edit-form').on('mywebform:sync', 'select.dynamic-table-caem', function () {
-                fill_dynamic_table2_caem_field(jQuery(this));
-            });
-
-            jQuery('#mywebform-edit-form').on('mywebform:sync', 'select.dynamic-section-caem', function () {
-                fill_dynamic_section2_caem_field(jQuery(this));
-            });
-
-            jQuery('#mywebform-edit-form').on('mywebform:sync', 'select.dynamicSection-cuatm', function () {
-                fill_dynamic_section2_cuatm_fields(jQuery(this));
-            });
-
-            jQuery('#CAPIa').on('row_added', function () {
-                var gridObject = jQuery(this).getGridObject();
-                var $grid2 = jQuery('#CAPII');
-                if (gridObject.count > 1) {
-                    $grid2.find('.CAPII-grid-addrow').trigger('click');
-                }
-            });
-
-            jQuery('#CAPIa').on('row_deleted', function (event, rowIndex) {
-                jQuery('.CAPII-row.row-' + rowIndex + ' .CAPII-grid-delrow').trigger('click');
-            });
-
-            jQuery('#FILIAL_CAPIa').on('row_added', function (event) {
-                jQuery('#FILIAL_CAPII .FILIAL_CAPII-grid-addrow').trigger('click');
-            });
-
-            jQuery('#FILIAL_CAPIa').on('row_deleted', function (event, rowIndex) {
-                jQuery('.FILIAL_CAPII-row.row-' + rowIndex + ' .FILIAL_CAPII-grid-delrow').trigger('click');
-            });
-
-            jQuery('#FILIAL_CAPIa').on('row_added', '.FILIAL_CAPIa-CAPIa-wrapper', function (event) {
-                event.stopPropagation();
-
-                var gridObject = jQuery(this).getGridObject();
-                var $grid2 = jQuery('#CAPII_FILIAL-' + gridObject.parentIndex);
-
-                if (gridObject.count > 1) {
-                    $grid2.find('.grid-addrow').trigger('click');
-                }
-            });
-
-            jQuery('#FILIAL_CAPIa').on('row_deleted', '.FILIAL_CAPIa-CAPIa-wrapper', function (event, rowIndex) {
-                event.stopPropagation();
-
-                var gridObject = jQuery(this).getGridObject();
-                var $grid2 = jQuery('#CAPII_FILIAL-' + gridObject.parentIndex);
-                $grid2.find('.row-' + rowIndex + ' .delrow a').trigger('click');
-            });
-
-            jQuery('#YEAR').on('mywebform:sync', function () {
-                if (static_form_version != get_form_version(true)) {
-                    show_specific_form_version();
-                }
-            });
-
-            if (!Drupal.settings.mywebform.preview) {
-                show_specific_form_version(false);
-            }
-        }
-    };
+//48-004
