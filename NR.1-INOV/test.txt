@@ -1,2 +1,4 @@
 Analizeaza fisierul .js  si .html
 In Drupal.behaviors.inov1 - trebuie de adaugat o validare 
+daca CAPITOL1_R134_C1 ara date su nu este egal cu 100 - sa apara mesaj imediat - de tip alert 
+Ce orpiuni sunt ?
