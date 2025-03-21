@@ -1,5 +1,5 @@
 
-Modify validation according to the new logic -- 48-006		Cap.1 Ati bifat cu "Da" Rind. 1.7.1 - Completati Rind 1.8.1 sau 1.8.2 "DA"
+//Modify validation according to the new logic -- 48-006		Cap.1 Ati bifat cu "Da" Rind. 1.7.1 - Completati Rind 1.8.1 sau 1.8.2 "DA"
 
 function validate48_005() {
     var r171_checked = jQuery('#CAPITOL1_R171_C1').is(':checked');
@@ -42,4 +42,4 @@ function validate48_005() {
 }
 
 
-Modify validation according to the new logic -- 48-006		Cap.1 Ati bifat cu "Da" Rind. 1.7.1 - Completati Rind 1.8.1 sau 1.8.2 "DA"
+//Modify validation according to the new logic -- 48-006		Cap.1 Ati bifat cu "Da" Rind. 1.7.1 - Completati Rind 1.8.1 sau 1.8.2 "DA"
