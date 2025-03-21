@@ -1,0 +1,9 @@
+.has-error {
+    border: 2px solid red !important;
+    background-color: #ffe6e6;
+}
+
+#error {
+    font-size: 0.9em;
+    font-style: italic;
+}
