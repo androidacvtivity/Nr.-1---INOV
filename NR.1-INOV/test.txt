@@ -1,1 +1,11 @@
-create a logic with both functions 
+create a logic - 5 with both functions  - when 
+CAPITOL1_R181_C2 and CAPITOL1_R182_C2 and CAPITOL1_R183_C2 is check 
+then 
+
+CAPITOL1_R184_C1 clear data and remove data 
+
+or 
+
+CAPITOL1_R181_C1 and  CAPITOL1_R182_C1  and CAPITOL1_R183_C1 not have data 
+
+CAPITOL1_R184_C1 clear data and remove data 
