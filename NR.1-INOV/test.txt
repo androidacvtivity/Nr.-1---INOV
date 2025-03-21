@@ -1,45 +1,138 @@
+Analizeaza fisierul .js si .html 
 
-Modify validation according to the new logic -- 48-006		Cap.1 Ati bifat cu "Da" Rind. 1.7.1 - Completati Rind 1.8.1 sau 1.8.2 "DA"
+dupa exemplu 
+             check_111_112(values);  //Logic 1
+            toggle111_112(values);  //Logic 1 
 
-function validate48_005() {
-    var r171_checked = jQuery('#CAPITOL1_R171_C1').is(':checked');
 
-    var r172_c1 = jQuery('#CAPITOL1_R172_C1').is(':checked');
-    var r172_c2 = jQuery('#CAPITOL1_R172_C2').is(':checked');
-    var r173_c1 = jQuery('#CAPITOL1_R173_C1').is(':checked');
-    var r173_c2 = jQuery('#CAPITOL1_R173_C2').is(':checked');
+            toggle151_157(values);  //Logic 2
+            check_151_157(values);  //Logic 2
 
-    var r172_has_value = r172_c1 || r172_c2;
-    var r173_has_value = r173_c1 || r173_c2;
+            toggle111_157_177(values);   //Logic 3
+            check_111_157_177(values);   //Logic 3
 
-    var no_172_173 = !r172_has_value && !r173_has_value;
+            creaza logica cu ambele functii 
 
-    // ➤ Caz 1: Ai bifat 1.7.1 = DA dar nu ai completat nimic în 1.7.2 / 1.7.3
-    if (r171_checked && no_172_173) {
-        webform.warnings.push({
-            fieldName: 'CAPITOL1_R171_C1',
-            weight: 1,
-            msg: concatMessage(
-                '48-005',
-                'Rândul 1.7.1 – Activități CD',
-                Drupal.t('Cod eroare: 48-005. Ați bifat “DA” la Rândul 1.7.1, dar nu ați completat nici Rândul 1.7.2 și nici 1.7.3. Trebuie bifat cel puțin un câmp în 1.7.2 sau 1.7.3.')
-            )
+            Dacă în rând. 1.1, până la 1.7 inclusiv, este indicat NU, si 1.10 este bifat , treceti la Cap.2.1
+
+
+
+
+
+            function toggle111_112(values) {
+    if (values.CAPITOL1_R111_C2 == '1' && values.CAPITOL1_R112_C2 == '1') {
+
+        jQuery('#CAPITOL1_R12H, #CAPITOL1_R12H1, #CAPITOL1_R121, #CAPITOL1_R122, #CAPITOL1_R12H2, #CAPITOL1_R13H, #CAPITOL1_R13H1, #CAPITOL1_R13H2, #CAPITOL1_R131, #CAPITOL1_R132, #CAPITOL1_R133, #CAPITOL1_R134, #CAPITOL1_R14H, #CAPITOL1_R14H1, #CAPITOL1_R14H2, #CAPITOL1_R14H3, #CAPITOL1_R141, #CAPITOL1_R142, #CAPITOL1_R143, #CAPITOL1_R144').hide();
+
+        // Ștergem valorile din inputurile asociate
+        var inputIDs = [
+            "CAPITOL1_R121_C1", "CAPITOL1_R121_C2", "CAPITOL1_R122_C1",
+            "CAPITOL1_R123_C2", "CAPITOL1_R131_C1", "CAPITOL1_R131_C2",
+            "CAPITOL1_R132_C1", "CAPITOL1_R132_C2", "CAPITOL1_R133_C1",
+            "CAPITOL1_R133_C2", "CAPITOL1_R134_C1", "CAPITOL1_R134_C2",
+            "CAPITOL1_R141_C1", "CAPITOL1_R142_C1", "CAPITOL1_R143_C1", "CAPITOL1_R144_C1"
+        ];
+
+        inputIDs.forEach(function (id) {
+            var element = document.getElementById(id);
+            if (element) {
+                element.value = "";
+            }
         });
-    }
-
-    // ➤ Caz 2: Ai completat 1.7.2 / 1.7.3 dar NU ai bifat 1.7.1 = DA
-    if (!r171_checked && (r172_has_value || r173_has_value)) {
-        webform.warnings.push({
-            fieldName: 'CAPITOL1_R171_C1',
-            weight: 1,
-            msg: concatMessage(
-                '48-005',
-                'Rândul 1.7.1 – Activități CD',
-                Drupal.t('Cod eroare: 48-005. Ați completat Rândul 1.7.2 sau 1.7.3 fără să fi bifat “DA” la Rândul 1.7.1.')
-            )
-        });
+    } else {
+        jQuery('#CAPITOL1_R12H, #CAPITOL1_R12H1, #CAPITOL1_R121, #CAPITOL1_R122, #CAPITOL1_R12H2, #CAPITOL1_R13H, #CAPITOL1_R13H1, #CAPITOL1_R13H2, #CAPITOL1_R131, #CAPITOL1_R132, #CAPITOL1_R133, #CAPITOL1_R134, #CAPITOL1_R14H, #CAPITOL1_R14H1, #CAPITOL1_R14H2, #CAPITOL1_R14H3, #CAPITOL1_R141, #CAPITOL1_R142, #CAPITOL1_R143, #CAPITOL1_R144').show();
     }
 }
 
+//Logic 1
+// Dacă răspundeți “NU” la ambele opțiuni 1.1, vă rugăm treceți la întrebarea 1.5. Altfel, vă rugăm continuați cu întrebarea 1.2.
+function check_111_112(values) {
 
-Modify validation according to the new logic -- 48-006		Cap.1 Ati bifat cu "Da" Rind. 1.7.1 - Completati Rind 1.8.1 sau 1.8.2 "DA"
+    jQuery('input[type=checkbox]').change(function () {
+
+        if (jQuery('#CAPITOL1_R111_C2').is(':checked') && jQuery('#CAPITOL1_R112_C2').is(':checked')) {
+            jQuery('#CAPITOL1_R12H').hide();
+            jQuery('#CAPITOL1_R12H1').hide();
+            jQuery('#CAPITOL1_R12H2').hide();
+            jQuery('#CAPITOL1_R121').hide();
+            jQuery('#CAPITOL1_R122').hide();
+
+            jQuery('#CAPITOL1_R13H').hide();
+            jQuery('#CAPITOL1_R13H1').hide();
+            jQuery('#CAPITOL1_R13H2').hide();
+            jQuery('#CAPITOL1_R131').hide();
+            jQuery('#CAPITOL1_R132').hide();
+            jQuery('#CAPITOL1_R133').hide();
+            jQuery('#CAPITOL1_R134').hide();
+
+            jQuery('#CAPITOL1_R14H').hide();
+            jQuery('#CAPITOL1_R14H1').hide();
+            jQuery('#CAPITOL1_R14H2').hide();
+            jQuery('#CAPITOL1_R14H3').hide();
+            jQuery('#CAPITOL1_R141').hide();
+            jQuery('#CAPITOL1_R142').hide();
+            jQuery('#CAPITOL1_R143').hide();
+            jQuery('#CAPITOL1_R144').hide();
+            
+
+            jQuery('#CAPITOL1_R121_C1').attr("checked", false);
+            jQuery('#CAPITOL1_R121_C2').attr("checked", false);
+            jQuery('#CAPITOL1_R122_C1').attr("checked", false);
+            jQuery('#CAPITOL1_R122_C2').attr("checked", false);
+            jQuery('#CAPITOL1_R141_C1').attr("checked", false);
+            jQuery('#CAPITOL1_R142_C1').attr("checked", false);
+            jQuery('#CAPITOL1_R143_C1').attr("checked", false);
+            jQuery('#CAPITOL1_R144_C1').attr("checked", false);
+            
+
+
+
+            document.getElementById("CAPITOL1_R121_C1").value = "";
+            document.getElementById("CAPITOL1_R121_C2").value = "";
+            document.getElementById("CAPITOL1_R122_C1").value = "";
+            document.getElementById("CAPITOL1_R122_C2").value = "";
+
+            document.getElementById("CAPITOL1_R131_C1").value = "";
+            document.getElementById("CAPITOL1_R132_C1").value = "";
+           
+            document.getElementById("CAPITOL1_R133_C1").value = "";
+           
+            document.getElementById("CAPITOL1_R134_C1").value = "";
+
+            document.getElementById("CAPITOL1_R141_C1").value = "";
+            document.getElementById("CAPITOL1_R142_C1").value = "";
+            document.getElementById("CAPITOL1_R143_C1").value = "";
+            document.getElementById("CAPITOL1_R144_C1").value = "";
+           
+           
+        }
+        else if (!(jQuery('#CAPITOL1_R111_C2').is(':checked') && jQuery('#CAPITOL1_R112_C2').is(':checked'))) {
+            jQuery('#CAPITOL1_R12H').show();
+            jQuery('#CAPITOL1_R12H1').show();
+            jQuery('#CAPITOL1_R12H2').show();
+            jQuery('#CAPITOL1_R121').show();
+            jQuery('#CAPITOL1_R122').show();
+
+            jQuery('#CAPITOL1_R13H').show();
+            jQuery('#CAPITOL1_R13H1').show();
+            jQuery('#CAPITOL1_R13H2').show();
+            jQuery('#CAPITOL1_R131').show();
+            jQuery('#CAPITOL1_R132').show();
+            jQuery('#CAPITOL1_R133').show();
+            jQuery('#CAPITOL1_R134').show();
+
+            jQuery('#CAPITOL1_R14H').show();
+            jQuery('#CAPITOL1_R14H1').show();
+            jQuery('#CAPITOL1_R14H2').show();
+            jQuery('#CAPITOL1_R14H3').show();
+
+            jQuery('#CAPITOL1_R141').show();
+            jQuery('#CAPITOL1_R142').show();
+            jQuery('#CAPITOL1_R143').show();
+            jQuery('#CAPITOL1_R144').show();
+
+        }
+
+    });
+
+}
