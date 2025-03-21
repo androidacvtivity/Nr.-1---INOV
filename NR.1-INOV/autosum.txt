@@ -1,2 +1,6 @@
 [CAPITOL1_R181_C1]+[CAPITOL1_R182_C1]+[CAPITOL1_R183_C1]=[CAPITOL1_R184_C1]msg(Error);
 [CAPITOL1_R131_C1]+[CAPITOL1_R132_C1]+[CAPITOL1_R133_C1]=[CAPITOL1_R134_C1]msg(Error);
+
+Creaza o validare - Cod eroare - 48-004
+daca CAPITOL1_R134_C1 este introdusa valoare si nu este egala cu o 100 sa arate eroare
+
