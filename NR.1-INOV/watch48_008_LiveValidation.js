@@ -22,7 +22,7 @@ function watch48_008_LiveValidation() {
         jQuery(`#${errorID}`).remove();
 
         if (r193 && incomplete) {
-            const errorMsg = `<div id="${errorID}" class="error" style="color: red; margin-top: 4px;">
+            const errorMsg = `<div id="${errorID}" class="error" style="color: red; margin-top: 1px;">
                 Cod eroare: 48-008. Ați bifat “DA” la 1.9.3, dar nu ați completat toate opțiunile DA/NU pentru 1.11.1 - 1.11.3.
             </div>`;
             jQuery('#CAPITOL1_R193_C1').closest('td').append(errorMsg);

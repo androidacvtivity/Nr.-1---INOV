@@ -42,7 +42,7 @@
             check_111_1129(values);
             toggle111_1129(values);
           
-          
+            watchLiveValidation_48_008();
 
            // watch48_005LiveValidation();
            
@@ -60,6 +60,60 @@
 
 
 })(jQuery)
+
+//-----------------------------------------------------
+
+
+function watchLiveValidation_48_008() {
+    const checkAndShowError = () => {
+        const r193 = jQuery('#CAPITOL1_R193_C1').is(':checked');
+
+        const r1111_c1 = jQuery('#CAPITOL1_R1111_C1').is(':checked');
+        const r1111_c2 = jQuery('#CAPITOL1_R1111_C2').is(':checked');
+        const r1112_c1 = jQuery('#CAPITOL1_R1112_C1').is(':checked');
+        const r1112_c2 = jQuery('#CAPITOL1_R1112_C2').is(':checked');
+        const r1113_c1 = jQuery('#CAPITOL1_R1113_C1').is(':checked');
+        const r1113_c2 = jQuery('#CAPITOL1_R1113_C2').is(':checked');
+
+        const incomplete =
+            !(r1111_c1 || r1111_c2) ||
+            !(r1112_c1 || r1112_c2) ||
+            !(r1113_c1 || r1113_c2);
+
+        const errorID = 'error-48-008';
+        jQuery(`#${errorID}`).remove();
+
+        if (r193 && incomplete) {
+            const errorMsg = `
+                <div id="${errorID}" class="webform-inline-error" style="
+                    color: red;
+                    font-weight: bold;
+                    margin-top: 6px;
+                    padding: 6px 10px;
+                    background-color: #fce4e4;
+                    border: 1px solid #d32f2f;
+                    border-radius: 4px;
+                    display: inline-block;
+                ">
+                    Cod eroare: 48-008. Ați bifat “DA” la 1.9.3, dar nu ați completat toate opțiunile DA/NU pentru 1.11.1 – 1.11.3.
+                </div>
+            `;
+            jQuery('#CAPITOL1_R193_C1').closest('tr').after(errorMsg);
+        }
+    };
+
+    // Ascultăm TOATE checkbox-urile relevante
+    const fields = [
+        '#CAPITOL1_R193_C1',
+        '#CAPITOL1_R1111_C1', '#CAPITOL1_R1111_C2',
+        '#CAPITOL1_R1112_C1', '#CAPITOL1_R1112_C2',
+        '#CAPITOL1_R1113_C1', '#CAPITOL1_R1113_C2'
+    ];
+
+    fields.forEach(selector => {
+        jQuery(selector).on('change', checkAndShowError);
+    });
+}
 
 //---------------------------------------------
 function check_111_1129(values) {
