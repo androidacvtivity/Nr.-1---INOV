@@ -30,8 +30,8 @@
             toggle111_157_177(values);   //Logic 3
             check_111_157_177(values);   //Logic 3
 
-            check_181_logic5();  // Logic 5
-            toggle_181_logic5(values); // Logic 5
+            check_181_182_183_logic5();  // Logic 5 (Row 181, 182, 183)
+            toggle_181_182_183_logic5(values); // Logic 5 (Row 181, 182, 183)
 
             check_184_logic5();               
             toggle_184_logic5(values);
