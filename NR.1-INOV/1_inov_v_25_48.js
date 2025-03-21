@@ -85,8 +85,8 @@ function validate48_004() {
             weight: 1,
             msg: concatMessage(
                 '48-004',
-                'Rândul 1.8.4 – Total (%)',
-                Drupal.t(`Cod eroare: 48-004. Valoarea introdusă în Rândul 1.8.4  trebuie să fie exact 100%. Valoare curentă: ${v134}.`)
+                'Rândul 1.3.4 – Total (%)',
+                Drupal.t(`Cod eroare: 48-004. Valoarea introdusă în Rândul 1.3.4  trebuie să fie exact 100%. Valoare curentă: ${v134}.`)
             )
         });
     }
