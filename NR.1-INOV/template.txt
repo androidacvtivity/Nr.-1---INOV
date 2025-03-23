@@ -13,4 +13,7 @@ Validari
 
 48-006	Cap.1 Ati bifat cu "Da" Rind. 1.7.1 - Completati Rind 1.8.1 sau 1.8.2 "DA"
 48-007	Cap.1 Rândul 1.8.4= rd. 1.8.1 + rd. 1.8.2 + rd. 1.8.3
+48-059	Dacă este bifat rd. 1.9.3, la întrebarea 1.11.1 - 1.11.3 să fie neapărat bifat da sau nu pentru toate 3 opțiuni.
+48-060	Dacă la întrebarea 1.11.1 și/sau 1.11.2 și/sau 1.11.3 este bifat da, atunci la întrebarea 1.12 să fie strict necesar măcar o bifă.
+
 
