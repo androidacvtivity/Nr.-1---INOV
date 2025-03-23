@@ -12,4 +12,5 @@ Validari
 48-005	Cap.1 Ati bifat cu "Da" Rind. 1.7.1 - Completati Rind 1.7.2 sau 1.7.3
 
 48-006	Cap.1 Ati bifat cu "Da" Rind. 1.7.1 - Completati Rind 1.8.1 sau 1.8.2 "DA"
+48-007	Cap.1 Rândul 1.8.4= rd. 1.8.1 + rd. 1.8.2 + rd. 1.8.3
 
