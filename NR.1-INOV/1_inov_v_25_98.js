@@ -491,6 +491,8 @@ webform.validators.inov1 = function (v, allowOverpass) {
 
     validate48_061();
 
+    validate48_062();
+
     //Sort warnings & errors
     webform.warnings.sort(function (a, b) {
         return sort_errors_warinings(a, b);
@@ -503,6 +505,34 @@ webform.validators.inov1 = function (v, allowOverpass) {
     webform.validatorsStatus['inov1'] = 1;
     validateWebform();
 
+}
+
+
+//----------------------------------------------------------------
+
+
+function validate48_062() {
+    const r171_da = jQuery('#CAPITOL1_R171_C1').is(':checked'); // 1.7.1
+    const r174_da = jQuery('#CAPITOL1_R174_C1').is(':checked'); // 1.7.4
+
+    const any_checked = r171_da || r174_da;
+
+    const r181_val = parseFloat(jQuery('#CAPITOL1_R181_C1').val()) || 0; // 1.8.1
+    const r182_val = parseFloat(jQuery('#CAPITOL1_R182_C1').val()) || 0; // 1.8.2
+
+    const valid = (r181_val > 0) || (r182_val > 0);
+
+    if (any_checked && !valid) {
+        webform.warnings.push({
+            fieldName: 'CAPITOL1_R181_C1',
+            weight: 1,
+            msg: concatMessage(
+                '48-062',
+                'Întrebarea 1.7.1 / 1.7.4 – Corelare cu 1.8.1 / 1.8.2',
+                Drupal.t('Cod eroare: 48-062. Ați bifat “DA” la 1.7.1 și/sau 1.7.4, dar nu ați completat o valoare numerică mai mare decât zero la 1.8.1 și/sau 1.8.2.')
+            )
+        });
+    }
 }
 
 
