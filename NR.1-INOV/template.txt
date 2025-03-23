@@ -17,8 +17,8 @@ Validari
 48-060	Dacă la întrebarea 1.11.1 și/sau 1.11.2 și/sau 1.11.3 este bifat da, atunci la întrebarea 1.12 să fie strict necesar măcar o bifă.
 
 analizeaza fisierul .html si .js 
-Creaza validarea - partea submit 
-48-061	Daca   1.7.5  si/sau    1.7.6  si/sau   1.7.7  “ DA”    atunci 1.8.3  > 0 
+Creaza validarea (warnings)- partea submit 
+48-063 Dacă cel puțin una din intrebari  1.1 și/sau 1.5 și/sau 1.7 ”DA” , atunci completați 1.9
 
 
 
