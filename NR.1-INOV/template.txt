@@ -7,18 +7,21 @@ Foaia de titlu - capitolele - randurile - sau adaugat.
 --Dacă ați răspuns „NU” la toate opțiunile din întrebările 1.1, 1.5 și 1.7, vă rugăm treceți la întrebarea 1.10. Altfel, vă rugăm continuați cu întrebarea 1.8
 --Dacă în rând. 1.1, până la 1.7 inclusiv, este indicat NU, si 1.10 este bifat, treceti la Cap.2.1
 
-Validari 
+3. Validari 
 48-004	Cap.1  Rând. 1.3.4 = ( Rând 1.3.1 + 1.3.42 + 1.3.3) = 100
 48-005	Cap.1 Ati bifat cu "Da" Rind. 1.7.1 - Completati Rind 1.7.2 sau 1.7.3
-
 48-006	Cap.1 Ati bifat cu "Da" Rind. 1.7.1 - Completati Rind 1.8.1 sau 1.8.2 "DA"
 48-007	Cap.1 Rândul 1.8.4= rd. 1.8.1 + rd. 1.8.2 + rd. 1.8.3
+48-056	Dacă în rând. 1.1, până la 1.7 inclusiv, este indicat NU, si 1.10 este bifat, treceti la Cap.2.1
+48-057	Daca la intrebarile 1.1, 1.5, 1.7 din Cap.1 ati raspuns "NU" , atunci Cap. 2.1 nu trebiue sa fie "DA"
+48-058	Daca la intrebarile 1.1, 1.5, 1.7 din Cap.1 ati raspuns "NU" , atunci Cap. 2.2 nu trebiue sa fie "DA"
 48-059	Dacă este bifat rd. 1.9.3, la întrebarea 1.11.1 - 1.11.3 să fie neapărat bifat da sau nu pentru toate 3 opțiuni.
 48-060	Dacă la întrebarea 1.11.1 și/sau 1.11.2 și/sau 1.11.3 este bifat da, atunci la întrebarea 1.12 să fie strict necesar măcar o bifă.
+48-061	Daca   1.7.5  si/sau    1.7.6  si/sau   1.7.7  “ DA”    atunci 1.8.3  “suma” 
+48-062	Daca 1.7.1 si/sau 1.7.4  “ DA” atunci 1.8.1 si/sau 1.8.2 “suma”
+48-063	Dacă cel puțin una din intrebari  1.1 și/sau 1.5 și/sau 1.7 ”DA” , atunci completați 1.9
 
-analizeaza fisierul .html si .js 
-Creaza validarea (warnings)- partea submit 
-48-063 Dacă cel puțin una din intrebari  1.1 și/sau 1.5 și/sau 1.7 ”DA” , atunci completați 1.9
+
 
 
 
