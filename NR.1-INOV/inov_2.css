@@ -7,3 +7,9 @@
     font-size: 0.9em;
     font-style: italic;
 }
+
+.readonly-style {
+    background-color: #f0f0f0 !important;
+    pointer-events: none;
+    opacity: 0.8;
+}
