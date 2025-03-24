@@ -119,52 +119,8 @@ function watchLiveValidation_48_008() {
 
 
 //----------------------------------------------------
-function check_111_1129(values) {
-    jQuery('input[type=checkbox]').change(function () {
-        const condition =
-            jQuery('#CAPITOL1_R1111_C2').is(':checked') &&
-            jQuery('#CAPITOL1_R1112_C2').is(':checked');
-
-        const inputIDs = [
-            "CAPITOL1_R1113_C1", "CAPITOL1_R1113_C2",
-            "CAPITOL1_R1121_C1", "CAPITOL1_R1121_C2", "CAPITOL1_R1121_C3",
-            "CAPITOL1_R1122_C1", "CAPITOL1_R1122_C2", "CAPITOL1_R1122_C3",
-            "CAPITOL1_R1123_C1", "CAPITOL1_R1123_C2", "CAPITOL1_R1123_C3",
-            "CAPITOL1_R1124_C1", "CAPITOL1_R1124_C2", "CAPITOL1_R1124_C3",
-            "CAPITOL1_R1125_C1", "CAPITOL1_R1125_C2", "CAPITOL1_R1125_C3",
-            "CAPITOL1_R1126_C1", "CAPITOL1_R1126_C2", "CAPITOL1_R1126_C3",
-            "CAPITOL1_R1127_C1", "CAPITOL1_R1127_C2", "CAPITOL1_R1127_C3",
-            "CAPITOL1_R1128_C1", "CAPITOL1_R1128_C2", "CAPITOL1_R1128_C3",
-            "CAPITOL1_R1129_C1", "CAPITOL1_R1129_C2", "CAPITOL1_R1129_C3"
-        ];
-
-        inputIDs.forEach(function (id) {
-            const el = document.getElementById(id);
-            if (!el) return;
-
-            if (condition) {
-                // Clear and disable
-                if (el.type === 'checkbox') {
-                    el.checked = false;
-                } else {
-                    el.value = '';
-                }
-                el.readOnly = true;
-                el.disabled = true;
-            } else {
-                // Re-enable
-                el.readOnly = false;
-                el.disabled = false;
-            }
-        });
-    });
-}
-
-
 function toggle111_1129(values) {
-    const condition =
-        values.CAPITOL1_R1111_C2 === '1' &&
-        values.CAPITOL1_R1112_C2 === '1';
+    const bothNo = values.CAPITOL1_R1111_C2 === '1' && values.CAPITOL1_R1112_C2 === '1';
 
     const inputIDs = [
         "CAPITOL1_R1113_C1", "CAPITOL1_R1113_C2",
@@ -183,20 +139,56 @@ function toggle111_1129(values) {
         const el = document.getElementById(id);
         if (!el) return;
 
-        if (condition) {
-            if (el.type === 'checkbox') {
-                el.checked = false;
-            } else {
-                el.value = '';
-            }
-            el.readOnly = true;
+        if (bothNo) {
+            if (el.type === 'checkbox') el.checked = false;
+            else el.value = '';
             el.disabled = true;
+            el.classList.add("readonly-style");
         } else {
-            el.readOnly = false;
             el.disabled = false;
+            el.classList.remove("readonly-style");
         }
     });
 }
+
+
+
+function check_111_1129() {
+    jQuery('input[type=checkbox]').change(function () {
+        const bothNo = jQuery('#CAPITOL1_R1111_C2').is(':checked') && jQuery('#CAPITOL1_R1112_C2').is(':checked');
+
+        const inputIDs = [
+            "CAPITOL1_R1113_C1", "CAPITOL1_R1113_C2",
+            "CAPITOL1_R1121_C1", "CAPITOL1_R1121_C2", "CAPITOL1_R1121_C3",
+            "CAPITOL1_R1122_C1", "CAPITOL1_R1122_C2", "CAPITOL1_R1122_C3",
+            "CAPITOL1_R1123_C1", "CAPITOL1_R1123_C2", "CAPITOL1_R1123_C3",
+            "CAPITOL1_R1124_C1", "CAPITOL1_R1124_C2", "CAPITOL1_R1124_C3",
+            "CAPITOL1_R1125_C1", "CAPITOL1_R1125_C2", "CAPITOL1_R1125_C3",
+            "CAPITOL1_R1126_C1", "CAPITOL1_R1126_C2", "CAPITOL1_R1126_C3",
+            "CAPITOL1_R1127_C1", "CAPITOL1_R1127_C2", "CAPITOL1_R1127_C3",
+            "CAPITOL1_R1128_C1", "CAPITOL1_R1128_C2", "CAPITOL1_R1128_C3",
+            "CAPITOL1_R1129_C1", "CAPITOL1_R1129_C2", "CAPITOL1_R1129_C3"
+        ];
+
+        inputIDs.forEach(function (id) {
+            const el = document.getElementById(id);
+            if (!el) return;
+
+            if (bothNo) {
+                if (el.type === 'checkbox') el.checked = false;
+                else el.value = '';
+                el.disabled = true;
+                el.classList.add("readonly-style");
+            } else {
+                el.disabled = false;
+                el.classList.remove("readonly-style");
+            }
+        });
+    });
+}
+
+
+
 
 //---------------------------------------------------------------
 
@@ -879,126 +871,65 @@ function toggle_181_182_183_logic5(values) {
 }
 
 
-
-//Logic 1
-// Dacă răspundeți “NU” la ambele opțiuni din 1.1, vă rugăm treceți la întrebarea 1.5. Altfel, vă rugăm continuați cu întrebarea 1.2.
+//---------------------------------------------------------------------
 function toggle111_112(values) {
-    if (values.CAPITOL1_R111_C2 == '1' && values.CAPITOL1_R112_C2 == '1') {
+    const bothNo = values.CAPITOL1_R111_C2 === '1' && values.CAPITOL1_R112_C2 === '1';
 
-        jQuery('#CAPITOL1_R12H, #CAPITOL1_R12H1, #CAPITOL1_R121, #CAPITOL1_R122, #CAPITOL1_R12H2, #CAPITOL1_R13H, #CAPITOL1_R13H1, #CAPITOL1_R13H2, #CAPITOL1_R131, #CAPITOL1_R132, #CAPITOL1_R133, #CAPITOL1_R134, #CAPITOL1_R14H, #CAPITOL1_R14H1, #CAPITOL1_R14H2, #CAPITOL1_R14H3, #CAPITOL1_R141, #CAPITOL1_R142, #CAPITOL1_R143, #CAPITOL1_R144').hide();
+    const inputIDs = [
+        "CAPITOL1_R121_C1", "CAPITOL1_R121_C2", "CAPITOL1_R122_C1", "CAPITOL1_R122_C2",
+        "CAPITOL1_R131_C1", "CAPITOL1_R131_C2", "CAPITOL1_R132_C1", "CAPITOL1_R132_C2",
+        "CAPITOL1_R133_C1", "CAPITOL1_R133_C2", "CAPITOL1_R134_C1", "CAPITOL1_R134_C2",
+        "CAPITOL1_R141_C1", "CAPITOL1_R142_C1", "CAPITOL1_R143_C1", "CAPITOL1_R144_C1"
+    ];
 
-        // Ștergem valorile din inputurile asociate
-        var inputIDs = [
-            "CAPITOL1_R121_C1", "CAPITOL1_R121_C2", "CAPITOL1_R122_C1",
-            "CAPITOL1_R123_C2", "CAPITOL1_R131_C1", "CAPITOL1_R131_C2",
-            "CAPITOL1_R132_C1", "CAPITOL1_R132_C2", "CAPITOL1_R133_C1",
-            "CAPITOL1_R133_C2", "CAPITOL1_R134_C1", "CAPITOL1_R134_C2",
+    inputIDs.forEach(function (id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+
+        if (bothNo) {
+            if (el.type === 'checkbox') el.checked = false;
+            else el.value = '';
+            el.disabled = true;
+            el.classList.add("readonly-style");
+        } else {
+            el.disabled = false;
+            el.classList.remove("readonly-style");
+        }
+    });
+}
+
+
+function check_111_112() {
+    jQuery('input[type=checkbox]').change(function () {
+        const bothNo = jQuery('#CAPITOL1_R111_C2').is(':checked') && jQuery('#CAPITOL1_R112_C2').is(':checked');
+
+        const inputIDs = [
+            "CAPITOL1_R121_C1", "CAPITOL1_R121_C2", "CAPITOL1_R122_C1", "CAPITOL1_R122_C2",
+            "CAPITOL1_R131_C1", "CAPITOL1_R131_C2", "CAPITOL1_R132_C1", "CAPITOL1_R132_C2",
+            "CAPITOL1_R133_C1", "CAPITOL1_R133_C2", "CAPITOL1_R134_C1", "CAPITOL1_R134_C2",
             "CAPITOL1_R141_C1", "CAPITOL1_R142_C1", "CAPITOL1_R143_C1", "CAPITOL1_R144_C1"
         ];
 
         inputIDs.forEach(function (id) {
-            var element = document.getElementById(id);
-            if (element) {
-                element.value = "";
+            const el = document.getElementById(id);
+            if (!el) return;
+
+            if (bothNo) {
+                if (el.type === 'checkbox') el.checked = false;
+                else el.value = '';
+                el.disabled = true;
+                el.classList.add("readonly-style");
+            } else {
+                el.disabled = false;
+                el.classList.remove("readonly-style");
             }
         });
-    } else {
-        jQuery('#CAPITOL1_R12H, #CAPITOL1_R12H1, #CAPITOL1_R121, #CAPITOL1_R122, #CAPITOL1_R12H2, #CAPITOL1_R13H, #CAPITOL1_R13H1, #CAPITOL1_R13H2, #CAPITOL1_R131, #CAPITOL1_R132, #CAPITOL1_R133, #CAPITOL1_R134, #CAPITOL1_R14H, #CAPITOL1_R14H1, #CAPITOL1_R14H2, #CAPITOL1_R14H3, #CAPITOL1_R141, #CAPITOL1_R142, #CAPITOL1_R143, #CAPITOL1_R144').show();
-    }
-}
-
-//Logic 1
-// Dacă răspundeți “NU” la ambele opțiuni 1.1, vă rugăm treceți la întrebarea 1.5. Altfel, vă rugăm continuați cu întrebarea 1.2.
-function check_111_112(values) {
-
-    jQuery('input[type=checkbox]').change(function () {
-
-        if (jQuery('#CAPITOL1_R111_C2').is(':checked') && jQuery('#CAPITOL1_R112_C2').is(':checked')) {
-            jQuery('#CAPITOL1_R12H').hide();
-            jQuery('#CAPITOL1_R12H1').hide();
-            jQuery('#CAPITOL1_R12H2').hide();
-            jQuery('#CAPITOL1_R121').hide();
-            jQuery('#CAPITOL1_R122').hide();
-
-            jQuery('#CAPITOL1_R13H').hide();
-            jQuery('#CAPITOL1_R13H1').hide();
-            jQuery('#CAPITOL1_R13H2').hide();
-            jQuery('#CAPITOL1_R131').hide();
-            jQuery('#CAPITOL1_R132').hide();
-            jQuery('#CAPITOL1_R133').hide();
-            jQuery('#CAPITOL1_R134').hide();
-
-            jQuery('#CAPITOL1_R14H').hide();
-            jQuery('#CAPITOL1_R14H1').hide();
-            jQuery('#CAPITOL1_R14H2').hide();
-            jQuery('#CAPITOL1_R14H3').hide();
-            jQuery('#CAPITOL1_R141').hide();
-            jQuery('#CAPITOL1_R142').hide();
-            jQuery('#CAPITOL1_R143').hide();
-            jQuery('#CAPITOL1_R144').hide();
-            
-
-            jQuery('#CAPITOL1_R121_C1').attr("checked", false);
-            jQuery('#CAPITOL1_R121_C2').attr("checked", false);
-            jQuery('#CAPITOL1_R122_C1').attr("checked", false);
-            jQuery('#CAPITOL1_R122_C2').attr("checked", false);
-            jQuery('#CAPITOL1_R141_C1').attr("checked", false);
-            jQuery('#CAPITOL1_R142_C1').attr("checked", false);
-            jQuery('#CAPITOL1_R143_C1').attr("checked", false);
-            jQuery('#CAPITOL1_R144_C1').attr("checked", false);
-            
-
-
-
-            document.getElementById("CAPITOL1_R121_C1").value = "";
-            document.getElementById("CAPITOL1_R121_C2").value = "";
-            document.getElementById("CAPITOL1_R122_C1").value = "";
-            document.getElementById("CAPITOL1_R122_C2").value = "";
-
-            document.getElementById("CAPITOL1_R131_C1").value = "";
-            document.getElementById("CAPITOL1_R132_C1").value = "";
-           
-            document.getElementById("CAPITOL1_R133_C1").value = "";
-           
-            document.getElementById("CAPITOL1_R134_C1").value = "";
-
-            document.getElementById("CAPITOL1_R141_C1").value = "";
-            document.getElementById("CAPITOL1_R142_C1").value = "";
-            document.getElementById("CAPITOL1_R143_C1").value = "";
-            document.getElementById("CAPITOL1_R144_C1").value = "";
-           
-           
-        }
-        else if (!(jQuery('#CAPITOL1_R111_C2').is(':checked') && jQuery('#CAPITOL1_R112_C2').is(':checked'))) {
-            jQuery('#CAPITOL1_R12H').show();
-            jQuery('#CAPITOL1_R12H1').show();
-            jQuery('#CAPITOL1_R12H2').show();
-            jQuery('#CAPITOL1_R121').show();
-            jQuery('#CAPITOL1_R122').show();
-
-            jQuery('#CAPITOL1_R13H').show();
-            jQuery('#CAPITOL1_R13H1').show();
-            jQuery('#CAPITOL1_R13H2').show();
-            jQuery('#CAPITOL1_R131').show();
-            jQuery('#CAPITOL1_R132').show();
-            jQuery('#CAPITOL1_R133').show();
-            jQuery('#CAPITOL1_R134').show();
-
-            jQuery('#CAPITOL1_R14H').show();
-            jQuery('#CAPITOL1_R14H1').show();
-            jQuery('#CAPITOL1_R14H2').show();
-            jQuery('#CAPITOL1_R14H3').show();
-
-            jQuery('#CAPITOL1_R141').show();
-            jQuery('#CAPITOL1_R142').show();
-            jQuery('#CAPITOL1_R143').show();
-            jQuery('#CAPITOL1_R144').show();
-
-        }
-
     });
-
 }
+
+//-----------------------------------------------------------------------
+
+
 
 // Logic 2
 
