@@ -1,0 +1,24 @@
+january0225	b0163928	Commit to january0225 by vitalie.bancu at 2025-01-02 15:10 - 1_CHELT - 1_chelt-vers050.js,29_agr24 -- 29_AGR_034.js rsf1-presc rsf1-presc24_007.js rsf1_21 - rsf1_24_034.js rsf3 -rsf3_24_002.js rsf2 - rsf2_01.js	
+
+    Sync with branch View changes 
+
+january0325	9f888d61	Commit to january0325 by vitalie.bancu at 2025-01-03 14:32 - Modificarea raportului (Forma Nr.6) ID = 6_nr, nr_6_0014.js, adaugarea raportului Forma Nr.6 Anual ID = 6_nr_25, nr_6_022.js.	
+
+    Sync with branch View changes 
+
+january03251	088e9a52	Commit to january03251 by vitalie.bancu at 2025-01-03 15:33 - Modificarea raportului 24 Agro Anual ID = 24_agro_24 - 24_Agro_24_065.js	
+
+    Sync with branch View changes 
+
+january0925	a8a7284b	Commit to january0925 by vitalie.bancu at 2025-01-09 14:07 - Modificare 24 Agro Anual - 24_Agro_24_066.js
+
+deci
+
+1. january0225
+2. january0325
+3. january03251
+4. january0925
+
+De toate sunt 4. 
+
+Multumesc frumos. 

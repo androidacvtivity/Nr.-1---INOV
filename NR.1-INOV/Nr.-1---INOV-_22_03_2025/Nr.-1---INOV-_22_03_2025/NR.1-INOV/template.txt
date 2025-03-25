@@ -1,0 +1,7 @@
+S-a realizat urmatoerele:
+1. Partea web s-a finisat. - Mai sunt putine redactari.
+Foaia de titlu - capitolele - randurile - sau adaugat.
+2. Sau realizat urmatoarle validari cu ascunderea randurilor (Capitolelor)
+--Dacă răspundeți “NU” la ambele opțiuni, vă rugăm treceți la întrebarea 1.5. Altfel, vă rugăm continuați cu întrebarea 1.2.
+--Rind 1.5 -- Dacă ați răspuns “NU” la toate opțiunile, vă rugăm treceți la întrebarea 1.7 Altfel, vă rugăm continuați cu întrebarea 1.6
+
