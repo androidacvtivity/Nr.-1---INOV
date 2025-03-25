@@ -13,3 +13,16 @@
     pointer-events: none;
     opacity: 0.8;
 }
+
+.readonly-tooltip {
+    position: absolute;
+    background: #ffe9e9;
+    color: #b30000;
+    padding: 6px 10px;
+    border: 1px solid #d32f2f;
+    border-radius: 4px;
+    font-size: 13px;
+    z-index: 9999;
+    max-width: 260px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
