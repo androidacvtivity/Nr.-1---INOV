@@ -25,3 +25,10 @@ Foaia de titlu - capitolele - randurile - sau adaugat.
 
 Corrections on the html side
 
+
+Analizeaza fisierile .js si html 
+Creaza validarea  - submit
+Daca nu sunt selectate Rind 1.1.1 si 1.1.2 sa arate eroare 
+cod eroare - 48-0001 - "Trebuie sa fie selectate rindurile 1.1"
+
+
