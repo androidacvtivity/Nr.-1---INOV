@@ -45,6 +45,7 @@
             watchLiveValidation_48_008();
 
             watchLiveValidation_48_0001(); 
+            toggle_48_0001(values);
 
            // watch48_005LiveValidation();
            
@@ -106,6 +107,37 @@ function watchLiveValidation_48_0001() {
 }
 
 
+function toggle_48_0001(values) {
+    const errorID = 'error-48-0001';
+
+    // Verifică selectarea pentru ambele întrebări
+    const r111_selected = values.CAPITOL1_R111_C1 === '1' || values.CAPITOL1_R111_C2 === '1';
+    const r112_selected = values.CAPITOL1_R112_C1 === '1' || values.CAPITOL1_R112_C2 === '1';
+
+    // Elimină eroare existentă
+    jQuery(`#${errorID}`).remove();
+
+    // Afișează eroare doar dacă unul e selectat și celălalt nu
+    if ((r111_selected && !r112_selected) || (!r111_selected && r112_selected)) {
+        const errorMsg = `
+            <div id="${errorID}" class="webform-inline-error" style="
+                color: red;
+                font-weight: bold;
+                margin-top: 6px;
+                padding: 6px 10px;
+                background-color: #fce4e4;
+                border: 1px solid #d32f2f;
+                border-radius: 4px;
+                display: inline-block;
+            ">
+                Cod eroare: 48-0001. Trebuie să fie selectate ambele opțiuni pentru întrebările 1.1.1 și 1.1.2 (DA sau NU).
+            </div>
+        `;
+        jQuery('#CAPITOL1_R112').after(errorMsg);
+    }
+}
+
+//----------------------------------------------------------------
 function watchLiveValidation_48_008() {
     const checkAndShowError = () => {
         const r193 = jQuery('#CAPITOL1_R193_C1').is(':checked');
