@@ -36,4 +36,4 @@ Rindurile 1.3.1 si 1.3.2 sunt date pe coloana 1
 Acum ceaza un watchLiveValidation pentru  48-0001 - Daca este selectat unu l din randuri si celelalt nu este selectat - sa arate 
 
 
-Acum creaza watchLiveValidation si toogle pentru aceasta validare. -- 48-0002
+Acum creaza watchLiveValidation si toogle pentru aceasta validare. -- 48-0003
