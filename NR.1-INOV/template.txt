@@ -28,8 +28,10 @@ Corrections on the html side
 
 Analizeaza fisierile .js si html 
 Creaza validarea  - submit
-Daca  sunt selectate Rind 1.1.1 si 1.1.2 si nu sunt selectate 1.2.1 si 1.2.2
-cod eroare - 48-0002 - "Trebuie sa fie selectate rindurile 1.2"
+Daca  sunt selectate Rind 1.2.1 si 1.2.2 si nu este selectat  1.3.1 si 1.3.2. 
+cod eroare - 48-0003 - "Trebuie sa fie selectate rindurile 1.3.1 si 1.3.2 "
+Rindurile 1.3.1 si 1.3.2 sunt date pe coloana 1  
+
 
 Acum ceaza un watchLiveValidation pentru  48-0001 - Daca este selectat unu l din randuri si celelalt nu este selectat - sa arate 
 
