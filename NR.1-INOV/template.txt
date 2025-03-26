@@ -31,4 +31,6 @@ Creaza validarea  - submit
 Daca nu sunt selectate Rind 1.1.1 si 1.1.2 sa arate eroare 
 cod eroare - 48-0001 - "Trebuie sa fie selectate rindurile 1.1"
 
+Acum ceaza un watchLiveValidation pentru  48-0001 - Daca este selectat unu l din randuri si celelalt nu este selectat - sa arate 
+
 
