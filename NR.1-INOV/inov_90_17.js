@@ -52,7 +52,9 @@
 
             watchLiveValidation_48_0002();
             toggle_48_0002(values);
-          
+
+            toggle_48_0003(values);
+            watchLiveValidation_48_0003();
 
           
 
@@ -64,6 +66,79 @@
 
 
 })(jQuery)
+
+
+
+//-----------------------------------------------------------
+function toggle_48_0003(values) {
+    const r121 = values.CAPITOL1_R121_C1 === '1' || values.CAPITOL1_R121_C2 === '1';
+    const r122 = values.CAPITOL1_R122_C1 === '1' || values.CAPITOL1_R122_C2 === '1';
+
+    const r131 = values.CAPITOL1_R131_C1;
+    const r132 = values.CAPITOL1_R132_C1;
+
+    const r131_valid = r131 !== '' && !isNaN(r131);
+    const r132_valid = r132 !== '' && !isNaN(r132);
+
+    const errorID = 'error-48-0003';
+    jQuery(`#${errorID}`).remove();
+
+    if (r121 && r122 && (!r131_valid || !r132_valid)) {
+        const errorMsg = `
+            <div id="${errorID}" class="webform-inline-error" style="
+                color: red;
+                font-weight: bold;
+                margin-top: 6px;
+                padding: 6px 10px;
+                background-color: #fce4e4;
+                border: 1px solid #d32f2f;
+                border-radius: 4px;
+                display: inline-block;
+            ">
+                Cod eroare: 48-0003. Trebuie să fie completate rândurile 1.3.1 și 1.3.2 (valori numerice) dacă ați bifat DA/NU la 1.2.1 și 1.2.2.
+            </div>
+        `;
+        jQuery('#CAPITOL1_R132_C1').closest('tr').after(errorMsg);
+    }
+}
+
+
+function watchLiveValidation_48_0003() {
+    function validateAndShowError() {
+        const r121 = jQuery('#CAPITOL1_R121_C1').is(':checked') || jQuery('#CAPITOL1_R121_C2').is(':checked');
+        const r122 = jQuery('#CAPITOL1_R122_C1').is(':checked') || jQuery('#CAPITOL1_R122_C2').is(':checked');
+
+        const r131 = jQuery('#CAPITOL1_R131_C1').val();
+        const r132 = jQuery('#CAPITOL1_R132_C1').val();
+
+        const r131_valid = r131 !== '' && !isNaN(r131);
+        const r132_valid = r132 !== '' && !isNaN(r132);
+
+        const errorID = 'error-48-0003';
+        jQuery(`#${errorID}`).remove();
+
+        if (r121 && r122 && (!r131_valid || !r132_valid)) {
+            const errorMsg = `
+                <div id="${errorID}" class="webform-inline-error" style="
+                    color: red;
+                    font-weight: bold;
+                    margin-top: 6px;
+                    padding: 6px 10px;
+                    background-color: #fce4e4;
+                    border: 1px solid #d32f2f;
+                    border-radius: 4px;
+                    display: inline-block;
+                ">
+                    Cod eroare: 48-0003. Trebuie să fie completate rândurile 1.3.1 și 1.3.2 (valori numerice) dacă ați bifat DA/NU la 1.2.1 și 1.2.2.
+                </div>
+            `;
+            jQuery('#CAPITOL1_R132_C1').closest('tr').after(errorMsg);
+        }
+    }
+
+    jQuery('#CAPITOL1_R121_C1, #CAPITOL1_R121_C2, #CAPITOL1_R122_C1, #CAPITOL1_R122_C2, #CAPITOL1_R131_C1, #CAPITOL1_R132_C1')
+        .on('change keyup', validateAndShowError);
+}
 
 //-----------------------------------------------------
 
