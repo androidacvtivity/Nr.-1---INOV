@@ -470,6 +470,9 @@ webform.validators.inov1 = function (v, allowOverpass) {
 
     validate48_0002();
 
+
+    validate48_0003();
+
     //Sort warnings & errors
     webform.warnings.sort(function (a, b) {
         return sort_errors_warinings(a, b);
@@ -482,6 +485,31 @@ webform.validators.inov1 = function (v, allowOverpass) {
     webform.validatorsStatus['inov1'] = 1;
     validateWebform();
 
+}
+
+//------------------------------------------------------------------------
+
+function validate48_0003() {
+    const r121 = jQuery('#CAPITOL1_R121_C1').is(':checked') || jQuery('#CAPITOL1_R121_C2').is(':checked');
+    const r122 = jQuery('#CAPITOL1_R122_C1').is(':checked') || jQuery('#CAPITOL1_R122_C2').is(':checked');
+
+    const r131 = jQuery('#CAPITOL1_R131_C1').val();
+    const r132 = jQuery('#CAPITOL1_R132_C1').val();
+
+    const r131_valid = r131 !== '' && !isNaN(r131);
+    const r132_valid = r132 !== '' && !isNaN(r132);
+
+    if (r121 && r122 && (!r131_valid || !r132_valid)) {
+        webform.errors.push({
+            fieldName: 'CAPITOL1_R131_C1',
+            weight: 1,
+            msg: concatMessage(
+                '48-0003',
+                'Întrebarea 1.3 – Estimări procentuale',
+                Drupal.t('Cod eroare: 48-0003. Trebuie să fie completate rândurile 1.3.1 și 1.3.2 (valori numerice) dacă ați bifat DA/NU la 1.2.1 și 1.2.2.')
+            )
+        });
+    }
 }
 
 //------------------------------------------------------------------------
