@@ -553,13 +553,9 @@ webform.validators.inov1 = function (v, allowOverpass) {
 
     validate48_0002();
 
-    // validate48_0002();
+    validate48_0003();
 
-
-    // validate48_0003();
-
-    // validate48_0004();
-
+    validate48_0004();
   
 
     
@@ -578,6 +574,68 @@ webform.validators.inov1 = function (v, allowOverpass) {
 
 }
 
+//-------------------------------------------------------------------------------------
+
+function validate48_0004() {
+    const r111_c2 = jQuery('#CAPITOL1_R111_C2').is(':checked'); // 1.1.1 NU
+    const r112_c2 = jQuery('#CAPITOL1_R112_C2').is(':checked'); // 1.1.2 NU
+    const r112_c1 = jQuery('#CAPITOL1_R112_C1').is(':checked'); // 1.1.2 DA
+
+    const r131_val_raw = jQuery('#CAPITOL1_R131_C1').val();
+    let r131_val = parseInt(r131_val_raw, 10);
+
+    // dacă valoarea este necompletată sau NaN, o considerăm 0
+    if (isNaN(r131_val)) {
+        r131_val = 0;
+    }
+
+    const bothNotChecked = !r111_c2 && !r112_c2;
+    const valInvalid = r131_val <= 0;
+
+    if (bothNotChecked && r112_c1 && valInvalid) {
+        webform.errors.push({
+            fieldName: 'CAPITOL1_R131_C1',
+            weight: 3,
+            msg: concatMessage(
+                '48-0004',
+                'Întrebarea 1.3.1 – Suma cheltuielilor',
+                Drupal.t('Cod eroare: 48-0004. Completati Cap.1 Rindurile 1.3.1 - "suma"')
+            )
+        });
+    }
+}
+
+
+//----------------------------------------------------------------------------------
+
+function validate48_0003() {
+    const r111_c1 = jQuery('#CAPITOL1_R111_C1').is(':checked');
+    const r111_c2 = jQuery('#CAPITOL1_R111_C2').is(':checked');
+    const r112_c1 = jQuery('#CAPITOL1_R112_C1').is(':checked');
+    const r112_c2 = jQuery('#CAPITOL1_R112_C2').is(':checked');
+
+    const r121_c2 = jQuery('#CAPITOL1_R121_C2').is(':checked');
+    const r122_c2 = jQuery('#CAPITOL1_R122_C2').is(':checked');
+
+    const cond_111_112_valid =
+        (r111_c1 && r112_c1) ||
+        (r111_c1 && r112_c2) ||
+        (r111_c2 && r112_c1);
+
+    const cond_121_122_nu = r121_c2 && r122_c2;
+
+    if (cond_111_112_valid && cond_121_122_nu) {
+        webform.errors.push({
+            fieldName: 'CAPITOL1_R121_C1',
+            weight: 1,
+            msg: concatMessage(
+                '48-0003',
+                'Întrebarea 1.2 – Lansare produse',
+                Drupal.t('Cod eroare: 48-0003. Completati Cap.1 Rindurile 1.2.1 sau 1.2.2 "DA"')
+            )
+        });
+    }
+}
 
 //--------------------------------------------------------------------------------
 
@@ -619,161 +677,12 @@ function validate48_0002() {
 
 //-----------------------------------------------------------------------------
 
-function validate48_0004() {
-    const r131 = jQuery('#CAPITOL1_R131_C1').val();
-    const r132 = jQuery('#CAPITOL1_R132_C1').val();
-
-    const r131_valid = r131 !== '' && !isNaN(r131);
-    const r132_valid = r132 !== '' && !isNaN(r132);
-
-    const r141 = jQuery('#CAPITOL1_R141_C1').is(':checked');
-    const r142 = jQuery('#CAPITOL1_R142_C1').is(':checked');
-    const r143 = jQuery('#CAPITOL1_R143_C1').is(':checked');
-    const r144 = jQuery('#CAPITOL1_R144_C1').is(':checked');
-    
-
-    const one_14_checked = r141 || r142 || r143 || r144;
-
-    if (r131_valid && r132_valid && !one_14_checked && !(jQuery('#CAPITOL1_R111_C2').is(':checked') && jQuery('#CAPITOL1_R112_C2').is(':checked'))) {
-        webform.errors.push({
-            fieldName: 'CAPITOL1_R141_C1',
-            weight: 1,
-            msg: concatMessage(
-                '48-0004',
-                'Întrebarea 1.4 – Cine a dezvoltat aceste inovări',
-                Drupal.t('Cod eroare: 48-0004. Dacă ați completat 1.3.1 și 1.3.2, trebuie selectat cel puțin un rând din 1.4.1 – 1.4.4.')
-            )
-        });
-    }
-}
 
 
-//------------------------------------------------------------------------
-
-function validate48_0003() {
-    const r121 = jQuery('#CAPITOL1_R121_C1').is(':checked') || jQuery('#CAPITOL1_R121_C2').is(':checked');
-    const r122 = jQuery('#CAPITOL1_R122_C1').is(':checked') || jQuery('#CAPITOL1_R122_C2').is(':checked');
-
-    const r131 = jQuery('#CAPITOL1_R131_C1').val();
-    const r132 = jQuery('#CAPITOL1_R132_C1').val();
-
-    const r131_valid = r131 !== '' && !isNaN(r131);
-    const r132_valid = r132 !== '' && !isNaN(r132);
-
-    if (r121 && r122 && (!r131_valid || !r132_valid) && (!jQuery('#CAPITOL1_R111_C2').is(':checked') && !jQuery('#CAPITOL1_R112_C2').is(':checked'))) {
-        webform.errors.push({
-            fieldName: 'CAPITOL1_R131_C1',
-            weight: 1,
-            msg: concatMessage(
-                '48-0003',
-                'Întrebarea 1.3 – Estimări procentuale',
-                Drupal.t('Cod eroare: 48-0003. Trebuie să fie completate rândurile 1.3.1 și 1.3.2 (valori numerice) dacă ați bifat DA/NU la 1.2.1 și 1.2.2.')
-            )
-        });
-    }
-}
-
-//------------------------------------------------------------------------
-
-function watchLiveValidation_48_0002() {
-    const inputsToWatch = [
-        '#CAPITOL1_R111_C1', '#CAPITOL1_R111_C2',
-        '#CAPITOL1_R112_C1', '#CAPITOL1_R112_C2',
-        '#CAPITOL1_R121_C1', '#CAPITOL1_R121_C2',
-        '#CAPITOL1_R122_C1', '#CAPITOL1_R122_C2'
-    ];
-
-    inputsToWatch.forEach(selector => {
-        jQuery(selector).on('change', function () {
-            const errorID = 'error-48-0002';
-            jQuery(`#${errorID}`).remove();
-
-            const r111 = jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R111_C2').is(':checked');
-            const r112 = jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R112_C2').is(':checked');
-            const r121 = jQuery('#CAPITOL1_R121_C1').is(':checked') || jQuery('#CAPITOL1_R121_C2').is(':checked');
-            const r122 = jQuery('#CAPITOL1_R122_C1').is(':checked') || jQuery('#CAPITOL1_R122_C2').is(':checked');
-
-            const showError = r111 && r112 && !(r121 && r122);
-
-            if (showError &&  (!jQuery('#CAPITOL1_R112_C2').is(':checked') && !jQuery('#CAPITOL1_R112_C2').is(':checked'))) {
-                const errorMsg = `
-                    <div id="${errorID}" class="webform-inline-error" style="
-                        color: red;
-                        font-weight: bold;
-                        margin-top: 6px;
-                        padding: 6px 10px;
-                        background-color: #fce4e4;
-                        border: 1px solid #d32f2f;
-                        border-radius: 4px;
-                        display: inline-block;">
-                        Cod eroare: 48-0002. Trebuie să fie completate ambele rânduri 1.2.1 și 1.2.2 – Bifați DA sau NU.
-                    </div>
-                `;
-                jQuery('#CAPITOL1_R121').after(errorMsg);
-            }
-        });
-    });
-}
-
-function toggle_48_0002(values) {
-    const r111 = values.CAPITOL1_R111_C1 === '1' || values.CAPITOL1_R111_C2 === '1';
-    const r112 = values.CAPITOL1_R112_C1 === '1' || values.CAPITOL1_R112_C2 === '1';
-    const r121 = values.CAPITOL1_R121_C1 === '1' || values.CAPITOL1_R121_C2 === '1';
-    const r122 = values.CAPITOL1_R122_C1 === '1' || values.CAPITOL1_R122_C2 === '1';
-
-    const errorID = 'error-48-0002';
-    jQuery(`#${errorID}`).remove();
-
-    if (r111 && r112 && !(r121 && r122) && (!values.CAPITOL1_R111_C2 === '1' && ! values.CAPITOL1_R112_C2 === '1')) {
-        const errorMsg = `
-            <div id="${errorID}" class="webform-inline-error" style="
-                color: red;
-                font-weight: bold;
-                margin-top: 6px;
-                padding: 6px 10px;
-                background-color: #fce4e4;
-                border: 1px solid #d32f2f;
-                border-radius: 4px;
-                display: inline-block;">
-                Cod eroare: 48-0002. Trebuie să fie completate ambele rânduri 1.2.1 și 1.2.2 – Bifați DA sau NU.
-            </div>
-        `;
-        jQuery('#CAPITOL1_R121').after(errorMsg);
-    }
-}
-
-function validate48_0002() {
-    const r111_valid = jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R111_C2').is(':checked');
-    const r112_valid = jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R112_C2').is(':checked');
-
-    const r121_valid = jQuery('#CAPITOL1_R121_C1').is(':checked') || jQuery('#CAPITOL1_R121_C2').is(':checked');
-    const r122_valid = jQuery('#CAPITOL1_R122_C1').is(':checked') || jQuery('#CAPITOL1_R122_C2').is(':checked');
-
-    const both111_112 = r111_valid && r112_valid;
-    const both12_missing = !(r121_valid && r122_valid); // ambele trebuie bifate
-
-    if (both111_112 && both12_missing && (!jQuery('#CAPITOL1_R112_C2').is(':checked') && !jQuery('#CAPITOL1_R112_C2').is(':checked'))) {
-        webform.errors.push({
-            fieldName: 'CAPITOL1_R121_C1',
-            weight: 1,
-            msg: concatMessage(
-                '48-0002',
-                'Întrebarea 1.2 – Lansare produse',
-                Drupal.t('Cod eroare: 48-0002. Trebuie să fie completate ambele rânduri 1.2.1 și 1.2.2 – Bifați DA sau NU.')
-            )
-        });
-    }
-}
 
 
 //---------------------------------------------------------------------------
-//Analizeaza fisierile js si html
-//
-//Modify this validation -  when -  CAPITOL1_R111_C2 and  CAPITOL1_R111_C2  and  CAPITOL1_R112_C1 and CAPITOL1_R112_C2   Not checking (selected)   
-// - show error - Cod eroare: 48-0001. Trebuie să fie selectate rândurile 1.1.1 și 1.1.2 – Bifați opțiunea DA sau NU.
-// Add new logic but not modified actualy logic 
-//when -  (CAPITOL1_R111_C2 or   CAPITOL1_R111_C2 ) is checking (selected)   and (CAPITOL1_R112_C2 or   CAPITOL1_R112_C2 ) Not checking (selected) 
-// and And vice versa
+
 function validate48_0001() {
     const r111_da = jQuery('#CAPITOL1_R111_C1').is(':checked');
     const r111_nu = jQuery('#CAPITOL1_R111_C2').is(':checked');
