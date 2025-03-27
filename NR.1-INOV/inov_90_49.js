@@ -42,14 +42,12 @@
             check_111_1129(values);
             toggle111_1129(values);
           
-            watchLiveValidation_48_008();
+            watchLiveValidation_48_0001();
+         
+            toggle111_112_required();
 
-           // watch48_005LiveValidation();
-           
-
-
-          
-
+            watchLiveValidation_A09();
+            toggle_A09(values);
           
 
             
@@ -61,9 +59,169 @@
 
 })(jQuery)
 
+
+//------------------------------------------------------------------
+
+function watchLiveValidation_A09() {
+    const inputSelector = '#PHONE';
+    const errorID = 'error-A09';
+
+    function showError(msg) {
+        jQuery(`#${errorID}`).remove();
+        const error = `<div id="${errorID}" class="webform-inline-error" style="
+            color: red;
+            font-weight: bold;
+            margin-top: 6px;
+            padding: 6px 10px;
+            background-color: #fce4e4;
+            border: 1px solid #d32f2f;
+            border-radius: 4px;
+            display: inline-block;
+        ">${msg}</div>`;
+        jQuery(inputSelector).after(error);
+    }
+
+    function validatePhoneLive() {
+        const phone = jQuery(inputSelector).val().trim();
+        jQuery(`#${errorID}`).remove();
+
+        if (!/^[0-9]{9}$/.test(phone)) {
+            showError('A.09 – Introduceți doar un număr de telefon format din 9 cifre');
+        } else if (phone[0] !== '0') {
+            showError('A.09 – Prima cifră a numărului de telefon trebuie să fie 0');
+        }
+    }
+
+    jQuery(inputSelector).on('input blur', validatePhoneLive);
+}
+
+function toggle_A09(values) {
+    const phone = values.PHONE || '';
+    const errorID = 'error-A09';
+
+    jQuery(`#${errorID}`).remove();
+
+    if (!/^[0-9]{9}$/.test(phone)) {
+        const errorMsg = 'A.09 – Introduceți doar un număr de telefon format din 9 cifre';
+        jQuery('#PHONE').after(`<div id="${errorID}" class="webform-inline-error" style="
+            color: red;
+            font-weight: bold;
+            margin-top: 6px;
+            padding: 6px 10px;
+            background-color: #fce4e4;
+            border: 1px solid #d32f2f;
+            border-radius: 4px;
+            display: inline-block;
+        ">${errorMsg}</div>`);
+    } else if (phone[0] !== '0') {
+        const errorMsg = 'A.09 – Prima cifră a numărului de telefon trebuie să fie 0';
+        jQuery('#PHONE').after(`<div id="${errorID}" class="webform-inline-error" style="
+            color: red;
+            font-weight: bold;
+            margin-top: 6px;
+            padding: 6px 10px;
+            background-color: #fce4e4;
+            border: 1px solid #d32f2f;
+            border-radius: 4px;
+            display: inline-block;
+        ">${errorMsg}</div>`);
+    }
+}
+
+
+//-------------------------------------------------------------
+
+function watchLiveValidation_48_0001() {
+    const errorID = 'error-48-0001';
+
+    function showError(message) {
+        jQuery(`#${errorID}`).remove();
+        const errorHtml = `
+            <div id="${errorID}" class="webform-inline-error" style="
+                color: red;
+                font-weight: bold;
+                margin-top: 6px;
+                padding: 6px 10px;
+                background-color: #fce4e4;
+                border: 1px solid #d32f2f;
+                border-radius: 4px;
+                display: inline-block;
+            ">
+                ${message}
+            </div>
+        `;
+        jQuery('#CAPITOL1_R111_C1').closest('tr').after(errorHtml);
+    }
+
+    function validate() {
+        const r111_da = jQuery('#CAPITOL1_R111_C1').is(':checked');
+        const r111_nu = jQuery('#CAPITOL1_R111_C2').is(':checked');
+        const r112_da = jQuery('#CAPITOL1_R112_C1').is(':checked');
+        const r112_nu = jQuery('#CAPITOL1_R112_C2').is(':checked');
+
+        const r111_selected = r111_da || r111_nu;
+        const r112_selected = r112_da || r112_nu;
+
+        jQuery(`#${errorID}`).remove();
+
+        if (!r111_selected && !r112_selected) {
+            showError('Cod eroare: 48-0001. Trebuie să fie selectate rândurile 1.1.1 și 1.1.2 – Bifați opțiunea DA sau NU.');
+        } else if ((r111_selected && !r112_selected) || (!r111_selected && r112_selected)) {
+            showError('Cod eroare: 48-0001. Dacă ați selectat un rând, trebuie completat și celălalt (1.1.1 și 1.1.2).');
+        }
+    }
+
+    jQuery('#CAPITOL1_R111_C1, #CAPITOL1_R111_C2, #CAPITOL1_R112_C1, #CAPITOL1_R112_C2').on('change', validate);
+}
+
+
+function toggle111_112_required() {
+    const errorID = 'error-48-0001';
+
+    function showError(message) {
+        jQuery(`#${errorID}`).remove();
+        const errorHtml = `
+            <div id="${errorID}" class="webform-inline-error" style="
+                color: red;
+                font-weight: bold;
+                margin-top: 6px;
+                padding: 6px 10px;
+                background-color: #fce4e4;
+                border: 1px solid #d32f2f;
+                border-radius: 4px;
+                display: inline-block;
+            ">
+                ${message}
+            </div>
+        `;
+        jQuery('#CAPITOL1_R111_C1').closest('tr').after(errorHtml);
+    }
+
+    const r111_da = jQuery('#CAPITOL1_R111_C1').is(':checked');
+    const r111_nu = jQuery('#CAPITOL1_R111_C2').is(':checked');
+    const r112_da = jQuery('#CAPITOL1_R112_C1').is(':checked');
+    const r112_nu = jQuery('#CAPITOL1_R112_C2').is(':checked');
+
+    const r111_selected = r111_da || r111_nu;
+    const r112_selected = r112_da || r112_nu;
+
+    jQuery(`#${errorID}`).remove();
+
+    if (!r111_selected && !r112_selected) {
+        showError('Cod eroare: 48-0001. Trebuie să fie selectate rândurile 1.1.1 și 1.1.2 – Bifați opțiunea DA sau NU.');
+    } else if ((r111_selected && !r112_selected) || (!r111_selected && r112_selected)) {
+        showError('Cod eroare: 48-0001. Dacă ați selectat un rând, trebuie completat și celălalt (1.1.1 și 1.1.2).');
+    }
+}
+
+//-----------------------------------------------------------
+
+
 //-----------------------------------------------------
 
 
+
+//----------------------------------------------------------------
 function watchLiveValidation_48_008() {
     const checkAndShowError = () => {
         const r193 = jQuery('#CAPITOL1_R193_C1').is(':checked');
@@ -120,7 +278,7 @@ function check_111_1129(values) {
     jQuery('input[type=checkbox]').change(function () {
         if (jQuery('#CAPITOL1_R1111_C2').is(':checked') && jQuery('#CAPITOL1_R1112_C2').is(':checked')  ) {
             // Hide 1.6 and move to 1.7
-            jQuery('#CAPITOL1_R1113, #CAPITOL1_R111H5, #CAPITOL1_R112H1, #CAPITOL1_R112H2, #CAPITOL1_R112H3, #CAPITOL1_R112H4, #CAPITOL1_R112H5, #CAPITOL1_R112H6, #CAPITOL1_R112H7, #CAPITOL1_R112H8, #CAPITOL1_R1121, #CAPITOL1_R1122, #CAPITOL1_R1123, #CAPITOL1_R1124, #CAPITOL1_R1125, #CAPITOL1_R1126, #CAPITOL1_R1127, #CAPITOL1_R1128, #CAPITOL1_R1129').hide();
+            jQuery('#CAPITOL1_R1113,  #CAPITOL1_R112H1, #CAPITOL1_R112H2, #CAPITOL1_R112H3, #CAPITOL1_R112H4, #CAPITOL1_R112H5, #CAPITOL1_R112H6, #CAPITOL1_R112H7, #CAPITOL1_R112H8, #CAPITOL1_R1121, #CAPITOL1_R1122, #CAPITOL1_R1123, #CAPITOL1_R1124, #CAPITOL1_R1125, #CAPITOL1_R1126, #CAPITOL1_R1127, #CAPITOL1_R1128, #CAPITOL1_R1129').hide();
 
             // Clear input values
 
@@ -153,7 +311,7 @@ function check_111_1129(values) {
 
         } else {
             // Show elements of 1.6
-            jQuery('#CAPITOL1_R1113, #CAPITOL1_R111H5, #CAPITOL1_R112H1, #CAPITOL1_R112H2, #CAPITOL1_R112H3, #CAPITOL1_R112H4, #CAPITOL1_R112H5, #CAPITOL1_R112H6, #CAPITOL1_R112H7, #CAPITOL1_R112H8, #CAPITOL1_R1121, #CAPITOL1_R1122, #CAPITOL1_R1123, #CAPITOL1_R1124, #CAPITOL1_R1125, #CAPITOL1_R1126, #CAPITOL1_R1127, #CAPITOL1_R1128, #CAPITOL1_R1129').show();
+            jQuery('#CAPITOL1_R1113, #CAPITOL1_R112H1, #CAPITOL1_R112H2, #CAPITOL1_R112H3, #CAPITOL1_R112H4, #CAPITOL1_R112H5, #CAPITOL1_R112H6, #CAPITOL1_R112H7, #CAPITOL1_R112H8, #CAPITOL1_R1121, #CAPITOL1_R1122, #CAPITOL1_R1123, #CAPITOL1_R1124, #CAPITOL1_R1125, #CAPITOL1_R1126, #CAPITOL1_R1127, #CAPITOL1_R1128, #CAPITOL1_R1129').show();
         }
     });
 }
@@ -391,6 +549,19 @@ webform.validators.inov1 = function (v, allowOverpass) {
 
     validate48_008(); 
 
+    validate48_0001();
+
+    validate48_0002();
+
+    validate48_0003();
+
+    validate48_0004();
+
+    validate48_0005();
+  
+
+    
+
     //Sort warnings & errors
     webform.warnings.sort(function (a, b) {
         return sort_errors_warinings(a, b);
@@ -404,6 +575,184 @@ webform.validators.inov1 = function (v, allowOverpass) {
     validateWebform();
 
 }
+//--------------------------------------------------------------------------------------
+
+function validate48_0005() {
+    const r111_c2 = jQuery('#CAPITOL1_R111_C2').is(':checked'); // 1.1.1 NU
+    const r112_c2 = jQuery('#CAPITOL1_R112_C2').is(':checked'); // 1.1.2 NU
+    const r122_c1 = jQuery('#CAPITOL1_R121_C1').is(':checked'); // 1.1.2 DA
+
+    const r132_val_raw = jQuery('#CAPITOL1_R132_C1').val();
+    let r132_val = parseInt(r132_val_raw, 10);
+
+    // dacă valoarea este necompletată sau NaN, o considerăm 0
+    if (isNaN(r132_val)) {
+        r132_val = 0;
+    }
+
+    const bothNotChecked = r111_c2 && r112_c2;
+    const valInvalid = r132_val <= 0;
+
+    if (!bothNotChecked && r122_c1 && valInvalid) {
+        webform.errors.push({
+            fieldName: 'CAPITOL1_R132_C1',
+            weight: 3,
+            msg: concatMessage(
+                '48-0004',
+                'Întrebarea 1.3.2 – Suma cheltuielilor',
+                Drupal.t('Cod eroare: 48-0004. Completati Cap.1 Rindurile 1.3.2 - "suma"')
+            )
+        });
+    }
+}
+
+
+//-------------------------------------------------------------------------------------
+//Am facut asa. Fiindca mie imi trebuie sa verifica nu mai in cazul cand nu este adevarat daca este adevarat sa nu verifice
+function validate48_0004() {
+    const r111_c2 = jQuery('#CAPITOL1_R111_C2').is(':checked'); // 1.1.1 NU
+    const r112_c2 = jQuery('#CAPITOL1_R112_C2').is(':checked'); // 1.1.2 NU
+    const r121_c1 = jQuery('#CAPITOL1_R121_C1').is(':checked'); // 1.1.2 DA
+
+    const r131_val_raw = jQuery('#CAPITOL1_R131_C1').val();
+    let r131_val = parseInt(r131_val_raw, 10);
+
+    // dacă valoarea este necompletată sau NaN, o considerăm 0
+    if (isNaN(r131_val)) {
+        r131_val = 0;
+    }
+
+    const bothNotChecked = r111_c2 && r112_c2;
+    const valInvalid = r131_val <= 0;
+
+    if (!bothNotChecked && r121_c1 && valInvalid) {
+        webform.errors.push({
+            fieldName: 'CAPITOL1_R131_C1',
+            weight: 3,
+            msg: concatMessage(
+                '48-0004',
+                'Întrebarea 1.3.1 – Suma cheltuielilor',
+                Drupal.t('Cod eroare: 48-0004. Completati Cap.1 Rindurile 1.3.1 - "suma"')
+            )
+        });
+    }
+}
+
+
+//----------------------------------------------------------------------------------
+
+function validate48_0003() {
+    const r111_c1 = jQuery('#CAPITOL1_R111_C1').is(':checked');
+    const r111_c2 = jQuery('#CAPITOL1_R111_C2').is(':checked');
+    const r112_c1 = jQuery('#CAPITOL1_R112_C1').is(':checked');
+    const r112_c2 = jQuery('#CAPITOL1_R112_C2').is(':checked');
+
+    const r121_c2 = jQuery('#CAPITOL1_R121_C2').is(':checked');
+    const r122_c2 = jQuery('#CAPITOL1_R122_C2').is(':checked');
+
+    const cond_111_112_valid =
+        (r111_c1 && r112_c1) ||
+        (r111_c1 && r112_c2) ||
+        (r111_c2 && r112_c1);
+
+    const cond_121_122_nu = r121_c2 && r122_c2;
+
+    if (cond_111_112_valid && cond_121_122_nu) {
+        webform.errors.push({
+            fieldName: 'CAPITOL1_R121_C1',
+            weight: 1,
+            msg: concatMessage(
+                '48-0003',
+                'Întrebarea 1.2 – Lansare produse',
+                Drupal.t('Cod eroare: 48-0003. Completati Cap.1 Rindurile 1.2.1 sau 1.2.2 "DA"')
+            )
+        });
+    }
+}
+
+//--------------------------------------------------------------------------------
+
+
+function validate48_0002() {
+    const r111_c1 = jQuery('#CAPITOL1_R111_C1').is(':checked');
+    const r111_c2 = jQuery('#CAPITOL1_R111_C2').is(':checked');
+    const r112_c1 = jQuery('#CAPITOL1_R112_C1').is(':checked');
+    const r112_c2 = jQuery('#CAPITOL1_R112_C2').is(':checked');
+
+    const r121_c1 = jQuery('#CAPITOL1_R121_C1').is(':checked');
+    const r121_c2 = jQuery('#CAPITOL1_R121_C2').is(':checked');
+    const r122_c1 = jQuery('#CAPITOL1_R122_C1').is(':checked');
+    const r122_c2 = jQuery('#CAPITOL1_R122_C2').is(':checked');
+
+    const cond111_112 =
+        (r111_c1 && r112_c1) ||
+        (r111_c2 && r112_c1) ||
+        (r111_c1 && r112_c2);
+
+    const cond121_122 =
+        (r121_c1 && r122_c1) ||
+        (r121_c1 && r122_c2) ||
+        (r121_c2 && r122_c1) ||
+        (r121_c2 && r122_c2);
+
+    if (cond111_112 && !cond121_122) {
+        webform.errors.push({
+            fieldName: 'CAPITOL1_R121_C1',
+            weight: 2,
+            msg: concatMessage(
+                '48-0002',
+                'Întrebarea 1.2 – Lansare produse',
+                Drupal.t('Cod eroare: 48-0002. Completati Cap.1 Rindurile 1.2')
+            )
+        });
+    }
+}
+
+//-----------------------------------------------------------------------------
+
+
+
+
+
+//---------------------------------------------------------------------------
+
+function validate48_0001() {
+    const r111_da = jQuery('#CAPITOL1_R111_C1').is(':checked');
+    const r111_nu = jQuery('#CAPITOL1_R111_C2').is(':checked');
+    const r112_da = jQuery('#CAPITOL1_R112_C1').is(':checked');
+    const r112_nu = jQuery('#CAPITOL1_R112_C2').is(':checked');
+
+    const r111_selected = r111_da || r111_nu;
+    const r112_selected = r112_da || r112_nu;
+
+    // ✅ Logica EXISTENTĂ – dacă niciuna din opțiuni nu e bifată
+    if (!r111_selected || !r112_selected) {
+        webform.errors.push({
+            fieldName: 'CAPITOL1_R111_C1',
+            weight: 1,
+            msg: concatMessage(
+                '48-0001',
+                'Întrebarea 1.1 – Lansare produse/servicii',
+                Drupal.t('Cod eroare: 48-0001. Trebuie să fie selectate rândurile 1.1.1 și 1.1.2 – Bifați opțiunea DA sau NU.')
+            )
+        });
+    }
+
+    // ✅ NOU: dacă doar un rând este completat și celălalt NU
+    if ((r111_selected && !r112_selected) || (!r111_selected && r112_selected)) {
+        webform.errors.push({
+            fieldName: 'CAPITOL1_R112_C1',
+            weight: 2,
+            msg: concatMessage(
+                '48-0001',
+                'Întrebarea 1.1 – Lansare produse/servicii',
+                Drupal.t('Cod eroare: 48-0001. Dacă ați selectat un rând, trebuie completat și celălalt (1.1.1 și 1.1.2).')
+            )
+        });
+    }
+}
+
+
 
 
 // 
@@ -847,7 +1196,8 @@ function toggle111_157_177(values) {
     }
 }
 // Logic 3
-
+//Analyze files and create - 
+//Create toggle and watchLiveValidation for this validation
 function validatePhoneNumber(phone) {
     // Check if the phone number is valid (exactly 9 digits)
     if (!phone || !/^[0-9]{9}$/.test(phone)) {
