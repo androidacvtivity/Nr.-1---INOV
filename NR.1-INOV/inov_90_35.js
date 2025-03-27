@@ -42,22 +42,7 @@
             check_111_1129(values);
             toggle111_1129(values);
           
-            // watchLiveValidation_48_008();
-
-             watchLiveValidation_48_0001(); 
-            toggle_48_0001(values);
-
-           // watch48_005LiveValidation();
-           
-
-            // watchLiveValidation_48_0002();
-            // toggle_48_0002(values);
-
-            // toggle_48_0003(values);
-            // watchLiveValidation_48_0003();
-           
-            // watchLiveValidation_48_0004();
-            // toggle_48_0004(values);
+         
 
           
 
@@ -146,75 +131,6 @@ function watchLiveValidation_48_0003() {
 //-----------------------------------------------------
 
 
-function watchLiveValidation_48_0001() {
-    const errorID = 'error-48-0001';
-
-    function checkAndShowError() {
-        const r111_da = jQuery('#CAPITOL1_R111_C1').is(':checked');
-        const r111_nu = jQuery('#CAPITOL1_R111_C2').is(':checked');
-        const r112_da = jQuery('#CAPITOL1_R112_C1').is(':checked');
-        const r112_nu = jQuery('#CAPITOL1_R112_C2').is(':checked');
-
-        const r111_selected = r111_da || r111_nu;
-        const r112_selected = r112_da || r112_nu;
-
-        // Șterge eroare precedentă
-        jQuery(`#${errorID}`).remove();
-
-        // Dacă e bifat doar unul dintre cele două
-        if ((r111_selected && !r112_selected) || (!r111_selected && r112_selected)) {
-            const errorMsg = `
-                <div id="${errorID}" class="webform-inline-error" style="
-                    color: red;
-                    font-weight: bold;
-                    margin-top: 6px;
-                    padding: 6px 10px;
-                    background-color: #fce4e4;
-                    border: 1px solid #d32f2f;
-                    border-radius: 4px;
-                    display: inline-block;
-                ">
-                    Cod eroare: 48-0001. Trebuie să fie selectate ambele opțiuni pentru întrebările 1.1.1 și 1.1.2 (DA sau NU).
-                </div>
-            `;
-            jQuery('#CAPITOL1_R112').after(errorMsg);
-        }
-    }
-
-    // Ascultă toate checkboxurile din 1.1.1 și 1.1.2
-    jQuery('#CAPITOL1_R111_C1, #CAPITOL1_R111_C2, #CAPITOL1_R112_C1, #CAPITOL1_R112_C2').on('change', checkAndShowError);
-}
-
-
-function toggle_48_0001(values) {
-    const errorID = 'error-48-0001';
-
-    // Verifică selectarea pentru ambele întrebări
-    const r111_selected = values.CAPITOL1_R111_C1 === '1' || values.CAPITOL1_R111_C2 === '1';
-    const r112_selected = values.CAPITOL1_R112_C1 === '1' || values.CAPITOL1_R112_C2 === '1';
-
-    // Elimină eroare existentă
-    jQuery(`#${errorID}`).remove();
-
-    // Afișează eroare doar dacă unul e selectat și celălalt nu
-    if ((r111_selected && !r112_selected) || (!r111_selected && r112_selected)) {
-        const errorMsg = `
-            <div id="${errorID}" class="webform-inline-error" style="
-                color: red;
-                font-weight: bold;
-                margin-top: 6px;
-                padding: 6px 10px;
-                background-color: #fce4e4;
-                border: 1px solid #d32f2f;
-                border-radius: 4px;
-                display: inline-block;
-            ">
-                Cod eroare: 48-0001. Trebuie să fie selectate ambele opțiuni pentru întrebările 1.1.1 și 1.1.2 (DA sau NU).
-            </div>
-        `;
-        jQuery('#CAPITOL1_R112').after(errorMsg);
-    }
-}
 
 //----------------------------------------------------------------
 function watchLiveValidation_48_008() {
@@ -800,8 +716,12 @@ function validate48_0002() {
 
 //---------------------------------------------------------------------------
 //Analizeaza fisierile js si html
-//Trebuie de adaugat logica noua la logica existenta
-//Modifica aceasta validare - adauga logica - daca CAPITOL1_R111_C2 si CAPITOL1_R112_C2 sunt selectate - trebuie de completat optiunile din randurile 1.5
+//
+//Modify this validation -  when -  CAPITOL1_R111_C2 and  CAPITOL1_R111_C2  and  CAPITOL1_R112_C1 and CAPITOL1_R112_C2   Not checking (selected)   
+// - show error - Cod eroare: 48-0001. Trebuie să fie selectate rândurile 1.1.1 și 1.1.2 – Bifați opțiunea DA sau NU.
+// Add new logic but not modified actualy logic 
+//when -  (CAPITOL1_R111_C2 or   CAPITOL1_R111_C2 ) is checking (selected)   and (CAPITOL1_R112_C2 or   CAPITOL1_R112_C2 ) Not checking (selected) 
+// and And vice versa
 function validate48_0001() {
     const r111_da = jQuery('#CAPITOL1_R111_C1').is(':checked');
     const r111_nu = jQuery('#CAPITOL1_R111_C2').is(':checked');
@@ -811,6 +731,7 @@ function validate48_0001() {
     const r111_selected = r111_da || r111_nu;
     const r112_selected = r112_da || r112_nu;
 
+    // ✅ Logica EXISTENTĂ – dacă niciuna din opțiuni nu e bifată
     if (!r111_selected || !r112_selected) {
         webform.errors.push({
             fieldName: 'CAPITOL1_R111_C1',
@@ -819,6 +740,19 @@ function validate48_0001() {
                 '48-0001',
                 'Întrebarea 1.1 – Lansare produse/servicii',
                 Drupal.t('Cod eroare: 48-0001. Trebuie să fie selectate rândurile 1.1.1 și 1.1.2 – Bifați opțiunea DA sau NU.')
+            )
+        });
+    }
+
+    // ✅ NOU: dacă doar un rând este completat și celălalt NU
+    if ((r111_selected && !r112_selected) || (!r111_selected && r112_selected)) {
+        webform.errors.push({
+            fieldName: 'CAPITOL1_R112_C1',
+            weight: 2,
+            msg: concatMessage(
+                '48-0001',
+                'Întrebarea 1.1 – Lansare produse/servicii',
+                Drupal.t('Cod eroare: 48-0001. Dacă ați selectat un rând, trebuie completat și celălalt (1.1.1 și 1.1.2).')
             )
         });
     }
