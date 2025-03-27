@@ -27,7 +27,7 @@ Corrections on the html side
 
 
 Analizeaza fisierile .js si html 
-Creaza validarea  - submit
+Creaza validarea  - submit 
 Daca  sunt selectate Rind 1.2.1 si 1.2.2 si nu este selectat  1.3.1 si 1.3.2. 
 cod eroare - 48-0003 - "Trebuie sa fie selectate rindurile 1.3.1 si 1.3.2 "
 Rindurile 1.3.1 si 1.3.2 sunt date pe coloana 1  
@@ -37,3 +37,17 @@ Acum ceaza un watchLiveValidation pentru  48-0001 - Daca este selectat unu l din
 
 
 Acum creaza watchLiveValidation si toogle pentru aceasta validare. -- 48-0003
+
+
+Analizeaza fisierile .js si html 
+Creaza validarea  - submit 48-0004
+Daca sunt completate rindurile 1.3.1 si 1.3.2 atucni trebuie selectate unil din randurile 1.4 (
+1.4.1  col1
+sau 
+1.4.2  col1
+sau 
+1.4.3  col1
+sau 
+1.4.4  col1
+)
+

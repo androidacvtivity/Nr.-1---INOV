@@ -42,19 +42,22 @@
             check_111_1129(values);
             toggle111_1129(values);
           
-            watchLiveValidation_48_008();
+            // watchLiveValidation_48_008();
 
-            watchLiveValidation_48_0001(); 
+            // watchLiveValidation_48_0001(); 
             toggle_48_0001(values);
 
            // watch48_005LiveValidation();
            
 
-            watchLiveValidation_48_0002();
-            toggle_48_0002(values);
+            // watchLiveValidation_48_0002();
+            // toggle_48_0002(values);
 
-            toggle_48_0003(values);
-            watchLiveValidation_48_0003();
+            // toggle_48_0003(values);
+            // watchLiveValidation_48_0003();
+           
+            // watchLiveValidation_48_0004();
+            // toggle_48_0004(values);
 
           
 
@@ -77,13 +80,13 @@ function toggle_48_0003(values) {
     const r131 = values.CAPITOL1_R131_C1;
     const r132 = values.CAPITOL1_R132_C1;
 
-    const r131_valid = r131 !== '' && !isNaN(r131);
-    const r132_valid = r132 !== '' && !isNaN(r132);
+    const r131_valid = r131 !== '' || !isNaN(r131);
+    const r132_valid = r132 !== '' || !isNaN(r132);
 
     const errorID = 'error-48-0003';
     jQuery(`#${errorID}`).remove();
 
-    if (r121 && r122 && (!r131_valid || !r132_valid)) {
+    if (r121 && r122 && (!r131_valid || !r132_valid) && (!values.CAPITOL1_R111_C2 === '1' && !values.CAPITOL1_R112_C2 === '1')  ) {
         const errorMsg = `
             <div id="${errorID}" class="webform-inline-error" style="
                 color: red;
@@ -111,13 +114,13 @@ function watchLiveValidation_48_0003() {
         const r131 = jQuery('#CAPITOL1_R131_C1').val();
         const r132 = jQuery('#CAPITOL1_R132_C1').val();
 
-        const r131_valid = r131 !== '' && !isNaN(r131);
-        const r132_valid = r132 !== '' && !isNaN(r132);
+        const r131_valid = r131 !== '' || !isNaN(r131);
+        const r132_valid = r132 !== '' || !isNaN(r132);
 
         const errorID = 'error-48-0003';
         jQuery(`#${errorID}`).remove();
 
-        if (r121 && r122 && (!r131_valid || !r132_valid)) {
+        if (r121 && r122 && (!r131_valid || !r132_valid) && (!jQuery('#CAPITOL1_R111_C2').is(':checked') && !jQuery('#CAPITOL1_R112_C2').is(':checked'))) {
             const errorMsg = `
                 <div id="${errorID}" class="webform-inline-error" style="
                     color: red;
@@ -146,7 +149,7 @@ function watchLiveValidation_48_0003() {
 function watchLiveValidation_48_0001() {
     const errorID = 'error-48-0001';
 
-    function checkAndShowError() {
+    function validate() {
         const r111_da = jQuery('#CAPITOL1_R111_C1').is(':checked');
         const r111_nu = jQuery('#CAPITOL1_R111_C2').is(':checked');
         const r112_da = jQuery('#CAPITOL1_R112_C1').is(':checked');
@@ -155,34 +158,63 @@ function watchLiveValidation_48_0001() {
         const r111_selected = r111_da || r111_nu;
         const r112_selected = r112_da || r112_nu;
 
-        // Șterge eroare precedentă
         jQuery(`#${errorID}`).remove();
 
-        // Dacă e bifat doar unul dintre cele două
-        if ((r111_selected && !r112_selected) || (!r111_selected && r112_selected)) {
-            const errorMsg = `
-                <div id="${errorID}" class="webform-inline-error" style="
-                    color: red;
-                    font-weight: bold;
-                    margin-top: 6px;
-                    padding: 6px 10px;
-                    background-color: #fce4e4;
-                    border: 1px solid #d32f2f;
-                    border-radius: 4px;
-                    display: inline-block;
-                ">
-                    Cod eroare: 48-0001. Trebuie să fie selectate ambele opțiuni pentru întrebările 1.1.1 și 1.1.2 (DA sau NU).
+        // 🔴 NU sunt bifate ambele 1.1
+        if (!r111_selected || !r112_selected) {
+            jQuery('#CAPITOL1_R111').after(`
+                <div id="${errorID}" class="webform-inline-error" style="color: red; font-weight: bold; margin-top: 5px;">
+                    Cod eroare: 48-0001 – Trebuie să fie bifate opțiunile DA sau NU pentru rândurile 1.1.1 și 1.1.2.
                 </div>
-            `;
-            jQuery('#CAPITOL1_R112').after(errorMsg);
+            `);
+            return;
+        }
+
+        // 🟧 Dacă ambele sunt "NU", verificăm rândurile 1.5
+        if (r111_nu && r112_nu) {
+            const requiredIds = [
+                ['CAPITOL1_R151_C1', 'CAPITOL1_R151_C2'],
+                ['CAPITOL1_R152_C1', 'CAPITOL1_R152_C2'],
+                ['CAPITOL1_R153_C1', 'CAPITOL1_R153_C2'],
+                ['CAPITOL1_R154_C1', 'CAPITOL1_R154_C2'],
+                ['CAPITOL1_R155_C1', 'CAPITOL1_R155_C2'],
+                ['CAPITOL1_R156_C1', 'CAPITOL1_R156_C2'],
+                ['CAPITOL1_R157_C1', 'CAPITOL1_R157_C2'],
+            ];
+
+            const anyMissing = requiredIds.some(pair => {
+                const [id1, id2] = pair;
+                return !jQuery(`#${id1}`).is(':checked') && !jQuery(`#${id2}`).is(':checked');
+            });
+
+            if (anyMissing) {
+                jQuery('#CAPITOL1_R151').before(`
+                    <div id="${errorID}" class="webform-inline-error" style="color: red; font-weight: bold; margin-bottom: 6px;">
+                        Cod eroare: 48-0001 – Dacă ați selectat “NU” la 1.1.1 și 1.1.2, trebuie completate toate rândurile 1.5.
+                    </div>
+                `);
+            }
         }
     }
 
-    // Ascultă toate checkboxurile din 1.1.1 și 1.1.2
-    jQuery('#CAPITOL1_R111_C1, #CAPITOL1_R111_C2, #CAPITOL1_R112_C1, #CAPITOL1_R112_C2').on('change', checkAndShowError);
+    // Bind pe toate checkbox-urile implicate
+    const selectors = [
+        '#CAPITOL1_R111_C1', '#CAPITOL1_R111_C2',
+        '#CAPITOL1_R112_C1', '#CAPITOL1_R112_C2',
+        '#CAPITOL1_R151_C1', '#CAPITOL1_R151_C2',
+        '#CAPITOL1_R152_C1', '#CAPITOL1_R152_C2',
+        '#CAPITOL1_R153_C1', '#CAPITOL1_R153_C2',
+        '#CAPITOL1_R154_C1', '#CAPITOL1_R154_C2',
+        '#CAPITOL1_R155_C1', '#CAPITOL1_R155_C2',
+        '#CAPITOL1_R156_C1', '#CAPITOL1_R156_C2',
+        '#CAPITOL1_R157_C1', '#CAPITOL1_R157_C2'
+    ];
+
+    jQuery(selectors.join(',')).on('change', validate);
 }
 
 
+//-------------------------------------------
 function toggle_48_0001(values) {
     const errorID = 'error-48-0001';
 
@@ -515,6 +547,84 @@ function watchR134LiveValidation() {
 
 //
 
+function watchLiveValidation_48_0004() {
+    const errorID = 'error-48-0004';
+
+    function validateAndShow() {
+        const r131 = jQuery('#CAPITOL1_R131_C1').val();
+        const r132 = jQuery('#CAPITOL1_R132_C1').val();
+
+        const r131_valid = r131 !== '' || !isNaN(r131);
+        const r132_valid = r132 !== '' || !isNaN(r132);
+
+        const r141 = jQuery('#CAPITOL1_R141_C1').is(':checked');
+        const r142 = jQuery('#CAPITOL1_R142_C1').is(':checked');
+        const r143 = jQuery('#CAPITOL1_R143_C1').is(':checked');
+        const r144 = jQuery('#CAPITOL1_R144_C1').is(':checked');
+
+        const oneChecked = r141 || r142 || r143 || r144;
+
+        jQuery(`#${errorID}`).remove();
+
+        if (r131_valid && r132_valid && !oneChecked &&  (!jQuery('#CAPITOL1_R111_C2').is(':checked') && !jQuery('#CAPITOL1_R112_C2').is(':checked') )) {
+            const errorMsg = `
+                <div id="${errorID}" class="webform-inline-error" style="
+                    color: red;
+                    font-weight: bold;
+                    margin-top: 6px;
+                    padding: 6px 10px;
+                    background-color: #fce4e4;
+                    border: 1px solid #d32f2f;
+                    border-radius: 4px;
+                    display: inline-block;
+                ">
+                    Cod eroare: 48-0004. Dacă ați completat 1.3.1 și 1.3.2, trebuie bifat cel puțin un rând din 1.4.1 – 1.4.4.
+                </div>
+            `;
+            jQuery('#CAPITOL1_R141').after(errorMsg);
+        }
+    }
+
+    // Trigger on input change or checkbox toggle
+    jQuery('#CAPITOL1_R131_C1, #CAPITOL1_R132_C1').on('input', validateAndShow);
+    jQuery('#CAPITOL1_R141_C1, #CAPITOL1_R142_C1, #CAPITOL1_R143_C1, #CAPITOL1_R144_C1').on('change', validateAndShow);
+}
+
+function toggle_48_0004(values) {
+    const r131 = values.CAPITOL1_R131_C1;
+    const r132 = values.CAPITOL1_R132_C1;
+
+    const r131_valid = r131 !== '' || !isNaN(r131);
+    const r132_valid = r132 !== '' || !isNaN(r132);
+
+    const r141 = jQuery('#CAPITOL1_R141_C1').is(':checked');
+    const r142 = jQuery('#CAPITOL1_R142_C1').is(':checked');
+    const r143 = jQuery('#CAPITOL1_R143_C1').is(':checked');
+    const r144 = jQuery('#CAPITOL1_R144_C1').is(':checked');
+
+    const oneChecked = r141 || r142 || r143 || r144;
+
+    const errorID = 'error-48-0004';
+    jQuery(`#${errorID}`).remove();
+
+    if (r131_valid && r132_valid && !oneChecked && (!jQuery('#CAPITOL1_R111_C2').is(':checked') && !jQuery('#CAPITOL1_R112_C2').is(':checked'))) {
+        const errorMsg = `
+            <div id="${errorID}" class="webform-inline-error" style="
+                color: red;
+                font-weight: bold;
+                margin-top: 6px;
+                padding: 6px 10px;
+                background-color: #fce4e4;
+                border: 1px solid #d32f2f;
+                border-radius: 4px;
+                display: inline-block;
+            ">
+                Cod eroare: 48-0004. Dacă ați completat 1.3.1 și 1.3.2, trebuie bifat cel puțin un rând din 1.4.1 – 1.4.4.
+            </div>
+        `;
+        jQuery('#CAPITOL1_R141').after(errorMsg);
+    }
+}
 
 
 //
@@ -543,10 +653,16 @@ webform.validators.inov1 = function (v, allowOverpass) {
 
     validate48_0001();
 
-    validate48_0002();
+    // validate48_0002();
 
 
-    validate48_0003();
+    // validate48_0003();
+
+    // validate48_0004();
+
+  
+
+    
 
     //Sort warnings & errors
     webform.warnings.sort(function (a, b) {
@@ -562,6 +678,37 @@ webform.validators.inov1 = function (v, allowOverpass) {
 
 }
 
+//-----------------------------------------------------------------------------
+
+function validate48_0004() {
+    const r131 = jQuery('#CAPITOL1_R131_C1').val();
+    const r132 = jQuery('#CAPITOL1_R132_C1').val();
+
+    const r131_valid = r131 !== '' && !isNaN(r131);
+    const r132_valid = r132 !== '' && !isNaN(r132);
+
+    const r141 = jQuery('#CAPITOL1_R141_C1').is(':checked');
+    const r142 = jQuery('#CAPITOL1_R142_C1').is(':checked');
+    const r143 = jQuery('#CAPITOL1_R143_C1').is(':checked');
+    const r144 = jQuery('#CAPITOL1_R144_C1').is(':checked');
+    
+
+    const one_14_checked = r141 || r142 || r143 || r144;
+
+    if (r131_valid && r132_valid && !one_14_checked && !(jQuery('#CAPITOL1_R111_C2').is(':checked') && jQuery('#CAPITOL1_R112_C2').is(':checked'))) {
+        webform.errors.push({
+            fieldName: 'CAPITOL1_R141_C1',
+            weight: 1,
+            msg: concatMessage(
+                '48-0004',
+                'Întrebarea 1.4 – Cine a dezvoltat aceste inovări',
+                Drupal.t('Cod eroare: 48-0004. Dacă ați completat 1.3.1 și 1.3.2, trebuie selectat cel puțin un rând din 1.4.1 – 1.4.4.')
+            )
+        });
+    }
+}
+
+
 //------------------------------------------------------------------------
 
 function validate48_0003() {
@@ -574,7 +721,7 @@ function validate48_0003() {
     const r131_valid = r131 !== '' && !isNaN(r131);
     const r132_valid = r132 !== '' && !isNaN(r132);
 
-    if (r121 && r122 && (!r131_valid || !r132_valid)) {
+    if (r121 && r122 && (!r131_valid || !r132_valid) && (!jQuery('#CAPITOL1_R111_C2').is(':checked') && !jQuery('#CAPITOL1_R112_C2').is(':checked'))) {
         webform.errors.push({
             fieldName: 'CAPITOL1_R131_C1',
             weight: 1,
@@ -609,7 +756,7 @@ function watchLiveValidation_48_0002() {
 
             const showError = r111 && r112 && !(r121 && r122);
 
-            if (showError) {
+            if (showError &&  (!jQuery('#CAPITOL1_R112_C2').is(':checked') && !jQuery('#CAPITOL1_R112_C2').is(':checked'))) {
                 const errorMsg = `
                     <div id="${errorID}" class="webform-inline-error" style="
                         color: red;
@@ -638,7 +785,7 @@ function toggle_48_0002(values) {
     const errorID = 'error-48-0002';
     jQuery(`#${errorID}`).remove();
 
-    if (r111 && r112 && !(r121 && r122)) {
+    if (r111 && r112 && !(r121 && r122) && (!values.CAPITOL1_R111_C2 === '1' && ! values.CAPITOL1_R112_C2 === '1')) {
         const errorMsg = `
             <div id="${errorID}" class="webform-inline-error" style="
                 color: red;
@@ -666,7 +813,7 @@ function validate48_0002() {
     const both111_112 = r111_valid && r112_valid;
     const both12_missing = !(r121_valid && r122_valid); // ambele trebuie bifate
 
-    if (both111_112 && both12_missing) {
+    if (both111_112 && both12_missing && (!jQuery('#CAPITOL1_R112_C2').is(':checked') && !jQuery('#CAPITOL1_R112_C2').is(':checked'))) {
         webform.errors.push({
             fieldName: 'CAPITOL1_R121_C1',
             weight: 1,
@@ -681,7 +828,8 @@ function validate48_0002() {
 
 
 //---------------------------------------------------------------------------
-//
+//Analizeaza fisierile js si html
+//Modifica aceasta validare - adauga logica - daca CAPITOL1_R111_C2 si CAPITOL1_R112_C2 sunt selectate - trebuie de completat optiunile din randurile 1.5
 function validate48_0001() {
     const r111_da = jQuery('#CAPITOL1_R111_C1').is(':checked');
     const r111_nu = jQuery('#CAPITOL1_R111_C2').is(':checked');
@@ -691,6 +839,7 @@ function validate48_0001() {
     const r111_selected = r111_da || r111_nu;
     const r112_selected = r112_da || r112_nu;
 
+    // 🟥 1. Verificare dacă ambele rânduri 1.1 sunt bifate
     if (!r111_selected || !r112_selected) {
         webform.errors.push({
             fieldName: 'CAPITOL1_R111_C1',
@@ -702,9 +851,37 @@ function validate48_0001() {
             )
         });
     }
+
+    // 🟧 2. Dacă ambele sunt "NU", verificăm completarea întrebărilor din 1.5
+    if (r111_nu && r112_nu) {
+        const requiredIds = [
+            ['CAPITOL1_R151_C1', 'CAPITOL1_R151_C2'],
+            ['CAPITOL1_R152_C1', 'CAPITOL1_R152_C2'],
+            ['CAPITOL1_R153_C1', 'CAPITOL1_R153_C2'],
+            ['CAPITOL1_R154_C1', 'CAPITOL1_R154_C2'],
+            ['CAPITOL1_R155_C1', 'CAPITOL1_R155_C2'],
+            ['CAPITOL1_R156_C1', 'CAPITOL1_R156_C2'],
+            ['CAPITOL1_R157_C1', 'CAPITOL1_R157_C2'],
+        ];
+
+        const anyUnchecked = requiredIds.some(pair => {
+            const [id1, id2] = pair;
+            return !jQuery(`#${id1}`).is(':checked') && !jQuery(`#${id2}`).is(':checked');
+        });
+
+        if (anyUnchecked) {
+            webform.errors.push({
+                fieldName: 'CAPITOL1_R151_C1',
+                weight: 1,
+                msg: concatMessage(
+                    '48-0001',
+                    'Întrebarea 1.5 – Procese implementate',
+                    Drupal.t('Cod eroare: 48-0001. Dacă ați bifat “NU” la 1.1.1 și 1.1.2, trebuie completate toate opțiunile DA/NU din rândurile 1.5.')
+                )
+            });
+        }
+    }
 }
-
-
 
 
 // 
