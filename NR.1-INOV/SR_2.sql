@@ -8,7 +8,7 @@ CASE
           CIS2.NVAL(SUM(CASE WHEN D.CAPITOL NOT IN (100) AND D.RIND||'.'||D.COL1 IN ('1.1.1.1','1.1.2.1') THEN 1 ELSE 0 END))>=1 AND
           CIS2.NVAL(SUM(CASE WHEN D.CAPITOL NOT IN (100) AND D.RIND LIKE ('1.2%') THEN CIS2.NVAL(D.COL1)+CIS2.NVAL(D.COL2) ELSE 0 END))<2
          )             
-     THEN 'Completati Cap.1 Rindurile 1.2'        
+     THEN 'Completati Cap.1 Rindurile 1.2'  - 4002      
      
      -----------------CONTR NOI 26.05.25
       WHEN 
@@ -16,13 +16,13 @@ CASE
          CIS2.NVAL(SUM(CASE WHEN D.CAPITOL NOT IN (100) AND D.RIND LIKE ('1.1.%') THEN CIS2.NVAL(D.COL1) ELSE 0 END))>=1 AND
          CIS2.NVAL(SUM(CASE WHEN D.CAPITOL NOT IN (100) AND D.RIND LIKE ('1.2%') THEN CIS2.NVAL(D.COL1) ELSE 0 END))=0
          )             
-     THEN 'Completati Cap.1 Rindurile 1.2.1 sau 1.2.2  "DA"'  
+     THEN 'Completati Cap.1 Rindurile 1.2.1 sau 1.2.2  "DA"'  4003 
      
      ----------------CONTROL NOU 29.02.25
      
      WHEN CIS2.NVAL(SUM(CASE WHEN D.CAPITOL NOT IN (100) AND D.RIND LIKE ('1.2.1') THEN CIS2.NVAL(D.COL1) ELSE 0 END))=1 AND
           CIS2.NVAL(SUM(CASE WHEN D.CAPITOL NOT IN (100) AND D.RIND LIKE ('1.3.1') THEN CIS2.NVAL(D.COL1) ELSE 0 END))=0     
-     THEN 'Completati Cap.1 Rindurile 1.3.1 - "suma"' 
+     THEN 'Completati Cap.1 Rindurile 1.3.1 - "suma"'  // 4004
      
      WHEN CIS2.NVAL(SUM(CASE WHEN D.CAPITOL NOT IN (100) AND D.RIND LIKE ('1.2.2') THEN CIS2.NVAL(D.COL1) ELSE 0 END))=1 AND
           CIS2.NVAL(SUM(CASE WHEN D.CAPITOL NOT IN (100) AND D.RIND LIKE ('1.3.2') THEN CIS2.NVAL(D.COL1) ELSE 0 END))=0 
