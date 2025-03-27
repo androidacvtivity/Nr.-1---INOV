@@ -52,26 +52,27 @@ sau
 )
 
 Again. I corrected condition
+
+
 Analyze files (.js si .html ) and create validation  - submit - 
   
 If  (
          (CAPITOL1_R111_C1 and  CAPITOL1_R112_C1 is selected) 
-     OR  (CAPITOL1_R111_C2 and  CAPITOL1_R112_C1 is selected)
-         (CAPITOL1_R111_C1 and  CAPITOL1_R112_C2 is selected)
+           OR 
+          (CAPITOL1_R111_C1 and  CAPITOL1_R112_C2 is selected) 
+           OR 
+          (CAPITOL1_R111_C2 and  CAPITOL1_R112_C1 is selected) 
 
-)
+   
+   )
 
 and (
-    (CAPITOL1_R121_C1 and  CAPITOL1_R122_C1 unselected) 
-    OR 
-    CAPITOL1_R121_C1 and  CAPITOL1_R122_C2 unselected 
-     OR 
-    CAPITOL1_R121_C2 and  CAPITOL1_R122_C1 unselected 
-
-    OR 
-    CAPITOL1_R121_C2 and  CAPITOL1_R122_C2 unselected 
+    (CAPITOL1_R121_C2 and  CAPITOL1_R122_C2 selected) 
+  
     )
 
 
 show - 	
-Cod eroare 48-0002  Completati Cap.1 Rindurile 1.2 
+Cod eroare 48-0003  Completati Cap.1 Rindurile 1.2.1 sau 1.2.2 "DA"
+
+
