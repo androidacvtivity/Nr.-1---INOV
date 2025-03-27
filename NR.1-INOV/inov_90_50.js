@@ -558,6 +558,8 @@ webform.validators.inov1 = function (v, allowOverpass) {
     validate48_0004();
 
     validate48_0005();
+
+    validate48_0006_0007();
   
 
     
@@ -601,6 +603,47 @@ function validate48_0005() {
                 '48-0004',
                 'Întrebarea 1.3.2 – Suma cheltuielilor',
                 Drupal.t('Cod eroare: 48-0004. Completati Cap.1 Rindurile 1.3.2 - "suma"')
+            )
+        });
+    }
+}
+
+
+//--------------------------------------------------------------------------------------
+
+function validate48_0006_0007() {
+
+    const r111_c2 = jQuery('#CAPITOL1_R111_C2').is(':checked'); // 1.1.1 NU
+    const r112_c2 = jQuery('#CAPITOL1_R112_C2').is(':checked'); // 1.1.2 NU
+
+    const bothNotChecked = r111_c2 && r112_c2;
+
+    const r131_val = parseInt(jQuery('#CAPITOL1_R131_C1').val()) || 0;
+    const r132_val = parseInt(jQuery('#CAPITOL1_R132_C1').val()) || 0;
+
+    const r121_checked = jQuery('#CAPITOL1_R121_C1').is(':checked');
+    const r122_checked = jQuery('#CAPITOL1_R122_C1').is(':checked');
+
+    if (!bothNotChecked &&  r131_val > 0 && !r121_checked) {
+        webform.errors.push({
+            fieldName: 'CAPITOL1_R121_C1',
+            weight: 6,
+            msg: concatMessage(
+                '48-0006',
+                'Întrebarea 1.2.1 – Activități de inovare',
+                Drupal.t('Cod eroare 48-0006. Completati Cap.1 Rindurile 1.2.1 "DA"')
+            )
+        });
+    }
+
+    if (!bothNotChecked &&  r132_val > 0 && !r122_checked) {
+        webform.errors.push({
+            fieldName: 'CAPITOL1_R122_C1',
+            weight: 7,
+            msg: concatMessage(
+                '48-0007',
+                'Întrebarea 1.2.2 – Activități de inovare',
+                Drupal.t('Cod eroare 48-0007. Completati Cap.1 Rindurile 1.2.2 "DA"')
             )
         });
     }
