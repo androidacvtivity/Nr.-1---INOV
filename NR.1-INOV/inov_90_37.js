@@ -42,8 +42,12 @@
             check_111_1129(values);
             toggle111_1129(values);
           
+            watchLiveValidation_48_0001();
          
+            toggle111_112_required();
 
+            watchLiveValidation_A09();
+            toggle_A09(values);
           
 
             
@@ -56,23 +60,83 @@
 })(jQuery)
 
 
+//------------------------------------------------------------------
 
-//-----------------------------------------------------------
-function toggle_48_0003(values) {
-    const r121 = values.CAPITOL1_R121_C1 === '1' || values.CAPITOL1_R121_C2 === '1';
-    const r122 = values.CAPITOL1_R122_C1 === '1' || values.CAPITOL1_R122_C2 === '1';
+function watchLiveValidation_A09() {
+    const inputSelector = '#PHONE';
+    const errorID = 'error-A09';
 
-    const r131 = values.CAPITOL1_R131_C1;
-    const r132 = values.CAPITOL1_R132_C1;
+    function showError(msg) {
+        jQuery(`#${errorID}`).remove();
+        const error = `<div id="${errorID}" class="webform-inline-error" style="
+            color: red;
+            font-weight: bold;
+            margin-top: 6px;
+            padding: 6px 10px;
+            background-color: #fce4e4;
+            border: 1px solid #d32f2f;
+            border-radius: 4px;
+            display: inline-block;
+        ">${msg}</div>`;
+        jQuery(inputSelector).after(error);
+    }
 
-    const r131_valid = r131 !== '' || !isNaN(r131);
-    const r132_valid = r132 !== '' || !isNaN(r132);
+    function validatePhoneLive() {
+        const phone = jQuery(inputSelector).val().trim();
+        jQuery(`#${errorID}`).remove();
 
-    const errorID = 'error-48-0003';
+        if (!/^[0-9]{9}$/.test(phone)) {
+            showError('A.09 – Introduceți doar un număr de telefon format din 9 cifre');
+        } else if (phone[0] !== '0') {
+            showError('A.09 – Prima cifră a numărului de telefon trebuie să fie 0');
+        }
+    }
+
+    jQuery(inputSelector).on('input blur', validatePhoneLive);
+}
+
+function toggle_A09(values) {
+    const phone = values.PHONE || '';
+    const errorID = 'error-A09';
+
     jQuery(`#${errorID}`).remove();
 
-    if (r121 && r122 && (!r131_valid || !r132_valid) && (!values.CAPITOL1_R111_C2 === '1' && !values.CAPITOL1_R112_C2 === '1')  ) {
-        const errorMsg = `
+    if (!/^[0-9]{9}$/.test(phone)) {
+        const errorMsg = 'A.09 – Introduceți doar un număr de telefon format din 9 cifre';
+        jQuery('#PHONE').after(`<div id="${errorID}" class="webform-inline-error" style="
+            color: red;
+            font-weight: bold;
+            margin-top: 6px;
+            padding: 6px 10px;
+            background-color: #fce4e4;
+            border: 1px solid #d32f2f;
+            border-radius: 4px;
+            display: inline-block;
+        ">${errorMsg}</div>`);
+    } else if (phone[0] !== '0') {
+        const errorMsg = 'A.09 – Prima cifră a numărului de telefon trebuie să fie 0';
+        jQuery('#PHONE').after(`<div id="${errorID}" class="webform-inline-error" style="
+            color: red;
+            font-weight: bold;
+            margin-top: 6px;
+            padding: 6px 10px;
+            background-color: #fce4e4;
+            border: 1px solid #d32f2f;
+            border-radius: 4px;
+            display: inline-block;
+        ">${errorMsg}</div>`);
+    }
+}
+
+
+//-------------------------------------------------------------
+
+function watchLiveValidation_48_0001() {
+    const errorID = 'error-48-0001';
+
+    function showError(message) {
+        jQuery(`#${errorID}`).remove();
+        const errorHtml = `
             <div id="${errorID}" class="webform-inline-error" style="
                 color: red;
                 font-weight: bold;
@@ -83,50 +147,75 @@ function toggle_48_0003(values) {
                 border-radius: 4px;
                 display: inline-block;
             ">
-                Cod eroare: 48-0003. Trebuie să fie completate rândurile 1.3.1 și 1.3.2 (valori numerice) dacă ați bifat DA/NU la 1.2.1 și 1.2.2.
+                ${message}
             </div>
         `;
-        jQuery('#CAPITOL1_R132_C1').closest('tr').after(errorMsg);
+        jQuery('#CAPITOL1_R111_C1').closest('tr').after(errorHtml);
     }
-}
 
+    function validate() {
+        const r111_da = jQuery('#CAPITOL1_R111_C1').is(':checked');
+        const r111_nu = jQuery('#CAPITOL1_R111_C2').is(':checked');
+        const r112_da = jQuery('#CAPITOL1_R112_C1').is(':checked');
+        const r112_nu = jQuery('#CAPITOL1_R112_C2').is(':checked');
 
-function watchLiveValidation_48_0003() {
-    function validateAndShowError() {
-        const r121 = jQuery('#CAPITOL1_R121_C1').is(':checked') || jQuery('#CAPITOL1_R121_C2').is(':checked');
-        const r122 = jQuery('#CAPITOL1_R122_C1').is(':checked') || jQuery('#CAPITOL1_R122_C2').is(':checked');
+        const r111_selected = r111_da || r111_nu;
+        const r112_selected = r112_da || r112_nu;
 
-        const r131 = jQuery('#CAPITOL1_R131_C1').val();
-        const r132 = jQuery('#CAPITOL1_R132_C1').val();
-
-        const r131_valid = r131 !== '' || !isNaN(r131);
-        const r132_valid = r132 !== '' || !isNaN(r132);
-
-        const errorID = 'error-48-0003';
         jQuery(`#${errorID}`).remove();
 
-        if (r121 && r122 && (!r131_valid || !r132_valid) && (!jQuery('#CAPITOL1_R111_C2').is(':checked') && !jQuery('#CAPITOL1_R112_C2').is(':checked'))) {
-            const errorMsg = `
-                <div id="${errorID}" class="webform-inline-error" style="
-                    color: red;
-                    font-weight: bold;
-                    margin-top: 6px;
-                    padding: 6px 10px;
-                    background-color: #fce4e4;
-                    border: 1px solid #d32f2f;
-                    border-radius: 4px;
-                    display: inline-block;
-                ">
-                    Cod eroare: 48-0003. Trebuie să fie completate rândurile 1.3.1 și 1.3.2 (valori numerice) dacă ați bifat DA/NU la 1.2.1 și 1.2.2.
-                </div>
-            `;
-            jQuery('#CAPITOL1_R132_C1').closest('tr').after(errorMsg);
+        if (!r111_selected && !r112_selected) {
+            showError('Cod eroare: 48-0001. Trebuie să fie selectate rândurile 1.1.1 și 1.1.2 – Bifați opțiunea DA sau NU.');
+        } else if ((r111_selected && !r112_selected) || (!r111_selected && r112_selected)) {
+            showError('Cod eroare: 48-0001. Dacă ați selectat un rând, trebuie completat și celălalt (1.1.1 și 1.1.2).');
         }
     }
 
-    jQuery('#CAPITOL1_R121_C1, #CAPITOL1_R121_C2, #CAPITOL1_R122_C1, #CAPITOL1_R122_C2, #CAPITOL1_R131_C1, #CAPITOL1_R132_C1')
-        .on('change keyup', validateAndShowError);
+    jQuery('#CAPITOL1_R111_C1, #CAPITOL1_R111_C2, #CAPITOL1_R112_C1, #CAPITOL1_R112_C2').on('change', validate);
 }
+
+
+function toggle111_112_required() {
+    const errorID = 'error-48-0001';
+
+    function showError(message) {
+        jQuery(`#${errorID}`).remove();
+        const errorHtml = `
+            <div id="${errorID}" class="webform-inline-error" style="
+                color: red;
+                font-weight: bold;
+                margin-top: 6px;
+                padding: 6px 10px;
+                background-color: #fce4e4;
+                border: 1px solid #d32f2f;
+                border-radius: 4px;
+                display: inline-block;
+            ">
+                ${message}
+            </div>
+        `;
+        jQuery('#CAPITOL1_R111_C1').closest('tr').after(errorHtml);
+    }
+
+    const r111_da = jQuery('#CAPITOL1_R111_C1').is(':checked');
+    const r111_nu = jQuery('#CAPITOL1_R111_C2').is(':checked');
+    const r112_da = jQuery('#CAPITOL1_R112_C1').is(':checked');
+    const r112_nu = jQuery('#CAPITOL1_R112_C2').is(':checked');
+
+    const r111_selected = r111_da || r111_nu;
+    const r112_selected = r112_da || r112_nu;
+
+    jQuery(`#${errorID}`).remove();
+
+    if (!r111_selected && !r112_selected) {
+        showError('Cod eroare: 48-0001. Trebuie să fie selectate rândurile 1.1.1 și 1.1.2 – Bifați opțiunea DA sau NU.');
+    } else if ((r111_selected && !r112_selected) || (!r111_selected && r112_selected)) {
+        showError('Cod eroare: 48-0001. Dacă ați selectat un rând, trebuie completat și celălalt (1.1.1 și 1.1.2).');
+    }
+}
+
+//-----------------------------------------------------------
+
 
 //-----------------------------------------------------
 
@@ -434,84 +523,6 @@ function watchR134LiveValidation() {
 
 //
 
-function watchLiveValidation_48_0004() {
-    const errorID = 'error-48-0004';
-
-    function validateAndShow() {
-        const r131 = jQuery('#CAPITOL1_R131_C1').val();
-        const r132 = jQuery('#CAPITOL1_R132_C1').val();
-
-        const r131_valid = r131 !== '' || !isNaN(r131);
-        const r132_valid = r132 !== '' || !isNaN(r132);
-
-        const r141 = jQuery('#CAPITOL1_R141_C1').is(':checked');
-        const r142 = jQuery('#CAPITOL1_R142_C1').is(':checked');
-        const r143 = jQuery('#CAPITOL1_R143_C1').is(':checked');
-        const r144 = jQuery('#CAPITOL1_R144_C1').is(':checked');
-
-        const oneChecked = r141 || r142 || r143 || r144;
-
-        jQuery(`#${errorID}`).remove();
-
-        if (r131_valid && r132_valid && !oneChecked &&  (!jQuery('#CAPITOL1_R111_C2').is(':checked') && !jQuery('#CAPITOL1_R112_C2').is(':checked') )) {
-            const errorMsg = `
-                <div id="${errorID}" class="webform-inline-error" style="
-                    color: red;
-                    font-weight: bold;
-                    margin-top: 6px;
-                    padding: 6px 10px;
-                    background-color: #fce4e4;
-                    border: 1px solid #d32f2f;
-                    border-radius: 4px;
-                    display: inline-block;
-                ">
-                    Cod eroare: 48-0004. Dacă ați completat 1.3.1 și 1.3.2, trebuie bifat cel puțin un rând din 1.4.1 – 1.4.4.
-                </div>
-            `;
-            jQuery('#CAPITOL1_R141').after(errorMsg);
-        }
-    }
-
-    // Trigger on input change or checkbox toggle
-    jQuery('#CAPITOL1_R131_C1, #CAPITOL1_R132_C1').on('input', validateAndShow);
-    jQuery('#CAPITOL1_R141_C1, #CAPITOL1_R142_C1, #CAPITOL1_R143_C1, #CAPITOL1_R144_C1').on('change', validateAndShow);
-}
-
-function toggle_48_0004(values) {
-    const r131 = values.CAPITOL1_R131_C1;
-    const r132 = values.CAPITOL1_R132_C1;
-
-    const r131_valid = r131 !== '' || !isNaN(r131);
-    const r132_valid = r132 !== '' || !isNaN(r132);
-
-    const r141 = jQuery('#CAPITOL1_R141_C1').is(':checked');
-    const r142 = jQuery('#CAPITOL1_R142_C1').is(':checked');
-    const r143 = jQuery('#CAPITOL1_R143_C1').is(':checked');
-    const r144 = jQuery('#CAPITOL1_R144_C1').is(':checked');
-
-    const oneChecked = r141 || r142 || r143 || r144;
-
-    const errorID = 'error-48-0004';
-    jQuery(`#${errorID}`).remove();
-
-    if (r131_valid && r132_valid && !oneChecked && (!jQuery('#CAPITOL1_R111_C2').is(':checked') && !jQuery('#CAPITOL1_R112_C2').is(':checked'))) {
-        const errorMsg = `
-            <div id="${errorID}" class="webform-inline-error" style="
-                color: red;
-                font-weight: bold;
-                margin-top: 6px;
-                padding: 6px 10px;
-                background-color: #fce4e4;
-                border: 1px solid #d32f2f;
-                border-radius: 4px;
-                display: inline-block;
-            ">
-                Cod eroare: 48-0004. Dacă ați completat 1.3.1 și 1.3.2, trebuie bifat cel puțin un rând din 1.4.1 – 1.4.4.
-            </div>
-        `;
-        jQuery('#CAPITOL1_R141').after(errorMsg);
-    }
-}
 
 
 //
@@ -1202,7 +1213,8 @@ function toggle111_157_177(values) {
     }
 }
 // Logic 3
-
+//Analyze files and create - 
+//Create toggle and watchLiveValidation for this validation
 function validatePhoneNumber(phone) {
     // Check if the phone number is valid (exactly 9 digits)
     if (!phone || !/^[0-9]{9}$/.test(phone)) {
