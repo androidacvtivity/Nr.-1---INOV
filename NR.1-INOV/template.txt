@@ -94,3 +94,13 @@ si nu sunt selectate toate randirile din randul 1.5
  show - Cod eroare 48-0009. Completati Cap.1 Rindurile 1.5
 
  Aici nu ai intales (adauga ultima conditie) dar trebuie de ja inversul - cel putin un rand din randul 1.4 sa fie bifat. 
+
+
+Creaza watchLiveValidation + toggle_48_0009() pentru 48_0009 dupa exmplu 
+
+de mai jos
+ validate48_0006_0007();
+
+  watchLiveValidation_48_0006_0007();
+
+  toggle_48_0006_0007(values);

@@ -53,6 +53,9 @@
             watchLiveValidation_48_0006_0007();
             toggle_48_0006_0007(values);
 
+            watchLiveValidation_48_0009();
+            toggle_48_0006_0007(values);
+
             
 
         }
@@ -61,6 +64,131 @@
 
 
 })(jQuery)
+
+//-------------------------------------------------------------------------
+function watchLiveValidation_48_0009() {
+    const errorID = 'error-48-0009';
+
+    function validate() {
+        jQuery(`#${errorID}`).remove();
+
+        const r111_da = jQuery('#CAPITOL1_R111_C1').is(':checked');
+        const r111_nu = jQuery('#CAPITOL1_R111_C2').is(':checked');
+        const r112_da = jQuery('#CAPITOL1_R112_C1').is(':checked');
+        const r112_nu = jQuery('#CAPITOL1_R112_C2').is(':checked');
+
+        const r121_da = jQuery('#CAPITOL1_R121_C1').is(':checked');
+        const r121_nu = jQuery('#CAPITOL1_R121_C2').is(':checked');
+        const r122_da = jQuery('#CAPITOL1_R122_C1').is(':checked');
+        const r122_nu = jQuery('#CAPITOL1_R122_C2').is(':checked');
+
+        const r131 = parseInt(jQuery('#CAPITOL1_R131_C1').val()) || 0;
+        const r132 = parseInt(jQuery('#CAPITOL1_R132_C1').val()) || 0;
+
+        const r141 = jQuery('#CAPITOL1_R141_C1').is(':checked');
+        const r142 = jQuery('#CAPITOL1_R142_C1').is(':checked');
+        const r143 = jQuery('#CAPITOL1_R143_C1').is(':checked');
+        const r144 = jQuery('#CAPITOL1_R144_C1').is(':checked');
+
+        const rows_1_5 = [
+            ['CAPITOL1_R151_C1', 'CAPITOL1_R151_C2'],
+            ['CAPITOL1_R152_C1', 'CAPITOL1_R152_C2'],
+            ['CAPITOL1_R153_C1', 'CAPITOL1_R153_C2'],
+            ['CAPITOL1_R154_C1', 'CAPITOL1_R154_C2'],
+            ['CAPITOL1_R155_C1', 'CAPITOL1_R155_C2'],
+            ['CAPITOL1_R156_C1', 'CAPITOL1_R156_C2'],
+            ['CAPITOL1_R157_C1', 'CAPITOL1_R157_C2'],
+        ];
+        const all_1_5_answered = rows_1_5.every(([da, nu]) =>
+            jQuery(`#${da}`).is(':checked') || jQuery(`#${nu}`).is(':checked')
+        );
+
+        const valid_1_1 = (r111_da || r111_nu) && (r112_da || r112_nu) && !(r111_nu && r112_nu);
+        const valid_1_2 = (r121_da || r121_nu) && (r122_da || r122_nu) && !(r121_nu && r122_nu);
+        const valid_1_3 = (r121_da && r131 > 0) || (r122_da && r132 > 0);
+        const valid_1_4 = r141 || r142 || r143 || r144;
+
+        if (valid_1_1 && valid_1_2 && valid_1_3 && valid_1_4 && !all_1_5_answered) {
+            jQuery('#CAPITOL1_R151_C1').closest('tr').after(`
+                <div id="${errorID}" class="webform-inline-error" style="color: red; margin-top: 5px;">
+                    Cod eroare 48-0009. Completati Cap.1 Rindurile 1.5 – toate opțiunile trebuie bifate DA sau NU.
+                </div>
+            `);
+        }
+    }
+
+    const watchIDs = [
+        '#CAPITOL1_R111_C1', '#CAPITOL1_R111_C2',
+        '#CAPITOL1_R112_C1', '#CAPITOL1_R112_C2',
+        '#CAPITOL1_R121_C1', '#CAPITOL1_R121_C2',
+        '#CAPITOL1_R122_C1', '#CAPITOL1_R122_C2',
+        '#CAPITOL1_R131_C1', '#CAPITOL1_R132_C1',
+        '#CAPITOL1_R141_C1', '#CAPITOL1_R142_C1', '#CAPITOL1_R143_C1', '#CAPITOL1_R144_C1',
+        '#CAPITOL1_R151_C1', '#CAPITOL1_R151_C2',
+        '#CAPITOL1_R152_C1', '#CAPITOL1_R152_C2',
+        '#CAPITOL1_R153_C1', '#CAPITOL1_R153_C2',
+        '#CAPITOL1_R154_C1', '#CAPITOL1_R154_C2',
+        '#CAPITOL1_R155_C1', '#CAPITOL1_R155_C2',
+        '#CAPITOL1_R156_C1', '#CAPITOL1_R156_C2',
+        '#CAPITOL1_R157_C1', '#CAPITOL1_R157_C2'
+    ];
+
+    watchIDs.forEach(id => {
+        jQuery(id).on('change input', validate);
+    });
+
+    validate(); // Initial call
+}
+
+
+function toggle_48_0009(values) {
+    const errorID = 'error-48-0009';
+    jQuery(`#${errorID}`).remove();
+
+    const r111_c1 = values.CAPITOL1_R111_C1 == '1';
+    const r111_c2 = values.CAPITOL1_R111_C2 == '1';
+    const r112_c1 = values.CAPITOL1_R112_C1 == '1';
+    const r112_c2 = values.CAPITOL1_R112_C2 == '1';
+
+    const r121_c1 = values.CAPITOL1_R121_C1 == '1';
+    const r121_c2 = values.CAPITOL1_R121_C2 == '1';
+    const r122_c1 = values.CAPITOL1_R122_C1 == '1';
+    const r122_c2 = values.CAPITOL1_R122_C2 == '1';
+
+    const r131 = parseInt(values.CAPITOL1_R131_C1) || 0;
+    const r132 = parseInt(values.CAPITOL1_R132_C1) || 0;
+
+    const r141 = values.CAPITOL1_R141_C1 == '1';
+    const r142 = values.CAPITOL1_R142_C1 == '1';
+    const r143 = values.CAPITOL1_R143_C1 == '1';
+    const r144 = values.CAPITOL1_R144_C1 == '1';
+
+    const valid_1_1 = (r111_c1 || r111_c2) && (r112_c1 || r112_c2) && !(r111_c2 && r112_c2);
+    const valid_1_2 = (r121_c1 || r121_c2) && (r122_c1 || r122_c2) && !(r121_c2 && r122_c2);
+    const valid_1_3 = (r121_c1 && r131 > 0) || (r122_c1 && r132 > 0);
+    const valid_1_4 = r141 || r142 || r143 || r144;
+
+    const rows_1_5 = [
+        ['CAPITOL1_R151_C1', 'CAPITOL1_R151_C2'],
+        ['CAPITOL1_R152_C1', 'CAPITOL1_R152_C2'],
+        ['CAPITOL1_R153_C1', 'CAPITOL1_R153_C2'],
+        ['CAPITOL1_R154_C1', 'CAPITOL1_R154_C2'],
+        ['CAPITOL1_R155_C1', 'CAPITOL1_R155_C2'],
+        ['CAPITOL1_R156_C1', 'CAPITOL1_R156_C2'],
+        ['CAPITOL1_R157_C1', 'CAPITOL1_R157_C2'],
+    ];
+    const all_1_5_answered = rows_1_5.every(([da, nu]) => {
+        return values[da] == '1' || values[nu] == '1';
+    });
+
+    if (valid_1_1 && valid_1_2 && valid_1_3 && valid_1_4 && !all_1_5_answered) {
+        jQuery('#CAPITOL1_R151_C1').closest('tr').after(`
+            <div id="${errorID}" class="webform-inline-error" style="color: red; margin-top: 5px;">
+                Cod eroare 48-0009. Completati Cap.1 Rindurile 1.5 – toate opțiunile trebuie bifate DA sau NU.
+            </div>
+        `);
+    }
+}
 
 
 //----------------------------------------------------------------
