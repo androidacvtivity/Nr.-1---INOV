@@ -67,5 +67,17 @@ if CAPITOL1_R132_C1 > 0 and CAPITOL1_R122_C1 is not check
 show - 	
 Cod eroare 48-0007 Completati Cap.1 Rindurile 1.2.2 "DA"
 
+Analyze files (.js si .html ) and create validation  - submit - 
 
+When  
+(CAPITOL1_R111_C2 and CAPITOL1_R112_C2 is not cheked - dar sunt selectate fiecare rand cel putin cu optiune) // 1. Logic
+AND 
+
+(CAPITOL1_R121_C2 and CAPITOL1_R122_C2 is not cheked dar sunt selectate fiecare rand cel putin cu optiune)  //  1. Logic
+
+AND ((Daca este selectat CAPITOL1_R121_C1 si sunt date in CAPITOL1_R131_C1) or (Daca este selectat CAPITOL1_R122_C1 si sunt date in CAPITOL1_R132_C1))
+
+AND Nu este selectat nici un rand din randul 1.4 -  
+
+   show - Cod eroare 48-0008. Completati Cap.1 Rindurile 1.4 - cel putin unu 
 
