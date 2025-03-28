@@ -81,3 +81,16 @@ AND Nu este selectat nici un rand din randul 1.4 -
 
    show - Cod eroare 48-0008. Completati Cap.1 Rindurile 1.4 - cel putin unu 
 
+
+Analizeaza fisierile .js si html  
+Acum adauga ultima conditie la toate conditiile.  - (Validarea 48-0009)
+
+Si acum - Creaza o validare submit 
+
+Daca toate conditiile sunt adevarate 
+
+si nu sunt selectate toate randirile din randul 1.5 
+
+ show - Cod eroare 48-0009. Completati Cap.1 Rindurile 1.5
+
+ Aici nu ai intales (adauga ultima conditie) dar trebuie de ja inversul - cel putin un rand din randul 1.4 sa fie bifat. 
