@@ -632,7 +632,7 @@ webform.validators.inov1 = function (v, allowOverpass) {
     validate48_0006_0007();
 
     validate48_0008();
-  
+    validate48_0009();
 
     
 
@@ -650,8 +650,65 @@ webform.validators.inov1 = function (v, allowOverpass) {
 
 }
 
+//-------------------------------------------------------------------------------------------
+
+function validate48_0009() {
+    // 1.1 – bifate DA/NU (dar nu ambele NU)
+    const r111_da = jQuery('#CAPITOL1_R111_C1').is(':checked');
+    const r111_nu = jQuery('#CAPITOL1_R111_C2').is(':checked');
+    const r112_da = jQuery('#CAPITOL1_R112_C1').is(':checked');
+    const r112_nu = jQuery('#CAPITOL1_R112_C2').is(':checked');
+    const valid_1_1 = (r111_da || r111_nu) && (r112_da || r112_nu) && !(r111_nu && r112_nu);
+
+    // 1.2 – bifate DA/NU (dar nu ambele NU)
+    const r121_da = jQuery('#CAPITOL1_R121_C1').is(':checked');
+    const r121_nu = jQuery('#CAPITOL1_R121_C2').is(':checked');
+    const r122_da = jQuery('#CAPITOL1_R122_C1').is(':checked');
+    const r122_nu = jQuery('#CAPITOL1_R122_C2').is(':checked');
+    const valid_1_2 = (r121_da || r121_nu) && (r122_da || r122_nu) && !(r121_nu && r122_nu);
+
+    // 1.3 – sumă > 0 dacă DA bifat
+    const r131 = parseInt(jQuery('#CAPITOL1_R131_C1').val()) || 0;
+    const r132 = parseInt(jQuery('#CAPITOL1_R132_C1').val()) || 0;
+    const valid_1_3 = (r121_da && r131 > 0) || (r122_da && r132 > 0);
+
+    // ✅ cel puțin un rând bifat în 1.4
+    const r141 = jQuery('#CAPITOL1_R141_C1').is(':checked');
+    const r142 = jQuery('#CAPITOL1_R142_C1').is(':checked');
+    const r143 = jQuery('#CAPITOL1_R143_C1').is(':checked');
+    const r144 = jQuery('#CAPITOL1_R144_C1').is(':checked');
+    const valid_1_4 = r141 || r142 || r143 || r144;
+
+    // ❌ dacă nu sunt completate toate DA/NU din 1.5
+    const rows_1_5 = [
+        ['CAPITOL1_R151_C1', 'CAPITOL1_R151_C2'],
+        ['CAPITOL1_R152_C1', 'CAPITOL1_R152_C2'],
+        ['CAPITOL1_R153_C1', 'CAPITOL1_R153_C2'],
+        ['CAPITOL1_R154_C1', 'CAPITOL1_R154_C2'],
+        ['CAPITOL1_R155_C1', 'CAPITOL1_R155_C2'],
+        ['CAPITOL1_R156_C1', 'CAPITOL1_R156_C2'],
+        ['CAPITOL1_R157_C1', 'CAPITOL1_R157_C2'],
+    ];
+    const all_1_5_answered = rows_1_5.every(([da, nu]) => {
+        return jQuery(`#${da}`).is(':checked') || jQuery(`#${nu}`).is(':checked');
+    });
+
+    if (valid_1_1 && valid_1_2 && valid_1_3 && valid_1_4 && !all_1_5_answered) {
+        webform.errors.push({
+            fieldName: 'CAPITOL1_R151_C1',
+            weight: 9,
+            msg: concatMessage(
+                '48-0009',
+                'Întrebarea 1.5 – Inovarea proceselor de afaceri',
+                Drupal.t('Cod eroare 48-0009. Completati Cap.1 Rindurile 1.5 – toate opțiunile trebuie bifate DA sau NU.')
+            )
+        });
+    }
+}
+
+
 //---------------------------------------------------------------------------------------
-//Your version is not correct. I modified the code a little. This is correct according to our logic.
+
 function validate48_0008() {
     const r111_c2 = jQuery('#CAPITOL1_R111_C2').is(':checked');
     const r112_c2 = jQuery('#CAPITOL1_R112_C2').is(':checked');
