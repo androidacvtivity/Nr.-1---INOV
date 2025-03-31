@@ -104,3 +104,21 @@ de mai jos
   watchLiveValidation_48_0006_0007();
 
   toggle_48_0006_0007(values);
+
+  Analyze the js file
+
+  Acum creaza Validarea 48-0010 - Adauga conditia din 48-0009 la toate - de ja stii cum.
+ 
+
+  Modificare iin validare 
+  Daca conditiile sunt adevarate si 
+  
+  cel putin un ridn din randul 1.5 este bifat da si restul nu  // 1 Logic
+  si 
+  nu sunt toate randurile 1.5 bifate nu // 2 Logic 
+  
+  si nu este bifat nici un rand 
+  din 1.6 atunci 
+
+
+Cod eroare 48-0010 -  Completati Cap.1 Rindurile 1.6

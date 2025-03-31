@@ -738,7 +738,7 @@ webform.validators.inov1 = function (v, allowOverpass) {
     check_181_182_183_logic5();  // Logic 5 (Row 181, 182, 183)
 
     check_111_157_177(values);
-
+    //Now give me the logic to this.
     validate48_007();
     validate48_004();
 
@@ -747,6 +747,8 @@ webform.validators.inov1 = function (v, allowOverpass) {
 
     validate48_008(); 
 
+
+    //De-mi pseudo codul la urmatoarele validari 
     validate48_0001();
 
     validate48_0002();
@@ -761,6 +763,8 @@ webform.validators.inov1 = function (v, allowOverpass) {
 
     validate48_0008();
     validate48_0009();
+
+    validate48_0010();
 
     
 
@@ -777,6 +781,80 @@ webform.validators.inov1 = function (v, allowOverpass) {
     validateWebform();
 
 }
+
+//----------------------------------------------------------------------------------------------
+
+function validate48_0010() {
+    const r111_da = jQuery('#CAPITOL1_R111_C1').is(':checked');
+    const r111_nu = jQuery('#CAPITOL1_R111_C2').is(':checked');
+    const r112_da = jQuery('#CAPITOL1_R112_C1').is(':checked');
+    const r112_nu = jQuery('#CAPITOL1_R112_C2').is(':checked');
+
+    const r121_da = jQuery('#CAPITOL1_R121_C1').is(':checked');
+    const r121_nu = jQuery('#CAPITOL1_R121_C2').is(':checked');
+    const r122_da = jQuery('#CAPITOL1_R122_C1').is(':checked');
+    const r122_nu = jQuery('#CAPITOL1_R122_C2').is(':checked');
+
+    const r131 = parseInt(jQuery('#CAPITOL1_R131_C1').val()) || 0;
+    const r132 = parseInt(jQuery('#CAPITOL1_R132_C1').val()) || 0;
+
+    const r141 = jQuery('#CAPITOL1_R141_C1').is(':checked');
+    const r142 = jQuery('#CAPITOL1_R142_C1').is(':checked');
+    const r143 = jQuery('#CAPITOL1_R143_C1').is(':checked');
+    const r144 = jQuery('#CAPITOL1_R144_C1').is(':checked');
+
+    const r161 = jQuery('#CAPITOL1_R161_C1').is(':checked');
+    const r162 = jQuery('#CAPITOL1_R162_C1').is(':checked');
+    const r163 = jQuery('#CAPITOL1_R163_C1').is(':checked');
+    const r164 = jQuery('#CAPITOL1_R164_C1').is(':checked');
+
+    const rows_1_5 = [
+        ['CAPITOL1_R151_C1', 'CAPITOL1_R151_C2'],
+        ['CAPITOL1_R152_C1', 'CAPITOL1_R152_C2'],
+        ['CAPITOL1_R153_C1', 'CAPITOL1_R153_C2'],
+        ['CAPITOL1_R154_C1', 'CAPITOL1_R154_C2'],
+        ['CAPITOL1_R155_C1', 'CAPITOL1_R155_C2'],
+        ['CAPITOL1_R156_C1', 'CAPITOL1_R156_C2'],
+        ['CAPITOL1_R157_C1', 'CAPITOL1_R157_C2'],
+    ];
+
+    // VALIDĂRI PREGĂTITE
+    const valid_1_1 = (r111_da || r111_nu) && (r112_da || r112_nu) && !(r111_nu && r112_nu);
+    const valid_1_2 = (r121_da || r121_nu) && (r122_da || r122_nu) && !(r121_nu && r122_nu);
+    const valid_1_3 = (r121_da && r131 > 0) || (r122_da && r132 > 0);
+    const valid_1_4 = r141 || r142 || r143 || r144;
+
+    const valid_0009 = valid_1_1 && valid_1_2 && valid_1_3 && valid_1_4;
+
+    // ⚠️ LOGICĂ NOUĂ PENTRU 1.5
+    let daCount = 0;
+    let nuCount = 0;
+
+    rows_1_5.forEach(([da, nu]) => {
+        const isDa = jQuery(`#${da}`).is(':checked');
+        const isNu = jQuery(`#${nu}`).is(':checked');
+        if (isDa) daCount++;
+        if (isNu) nuCount++;
+    });
+
+    const celPutinUnuDa_restofNu = daCount >= 1 && (daCount + nuCount === 7); // toate completate, doar 1 DA
+    const nuToateBifateNu = nuCount !== 7;
+
+    const none_1_6 = !(r161 || r162 || r163 || r164);
+
+    if (valid_0009 && celPutinUnuDa_restofNu && nuToateBifateNu && none_1_6) {
+        webform.errors.push({
+            fieldName: 'CAPITOL1_R161_C1',
+            weight: 10,
+            msg: concatMessage(
+                '48-0010',
+                'Întrebarea 1.6 – Rezultatul inovării',
+                Drupal.t('Cod eroare 48-0010. Completati Cap.1 Rindurile 1.6 – trebuie bifată cel puțin o opțiune DA.')
+            )
+        });
+    }
+}
+
 
 //-------------------------------------------------------------------------------------------
 
