@@ -59,6 +59,11 @@
             watchLiveValidation_48_0011();
             toggle_48_0011(values);
 
+            watchLiveValidation_48_0012();
+            toggle_48_0012(values);
+
+          
+
             
 
         }
@@ -799,11 +804,96 @@ function watchR134LiveValidation() {
     validateTotal();
 }
 
-//
+//--------------------------------------
+
+function watchLiveValidation_48_0012() {
+    jQuery('input[type=checkbox]').on('change', function () {
+        const r111_nu = jQuery('#CAPITOL1_R111_C2').is(':checked');
+        const r112_nu = jQuery('#CAPITOL1_R112_C2').is(':checked');
+
+        const atLeastOne15_DA = [
+            '#CAPITOL1_R151_C1',
+            '#CAPITOL1_R152_C1',
+            '#CAPITOL1_R153_C1',
+            '#CAPITOL1_R154_C1',
+            '#CAPITOL1_R155_C1',
+            '#CAPITOL1_R156_C1',
+            '#CAPITOL1_R157_C1'
+        ].some(selector => jQuery(selector).is(':checked'));
+
+        const all16_empty = ![
+            '#CAPITOL1_R161_C1',
+            '#CAPITOL1_R162_C1',
+            '#CAPITOL1_R163_C1',
+            '#CAPITOL1_R164_C1'
+        ].some(selector => jQuery(selector).is(':checked'));
+
+        jQuery('#error-48-0012').remove();
+
+        if (r111_nu && r112_nu && atLeastOne15_DA && all16_empty) {
+            const errorMsg = `
+                <div id="error-48-0012" class="webform-inline-error" style="
+                    color: red;
+                    font-weight: bold;
+                    margin-top: 6px;
+                    padding: 6px 10px;
+                    background-color: #fce4e4;
+                    border: 1px solid #d32f2f;
+                    border-radius: 4px;
+                    display: inline-block;
+                ">
+                    Cod eroare: 48-0012. Completati Cap.1 Rindurile 1.6 – trebuie bifată cel puțin o opțiune DA.
+                </div>
+            `;
+            jQuery('#CAPITOL1_R161_C1').closest('tr').after(errorMsg);
+        }
+    });
+}
 
 
+function toggle_48_0012(values) {
+    const r111_nu = values.CAPITOL1_R111_C2 === '1';
+    const r112_nu = values.CAPITOL1_R112_C2 === '1';
 
-//
+    const atLeastOne15_DA = [
+        'CAPITOL1_R151_C1',
+        'CAPITOL1_R152_C1',
+        'CAPITOL1_R153_C1',
+        'CAPITOL1_R154_C1',
+        'CAPITOL1_R155_C1',
+        'CAPITOL1_R156_C1',
+        'CAPITOL1_R157_C1'
+    ].some(id => values[id] === '1');
+
+    const all16_empty = [
+        'CAPITOL1_R161_C1',
+        'CAPITOL1_R162_C1',
+        'CAPITOL1_R163_C1',
+        'CAPITOL1_R164_C1'
+    ].every(id => values[id] !== '1');
+
+    jQuery('#error-48-0012').remove();
+
+    if (r111_nu && r112_nu && atLeastOne15_DA && all16_empty) {
+        const errorMsg = `
+            <div id="error-48-0012" class="webform-inline-error" style="
+                color: red;
+                font-weight: bold;
+                margin-top: 6px;
+                padding: 6px 10px;
+                background-color: #fce4e4;
+                border: 1px solid #d32f2f;
+                border-radius: 4px;
+                display: inline-block;
+            ">
+                Cod eroare: 48-0012. Completati Cap.1 Rindurile 1.6 – trebuie bifată cel puțin o opțiune DA.
+            </div>
+        `;
+        jQuery('#CAPITOL1_R161_C1').closest('tr').after(errorMsg);
+    }
+}
+
+// -------------------------------------------
 
 webform.validators.inov1 = function (v, allowOverpass) {
     var values = Drupal.settings.mywebform.values;
@@ -847,6 +937,7 @@ webform.validators.inov1 = function (v, allowOverpass) {
     validate48_0010();
 
     validate48_0011();
+    validate48_0012();
 
     
 
@@ -862,6 +953,42 @@ webform.validators.inov1 = function (v, allowOverpass) {
     webform.validatorsStatus['inov1'] = 1;
     validateWebform();
 
+}
+//-----------------------------------------------------------------------------------------------
+
+
+//Creaza toogle si whatch pentru validate48_0012 dupa exemplu validate48_0011
+function validate48_0012() {
+    const r111_nu = jQuery('#CAPITOL1_R111_C2').is(':checked');
+    const r112_nu = jQuery('#CAPITOL1_R112_C2').is(':checked');
+
+    const r151_da = jQuery('#CAPITOL1_R151_C1').is(':checked');
+    const r152_da = jQuery('#CAPITOL1_R152_C1').is(':checked');
+    const r153_da = jQuery('#CAPITOL1_R153_C1').is(':checked');
+    const r154_da = jQuery('#CAPITOL1_R154_C1').is(':checked');
+    const r155_da = jQuery('#CAPITOL1_R155_C1').is(':checked');
+    const r156_da = jQuery('#CAPITOL1_R156_C1').is(':checked');
+    const r157_da = jQuery('#CAPITOL1_R157_C1').is(':checked');
+
+    const r161 = jQuery('#CAPITOL1_R161_C1').is(':checked');
+    const r162 = jQuery('#CAPITOL1_R162_C1').is(':checked');
+    const r163 = jQuery('#CAPITOL1_R163_C1').is(':checked');
+    const r164 = jQuery('#CAPITOL1_R164_C1').is(':checked');
+
+    const atLeastOne15_DA = r151_da || r152_da || r153_da || r154_da || r155_da || r156_da || r157_da;
+    const all16_empty = !(r161 || r162 || r163 || r164);
+
+    if (r111_nu && r112_nu && atLeastOne15_DA && all16_empty) {
+        webform.errors.push({
+            fieldName: 'CAPITOL1_R161_C1',
+            weight: 11,
+            msg: concatMessage(
+                '48-0012',
+                'Întrebarea 1.6 – Activități de sprijin',
+                Drupal.t('Cod eroare: 48-0012. Completati Cap.1 Rindurile 1.6 – trebuie bifată cel puțin o opțiune DA.')
+            )
+        });
+    }
 }
 
 
