@@ -1,0 +1,17 @@
+14. Cod eroare: 48-0014
+Descriere: Completati Cap.1 Rindurile 1.7 – toate opțiunile DA/NU trebuie completate.
+Logică detaliată:
+- 1.1 Valid:
+   - Atât rândul 1.1.1 (CAPITOL1_R111_C2) cât și rândul 1.1.2 (CAPITOL1_R112_C2) sunt completate cu opțiunea NU.
+- 1.5 Valid:
+   - Toate rândurile din 1.5 (CAPITOL1_R151 până la CAPITOL1_R157) sunt completate cu NU (_C2).
+- 1.6 Necompletat:
+   - Niciun rând din 1.6 (CAPITOL1_R161_C1, R162_C1, R163_C1, R164_C1) nu este bifat.
+- 1.7 Incomplet:
+   - Nu este bifat nici DA nici NU pentru fiecare dintre:
+     - CAPITOL1_R171,
+     - CAPITOL1_R173,
+     - CAPITOL1_R174,
+     - CAPITOL1_R175,
+     - CAPITOL1_R176,
+     - CAPITOL1_R177.
