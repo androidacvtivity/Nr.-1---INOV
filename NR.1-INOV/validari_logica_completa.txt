@@ -89,10 +89,21 @@
     - Dacă 1.1  sunt completate cu ambele NU
     - Și nu sunt completate toate DA/NU din 1.5 => eroare
 
-//Analyze files and create validation - submit
-    11. Cod eroare: 48-0012 
+
+    12. Cod eroare: 48-0012 
     Descriere:  Completati Cap.1 Rindurile 1.6 – trebuie bifată cel puțin o opțiune DA.
     Logică:
      - Dacă rândul 1.1.1 și  1.1.2  este completat (NU).
      - Și cel puțin un DA în 1.5 și restul NU
      - Și nimic bifat în 1.6 => eroare
+
+
+    14. Cod eroare: 48-0014 
+    Descriere:  Completati Completati Cap.1 Rindurile 1.7
+    Logică:
+     - Dacă rândul 1.1.1 și  1.1.2  este completat (NU). 
+     - Și toate 1.5 sunt bifate cu NU
+     - Și nimic bifat în 1.6 
+     - Și în 1.7: cu DA/NU nu este bifat (1.7.1 si 1.7.3 si 1.7.4 si 1.7.5 si 1.7.6 si 1.7.7 ) 
+
+   

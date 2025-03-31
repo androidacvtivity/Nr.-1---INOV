@@ -938,6 +938,7 @@ webform.validators.inov1 = function (v, allowOverpass) {
 
     validate48_0011();
     validate48_0012();
+    validate48_0014();
 
     
 
@@ -956,6 +957,52 @@ webform.validators.inov1 = function (v, allowOverpass) {
 }
 //-----------------------------------------------------------------------------------------------
 
+
+function validate48_0014() {
+    const r111_nu = jQuery('#CAPITOL1_R111_C2').is(':checked');
+    const r112_nu = jQuery('#CAPITOL1_R112_C2').is(':checked');
+
+    const all15_nu = [
+        '#CAPITOL1_R151_C2',
+        '#CAPITOL1_R152_C2',
+        '#CAPITOL1_R153_C2',
+        '#CAPITOL1_R154_C2',
+        '#CAPITOL1_R155_C2',
+        '#CAPITOL1_R156_C2',
+        '#CAPITOL1_R157_C2'
+    ].every(id => jQuery(id).is(':checked'));
+
+    const none16_checked = ![
+        '#CAPITOL1_R161_C1',
+        '#CAPITOL1_R162_C1',
+        '#CAPITOL1_R163_C1',
+        '#CAPITOL1_R164_C1'
+    ].some(id => jQuery(id).is(':checked'));
+
+    const incomplete17 = [
+        ['#CAPITOL1_R171_C1', '#CAPITOL1_R171_C2'],
+        ['#CAPITOL1_R174_C1', '#CAPITOL1_R174_C2'],
+        ['#CAPITOL1_R175_C1', '#CAPITOL1_R175_C2'],
+        ['#CAPITOL1_R176_C1', '#CAPITOL1_R176_C2'],
+        ['#CAPITOL1_R177_C1', '#CAPITOL1_R177_C2']
+    ].some(([da, nu]) => {
+        return !jQuery(da).is(':checked') && !jQuery(nu).is(':checked');
+    });
+
+    if (r111_nu && r112_nu && all15_nu && none16_checked && incomplete17) {
+        webform.errors.push({
+            fieldName: 'CAPITOL1_R171_C1',
+            weight: 14,
+            msg: concatMessage(
+                '48-0014',
+                'Întrebarea 1.7 – Activități de inovare',
+                Drupal.t('Cod eroare: 48-0014. Completati Cap.1 Rindurile 1.7 – toate opțiunile DA/NU trebuie completate.')
+            )
+        });
+    }
+}
+
+//----------------------------------------------------------------------------------------------
 
 //Creaza toogle si whatch pentru validate48_0012 dupa exemplu validate48_0011
 function validate48_0012() {
