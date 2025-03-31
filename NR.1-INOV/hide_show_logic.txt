@@ -1,0 +1,28 @@
+# Descriere detaliată pentru funcții de tip hide/show (fără toggle)
+
+1. Logică: Ascundere/Afișare pentru secțiunea 1.6 (check_151_157)
+   - Dacă TOATE opțiunile din rândurile 1.5.1 până la 1.5.7 sunt bifate cu „DA” (C2):
+     - Atunci: SE ASCUND rândurile 1.6.1 – 1.6.4 și header-ele aferente (R16H1 – R16H3)
+     - Se șterg valorile completate în 1.6.1 – 1.6.4
+   - Altfel: se afișează din nou rândurile 1.6.1 – 1.6.4
+
+2. Logică: Ascundere/Afișare pentru 1.7 (check_111_157_177)
+   - Dacă toate opțiunile C2 (NU) din 1.1.1 – 1.5.7 și 1.7.7 sunt bifate:
+     - Se ascunde rândul 1.7.8 și se șterg valorile introduse
+   - Altfel: se afișează rândul 1.7.8
+
+3. Logică: Ascundere/Afișare pentru 1.8.4 (check_184_logic5)
+   - Dacă rândurile 1.8.1, 1.8.2 și 1.8.3 NU sunt bifate:
+     - Atunci: se ascunde 1.8.4
+   - Altfel: se afișează
+
+4. Logică: Ascundere/Afișare pentru 1.12 (check_111_1129)
+   - Dacă rândurile 1.11.1 și 1.11.2 sunt bifate cu „NU”:
+     - Se ascund 1.11.3 și toate rândurile 1.12.1 – 1.12.9 (plus header-ele)
+     - Se șterg toate valorile și bifările
+   - Altfel: se afișează
+
+5. Logică: Ascundere/Afișare pentru 1.6 (secțiunea de cheltuieli) – fallback live (watchLiveValidation_48_0009)
+   - Dacă toate condițiile 1.1 – 1.4 sunt valide
+   - Și NU sunt completate toate DA/NU din rândurile 1.5
+     - Atunci: apare mesajul de eroare
