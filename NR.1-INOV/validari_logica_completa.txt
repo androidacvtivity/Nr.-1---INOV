@@ -99,7 +99,7 @@
 
 
     14. Cod eroare: 48-0014 
-    Descriere:  Completati Completati Cap.1 Rindurile 1.7
+    Descriere:  Completati  Cap.1 Rindurile 1.7
     Logică:
      - Dacă rândul 1.1.1 și  1.1.2  este completat (NU). 
      - Și toate 1.5 sunt bifate cu NU
