@@ -1,8 +1,8 @@
 1. Cod eroare: 48-0001
    Descriere: Trebuie să fie selectate rândurile 1.1.1 și 1.1.2 – Bifați opțiunea DA sau NU.
    Logică:
-     - Dacă 1.1.1 (CAPITOL1_R111) nu este bifat nici cu DA, nici cu NU
-     - Sau dacă 1.1.2 (CAPITOL1_R112) nu este bifat nici cu DA, nici cu NU => eroare
+     - Dacă 1.1.1  nu este bifat nici cu DA, nici cu NU
+     - Sau dacă 1.1.2  nu este bifat nici cu DA, nici cu NU => eroare
 
    Descriere: Trebuie să fie selectate rândurile 1.1.1 și 1.1.2 – Bifați opțiunea DA sau NU.
    Logică:
@@ -82,9 +82,17 @@
       - Și nimic bifat în 1.6 => eroare
 
 
-10. Cod eroare: 48-0011
+ 11. Cod eroare: 48-0011
 
   Descriere: Completati Cap.1 Rindurile 1.5
     Logică:
     - Dacă 1.1  sunt completate cu ambele NU
     - Și nu sunt completate toate DA/NU din 1.5 => eroare
+
+//Analyze files and create validation - submit
+    11. Cod eroare: 48-0012 
+    Descriere:  Completati Cap.1 Rindurile 1.6 – trebuie bifată cel puțin o opțiune DA.
+    Logică:
+     - Dacă rândul 1.1.1 și  1.1.2  este completat (NU).
+     - Și cel puțin un DA în 1.5 și restul NU
+     - Și nimic bifat în 1.6 => eroare
