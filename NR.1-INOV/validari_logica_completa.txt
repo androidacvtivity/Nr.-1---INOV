@@ -1,5 +1,3 @@
-Iti trimit pseudo codul care l-am facut - adica sa intalegi ce am adaugat pana acum 
-
 1. Cod eroare: 48-0001
    Descriere: Trebuie să fie selectate rândurile 1.1.1 și 1.1.2 – Bifați opțiunea DA sau NU.
    Logică:
@@ -84,3 +82,9 @@ Iti trimit pseudo codul care l-am facut - adica sa intalegi ce am adaugat pana a
       - Și nimic bifat în 1.6 => eroare
 
 
+10. Cod eroare: 48-0011
+
+  Descriere: Completati Cap.1 Rindurile 1.5
+    Logică:
+    - Dacă 1.1  sunt completate cu ambele NU
+    - Și nu sunt completate toate DA/NU din 1.5 => eroare
