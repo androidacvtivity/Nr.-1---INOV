@@ -1183,6 +1183,7 @@ webform.validators.inov1 = function (v, allowOverpass) {
     validate48_0012();
     validate48_0014();
     validate48_0015();
+    validate48_0016();
     
 
     //Sort warnings & errors
@@ -1197,6 +1198,52 @@ webform.validators.inov1 = function (v, allowOverpass) {
     webform.validatorsStatus['inov1'] = 1;
     validateWebform();
 
+}
+
+
+//-----------------------------------------------------------------------------------------------
+
+
+function validate48_0016() {
+    const r111_nu = jQuery('#CAPITOL1_R111_C2').is(':checked');
+    const r112_nu = jQuery('#CAPITOL1_R112_C2').is(':checked');
+
+    const all15_nu = [
+        '#CAPITOL1_R151_C2',
+        '#CAPITOL1_R152_C2',
+        '#CAPITOL1_R153_C2',
+        '#CAPITOL1_R154_C2',
+        '#CAPITOL1_R155_C2',
+        '#CAPITOL1_R156_C2',
+        '#CAPITOL1_R157_C2'
+    ].every(sel => jQuery(sel).is(':checked'));
+
+    const all17_nu = [
+        '#CAPITOL1_R171_C2',
+      
+        '#CAPITOL1_R174_C2',
+        '#CAPITOL1_R175_C2',
+        '#CAPITOL1_R176_C2',
+        '#CAPITOL1_R177_C2'
+    ].every(sel => jQuery(sel).is(':checked'));
+
+    const none_110_checked = ![
+        '#CAPITOL1_R1101_C1',
+        '#CAPITOL1_R1102_C1',
+        '#CAPITOL1_R1103_C1'
+    ].some(sel => jQuery(sel).is(':checked'));
+
+    if (r111_nu && r112_nu && all15_nu && all17_nu && none_110_checked) {
+        webform.errors.push({
+            fieldName: 'CAPITOL1_R1101_C1',
+            weight: 16,
+            msg: concatMessage(
+                '48-0016',
+                'Întrebarea 1.10 – Inovații externe',
+                Drupal.t('Cod eroare: 48-0016. Completati Cap.1 Rindurile 1.10 – trebuie bifat cel puțin un rând.')
+            )
+        });
+    }
 }
 
 //----------------------------------------------------------------------------------------------
