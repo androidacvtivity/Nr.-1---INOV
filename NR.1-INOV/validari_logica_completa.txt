@@ -116,5 +116,11 @@ Logică:
   - În caz contrar, se generează eroarea: Cod eroare 48-0015
 
 
-
-   
+-- Creaza logica
+16. Cod eroare: 48-0016
+Descriere:  Completati Cap.1 Rindurile 1.10 – trebuie selectată cel puțin un rand.
+Logică:
+     - Dacă rândul 1.1.1 și  1.1.2  este completat (NU). 
+     - Și toate 1.5 sunt bifate cu NU
+     - Și în 1.7: cu NU  este bifat (1.7.1 si 1.7.3 si 1.7.4 si 1.7.5 si 1.7.6 si 1.7.7 ) 
+     - Și nimic bifat în 1.10 (1.10.1,1.10.2,1.10.3) => eroare
