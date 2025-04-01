@@ -1,9 +1,30 @@
-Analizeaza fisierile si creaza logica 
+function check_184_logic5() {
+    jQuery('#CAPITOL1_R181_C2, #CAPITOL1_R182_C2, #CAPITOL1_R183_C2, #CAPITOL1_R181_C1, #CAPITOL1_R182_C1, #CAPITOL1_R183_C1').on('change keyup', function () {
+        applyLogic5_CAPITOL1_R184();
+    });
+}
 
-    14. Cod eroare: 48-0014 
-    Descriere:  Completati Completati Cap.1 Rindurile 1.7
-    Logică:
-     - Dacă rândul 1.1.1 și  1.1.2  este completat (NU). 
-     - Și toate 1.5 sunt bifate cu NU
-     - Și nimic bifat în 1.6 
-     - Și în 1.7: cu DA/NU nu este bifat (1.7.1 si 1.7.3 si 1.7.4 si 1.7.5 si 1.7.6 si 1.7.7 ) 
+function toggle_184_logic5(values) {
+    let allNoChecked =
+        values.CAPITOL1_R181_C2 == '1' &&
+        values.CAPITOL1_R182_C2 == '1' &&
+        values.CAPITOL1_R183_C2 == '1';
+
+    let allEmpty =
+        !values.CAPITOL1_R181_C1 &&
+        !values.CAPITOL1_R182_C1 &&
+        !values.CAPITOL1_R183_C1;
+
+    if (allNoChecked || allEmpty) {
+        let field = jQuery('#CAPITOL1_R184_C1');
+        field.val('');
+        field.prop('readonly', true);
+    } else {
+        jQuery('#CAPITOL1_R184_C1').prop('readonly', false);
+    }
+}
+
+Analizeaza fisierile. 
+Dupa exemplu de mai sus creaza logica 
+
+Daca 1.7.1 dacă nu, atunci 1.7.2 și 1.7.3 să  fie hide

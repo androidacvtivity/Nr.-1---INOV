@@ -67,7 +67,11 @@
             // toggle_48_0014(values);
 
 
-            
+            check_171_logic_RD();
+            toggle_171_logic_RD(values);
+
+            watchLiveValidation_48_0015();
+            toggle_48_0015(values);
 
         }
 
@@ -75,6 +79,116 @@
 
 
 })(jQuery)
+
+
+//------------------------------------------------------------------------------
+
+// WatchLiveValidation for Cod eroare: 48-0015
+function watchLiveValidation_48_0015() {
+    jQuery('#CAPITOL1_R171_C1, #CAPITOL1_R172_C1, #CAPITOL1_R172_C2, #CAPITOL1_R173_C1, #CAPITOL1_R173_C2').on('change', function () {
+        const r171_da = jQuery('#CAPITOL1_R171_C1').is(':checked');
+        const r172_checked = jQuery('#CAPITOL1_R172_C1').is(':checked') || jQuery('#CAPITOL1_R172_C2').is(':checked');
+        const r173_checked = jQuery('#CAPITOL1_R173_C1').is(':checked') || jQuery('#CAPITOL1_R173_C2').is(':checked');
+        const r173_72_checked = jQuery('#CAPITOL1_R173_C2').is(':checked') && jQuery('#CAPITOL1_R172_C2').is(':checked');
+
+        jQuery('#error-48-0015').remove();
+
+        if (r171_da && ((!r172_checked || !r173_checked) || r173_72_checked) ) {
+            const errorMsg = `
+                <div id="error-48-0015" class="webform-inline-error" style="
+                    color: red;
+                    font-weight: bold;
+                    margin-top: 6px;
+                    padding: 6px 10px;
+                    background-color: #fce4e4;
+                    border: 1px solid #d32f2f;
+                    border-radius: 4px;
+                    display: inline-block;
+                ">
+                    Cod eroare: 48-0015. Completati Cap.1 Rindurile 1.7.2 si 1.7.3 – trebuie selectată cel puțin o opțiune - DA.
+                </div>
+            `;
+            jQuery('#CAPITOL1_R172_C1').closest('tr').after(errorMsg);
+        }
+    });
+}
+
+// Toggle for Cod eroare: 48-0015
+function toggle_48_0015(values) {
+    const r171_da = values.CAPITOL1_R171_C1 === '1';
+    const r172_bifate = values.CAPITOL1_R172_C1 === '1' || values.CAPITOL1_R172_C2 === '1';
+    const r173_bifate = values.CAPITOL1_R173_C1 === '1' || values.CAPITOL1_R173_C2 === '1';
+
+    const r173_72_bifate = values.CAPITOL1_R172_C2 === '1' && values.CAPITOL1_R173_C2 === '1';
+
+    jQuery('#error-48-0015').remove();
+
+    if (r171_da && ((!r172_bifate || !r173_bifate) || r173_72_bifate)) {
+        const errorMsg = `
+            <div id="error-48-0015" class="webform-inline-error" style="
+                color: red;
+                font-weight: bold;
+                margin-top: 6px;
+                padding: 6px 10px;
+                background-color: #fce4e4;
+                border: 1px solid #d32f2f;
+                border-radius: 4px;
+                display: inline-block;
+            ">
+                Cod eroare: 48-0015. Completati Cap.1 Rindurile 1.7.2 si 1.7.3 – trebuie selectată cel puțin o opțiune - DA.
+            </div>
+        `;
+        jQuery('#CAPITOL1_R172_C1').closest('tr').after(errorMsg);
+    }
+}
+
+//----------------------------------------------------------------------------
+
+function check_171_logic_RD() {
+    const selectors = [
+        '#CAPITOL1_R171_C2',
+        '#CAPITOL1_R172_C1', '#CAPITOL1_R172_C2',
+        '#CAPITOL1_R173_C1', '#CAPITOL1_R173_C2'
+    ];
+
+    jQuery(selectors.join(',')).on('change', function () {
+        applyLogic_RD_172_173();
+    });
+}
+
+function applyLogic_RD_172_173() {
+    const r171_nu = jQuery('#CAPITOL1_R171_C2').is(':checked');
+
+    if (r171_nu) {
+        jQuery('#CAPITOL1_R172_C1, #CAPITOL1_R172_C2, #CAPITOL1_R173_C1, #CAPITOL1_R173_C2')
+            .prop('checked', false)
+            .prop('readonly', true);
+    } else {
+        jQuery('#CAPITOL1_R172_C1, #CAPITOL1_R172_C2, #CAPITOL1_R173_C1, #CAPITOL1_R173_C2')
+            .prop('readonly', false);
+    }
+}
+
+function toggle_171_logic_RD(values) {
+    const r171_nu = values.CAPITOL1_R171_C2 === '1';
+
+    const readonlyFields = [
+        'CAPITOL1_R172_C1', 'CAPITOL1_R172_C2',
+        'CAPITOL1_R173_C1', 'CAPITOL1_R173_C2'
+    ];
+
+    readonlyFields.forEach(id => {
+        const field = document.getElementById(id);
+        if (field) {
+            if (r171_nu) {
+                field.checked = false;
+                field.readOnly = true;
+            } else {
+                field.readOnly = false;
+            }
+        }
+    });
+}
 
 
 //---------------------------------------------------------------------------
@@ -1005,6 +1119,11 @@ function toggle_48_0012(values) {
 
 // -------------------------------------------
 
+
+
+
+//-----------------------------------------------
+
 webform.validators.inov1 = function (v, allowOverpass) {
     var values = Drupal.settings.mywebform.values;
     
@@ -1023,7 +1142,7 @@ webform.validators.inov1 = function (v, allowOverpass) {
     validate48_004();
 
     validate48_005();
-    validate48_006();
+    //validate48_006();
 
     validate48_008(); 
 
@@ -1049,7 +1168,7 @@ webform.validators.inov1 = function (v, allowOverpass) {
     validate48_0011();
     validate48_0012();
     validate48_0014();
-
+    validate48_0015();
     
 
     //Sort warnings & errors
@@ -1065,6 +1184,51 @@ webform.validators.inov1 = function (v, allowOverpass) {
     validateWebform();
 
 }
+
+//----------------------------------------------------------------------------------------------
+
+function validate48_0015() {
+    const r171_da = jQuery('#CAPITOL1_R171_C1').is(':checked');
+
+    const r172_da = jQuery('#CAPITOL1_R172_C1').is(':checked');
+    const r172_nu = jQuery('#CAPITOL1_R172_C2').is(':checked');
+    const r173_da = jQuery('#CAPITOL1_R173_C1').is(':checked');
+    const r173_nu = jQuery('#CAPITOL1_R173_C2').is(':checked');
+
+    const r172_selected = r172_da || r172_nu;
+    const r173_selected = r173_da || r173_nu;
+
+    const r172_73_selected = r173_nu && r172_nu;
+
+    // Șterge orice eroare anterioară
+    jQuery('#error-48-0015').remove();
+
+    if (r171_da && (!r172_selected || !r173_selected)) {
+        webform.errors.push({
+            fieldName: 'CAPITOL1_R172_C1',
+            weight: 15,
+            msg: concatMessage(
+                '48-0015',
+                'Întrebările 1.7.2 și 1.7.3 – Activități de marketing',
+                Drupal.t('Cod eroare: 48-0015. Dacă ați bifat DA la 1.7.1, trebuie completate cu DA sau NU rândurile 1.7.2 și 1.7.3.')
+            )
+        });
+    }
+
+    if (r172_73_selected) {
+        webform.errors.push({
+            fieldName: 'CAPITOL1_R172_C1',
+            weight: 15,
+            msg: concatMessage(
+                '48-0015',
+                'Întrebările 1.7.2 și 1.7.3 – Activități de marketing',
+                Drupal.t('Cod eroare: 48-0015. Dacă ați bifat DA la 1.7.1, trebuie completate cu DA unul rândurile 1.7.2 și 1.7.3.')
+            )
+        });
+    }
+
+}
+
 //-----------------------------------------------------------------------------------------------
 
 
@@ -1114,7 +1278,7 @@ function validate48_0014() {
 
 //----------------------------------------------------------------------------------------------
 
-//Creaza toogle si whatch pentru validate48_0012 dupa exemplu validate48_0011
+
 function validate48_0012() {
     const r111_nu = jQuery('#CAPITOL1_R111_C2').is(':checked');
     const r112_nu = jQuery('#CAPITOL1_R112_C2').is(':checked');

@@ -1,0 +1,8 @@
+
+15. Cod eroare: 48-0015
+Descriere: Completati Cap.1 Rindurile 1.7.2 si 1.7.3 – trebuie selectată cel puțin o opțiune.
+Logică:
+  - Dacă rândul 1.7.1 este completat cu DA
+  - Atunci rândurile 1.7.2 și 1.7.3 trebuie să fie completate (fie DA, fie NU)
+  - Și cel puțin una dintre opțiunile DA trebuie să fie bifată pentru 1.7.2 sau 1.7.3
+  - În caz contrar, se generează eroarea: Cod eroare 48-0015
