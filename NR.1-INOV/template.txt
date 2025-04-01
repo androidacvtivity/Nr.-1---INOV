@@ -28,3 +28,6 @@ Analizeaza fisierile.
 Dupa exemplu de mai sus creaza logica 
 
 Daca 1.7.1 dacă nu, atunci 1.7.2 și 1.7.3 să  fie hide
+
+
+Adauga aici o conditie 
