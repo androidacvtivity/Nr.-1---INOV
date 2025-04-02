@@ -73,12 +73,70 @@
             watchLiveValidation_48_0015();
             toggle_48_0015(values);
 
+
+             watchLiveValidation_48_0020();
+
         }
 
     }
 
 
 })(jQuery)
+
+//----------------------------------------------------------------------------------
+
+function watchLiveValidation_48_0020() {
+    const errorID = 'error-48-0020';
+    const rows = [
+        ['#CAPITOL1_R171_C1', '#CAPITOL1_R171_C2'], // 1.7.1
+        ['#CAPITOL1_R174_C1', '#CAPITOL1_R174_C2'], // 1.7.4
+        ['#CAPITOL1_R175_C1', '#CAPITOL1_R175_C2'], // 1.7.5
+        ['#CAPITOL1_R176_C1', '#CAPITOL1_R176_C2'], // 1.7.6
+        ['#CAPITOL1_R177_C1', '#CAPITOL1_R177_C2']  // 1.7.7
+    ];
+
+    function isRowAnswered([yesSelector, noSelector]) {
+        return jQuery(yesSelector).is(':checked') || jQuery(noSelector).is(':checked');
+    }
+
+    function isAnyRowAnswered() {
+        return rows.some(isRowAnswered);
+    }
+
+    function areAllRowsAnswered() {
+        return rows.every(isRowAnswered);
+    }
+
+    function validate() {
+        jQuery(`#${errorID}`).remove();
+
+        const anyAnswered = isAnyRowAnswered();
+        const allAnswered = areAllRowsAnswered();
+
+        if (anyAnswered && !allAnswered) {
+            const errorHtml = `
+                <div id="${errorID}" class="webform-inline-error" style="
+                    color: red;
+                    font-weight: bold;
+                    margin-top: 6px;
+                    padding: 6px 10px;
+                    background-color: #fce4e4;
+                    border: 1px solid #d32f2f;
+                    border-radius: 4px;
+                    display: inline-block;
+                ">
+                    Cod eroare: 48-0020. Completati Cap.1 Rindurile 1.7.1, 1.7.4 - 1.7.7 DA/NU
+                </div>
+            `;
+            jQuery('#CAPITOL1_R171_C1').closest('tr').after(errorHtml);
+        }
+    }
+
+    // Ascultăm toate checkboxurile implicate
+    rows.flat().forEach(selector => {
+        jQuery(selector).on('change', validate);
+    });
+}
 
 
 //------------------------------------------------------------------------------
@@ -1187,6 +1245,7 @@ webform.validators.inov1 = function (v, allowOverpass) {
     validate48_0017();
     validate48_0018();
     validate48_0019(); 
+    validate48_0020(); 
     
 
     //Sort warnings & errors
@@ -1202,6 +1261,36 @@ webform.validators.inov1 = function (v, allowOverpass) {
     validateWebform();
 
 }
+
+//-------------------
+function validate48_0020() {
+    const rows = [
+        ['#CAPITOL1_R171_C1', '#CAPITOL1_R171_C2'], // 1.7.1
+        ['#CAPITOL1_R174_C1', '#CAPITOL1_R174_C2'], // 1.7.4
+        ['#CAPITOL1_R175_C1', '#CAPITOL1_R175_C2'], // 1.7.5
+        ['#CAPITOL1_R176_C1', '#CAPITOL1_R176_C2'], // 1.7.6
+        ['#CAPITOL1_R177_C1', '#CAPITOL1_R177_C2']  // 1.7.7
+    ];
+
+    function isRowAnswered([yesSelector, noSelector]) {
+        return jQuery(yesSelector).is(':checked') || jQuery(noSelector).is(':checked');
+    }
+
+    const answeredCount = rows.filter(isRowAnswered).length;
+
+    if (answeredCount > 0 && answeredCount < rows.length) {
+        webform.errors.push({
+            fieldName: 'CAPITOL1_R171_C1',
+            weight: 19,
+            msg: concatMessage(
+                '48-0020',
+                'Activități de inovare',
+                Drupal.t('Cod eroare: 48-0020. Completati Cap.1 Rindurile 1.7.1, 1.7.4 - 1.7.7 DA/NU')
+            )
+        });
+    }
+}
+
 //---------------------------------------------------------------------------------------------------------
 
 
@@ -1253,35 +1342,38 @@ function validate48_0019() {
 
 
 function validate48_0018() {
-    const r1111_nu = jQuery('#CAPITOL1_R1111_C2').is(':checked');
-    const r1112_nu = jQuery('#CAPITOL1_R1112_C2').is(':checked');
-
-    const all_111_not_nu = !(r1111_nu && r1112_nu); // dacă cel puțin un rând NU este bifat cu NU
+    const r1111_da = jQuery('#CAPITOL1_R1111_C1').is(':checked');
+    const r1112_da = jQuery('#CAPITOL1_R1112_C1').is(':checked');
 
     const r1101 = jQuery('#CAPITOL1_R1101_C1').is(':checked');
     const r1102 = jQuery('#CAPITOL1_R1102_C1').is(':checked');
     const r1103 = jQuery('#CAPITOL1_R1103_C1').is(':checked');
 
-    const atLeastOne_110_DA = r1101 || r1102 || r1103;
+    const any_111x_da = r1111_da || r1112_da;
+    const none_110x_selected = !r1101 && !r1102 && !r1103;
 
-    const r1121 = jQuery('#CAPITOL1_R1121_C1').is(':checked');
-    const r1122 = jQuery('#CAPITOL1_R1122_C1').is(':checked');
-    const r1123 = jQuery('#CAPITOL1_R1123_C1').is(':checked');
+    // Toate coloanele C1, C2, C3 de la 1.12.1 - 1.12.9
+    const all_112_ids = [];
+    for (let i = 1; i <= 9; i++) {
+        const row = `CAPITOL1_R112${i}`;
+        all_112_ids.push(`${row}_C1`, `${row}_C2`, `${row}_C3`);
+    }
 
-    const none112_checked = !(r1121 || r1122 || r1123);
+    const any_112_checked = all_112_ids.some(id => jQuery(`#${id}`).is(':checked'));
 
-    if (all_111_not_nu && !atLeastOne_110_DA && none112_checked) {
+    if (any_111x_da && none_110x_selected && !any_112_checked) {
         webform.errors.push({
             fieldName: 'CAPITOL1_R1121_C1',
             weight: 18,
             msg: concatMessage(
                 '48-0018',
-                'Întrebarea 1.12 – Bariere și obstacole',
-                Drupal.t('Cod eroare: 48-0018. Completati Cap.1 Rindurile 1.12 – trebuie bifat cel puțin un rând.')
+                'Activități de inovare',
+                Drupal.t('Cod eroare: 48-0018. Completati Cap.1 Rindurile 1.12.')
             )
         });
     }
 }
+
 
 //-------------------------------------------------------------------------------------------------
 
