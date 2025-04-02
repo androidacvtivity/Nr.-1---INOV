@@ -1264,31 +1264,21 @@ webform.validators.inov1 = function (v, allowOverpass) {
 
 //-------------------
 function validate48_0020() {
-    const r171_da = jQuery('#CAPITOL1_R171_C1').is(':checked');
-    const r171_nu = jQuery('#CAPITOL1_R171_C2').is(':checked');
+    const rows = [
+        ['#CAPITOL1_R171_C1', '#CAPITOL1_R171_C2'], // 1.7.1
+        ['#CAPITOL1_R174_C1', '#CAPITOL1_R174_C2'], // 1.7.4
+        ['#CAPITOL1_R175_C1', '#CAPITOL1_R175_C2'], // 1.7.5
+        ['#CAPITOL1_R176_C1', '#CAPITOL1_R176_C2'], // 1.7.6
+        ['#CAPITOL1_R177_C1', '#CAPITOL1_R177_C2']  // 1.7.7
+    ];
 
-    const r174_da = jQuery('#CAPITOL1_R174_C1').is(':checked');
-    const r174_nu = jQuery('#CAPITOL1_R174_C2').is(':checked');
+    function isRowAnswered([yesSelector, noSelector]) {
+        return jQuery(yesSelector).is(':checked') || jQuery(noSelector).is(':checked');
+    }
 
-    const r175_da = jQuery('#CAPITOL1_R175_C1').is(':checked');
-    const r175_nu = jQuery('#CAPITOL1_R175_C2').is(':checked');
+    const answeredCount = rows.filter(isRowAnswered).length;
 
-    const r176_da = jQuery('#CAPITOL1_R176_C1').is(':checked');
-    const r176_nu = jQuery('#CAPITOL1_R176_C2').is(':checked');
-
-    const r177_da = jQuery('#CAPITOL1_R177_C1').is(':checked');
-    const r177_nu = jQuery('#CAPITOL1_R177_C2').is(':checked');
-
-    const selectedCount = [
-        r171_da, r171_nu,
-        r174_da, r174_nu,
-        r175_da, r175_nu,
-        r176_da, r176_nu,
-        r177_da, r177_nu
-    ].filter(Boolean).length;
-
-    // Dacă există cel puțin o selecție, dar nu toate cele 5 perechi sunt completate
-    if (selectedCount > 0 && selectedCount < 10) {
+    if (answeredCount > 0 && answeredCount < rows.length) {
         webform.errors.push({
             fieldName: 'CAPITOL1_R171_C1',
             weight: 19,
