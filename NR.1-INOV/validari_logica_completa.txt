@@ -139,14 +139,19 @@ Logică:
   => atunci se afișează eroarea:
      Cod eroare: 48-0017. Completati Cap.1 Rindurile 1.11.
 
+
+//Nu lucreaza corect
 18. Cod eroare: 48-0018
 Descriere: Completati Cap.1 Rindurile 1.12.
 Logică:
-  - Dacă rândurile 1.11.1  și 1.11.2 nu sunt completate cu NU 
-  - Dacă rândurile 1.10 (1.10.1, 1.10.2,1.10.3 ) nu sunt completate cu DA 
-  - Și niciunul dintre rândurile din 1.12 nu este bifat.
+  - Dacă rândurile 1.11.1  sau  1.11.2    sunt completate cu DA 
+  - Dacă rândurile 1.10 (1.10.1, 1.10.2,1.10.3 ) nu sunt completate  
+  - Și niciunul dintre rândurile din 1.12 nu este bifat pe cele trei coloane. (Trebuie sa fie cel putin unul bifat - o coloana ca sa nu satisfaca conditia)
   => atunci se afișează eroarea:
      Cod eroare: 48-0018. Completati Cap.1 Rindurile 1.12.
+
+
+
 
 
 18. Cod eroare: 48-0019
@@ -173,7 +178,9 @@ Logică:
      Cod eroare: 48-0020. ompletati Cap.1 Rindurile 1.7.1,  1.7.4 - 1.7.7 DA/NU 
 
 
- 19  Cod eroare: 48-0021    
+
+
+ 20  Cod eroare: 48-0021    
 
  Descriere: Completati Cap.2.1 Rindurile 2.1
 
@@ -181,7 +188,12 @@ Logică:
 
  - Dacă 1.1.1 și 1.1.2 sunt bifate cu DA/NU
  - Și nimic bifat în (2.1.1 si 2.1.2)  1/2/3  
- - Și nimic bifat în (2.1.1 si 2.1.2)  3/5  
+ - Și nimic bifat în (2.1.1 si 2.1.2)  4/5  
 
  => atunci se afișează eroarea:
      Cod eroare: 48-0021. Completati Cap.2.1 Rindurile 2.1
+
+
+     
+
+

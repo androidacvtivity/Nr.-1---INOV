@@ -1342,35 +1342,38 @@ function validate48_0019() {
 
 
 function validate48_0018() {
-    const r1111_nu = jQuery('#CAPITOL1_R1111_C2').is(':checked');
-    const r1112_nu = jQuery('#CAPITOL1_R1112_C2').is(':checked');
-
-    const all_111_not_nu = !(r1111_nu && r1112_nu); // dacă cel puțin un rând NU este bifat cu NU
+    const r1111_da = jQuery('#CAPITOL1_R1111_C1').is(':checked');
+    const r1112_da = jQuery('#CAPITOL1_R1112_C1').is(':checked');
 
     const r1101 = jQuery('#CAPITOL1_R1101_C1').is(':checked');
     const r1102 = jQuery('#CAPITOL1_R1102_C1').is(':checked');
     const r1103 = jQuery('#CAPITOL1_R1103_C1').is(':checked');
 
-    const atLeastOne_110_DA = r1101 || r1102 || r1103;
+    const any_111x_da = r1111_da || r1112_da;
+    const none_110x_selected = !r1101 && !r1102 && !r1103;
 
-    const r1121 = jQuery('#CAPITOL1_R1121_C1').is(':checked');
-    const r1122 = jQuery('#CAPITOL1_R1122_C1').is(':checked');
-    const r1123 = jQuery('#CAPITOL1_R1123_C1').is(':checked');
+    // Toate coloanele C1, C2, C3 de la 1.12.1 - 1.12.9
+    const all_112_ids = [];
+    for (let i = 1; i <= 9; i++) {
+        const row = `CAPITOL1_R112${i}`;
+        all_112_ids.push(`${row}_C1`, `${row}_C2`, `${row}_C3`);
+    }
 
-    const none112_checked = !(r1121 || r1122 || r1123);
+    const any_112_checked = all_112_ids.some(id => jQuery(`#${id}`).is(':checked'));
 
-    if (all_111_not_nu && !atLeastOne_110_DA && none112_checked) {
+    if (any_111x_da && none_110x_selected && !any_112_checked) {
         webform.errors.push({
             fieldName: 'CAPITOL1_R1121_C1',
             weight: 18,
             msg: concatMessage(
                 '48-0018',
-                'Întrebarea 1.12 – Bariere și obstacole',
-                Drupal.t('Cod eroare: 48-0018. Completati Cap.1 Rindurile 1.12 – trebuie bifat cel puțin un rând.')
+                'Activități de inovare',
+                Drupal.t('Cod eroare: 48-0018. Completati Cap.1 Rindurile 1.12.')
             )
         });
     }
 }
+
 
 //-------------------------------------------------------------------------------------------------
 
