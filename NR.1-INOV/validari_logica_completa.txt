@@ -104,7 +104,7 @@
      - Dacă rândul 1.1.1 și  1.1.2  este completat (NU). 
      - Și toate 1.5 sunt bifate cu NU
      - Și nimic bifat în 1.6 
-     - Și în 1.7: cu DA/NU nu este bifat (1.7.1 si 1.7.3 si 1.7.4 si 1.7.5 si 1.7.6 si 1.7.7 ) 
+     - Și în 1.7: cu DA/NU nu este bifat (1.7.1 si 1.7.4 si 1.7.5 si 1.7.6 si 1.7.7 ) 
 
 
  15. Cod eroare: 48-0015
@@ -125,7 +125,7 @@ Logică:
      - Și în 1.7: cu NU  este bifat (1.7.1  si 1.7.4 si 1.7.5 si 1.7.6 si 1.7.7 ) 
      - Și nimic bifat în 1.10 (1.10.1,1.10.2,1.10.3) => eroare
 
-Creaza validarea submit 
+
 
 17. Cod eroare: 48-0017
 Descriere: Completati Cap.1 Rindurile 1.11.
@@ -133,22 +133,41 @@ Logică:
   - Dacă rândurile 1.1.1 și 1.1.2 sunt completate cu DA sau NU.
   - Și toate rândurile din 1.5 sunt completate cu DA sau NU.
   - Și cel puțin un rând din 1.7 (1.7.1, 1.7.4, 1.7.5, 1.7.6, 1.7.7) este bifat cu DA.
-  - Și niciunul dintre rândurile din 1.10 (1.10.1, 1.10.2, 1.10.3) nu trebuie sa fie bifat.
+ 
   - Și nimic bifat în 1.11 (1.11.1,1.11.2,1.11.3 DA/NU) => eroare
 
   => atunci se afișează eroarea:
      Cod eroare: 48-0017. Completati Cap.1 Rindurile 1.11.
 
-Analizeaza fisierile si creaza validarea submit 
-
 18. Cod eroare: 48-0018
 Descriere: Completati Cap.1 Rindurile 1.12.
 Logică:
-  - Dacă rândurile 1.1.1 și 1.1.2 sunt completate cu DA sau NU.
-  - Și toate rândurile din 1.5 sunt completate cu DA sau NU.
-  - Și cel puțin un rând din 1.7 (1.7.1, 1.7.4, 1.7.5, 1.7.6, 1.7.7) este bifat cu DA.
-  - Și cel putin unul dintre rândurile din 1.10 (1.10.1, 1.10.2, 1.10.3)  este bifat.
-  - Și cel putin unul dintre rândurile din 1.11   este bifat.
+  - Dacă rândurile 1.11.1  și 1.11.2 nu sunt completate cu NU 
+  - Dacă rândurile 1.10 (1.10.1, 1.10.2,1.10.3 ) nu sunt completate cu DA 
   - Și niciunul dintre rândurile din 1.12 nu este bifat.
   => atunci se afișează eroarea:
      Cod eroare: 48-0018. Completati Cap.1 Rindurile 1.12.
+
+
+18. Cod eroare: 48-0019
+Descriere: Completati Cap.1 Rindurile 1.9
+Logică:
+  - (Dacă rândurile 1.1.1  sau  1.1.2  sunt completate cu DA (cel putin uun rand )) sau   (Dacă rândurile 1.5  sunt completate cu DA (cel putin uun rand ) ) 
+  - Și nici unul dintre rândurile din 1.7 este bifat cu DA.
+  - Și nici unul dintre rândurile din 1.9 nu este bifat.
+
+  => atunci se afișează eroarea:
+     Cod eroare: 48-0019. Completati Cap.1 Rindurile 1.9
+
+
+ 19  Cod eroare: 48-0020    
+
+ Descriere: Completati Cap.1 Rindurile 1.7.1,  1.7.4 - 1.7.7
+
+ Logică: 
+
+ - Dacă este bifat cu DA/NU in rand din  1.7.1,  1.7.4 - 1.7.7 atunci trebuie sa fie toate bifate DA/NU. 
+ - Dacă este bifat cu DA/NU in rand din  1.7.1,  1.7.4 - 1.7.7 si nu sunt bifate toate 
+
+ => atunci se afișează eroarea:
+     Cod eroare: 48-0020. ompletati Cap.1 Rindurile 1.7.1,  1.7.4 - 1.7.7 DA/NU 
