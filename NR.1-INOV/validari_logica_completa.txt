@@ -179,8 +179,7 @@ Logică:
 
 
 
-
- 20  Cod eroare: 48-0021    
+20  Cod eroare: 48-0021    
 
  Descriere: Completati Cap.2.1 Rindurile 2.1
 
@@ -193,13 +192,26 @@ Logică:
  => atunci se afișează eroarea:
      Cod eroare: 48-0021. Completati Cap.2.1 Rindurile 2.1
 
-     Explicatie 
 
-     Rand  2.1.1 - (COL1 - COL2 - COL3) -  (COL4 - COL5)
-     Rand  2.1.2 - (COL1 - COL2 - COL3) -  (COL4 - COL5)
+Analogic. Creaza validarea submit
 
 
-Este mai clar ?
+21  Cod eroare: 48-0022    
+
+ Descriere: Completati Cap.2.1 Rindurile 2.1
+
+ Logică: 
+
+ - Dacă 1.1.1 și 1.1.2 sunt bifate cu DA/NU
+ - Și nimic bifat în (2.2.1 si 2.2.2 si 2.2.3 si 2.2.4)  1/2   - Și nimic bifat în (2.2.1 si 2.2.2 si 2.2.3 si 2.2.4)  4/5  
+ 
+
+ => atunci se afișează eroarea:
+     Cod eroare: 48-0022. Completati Cap.2.1 Rindurile 2.1
+
+
+Denumirea variabilei - CAPITOL22_R221_C1 - 2.2.1 - Analogic pentru restul 
+
 
 
      

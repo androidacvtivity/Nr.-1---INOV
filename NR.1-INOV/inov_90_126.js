@@ -1312,7 +1312,7 @@ webform.validators.inov1 = function (v, allowOverpass) {
     validate48_0019(); 
     validate48_0020(); 
     validate48_0021();
-    
+    validate48_0022();
 
     //Sort warnings & errors
     webform.warnings.sort(function (a, b) {
@@ -1327,6 +1327,47 @@ webform.validators.inov1 = function (v, allowOverpass) {
     validateWebform();
 
 }
+
+
+//-------------------------------------------
+
+function validate48_0022() {
+    // ✅ Verificare 1.1.1 și 1.1.2 completate (DA sau NU)
+    const r111_valid = jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R111_C2').is(':checked');
+    const r112_valid = jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R112_C2').is(':checked');
+
+    if (!(r111_valid && r112_valid)) return;
+
+    // ✅ Grupă 1/2 (pentru toate rândurile 2.2.1 – 2.2.4)
+    const grupa_12 = [
+        '#CAPITOL22_R221_C1', '#CAPITOL22_R221_C2',
+        '#CAPITOL22_R222_C1', '#CAPITOL22_R222_C2',
+        '#CAPITOL22_R223_C1', '#CAPITOL22_R223_C2',
+        '#CAPITOL22_R224_C1', '#CAPITOL22_R224_C2'
+    ].some(id => jQuery(id).is(':checked'));
+
+    // ✅ Grupă 4/5 (pentru toate rândurile 2.2.1 – 2.2.4)
+    const grupa_45 = [
+        '#CAPITOL22_R221_C4', '#CAPITOL22_R221_C5',
+        '#CAPITOL22_R222_C4', '#CAPITOL22_R222_C5',
+        '#CAPITOL22_R223_C4', '#CAPITOL22_R223_C5',
+        '#CAPITOL22_R224_C4', '#CAPITOL22_R224_C5'
+    ].some(id => jQuery(id).is(':checked'));
+
+    // ❗ EROARE dacă lipsesc bifări în oricare grupă
+    if (!grupa_12 || !grupa_45) {
+        webform.errors.push({
+            fieldName: 'CAPITOL22_R221_C1',
+            weight: 21,
+            msg: concatMessage(
+                '48-0022',
+                'Cap.2.1 – Activități de inovare',
+                Drupal.t('Cod eroare: 48-0022. Completati Cap.2.1 Rindurile 2.2.1 – 2.2.4. Trebuie bifată cel puțin o opțiune în grupele 1/2 și 4/5.')
+            )
+        });
+    }
+}
+
 //--------------------------------------
 
 
