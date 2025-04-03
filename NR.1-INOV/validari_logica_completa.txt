@@ -193,6 +193,14 @@ Logică:
  => atunci se afișează eroarea:
      Cod eroare: 48-0021. Completati Cap.2.1 Rindurile 2.1
 
+     Explicatie 
+
+     Rand  2.1.1 - (COL1 - COL2 - COL3) -  (COL4 - COL5)
+     Rand  2.1.2 - (COL1 - COL2 - COL3) -  (COL4 - COL5)
+
+
+Este mai clar ?
+
 
      
 
