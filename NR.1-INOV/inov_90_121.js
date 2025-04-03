@@ -1311,6 +1311,7 @@ webform.validators.inov1 = function (v, allowOverpass) {
     validate48_0018();
     validate48_0019(); 
     validate48_0020(); 
+    validate48_0021();
     
 
     //Sort warnings & errors
@@ -1325,6 +1326,43 @@ webform.validators.inov1 = function (v, allowOverpass) {
     webform.validatorsStatus['inov1'] = 1;
     validateWebform();
 
+}
+//--------------------------------------
+
+
+function validate48_0021() {
+    const r111_selected = jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R111_C2').is(':checked');
+    const r112_selected = jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R112_C2').is(':checked');
+
+    const valid_111_112 = r111_selected && r112_selected;
+
+    // Verificăm toate coloanele din ambele rânduri
+    const col_1_2_3 = [
+        '#CAPITOL2_R211_C1', '#CAPITOL2_R211_C2', '#CAPITOL2_R211_C3',
+        '#CAPITOL2_R212_C1', '#CAPITOL2_R212_C2', '#CAPITOL2_R212_C3'
+    ];
+
+    const col_4_5 = [
+        '#CAPITOL2_R211_C4', '#CAPITOL2_R211_C5',
+        '#CAPITOL2_R212_C4', '#CAPITOL2_R212_C5'
+    ];
+
+    const any_in_123 = col_1_2_3.some(id => jQuery(id).is(':checked'));
+    const any_in_45 = col_4_5.some(id => jQuery(id).is(':checked'));
+
+    const valid_2_1 = any_in_123 && any_in_45;
+
+    if (valid_111_112 && !valid_2_1) {
+        webform.errors.push({
+            fieldName: 'CAPITOL2_R211_C1',
+            weight: 20,
+            msg: concatMessage(
+                '48-0021',
+                'Cap.2.1 – Activități de inovare',
+                Drupal.t('Cod eroare: 48-0021. Completati Cap.2.1 Rindurile 2.1')
+            )
+        });
+    }
 }
 
 //-------------------
