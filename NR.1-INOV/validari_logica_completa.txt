@@ -220,7 +220,6 @@ Logică:
      Cod eroare: 48-0023. Completati Cap.3 Rindurile 3.1
 
 
-Analogic. Creaza validarea submit
 
 23  Cod eroare: 48-0024    
 
@@ -241,6 +240,11 @@ Analogic. Creaza validarea submit
 Toate randurile trebuie sa fie  completate
 Denumirea variabilei - CAPITOL4_R41_C1  - 4.1 - este number - input 
                        CAPITOL4_R41_C2  - 4.2 - este text - input   
+
+
+                       Creaza watchLiveValidation_48_0024 cu conditia 
+
+                       daca este 4.2 < 50 caractere eroare - Descriere necompleta
 
 
 
