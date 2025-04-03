@@ -222,22 +222,25 @@ Logică:
 
 Analogic. Creaza validarea submit
 
-22  Cod eroare: 48-0023    
+23  Cod eroare: 48-0024    
 
- Descriere: Completati Cap.3 Rindurile 3.1
+ Descriere: Completati Cap.4 Rindurile 4
 
  Logică: 
 
  - Dacă 1.1.1 și 1.1.2 sunt bifate cu DA/NU
- - Și nimic bifat în (3.1.1  si 3.1.2  si 3.1.3 si 3.1.4 si 3.1.5 si 3.1.6 si 3.1.7 si 3.1.8 si 3.1.9 si 3.1.10 si 3.1.11 )  1/2/3   
+ - Și nimic 4.1  
+ - Și nimic 4.2 sau  este mai putun de 50 de caractere    
  
  
 => atunci se afișează eroarea:
-     Cod eroare: 48-0023. Completati Cap.3 Rindurile 3.1
+     Cod eroare: 48-0024. Completati Cap.4 Rindurile 4 
+              daca este 4.2 < 50 caractere eroare - Descriere necompleta
 
 
-Toate randurile trebuie sa fie selectate
-Denumirea variabilei - CAPITOL3_R311_C1 - 3.1.1 - Analogic pentru restul 
+Toate randurile trebuie sa fie  completate
+Denumirea variabilei - CAPITOL4_R41_C1  - 4.1 - este number - input 
+                       CAPITOL4_R41_C2  - 4.2 - este text - input   
 
 
 

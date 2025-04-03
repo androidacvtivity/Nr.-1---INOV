@@ -1314,6 +1314,7 @@ webform.validators.inov1 = function (v, allowOverpass) {
     validate48_0021();
     validate48_0022();
     validate48_0023();
+    validate48_0024();
 
     //Sort warnings & errors
     webform.warnings.sort(function (a, b) {
@@ -1328,6 +1329,43 @@ webform.validators.inov1 = function (v, allowOverpass) {
     validateWebform();
 
 }
+//---------------------------------------------------------------------------
+
+
+function validate48_0024() {
+    // ✅ Verificare 1.1.1 și 1.1.2 completate
+    const r111_valid = jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R111_C2').is(':checked');
+    const r112_valid = jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R112_C2').is(':checked');
+
+    if (!(r111_valid && r112_valid)) return;
+
+    // ✅ Preluare și conversie 4.1
+    let val_41_raw = jQuery('#CAPITOL4_R41_C1').val();
+    const val_41 = parseFloat(val_41_raw);
+    const safe_val_41 = isNaN(val_41) ? 0 : val_41;
+
+    // ✅ Preluare text 4.2
+    const val_42 = jQuery('#CAPITOL4_R42_C1').val();
+
+    // ✅ Verificări logice
+    const is41_invalid = safe_val_41 <= 0;
+    const is42_invalid = !val_42 || val_42.trim().length < 30;
+
+    if (is41_invalid || is42_invalid) {
+        webform.errors.push({
+            fieldName: 'CAPITOL4_R41_C1',
+            weight: 23,
+            msg: concatMessage(
+                '48-0024',
+                'Cap.4 – Activități de inovare',
+                Drupal.t(
+                    'Cod eroare: 48-0024. Completati Cap.4 Rindurile 4 – trebuie completat un număr pozitiv la 4.1 și minimum 30 caractere în descrierea de la 4.2.'
+                )
+            )
+        });
+    }
+}
+
 //------------------------------------------------------------------------
 
 function validate48_0023() {
