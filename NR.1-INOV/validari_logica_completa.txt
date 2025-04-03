@@ -236,18 +236,21 @@ Logică:
      Cod eroare: 48-0024. Completati Cap.4 Rindurile 4 
               daca este 4.2 < 50 caractere eroare - Descriere necompleta
 
+anlizeaza fisierile si 
+Creaza un watchLiveValidation 
 
-Toate randurile trebuie sa fie  completate
-Denumirea variabilei - CAPITOL4_R41_C1  - 4.1 - este number - input 
-                       CAPITOL4_R41_C2  - 4.2 - este text - input   
-
-
-                       Creaza watchLiveValidation_48_0024 cu conditia 
-
-                       daca este 4.2 < 50 caractere eroare - Descriere necompleta
+Sa facca autosuma la CAPITOL1_R181_C1 + CAPITOL1_R182_C1 + CAPITOL1_R183_C1
 
 
+si sa o afiseze in 
 
-     
+            <td colspan="2"><strong>1.8.4 Total</strong> (rd. 1.8.1 + rd. 1.8.2 + rd. 1.8.3) </td>
+            <td align="center"><input type="text" name="CAPITOL1_R184_C1" id="CAPITOL1_R184_C1" field="CAPITOL1_R184_C1" class="autofield float error warning" maxlength="20" decimal_length="1" value="3.0"></td>
+            <td align="center"> </td>
+
+
+        si  deja dupa salvare se va salva in      
+
+        CAPITOL1_R184_C1
 
 
