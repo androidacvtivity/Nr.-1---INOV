@@ -1331,33 +1331,42 @@ webform.validators.inov1 = function (v, allowOverpass) {
 
 
 function validate48_0021() {
+    // 1. Verificăm dacă 1.1.1 și 1.1.2 sunt completate
     const r111_valid = jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R111_C2').is(':checked');
     const r112_valid = jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R112_C2').is(':checked');
 
     if (!(r111_valid && r112_valid)) return;
 
-    const grupa_123 = [
-        '#CAPITOL2_R211_C1', '#CAPITOL2_R211_C2', '#CAPITOL2_R211_C3',
-        '#CAPITOL2_R212_C1', '#CAPITOL2_R212_C2', '#CAPITOL2_R212_C3'
-    ];
+    // 2. Rând 2.1.1 – trebuie cel puțin una bifată din col. 1–3 ȘI una din col. 4–5
+    const r211_cols_123 = [
+        '#CAPITOL21_R211_C1', '#CAPITOL21_R211_C2', '#CAPITOL21_R211_C3'
+    ].some(id => jQuery(id).is(':checked'));
 
-    const grupa_45 = [
-        '#CAPITOL2_R211_C4', '#CAPITOL2_R211_C5',
-        '#CAPITOL2_R212_C4', '#CAPITOL2_R212_C5'
-    ];
+    const r211_cols_45 = [
+        '#CAPITOL21_R211_C4', '#CAPITOL21_R211_C5'
+    ].some(id => jQuery(id).is(':checked'));
 
-    const any_123_checked = grupa_123.some(id => jQuery(id).is(':checked'));
-    const any_45_checked = grupa_45.some(id => jQuery(id).is(':checked'));
+    // 3. Rând 2.1.2 – aceleași reguli
+    const r212_cols_123 = [
+        '#CAPITOL21_R212_C1', '#CAPITOL21_R212_C2', '#CAPITOL21_R212_C3'
+    ].some(id => jQuery(id).is(':checked'));
 
-    // ❌ EROARE dacă oricare grupă e complet nebifată
-    if (!any_123_checked || !any_45_checked) {
+    const r212_cols_45 = [
+        '#CAPITOL21_R212_C4', '#CAPITOL21_R212_C5'
+    ].some(id => jQuery(id).is(':checked'));
+
+    // 4. Eroare dacă ORICARE rând e incomplet pe ambele grupe
+    const row_211_incomplete = !r211_cols_123 || !r211_cols_45;
+    const row_212_incomplete = !r212_cols_123 || !r212_cols_45;
+
+    if (row_211_incomplete || row_212_incomplete) {
         webform.errors.push({
-            fieldName: 'CAPITOL2_R211_C1',
+            fieldName: 'CAPITOL21_R211_C1',
             weight: 20,
             msg: concatMessage(
                 '48-0021',
                 'Cap.2.1 – Activități de inovare',
-                Drupal.t('Cod eroare: 48-0021. Completati Cap.2.1 Rindurile 2.1')
+                Drupal.t('Cod eroare: 48-0021. Completati Cap.2.1 Rindurile 2.1 – fiecare rând trebuie bifat pe cel puțin o coloană din 1–3 și una din 4–5.')
             )
         });
     }
