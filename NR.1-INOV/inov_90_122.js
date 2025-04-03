@@ -1331,28 +1331,26 @@ webform.validators.inov1 = function (v, allowOverpass) {
 
 
 function validate48_0021() {
-    const r111_selected = jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R111_C2').is(':checked');
-    const r112_selected = jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R112_C2').is(':checked');
+    const r111_valid = jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R111_C2').is(':checked');
+    const r112_valid = jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R112_C2').is(':checked');
 
-    const valid_111_112 = r111_selected && r112_selected;
+    if (!(r111_valid && r112_valid)) return;
 
-    // Verificăm toate coloanele din ambele rânduri
-    const col_1_2_3 = [
+    const grupa_123 = [
         '#CAPITOL2_R211_C1', '#CAPITOL2_R211_C2', '#CAPITOL2_R211_C3',
         '#CAPITOL2_R212_C1', '#CAPITOL2_R212_C2', '#CAPITOL2_R212_C3'
     ];
 
-    const col_4_5 = [
+    const grupa_45 = [
         '#CAPITOL2_R211_C4', '#CAPITOL2_R211_C5',
         '#CAPITOL2_R212_C4', '#CAPITOL2_R212_C5'
     ];
 
-    const any_in_123 = col_1_2_3.some(id => jQuery(id).is(':checked'));
-    const any_in_45 = col_4_5.some(id => jQuery(id).is(':checked'));
+    const any_123_checked = grupa_123.some(id => jQuery(id).is(':checked'));
+    const any_45_checked = grupa_45.some(id => jQuery(id).is(':checked'));
 
-    const valid_2_1 = any_in_123 && any_in_45;
-
-    if (valid_111_112 && !valid_2_1) {
+    // ❌ EROARE dacă oricare grupă e complet nebifată
+    if (!any_123_checked || !any_45_checked) {
         webform.errors.push({
             fieldName: 'CAPITOL2_R211_C1',
             weight: 20,
