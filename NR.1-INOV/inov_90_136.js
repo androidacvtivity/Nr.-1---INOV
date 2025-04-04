@@ -86,12 +86,56 @@
 
             watchAutoSum_184();
 
+            watchAutoSum_134();
+
         }
 
     }
 
 
 })(jQuery)
+
+
+
+//--------------------------------------------------------------------------------
+
+function watchAutoSum_134() {
+    const inputIDs = ['#CAPITOL1_R131_C1', '#CAPITOL1_R132_C1', '#CAPITOL1_R133_C1'];
+    const targetID = '#CAPITOL1_R134_C1';
+
+    function getIntValue(selector) {
+        const val = parseInt(jQuery(selector).val());
+        return isNaN(val) ? 0 : val;
+    }
+
+    function updateSum() {
+        const total = inputIDs
+            .map(getIntValue)
+            .reduce((sum, val) => sum + val, 0);
+
+        if (total > 0) {
+            jQuery(targetID).val(total);
+        } else {
+            jQuery(targetID).val('');
+        }
+    }
+
+    // 🔒 Protejăm output-ul
+    jQuery(targetID).prop('readonly', true);
+
+    // 🎨 Schimbăm culoarea celulei PĂRINTE a inputului (td)
+    jQuery(targetID).closest('td').css({
+        'background-color': '#f0f0f0'
+    });
+
+    // 📡 Ascultăm evenimente multiple
+    const events = 'input change keyup blur';
+    inputIDs.forEach(selector => {
+        jQuery(selector).on(events, updateSum);
+    });
+
+    updateSum(); // Run once at load
+}
 
 //----------------------------------------------------------------------------------------
 
