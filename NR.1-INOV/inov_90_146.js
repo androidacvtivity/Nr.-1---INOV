@@ -85,7 +85,8 @@
             watchLiveValidation_48_0024();
 
             watchAutoSum_184();
-            watchAutoSum_134(); 
+
+            watchAutoSum_134();
 
         }
 
@@ -95,7 +96,8 @@
 })(jQuery)
 
 
-//----------------------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------------
 
 function watchAutoSum_134() {
     const inputIDs = ['#CAPITOL1_R131_C1', '#CAPITOL1_R132_C1', '#CAPITOL1_R133_C1'];
@@ -112,22 +114,36 @@ function watchAutoSum_134() {
             .reduce((sum, val) => sum + val, 0);
 
         if (total > 0) {
-            jQuery(targetID).val(total); // fără zecimale
+            jQuery(targetID).val(total);
         } else {
             jQuery(targetID).val('');
         }
     }
 
-    //  Câmpul rezultat e readonly
+    //  Readonly pe output
     jQuery(targetID).prop('readonly', true);
 
-    //  Ascultă modificări multiple
+    //  Culoare pe td și input
+    const $cell = jQuery(targetID).closest('td');
+    $cell.css({
+        'background-color': '#ebe9e6',
+        'padding': '4px'
+    });
+
+    jQuery(targetID).css({
+        'background-color': 'transparent',
+        'border': 'none',
+        // 'font-weight': 'bold',
+        'text-align': 'right'
+    });
+
+    // 📡 Ascultă toate evenimentele
     const events = 'input change keyup blur';
     inputIDs.forEach(selector => {
         jQuery(selector).on(events, updateSum);
     });
 
-    updateSum(); // rulare inițială
+    updateSum();
 }
 
 //----------------------------------------------------------------------------------------
@@ -155,8 +171,27 @@ function watchAutoSum_184() {
         }
     }
 
-    // 🔒 output readonly
-    jQuery(targetID).prop('readonly', true);
+    //  Culoare pe td și input
+    const $cell = jQuery(targetID).closest('td');
+    $cell.css({
+        'background-color': '#ebe9e6',
+        'padding': '4px'
+    });
+
+    jQuery(targetID).css({
+        'background-color': 'transparent',
+        'border': 'none',
+        // 'font-weight': 'bold',
+        'text-align': 'right'
+    });
+
+
+
+    jQuery(targetID).closest('td').css({
+        'background-color': '#ebe9e6'
+    });
+
+
 
     // 📡 listen all possible triggers
     const events = 'input change keyup blur';
@@ -1421,7 +1456,7 @@ webform.validators.inov1 = function (v, allowOverpass) {
     validate48_008(); 
 
 
-
+    //De-mi pseudo codul la urmatoarele validari 
     validate48_0001();
 
     validate48_0002();
@@ -2588,6 +2623,8 @@ function toggle_181_182_183_logic5(values) {
 
 
 
+//Logic 1
+// Dacă răspundeți “NU” la ambele opțiuni din 1.1, vă rugăm treceți la întrebarea 1.5. Altfel, vă rugăm continuați cu întrebarea 1.2.
 function toggle111_112(values) {
     if (values.CAPITOL1_R111_C2 == '1' && values.CAPITOL1_R112_C2 == '1') {
 
@@ -2611,7 +2648,10 @@ function toggle111_112(values) {
     } else {
         jQuery('#CAPITOL1_R12H, #CAPITOL1_R12H1, #CAPITOL1_R121, #CAPITOL1_R122, #CAPITOL1_R12H2, #CAPITOL1_R13H, #CAPITOL1_R13H1, #CAPITOL1_R13H2, #CAPITOL1_R131, #CAPITOL1_R132, #CAPITOL1_R133, #CAPITOL1_R134, #CAPITOL1_R14H, #CAPITOL1_R14H1, #CAPITOL1_R14H2, #CAPITOL1_R14H3, #CAPITOL1_R141, #CAPITOL1_R142, #CAPITOL1_R143, #CAPITOL1_R144').show();
     }
+}
 
+//Logic 1
+// Dacă răspundeți “NU” la ambele opțiuni 1.1, vă rugăm treceți la întrebarea 1.5. Altfel, vă rugăm continuați cu întrebarea 1.2.
 function check_111_112(values) {
 
     jQuery('input[type=checkbox]').change(function () {
@@ -2703,7 +2743,9 @@ function check_111_112(values) {
 
 }
 
+// Logic 2
 
+// Logic 2: If "NU" is selected for all options in 1.5, skip to 1.7, else continue with 1.6
 
 function toggle151_157(values) {
     if (
