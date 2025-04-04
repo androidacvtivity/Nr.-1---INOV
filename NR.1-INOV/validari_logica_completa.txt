@@ -234,7 +234,7 @@ Logică:
  //------------------------------------------------
 => atunci se afișează eroarea:
      Cod eroare: 48-0024. Completati Cap.4 Rindurile 4 
-              daca este 4.2 < 50 caractere eroare - Descriere necompleta
+              daca este 4.2 < 30 caractere eroare - Descriere necompleta
 
 anlizeaza fisierile si 
 Creaza un watchLiveValidation 
