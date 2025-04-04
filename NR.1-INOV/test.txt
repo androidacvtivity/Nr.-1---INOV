@@ -31,3 +31,9 @@ Analogic - creaza  watchLiveValidation
          si  deja dupa salvare se va salva in      
 
         CAPITOL1_R134_C1
+
+
+        1. Analizeaza toate validarile submit din fisier - din logica generala - care sunt in webform.validators.inov1 
+        2. Analizeaza descrierea validarilor din fisierul txt 
+        3. Daca est enecesar corecteaza (Analizeaza descrierea validarilor din fisierul txt ) si da-mi lista descrierii validarilor  in fisier  txt pentru descarcare
+        
