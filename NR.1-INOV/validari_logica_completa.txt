@@ -238,7 +238,10 @@ Logică:
 
 
 
-Analizeaza fisierile si creaza validarea 
+
+
+ 
+
 24  Cod eroare: 48-0025    
 
  Descriere: Completati Cap.1 Rindurile 1.8
@@ -253,3 +256,18 @@ Analizeaza fisierile si creaza validarea
  (Daca nu sunt completate toate randurile din  rand 1.8 (1.8.1, 1.8.2, 1.8.3 ) ) - => 
  Cod eroare: 48-0025. Cap.1 Rindurile 1.8 
  
+
+ 
+
+25  Cod eroare: 48-0026    
+
+ Descriere: Completati Cap.1 Rindurile 1.11
+
+ Logică: 
+
+ - Dacă 1.1.1 sau 1.1.2 sunt bifate cu DA/NU
+
+ Atunci toate randurile din  rand 1.11 (CAPITOL1_R1111_C1/C2,CAPITOL1_R1112_C1/C2, CAPITOL1_R1113_C1/C2 ) trebuie sa fie  bifate cu DA/NU
+(Daca nu sunt bifate toate randurile din 1.11 cu DA/NU ) => atunci se afișează eroarea:
+
+ Cod eroare: 48-0026. Cap.1 Rindurile 1.11 
