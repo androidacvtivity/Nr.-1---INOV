@@ -1493,19 +1493,19 @@ function validate48_0026() {
 
 //-----------------------------------------------------------------------------
 function validate48_0025() {
-    const r111_valid = jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R111_C2').is(':checked');
-    const r112_valid = jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R112_C2').is(':checked');
+    const r111_valid = jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R111_C1').is(':checked');
+    const r112_valid = jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R112_C1').is(':checked');
 
     const r15_checked = [
         '151', '152', '153', '154', '155', '156', '157'
     ].some(row => {
-        return jQuery(`#CAPITOL1_R${row}_C1`).is(':checked') || jQuery(`#CAPITOL1_R${row}_C2`).is(':checked');
+        return jQuery(`#CAPITOL1_R${row}_C1`).is(':checked') || jQuery(`#CAPITOL1_R${row}_C1`).is(':checked');
     });
 
     const r17_checked = [
         '171', '174', '175', '176', '177'
     ].some(row => {
-        return jQuery(`#CAPITOL1_R${row}_C1`).is(':checked') || jQuery(`#CAPITOL1_R${row}_C2`).is(':checked');
+        return jQuery(`#CAPITOL1_R${row}_C1`).is(':checked') || jQuery(`#CAPITOL1_R${row}_C1`).is(':checked');
     });
 
     if (!(r111_valid || r112_valid || r15_checked || r17_checked)) return;
