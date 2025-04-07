@@ -40,3 +40,8 @@ Analogic - creaza  watchLiveValidation
 Ce validare sa scot ? Codul ?
 
         Dacă 1.1 sau 1.5 sau 1.7 = da, atunci completați 1.8 (1.8.1-1.8.3).
+
+
+
+Cand trebuie sa fie 1.11 ?
+Trbuie sa fie toate sau cel putin unul ?
