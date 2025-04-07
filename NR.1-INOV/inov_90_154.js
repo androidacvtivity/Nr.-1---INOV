@@ -223,7 +223,7 @@ function watchLiveValidation_48_0024() {
                 jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R112_C2').is(':checked')
             );
     }
-
+//
     function validateLive_0024() {
         jQuery(`#${errorID}`).remove();
 
@@ -231,12 +231,12 @@ function watchLiveValidation_48_0024() {
         const len = textVal.length;
 
         // Actualizare counter vizual
-        jQuery(`#${counterID}`).text(`${len} / 30 caractere minime`);
+        jQuery(`#${counterID}`).text(`${len} / 7 caractere minime sau completați "Nu sunt"`);
 
         if (!is111_112_valid()) return;
 
-        // Eroare dacă textul există, dar e mai scurt de 30 caractere
-        if (len > 0 && len < 30) {
+        
+        if ((len > 0 && len < 7) || (len === 7 && textVal.toLowerCase() !== 'nu sunt')) {
             const errorMsg = `
                 <div id="${errorID}" class="webform-inline-error" style="
                     color: red;
@@ -248,11 +248,14 @@ function watchLiveValidation_48_0024() {
                     border-radius: 4px;
                     display: inline-block;
                 ">
-                    Descriere incompletă – minim 30 caractere cerute.
+                    Descriere incompletă – minim 7 caractere. Daca nu - Completați - Nu sunt  
                 </div>
             `;
             jQuery(targetField).after(errorMsg);
         }
+
+
+    
     }
 
     // Trigger pe input
@@ -1526,7 +1529,7 @@ function validate48_0024() {
 
     // ✅ Verificări logice
     const is41_invalid = safe_val_41 <= 0;
-    const is42_invalid = !val_42 || val_42.trim().length < 30;
+    const is42_invalid = !val_42 || val_42.trim().length < 7;
 
     if (is41_invalid || is42_invalid) {
         webform.errors.push({
@@ -1596,10 +1599,10 @@ function validate48_0022() {
 
     // ✅ Grupă 4/5 (pentru toate rândurile 2.2.1 – 2.2.4)
     const grupa_45 = [
-        '#CAPITOL22_R221_C4', '#CAPITOL22_R221_C5',
-        '#CAPITOL22_R222_C4', '#CAPITOL22_R222_C5',
-        '#CAPITOL22_R223_C4', '#CAPITOL22_R223_C5',
-        '#CAPITOL22_R224_C4', '#CAPITOL22_R224_C5'
+        '#CAPITOL22_R221_C3', '#CAPITOL22_R221_C4',
+        '#CAPITOL22_R222_C3', '#CAPITOL22_R222_C4',
+        '#CAPITOL22_R223_C3', '#CAPITOL22_R223_C4',
+        '#CAPITOL22_R224_C3', '#CAPITOL22_R224_C4'
     ].some(id => jQuery(id).is(':checked'));
 
     // ❗ EROARE dacă lipsesc bifări în oricare grupă
@@ -1610,7 +1613,7 @@ function validate48_0022() {
             msg: concatMessage(
                 '48-0022',
                 'Cap.2.1 – Activități de inovare',
-                Drupal.t('Cod eroare: 48-0022. Completati Cap.2.1 Rindurile 2.2.1 – 2.2.4. Trebuie bifată cel puțin o opțiune în grupele 1/2 și 4/5.')
+                Drupal.t('Cod eroare: 48-0022. Completati Cap.2.1 Rindurile 2.2.1 – 2.2.4. Trebuie bifată cel puțin o opțiune în grupele 1/2 și 3/4.')
             )
         });
     }
