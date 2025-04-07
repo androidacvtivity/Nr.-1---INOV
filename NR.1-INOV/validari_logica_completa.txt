@@ -236,3 +236,20 @@ Logică:
      Cod eroare: 48-0024. Completati Cap.4 Rindurile 4 
               daca este 4.2 < 30 caractere eroare - Descriere necompleta
 
+
+
+Analizeaza fisierile si creaza validarea 
+24  Cod eroare: 48-0025    
+
+ Descriere: Completati Cap.1 Rindurile 1.8
+
+ Logică: 
+
+- Dacă 1.1.1 sau 1.1.2 sunt bifate cu DA/NU
+ Sau - Dacă unul din rand 1.5 sunt bifate cu DA/NU
+ sau   Dacă unul din rand 1.7.1,  1.7.4 - 1.7.7 sunt bifate cu DA/NU
+
+ Atunci toate randurile din  rand 1.8 (1.8.1, 1.8.2, 1.8.3 ) trebuie sa fie cu date ( col1 cu date) sau bifat  (col2)
+ (Daca nu sunt completate toate randurile din  rand 1.8 (1.8.1, 1.8.2, 1.8.3 ) ) - => 
+ Cod eroare: 48-0025. Cap.1 Rindurile 1.8 
+ 
