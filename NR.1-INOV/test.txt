@@ -37,3 +37,6 @@ Analogic - creaza  watchLiveValidation
         2. Analizeaza descrierea validarilor din fisierul txt 
         3. Daca est enecesar corecteaza (Analizeaza descrierea validarilor din fisierul txt ) si da-mi lista descrierii validarilor  in fisier  txt pentru descarcare
         
+Ce validare sa scot ? Codul ?
+
+        Dacă 1.1 sau 1.5 sau 1.7 = da, atunci completați 1.8 (1.8.1-1.8.3).
