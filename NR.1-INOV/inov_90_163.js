@@ -1472,7 +1472,7 @@ function validate48_0026() {
 
     if (!(r111_checked || r112_checked)) return;
 
-    const rows111 = ['1111', '1112', '1113'];
+    const rows111 = ['1111', '1112'];
 
     const allChecked = rows111.every(row => {
         return jQuery(`#CAPITOL1_R${row}_C1`).is(':checked') || jQuery(`#CAPITOL1_R${row}_C2`).is(':checked');
@@ -1485,7 +1485,7 @@ function validate48_0026() {
             msg: concatMessage(
                 '48-0026',
                 'Cap.1 – Secțiunea 1.11',
-                Drupal.t('Cod eroare: 48-0026. Completați toate rândurile din 1.11 (1.11.1 – 1.11.3) cu DA sau NU.')
+                Drupal.t('Cod eroare: 48-0026. Completați toate rândurile din 1.11 (1.11.1 – 1.11.2) cu DA sau NU.')
             )
         });
     }
@@ -1518,7 +1518,7 @@ function validate48_0025() {
         return hasNumber || checked;
     });
 
-    if (!allFilledOrChecked) {
+    if (!allFilledOrChecked && (r111_valid || r112_valid || r15_checked || r17_checked)) {
         webform.errors.push({
             fieldName: 'CAPITOL1_R181_C1',
             weight: 24,
@@ -1820,7 +1820,7 @@ function validate48_0018() {
     const r1103 = jQuery('#CAPITOL1_R1103_C1').is(':checked');
 
     const any_111x_da = r1111_da || r1112_da;
-    const none_110x_selected = !r1101 && !r1102 && !r1103;
+    const none_110x_selected = !r1101 && !r1102 ;
 
     // Toate coloanele C1, C2, C3 de la 1.12.1 - 1.12.9
     const all_112_ids = [];
