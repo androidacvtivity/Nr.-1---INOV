@@ -1402,7 +1402,7 @@ webform.validators.inov1 = function (v, allowOverpass) {
     check_184_logic5();     
     check_181_182_183_logic5();  // Logic 5 (Row 181, 182, 183)
 
-    check_111_157_177(values);
+ 
     //Now give me the logic to this.
     validate48_007();
     validate48_004();
@@ -2815,7 +2815,8 @@ function check_111_157_177(values) {
             jQuery('#CAPITOL1_R153_C2').is(':checked') && jQuery('#CAPITOL1_R154_C2').is(':checked') &&
             jQuery('#CAPITOL1_R155_C2').is(':checked') && jQuery('#CAPITOL1_R156_C2').is(':checked') &&
             jQuery('#CAPITOL1_R157_C2').is(':checked') && jQuery('#CAPITOL1_R171_C2').is(':checked') &&
-            jQuery('#CAPITOL1_R172_C2').is(':checked') && jQuery('#CAPITOL1_R173_C2').is(':checked') &&
+            //jQuery('#CAPITOL1_R172_C2').is(':checked') &&
+            // jQuery('#CAPITOL1_R173_C2').is(':checked') &&
             jQuery('#CAPITOL1_R174_C2').is(':checked') && jQuery('#CAPITOL1_R175_C2').is(':checked') &&
             jQuery('#CAPITOL1_R176_C2').is(':checked') && jQuery('#CAPITOL1_R177_C2').is(':checked')
         ) {
@@ -2839,7 +2840,7 @@ function toggle111_157_177(values) {
         values.CAPITOL1_R153_C2 == '1' && values.CAPITOL1_R154_C2 == '1' &&
         values.CAPITOL1_R155_C2 == '1' && values.CAPITOL1_R156_C2 == '1' &&
         values.CAPITOL1_R157_C2 == '1' && values.CAPITOL1_R171_C2 == '1' &&
-        values.CAPITOL1_R172_C2 == '1' && values.CAPITOL1_R173_C2 == '1' &&
+     //   values.CAPITOL1_R172_C2 == '1' && values.CAPITOL1_R173_C2 == '1' &&
         values.CAPITOL1_R174_C2 == '1' && values.CAPITOL1_R175_C2 == '1' &&
         values.CAPITOL1_R176_C2 == '1' && values.CAPITOL1_R177_C2 == '1'
     ) {
