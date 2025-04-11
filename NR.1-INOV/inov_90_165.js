@@ -1789,12 +1789,12 @@ function validate48_0019() {
 
     const valid_111_or_112 = r111_da || r112_da;
     const valid_15_any_da = r151_da || r152_da || r153_da || r154_da || r155_da || r156_da || r157_da;
-    const valid_1_1_or_1_5 = valid_111_or_112 || valid_15_any_da;
+    const valid_1_1_or_1_5 = valid_111_or_112 && valid_15_any_da;
 
     const no_1_7_da = (r171_da || r173_da || r174_da || r175_da || r176_da || r177_da);
     const no_1_9_selected = (!r191 && !r192 && !r193);
 
-    if (valid_1_1_or_1_5 && no_1_7_da && no_1_9_selected) {
+    if ((valid_111_or_112 || valid_15_any_da || no_1_7_da) && no_1_9_selected) {
         webform.errors.push({
             fieldName: 'CAPITOL1_R191_C1',
             weight: 19,
