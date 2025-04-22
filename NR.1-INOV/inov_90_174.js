@@ -360,6 +360,7 @@ function watchLiveValidation_48_0015() {
 }
 
 function toggle_48_0015(values) {
+    var values = Drupal.settings.mywebform.values;
     const r171_da = values.CAPITOL1_R171_C1 === '1';
     const r171_nu = values.CAPITOL1_R171_C2 === '1';
 
@@ -427,6 +428,7 @@ function check_110_logic_disable() {
 }
 
 function toggle_110_logic_disable(values) {
+    var values = Drupal.settings.mywebform.values;
     const fields_1_1 = [values.CAPITOL1_R111_C1, values.CAPITOL1_R112_C1];
     const fields_1_5 = [
         values.CAPITOL1_R151_C1, values.CAPITOL1_R152_C1, values.CAPITOL1_R153_C1,
@@ -482,6 +484,7 @@ function applyLogic_RD_172_173() {
 }
 
 function toggle_171_logic_RD(values) {
+    var values = Drupal.settings.mywebform.values;
     const r171_nu = values.CAPITOL1_R171_C2 === '1';
 
     const readonlyFields = [
@@ -559,6 +562,7 @@ function watchLiveValidation_48_0014() {
 }
 
 function toggle_48_0014(values) {
+    var values = Drupal.settings.mywebform.values;
     const r111_nu = values.CAPITOL1_R111_C2 === '1';
     const r112_nu = values.CAPITOL1_R112_C2 === '1';
 
@@ -652,6 +656,7 @@ function watchLiveValidation_48_0011() {
 
 
 function toggle_48_0011(values) {
+    var values = Drupal.settings.mywebform.values;
     const r111_nu = values.CAPITOL1_R111_C2 === '1';
     const r112_nu = values.CAPITOL1_R112_C2 === '1';
 
@@ -763,6 +768,8 @@ function watchLiveValidation_48_0009() {
 
 
 function toggle_48_0009(values) {
+
+    var values = Drupal.settings.mywebform.values;
     const errorID = 'error-48-0009';
     jQuery(`#${errorID}`).remove();
 
@@ -845,6 +852,7 @@ function watchLiveValidation_48_0006_0007() {
 }
 
 function toggle_48_0006_0007(values) {
+    var values = Drupal.settings.mywebform.values;
     const errorID6 = 'error-48-0006';
     const errorID7 = 'error-48-0007';
 
@@ -915,6 +923,7 @@ function watchLiveValidation_A09() {
 }
 
 function toggle_A09(values) {
+    var values = Drupal.settings.mywebform.values;
     const phone = values.PHONE || '';
     const errorID = 'error-A09';
 
@@ -997,6 +1006,8 @@ function watchLiveValidation_48_0001() {
 
 
 function toggle111_112_required() {
+
+    var values = Drupal.settings.mywebform.values;
     const errorID = 'error-48-0001';
 
     function showError(message) {
@@ -1025,7 +1036,7 @@ function toggle111_112_required() {
 
 
     const r111_da = values.CAPITOL1_R111_C1 == '1';
-    const r111_nu = values.CAPITOL1_R111_C1 == '1';
+    const r111_nu = values.CAPITOL1_R111_C2 == '1';
     const r112_da = values.CAPITOL1_R112_C1 == '1';
     const r112_nu = values.CAPITOL1_R112_C2 == '1';
 
@@ -1036,7 +1047,7 @@ function toggle111_112_required() {
 
     if (
        // (!r111_da && !r111_nu) && (!r112_da && !r112_nu)
-        !r111_selected && !r112_selected
+        !r111_selected || !r112_selected
     ) {
         showError('Cod eroare: 48-0001. Trebuie să fie selectate rândurile 1.1.1 și 1.1.2 – Bifați opțiunea DA sau NU.');
     } else if ((r111_selected && !r112_selected) || (!r111_selected && r112_selected)) {
@@ -1356,6 +1367,8 @@ function watchLiveValidation_48_0012() {
 
 
 function toggle_48_0012(values) {
+
+    var values = Drupal.settings.mywebform.values;
     const r111_nu = values.CAPITOL1_R111_C2 === '1';
     const r112_nu = values.CAPITOL1_R112_C2 === '1';
 
@@ -2716,6 +2729,8 @@ function toggle_181_182_183_logic5(values) {
 //Logic 1
 // Dacă răspundeți “NU” la ambele opțiuni din 1.1, vă rugăm treceți la întrebarea 1.5. Altfel, vă rugăm continuați cu întrebarea 1.2.
 function toggle111_112(values) {
+
+    var values = Drupal.settings.mywebform.values;
     if (values.CAPITOL1_R111_C2 == '1' && values.CAPITOL1_R112_C2 == '1') {
 
         jQuery('#CAPITOL1_R12H, #CAPITOL1_R12H1, #CAPITOL1_R121, #CAPITOL1_R122, #CAPITOL1_R12H2, #CAPITOL1_R13H, #CAPITOL1_R13H1, #CAPITOL1_R13H2, #CAPITOL1_R131, #CAPITOL1_R132, #CAPITOL1_R133, #CAPITOL1_R134, #CAPITOL1_R14H, #CAPITOL1_R14H1, #CAPITOL1_R14H2, #CAPITOL1_R14H3, #CAPITOL1_R141, #CAPITOL1_R142, #CAPITOL1_R143, #CAPITOL1_R144').hide();
@@ -2838,6 +2853,7 @@ function check_111_112(values) {
 // Logic 2: If "NU" is selected for all options in 1.5, skip to 1.7, else continue with 1.6
 
 function toggle151_157(values) {
+    var values = Drupal.settings.mywebform.values;
     if (
         values.CAPITOL1_R151_C2 == '1' && values.CAPITOL1_R152_C2 == '1' &&
         values.CAPITOL1_R153_C2 == '1' && values.CAPITOL1_R154_C2 == '1' &&
@@ -2916,6 +2932,8 @@ function check_111_157_177(values) {
 }
 
 function toggle111_157_177(values) {
+
+    var values = Drupal.settings.mywebform.values;
     if (
         values.CAPITOL1_R111_C2 == '1' && values.CAPITOL1_R112_C2 == '1' &&
         values.CAPITOL1_R151_C2 == '1' && values.CAPITOL1_R152_C2 == '1' &&
