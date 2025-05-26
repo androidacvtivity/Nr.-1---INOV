@@ -45,7 +45,7 @@ WHERE
   D.FORM IN (:pFORM) AND 
   D.capitol=1040 AND  capitol_vers=2013 AND 
   D.RIND IN ('1.1.1','1.1.2','1.2.1','1.2.2')
-   AND D.CUIIO = 1129894
+ --  AND D.CUIIO = 1129894
 ) A
   
   INNER JOIN (
