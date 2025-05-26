@@ -174,7 +174,9 @@ GROUP BY
 
 ------
  UNION 
-  
+
+
+-----------------------------------------------  
   SELECT
   A.NR_TABLE, 
   A.TABLE_DENUMIRE,
@@ -226,10 +228,20 @@ AND A.CAEM2 NOT LIKE 'A%'
  A.CAEM2
 
  ORDER BY CC.FULL_CODE) A
+ 
+ 
+ ----------------------------------------
 ------
 ) A
 ORDER BY
   TO_NUMBER(A.NR_TABLE),
   TO_NUMBER(A.ORDINE)
+  
+  
+  
+  
+  
+  
+  
 )
 
