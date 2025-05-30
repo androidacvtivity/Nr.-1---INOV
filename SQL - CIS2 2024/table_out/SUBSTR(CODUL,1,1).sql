@@ -1,6 +1,6 @@
 SELECT 
 DISTINCT SUBSTR(CODUL,1,1) CAEM2
-
+---------------------------------------
 
 FROM
 (
