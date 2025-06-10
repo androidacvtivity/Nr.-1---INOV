@@ -1,0 +1,9 @@
+B0609251 Modificare  1 INOV - inov_90_177.js
+
+Buna ziua Cristina. 
+La Deploy - ul urmator ve rugam sa plasati acesct branch
+Denumirea unei variabile la 1 INOV era gresita. Am facut corectari de ja 
+
+B0609251	082c0e0c	Commit to B0609251 by vitalie.bancu at 2025-06-09 12:29 - B0609251 Modificare 1 INOV - inov_90_177.js
+
+Multumim frumos.
