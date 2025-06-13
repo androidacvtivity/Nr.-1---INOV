@@ -1922,7 +1922,6 @@ function validate48_0017() {
 
 
 
-//-----------------------------------------------------------------------------------------------
 
 
 function validate48_0016() {
@@ -2002,12 +2001,25 @@ function validate48_0015() {
 
 //-----------------------------------------------------------------------------------------------
 
+//-----------------------------------------------------------------------------------------------
+
+
+//Modifica validarea dupa 
+//noua conditie 
+// 14. Cod eroare: 48-0014
+// Descriere:  Completati  Cap.1 Rindurile 1.7
+// Logică:
+// - Dacă rândul 1.1.1 și  1.1.2  este completat(DA / NU). 
+//      - Și toate 1.5 sunt bifate cu Da / NU
+//     - Și nimic bifat în 1.6
+//         - Și în 1.7: cu DA / NU nu este bifat(1.7.1 si 1.7.4 si 1.7.5 si 1.7.6 si 1.7.7) 
+
 
 function validate48_0014() {
     const r111_nu = jQuery('#CAPITOL1_R111_C2').is(':checked');
     const r111_da = jQuery('#CAPITOL1_R111_C1').is(':checked');
     const r112_nu = jQuery('#CAPITOL1_R112_C2').is(':checked');
-    const r112_da = jQuery('#CAPITOL1_R112_C2').is(':checked');
+    const r112_da = jQuery('#CAPITOL1_R112_C1').is(':checked');
 
     const all15_nu = [
         '#CAPITOL1_R151_C2',
@@ -2036,7 +2048,7 @@ function validate48_0014() {
         return !jQuery(da).is(':checked') && !jQuery(nu).is(':checked');
     });
 
-    if (r111_nu && r112_nu && all15_nu && none16_checked && incomplete17) {
+    if (((r111_nu || r111_da) && (r112_nu || r112_da))  && all15_nu && none16_checked && incomplete17) {
         webform.errors.push({
             fieldName: 'CAPITOL1_R171_C1',
             weight: 14,

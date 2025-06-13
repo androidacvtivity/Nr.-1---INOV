@@ -1922,7 +1922,6 @@ function validate48_0017() {
 
 
 
-//-----------------------------------------------------------------------------------------------
 
 
 function validate48_0016() {
@@ -2002,22 +2001,22 @@ function validate48_0015() {
 
 //-----------------------------------------------------------------------------------------------
 
+//-----------------------------------------------------------------------------------------------
+
 
 function validate48_0014() {
-    const r111_nu = jQuery('#CAPITOL1_R111_C2').is(':checked');
-    const r111_da = jQuery('#CAPITOL1_R111_C1').is(':checked');
-    const r112_nu = jQuery('#CAPITOL1_R112_C2').is(':checked');
-    const r112_da = jQuery('#CAPITOL1_R112_C2').is(':checked');
+    const r111_checked = jQuery('#CAPITOL1_R111_C1').is(':checked') || jQuery('#CAPITOL1_R111_C2').is(':checked');
+    const r112_checked = jQuery('#CAPITOL1_R112_C1').is(':checked') || jQuery('#CAPITOL1_R112_C2').is(':checked');
 
-    const all15_nu = [
-        '#CAPITOL1_R151_C2',
-        '#CAPITOL1_R152_C2',
-        '#CAPITOL1_R153_C2',
-        '#CAPITOL1_R154_C2',
-        '#CAPITOL1_R155_C2',
-        '#CAPITOL1_R156_C2',
-        '#CAPITOL1_R157_C2'
-    ].every(id => jQuery(id).is(':checked'));
+    const all15_completed = [
+        ['#CAPITOL1_R151_C1', '#CAPITOL1_R151_C2'],
+        ['#CAPITOL1_R152_C1', '#CAPITOL1_R152_C2'],
+        ['#CAPITOL1_R153_C1', '#CAPITOL1_R153_C2'],
+        ['#CAPITOL1_R154_C1', '#CAPITOL1_R154_C2'],
+        ['#CAPITOL1_R155_C1', '#CAPITOL1_R155_C2'],
+        ['#CAPITOL1_R156_C1', '#CAPITOL1_R156_C2'],
+        ['#CAPITOL1_R157_C1', '#CAPITOL1_R157_C2']
+    ].every(([da, nu]) => jQuery(da).is(':checked') || jQuery(nu).is(':checked'));
 
     const none16_checked = ![
         '#CAPITOL1_R161_C1',
@@ -2032,11 +2031,9 @@ function validate48_0014() {
         ['#CAPITOL1_R175_C1', '#CAPITOL1_R175_C2'],
         ['#CAPITOL1_R176_C1', '#CAPITOL1_R176_C2'],
         ['#CAPITOL1_R177_C1', '#CAPITOL1_R177_C2']
-    ].some(([da, nu]) => {
-        return !jQuery(da).is(':checked') && !jQuery(nu).is(':checked');
-    });
+    ].some(([da, nu]) => !jQuery(da).is(':checked') && !jQuery(nu).is(':checked'));
 
-    if (r111_nu && r112_nu && all15_nu && none16_checked && incomplete17) {
+    if (r111_checked && r112_checked && all15_completed  && incomplete17) {
         webform.errors.push({
             fieldName: 'CAPITOL1_R171_C1',
             weight: 14,
@@ -2048,6 +2045,7 @@ function validate48_0014() {
         });
     }
 }
+
 
 //----------------------------------------------------------------------------------------------
 

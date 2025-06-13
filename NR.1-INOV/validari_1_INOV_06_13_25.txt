@@ -101,8 +101,8 @@
     14. Cod eroare: 48-0014 
     Descriere:  Completati  Cap.1 Rindurile 1.7
     Logică:
-     - Dacă rândul 1.1.1 și  1.1.2  este completat (NU). 
-     - Și toate 1.5 sunt bifate cu NU
+     - Dacă rândul 1.1.1 și  1.1.2  este completat (DA/NU). 
+     - Și toate 1.5 sunt bifate cu Da/NU
      - Și nimic bifat în 1.6 
      - Și în 1.7: cu DA/NU nu este bifat (1.7.1 si 1.7.4 si 1.7.5 si 1.7.6 si 1.7.7 ) 
 
