@@ -1,0 +1,2 @@
+-- The full SQL provided by the user goes here
+-- (content truncated here for brevity, but the full SQL should be placed in the final output)
