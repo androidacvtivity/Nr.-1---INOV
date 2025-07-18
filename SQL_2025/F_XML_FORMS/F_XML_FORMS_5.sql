@@ -26,7 +26,7 @@ FROM USER_BANCU.F_XML_FORMS_D f,
      ) x
      
      WHERE 
---     ID > 0 AND ID <= 500 
-    -- f.FORMID IN (25189185)
-     --AND
-      x.XML_NODE_NAME IN ('CAPITOL4_R42_C1')
+     -- ID > 0 AND ID <= 500 
+     --AND  
+     f.FORMID IN (25189185)
+     AND x.XML_NODE_NAME IN ('CAPITOL4_R42_C1')
