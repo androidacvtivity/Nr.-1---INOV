@@ -1,18 +1,18 @@
-INSERT INTO F_XML_FORMS_D 
-
-(
-  ID,                  
-  FORMID,
-  XML,
-  STATUS,
-  FORM_TYPE,
-  DATA_REG,
-  CHECK_CONFIRM,
-  MESAJ,
-  CUIIO,
-  SEND_REQUEST,
-  SEND_ATTEMPTS   
-)
+--INSERT INTO F_XML_FORMS_D 
+--
+--(
+--  ID,                  
+--  FORMID,
+--  XML,
+--  STATUS,
+--  FORM_TYPE,
+--  DATA_REG,
+--  CHECK_CONFIRM,
+--  MESAJ,
+--  CUIIO,
+--  SEND_REQUEST,
+--  SEND_ATTEMPTS   
+--)
 
 
 SELECT 
