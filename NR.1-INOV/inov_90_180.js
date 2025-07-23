@@ -84,7 +84,7 @@
 
             watchLiveValidation_48_0024();
 
-            watchAutoSum_184();
+            watchAutoSum_184(); //Dupa exemplu acesta creaza autosuma la   validate_CAP2_R001_C1();
 
             watchAutoSum_134();
 
