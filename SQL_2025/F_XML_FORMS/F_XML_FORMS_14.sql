@@ -1,7 +1,19 @@
 
+SELECT 
+    MC.DEN_SHORT,
+    R.CAPITOL,
+    R.RIND,
+    R.ORDINE
+    FROM CIS2.MD_RIND R  INNER JOIN CIS2.MD_CAPITOL MC 
+           ON MC.CAPITOL = R.CAPITOL AND MC.CAPITOL_VERS = R.CAPITOL_VERS  
+    
+    WHERE
 
 
+R.capitol=1040 AND R.capitol_vers=2013
 
-capitol=1040 AND capitol_vers=2013
+AND R.STATUT = '1'
+AND R.RIND NOT IN ('-')
 
-AND STATUT = '1'
+ORDER BY
+R.ORDINE
