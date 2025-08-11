@@ -20,7 +20,7 @@ WITH extracted AS (
              XML_NODE_NAME  VARCHAR2(100)   PATH 'name()',
              XML_NODE_VALUE VARCHAR2(4000)  PATH 'normalize-space(text())'
          ) x
-    WHERE f.FORMID = 25209582
+  --  WHERE f.FORMID = 25209582
 )
 SELECT 
     CAPITOL,

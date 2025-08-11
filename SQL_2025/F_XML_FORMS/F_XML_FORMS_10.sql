@@ -13,5 +13,5 @@ FROM USER_BANCU.F_XML_FORMS f,
      ) xt
 WHERE 
 1=1 
-AND 
-     f.FORMID = 25209582;
+--AND 
+--     f.FORMID = 25209582;
