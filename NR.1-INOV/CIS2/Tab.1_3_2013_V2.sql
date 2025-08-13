@@ -5,4 +5,4 @@ SELECT
     
     WHERE 
     capitol=1040 AND  capitol_vers=2013
-    AND RINd LIKE '1.5.%'
+    AND RIND LIKE '1.5.%'
