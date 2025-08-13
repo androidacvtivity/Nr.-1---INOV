@@ -2,32 +2,44 @@ DECLARE
   CURSOR UPD_TABLE_OUT_AC IS
     
     SELECT 
- T.NR_ROW,
- SUM(T.COL1) AS COL1,
- SUM(T.COL2) AS COL2
+NR_ROW,
+SUM(COL1) AS COL1,
+SUM(COL2) AS COL2
 FROM
 (
- SELECT
+SELECT
       T.NR_ROW,
       T.COL1 AS COL1,
-      T.COL2 AS COL2
+      NULL AS COL2
+ 
     FROM CIS2.TABLE_OUT T
     WHERE
       T.COD_CUATM IN (:pCOD_CUATM)  AND
       T.FORM = :pFORM         AND
-      T.ID_MDTABLE = (CASE 
-      WHEN :pPERIOADA = 1065 THEN  13752 
-      WHEN :pPERIOADA IN  (1066,1067) THEN  13778
-      WHEN :pPERIOADA IN  (1068) THEN  14386 
-      WHEN :pPERIOADA  > 1068 THEN 14492 END )  AND      
-      T.PERIOADA = (:pPERIOADA-4)
-    
+      T.ID_MDTABLE = 14497  AND      
+      T.PERIOADA = (:pPERIOADA)
       
-      )  T
       
-      GROUP BY
+      UNION ALL 
       
-     T.NR_ROW
+      SELECT
+      T.NR_ROW,
+      NULL AS COL1,
+      T.COL1 AS COL2
+ 
+    FROM CIS2.TABLE_OUT T
+    WHERE
+      T.COD_CUATM IN (:pCOD_CUATM)  AND
+      T.FORM = :pFORM         AND
+      T.ID_MDTABLE = 14501  AND      
+      T.PERIOADA = (:pPERIOADA)
+      
+      )
+      
+        GROUP BY
+        NR_ROW
+
+
     
     
     
